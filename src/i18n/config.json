@@ -190,5 +190,13 @@
     "localName": "Català",
     "langDir": "ltr",
     "dateFormat": "DD/MM/YYYY"
+  },
+  {
+    "code": "hu",
+    "hrefLang": "hu-HU",
+    "name": "Hungarian",
+    "localName": "Magyar",
+    "langDir": "ltr",
+    "dateFormat": "YYYY/MM/DD"
   }
 ]
