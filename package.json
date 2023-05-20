@@ -16,11 +16,14 @@
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.14",
+    "@heroicons/react": "^2.0.18",
     "@types/node": "20.2.1",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.2",
+    "kutty": "^0.6.0",
     "next": "13.4.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",

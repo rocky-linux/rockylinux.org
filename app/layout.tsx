@@ -1,6 +1,7 @@
 import "./globals.css";
 
 import type { Metadata } from "next";
+import Header from "@/components/shared/Header";
 
 export const metadata: Metadata = {
   title: "Rocky Linux",
@@ -18,7 +19,10 @@ export default function RootLayout({
 }) {
   return (
     <html className="h-full" lang="en">
-      <body className="h-full">{children}</body>
+      <body className="h-full">
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
