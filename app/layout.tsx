@@ -1,7 +1,8 @@
 import "./globals.css";
 
+import Header from "./layout/header/Header";
+
 import type { Metadata } from "next";
-import Header from "@/components/shared/Header";
 
 export const metadata: Metadata = {
   title: "Rocky Linux",
