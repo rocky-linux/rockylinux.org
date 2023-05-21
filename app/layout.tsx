@@ -1,4 +1,5 @@
 import "./globals.css";
+import "@/fonts/fonts.css";
 
 import Header from "./layout/header/Header";
 
