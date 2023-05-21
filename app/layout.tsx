@@ -1,4 +1,5 @@
 import "./globals.css";
+import "@/fonts/fonts.css";
 
 import type { Metadata } from "next";
 import Header from "@/components/shared/Header";
