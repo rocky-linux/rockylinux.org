@@ -61,7 +61,7 @@ export default function Hero() {
                   alt="App screenshot"
                   width={2432}
                   height={1442}
-                  className="w-[76rem] fold-bold rounded-md relative inline-block h-full border-2 border-black/70 bg-white text-base font-semibold text-black transition duration-100 hover:bg-green-500 hover:text-white"
+                  className="w-[76rem] fold-bold rounded-md relative inline-block h-full border-2 border-black/70 bg-white text-base font-semibold text-black"
                 />
               </picture>
             </div>
