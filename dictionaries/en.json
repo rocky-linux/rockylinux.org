@@ -1,0 +1,9 @@
+{
+  "menu": {
+    "news": "News",
+    "about": "About",
+    "community": "Community",
+    "documentation": "Documentation",
+    "download": "Download"
+  }
+}
