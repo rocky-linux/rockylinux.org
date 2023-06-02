@@ -1,28 +1,53 @@
-import { useLocale } from "next-intl";
+import { NextIntlClientProvider, createTranslator, useLocale } from "next-intl";
+import { checkLanguage } from "@/utils/i18nUtils";
 import { notFound } from "next/navigation";
 import "./globals.css";
 
 import Header from "./layout/header/Header";
 
-import type { Metadata } from "next";
+import type { AvailableLanguagesType } from "@/types/i18nTypes";
+import type { ReactNode } from "react";
 
-export const metadata: Metadata = {
-  title: "Rocky Linux",
-  icons: {
-    icon: "/favicon.png",
-  },
-  description:
-    "Rocky Linux is an open enterprise Operating System designed to be 100% bug-for-bug compatible with Enterprise Linux.",
+async function getMessages(locale: AvailableLanguagesType) {
+  try {
+    return (await import(`@/dictionaries/${locale}.json`)).default;
+  } catch (error) {
+    notFound();
+  }
+}
+
+type GenerateMetadataProps = {
+  children: ReactNode;
+  params: { locale: AvailableLanguagesType };
 };
 
-export default function RootLayout({
+export async function generateMetadata({
+  params: { locale: uncheckedLocale },
+}: GenerateMetadataProps) {
+  const locale = checkLanguage(uncheckedLocale);
+  const messages = await getMessages(locale);
+
+  const t = createTranslator({ locale, messages });
+
+  return {
+    title: t("organization.name"),
+    description: t("organization.description"),
+    icons: {
+      icon: "/favicon.png",
+    },
+  };
+}
+
+export default async function RootLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { locale: any };
+  params: { locale: AvailableLanguagesType };
 }) {
-  const locale = useLocale();
+  const uncheckedLocale = useLocale();
+  const locale = checkLanguage(uncheckedLocale);
+  const messages = await getMessages(locale);
 
   // Show a 404 error if the user requests an unknown locale
   if (params.locale !== locale) {
@@ -32,8 +57,10 @@ export default function RootLayout({
   return (
     <html className="h-full" lang={locale}>
       <body className="h-full">
-        <Header />
-        {children}
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <Header />
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );
