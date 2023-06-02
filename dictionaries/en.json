@@ -1,0 +1,22 @@
+{
+  "organization": {
+    "name": "Rocky Linux",
+    "description": "Rocky Linux is an open enterprise Operating System designed to be 100% bug-for-bug compatible with Enterprise Linux."
+  },
+  "header": {
+    "altRESFLogo": "Rocky Enterprise Software Foundation Logo",
+    "altRockyLogo": "Rocky Linux Logo"
+  },
+  "menu": {
+    "news": "News",
+    "about": "About",
+    "community": "Community",
+    "documentation": "Documentation",
+    "download": "Download"
+  },
+  "pages": {
+    "download": {
+      "download": "Download"
+    }
+  }
+}

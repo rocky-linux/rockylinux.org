@@ -5,7 +5,7 @@ import { useButtonStyle } from "@/hooks/useButtonStyle";
 import { LinkHTMLAttributes, forwardRef } from "react";
 import { classNames } from "@/utils/classNames";
 
-import Link from "next/link";
+import Link from "next-intl/link";
 
 import type { ButtonVariantType } from "@/types/ButtonType";
 
