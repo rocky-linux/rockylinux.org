@@ -2,12 +2,8 @@ import { checkLanguage, getMessages } from "@/utils/i18nUtils";
 import { notFound } from "next/navigation";
 import { createTranslator } from "next-intl";
 
-import type { ReactNode } from "react";
-import type { AvailableLanguagesType } from "@/types/i18nTypes";
-
 type GenerateMetadataProps = {
-  children: ReactNode;
-  params: { locale: AvailableLanguagesType };
+  params: { locale: string };
 };
 
 export async function generateMetadata({
