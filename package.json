@@ -10,10 +10,10 @@
     "lint:ci": "eslint . > eslint-output.txt || true",
     "prepare": "husky install",
     "start": "next start",
-    "test": "jest",
+    "test": "jest --watch",
     "test:ci": "jest --json --outputFile=jest-output.json 2>&1 | tee jest-output.txt",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "test:nowatch": "jest --watchAll=false"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.14",
@@ -26,9 +26,10 @@
     "kutty": "^0.6.0",
     "lodash": "^4.17.21",
     "next": "13.4.2",
-    "next-intl": "^2.15.0-beta.5",
+    "next-intl": "^3.0.0-beta.10",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.10.1",
     "typescript": "5.0.4"
   },
   "devDependencies": {
