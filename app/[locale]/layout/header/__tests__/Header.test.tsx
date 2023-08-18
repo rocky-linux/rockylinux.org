@@ -1,15 +1,6 @@
-import { render } from "@testing-library/react";
-// import { render } from "test-utils";
-import HeaderComponent from "./Header";
-import { NextIntlProvider } from "next-intl";
-import messages from "@/dictionaries/en.json";
-import React, { ReactElement } from "react";
-
-const Header = (props: typeof HeaderComponent): ReactElement => (
-  <NextIntlProvider messages={messages}>
-    <HeaderComponent {...props} />
-  </NextIntlProvider>
-);
+import { render } from "test-utils";
+import Header from "../Header";
+import React from "react";
 
 describe("Layout Header Component", () => {
   test("renders header component", () => {
