@@ -7,7 +7,9 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./hooks/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    ".storybook/**/*.{js,jsx,ts,tsx}",
   ],
+  darkMode: "class",
   plugins: [require("kutty")],
   theme: {
     colors: {
