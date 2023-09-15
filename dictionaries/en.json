@@ -15,6 +15,16 @@
     "download": "Download"
   },
   "pages": {
+    "home": {
+      "hero": {
+        "whatsNewPill": "What's New",
+        "versionReleased": "Version { version } Released",
+        "title": "Enterprise Linux, the <bg>community way.</bg>",
+        "content": "Rocky Linux is a community-driven enterprise operating system that aims to provide full compatibility with Red Hat Enterprise Linux®. It is an open-source project that welcomes contributions from anyone who shares its vision and values. Rocky Linux is currently in active development and strives to achieve the highest standards of quality and reliability.",
+        "downloadButton": "Download",
+        "migrateButton": "Migrate"
+      }
+    },
     "download": {
       "download": "Download"
     }
