@@ -1,4 +1,4 @@
-import Hero from "./Hero";
+import Hero from "./hero/Hero";
 
 import type { Metadata } from "next";
 
