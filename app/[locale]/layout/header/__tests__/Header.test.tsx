@@ -1,5 +1,6 @@
-import { render } from "@testing-library/react";
-import Header from "./Header";
+import { render } from "test-utils";
+import Header from "../Header";
+import React from "react";
 
 describe("Layout Header Component", () => {
   test("renders header component", () => {
