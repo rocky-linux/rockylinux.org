@@ -1,3 +1,15 @@
+import Hero from "./Hero";
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Rocky Linux",
+};
+
 export default function Home() {
-  return <main></main>;
+  return (
+    <main>
+      <Hero />
+    </main>
+  );
 }

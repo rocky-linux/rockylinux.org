@@ -1,8 +1,10 @@
 import { classNames } from "@/utils/classNames";
 
+import type { ReactNode } from "react";
+
 export interface PillProps {
   className?: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 
 const Pill = ({ className, children, ...rest }: PillProps) => {
