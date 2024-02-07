@@ -70,14 +70,14 @@ export default function Header() {
           darkModeSRText={tHeader("toggleTheme")}
           openMainMenuSRText={tNav("openMainMenu")}
           rockyLinuxSRText={tGlobal("name")}
-          downloadSRText={tHeader("download")}
+          downloadSRText={tGlobal("download")}
           translations={navigationTranslations}
         />
         <DesktopNavigation translations={navigationTranslations} />
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <DarkModeToggle srText={tHeader("toggleTheme")} />
           <a href="/download">
-            <Button className="p-5 ml-2">{tHeader("download")}</Button>
+            <Button className="p-5 ml-2">{tGlobal("download")}</Button>
           </a>
         </div>
       </nav>
