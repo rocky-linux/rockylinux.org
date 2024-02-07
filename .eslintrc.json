@@ -1,9 +1,34 @@
 {
   "extends": [
+    "eslint:recommended",
     "next/core-web-vitals",
     "plugin:storybook/recommended"
   ],
+  "plugins": ["react", "react-hooks"],
+  "env": {
+    "jest": true
+  },
   "rules": {
-    "no-unused-vars": "warn"
+    "no-console": "error",
+    "no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
+    "no-undef": "error",
+    "no-duplicate-imports": "error",
+    "react/no-unescaped-entities": [
+      "error",
+      {
+        "forbid": [">", "}"]
+      }
+    ],
+    "react/jsx-no-literals": [
+      "warn",
+      { "noStrings": true, "ignoreProps": true }
+    ]
   }
 }

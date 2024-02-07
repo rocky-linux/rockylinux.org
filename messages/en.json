@@ -1,1 +1,46 @@
-{}
+{
+  "global": {
+    "name": "Rocky Linux"
+  },
+  "header": {
+    "toggleTheme": "Toggle Theme",
+    "download": "Download",
+    "nav": {
+      "newsName": "News",
+      "aboutName": "About",
+      "resourcesName": "Resources",
+      "communityName": "Community",
+      "supportName": "Support",
+      "contributeName": "Contribute",
+      "openMainMenu": "Open Main Menu",
+      "about": {
+        "about": "About Rocky Linux",
+        "charter": "Community Charter",
+        "sponsors": "Sponsors",
+        "partners": "Partners"
+      },
+      "resources": {
+        "faq": "Frequently Asked Questions",
+        "wiki": "Wiki",
+        "guidesAndManuals": "Guides & Manuals",
+        "gpgKeyInfo": "GPG Key Info"
+      },
+      "community": {
+        "forums": "Forums",
+        "mailing": "Mailing Lists",
+        "mattermost": "Mattermost",
+        "irc": "IRC",
+        "calendar": "Calendar"
+      },
+      "support": {
+        "supportProviders": "Support Providers",
+        "submitBug": "Submit Bug"
+      },
+      "contribute": {
+        "contribute": "Contribute",
+        "shop": "Shop",
+        "donate": "Donate"
+      }
+    }
+  }
+}

@@ -1,2 +1,13 @@
-.next
-node_modules
+# dependencies
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build

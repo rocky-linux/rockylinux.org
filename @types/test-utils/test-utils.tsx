@@ -1,13 +1,25 @@
 import React, { ReactElement } from "react";
-import { NextIntlProvider } from "next-intl";
 import { render, RenderOptions } from "@testing-library/react";
-import messages from "@/dictionaries/en.json";
+import messages from "@/messages/en.json";
+
+import { NextIntlClientProvider } from "next-intl";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
   return (
-    <NextIntlProvider locale="en" messages={messages}>
-      {children}
-    </NextIntlProvider>
+    <NextIntlClientProvider
+      locale="en"
+      messages={messages}
+    >
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        {children}
+      </ThemeProvider>
+    </NextIntlClientProvider>
   );
 };
 

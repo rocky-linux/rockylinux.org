@@ -1,6 +1,6 @@
 {
   "name": "RockyLinux.org",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:0-18",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:0-20",
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
@@ -13,6 +13,7 @@
         "[javascript]": {
           "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
+        "workbench.iconTheme": "vscode-icons",
         "[typescript]": {
           "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
@@ -25,8 +26,8 @@
           "*.env.local": "env",
           "*.env.*.local": "env"
         },
-        "typescript.suggestionActions.enabled": false,
-        "javascript.suggestionActions.enabled": false
+        "javascript.suggestionActions.enabled": false,
+        "typescript.suggestionActions.enabled": false
       },
       "extensions": [
         "dbaeumer.vscode-eslint",
@@ -37,7 +38,8 @@
         "bradlc.vscode-tailwindcss",
         "austenc.tailwind-docs",
         "eamodio.gitlens",
-        "unifiedjs.vscode-mdx"
+        "unifiedjs.vscode-mdx",
+        "github.copilot"
       ]
     }
   }

@@ -14,5 +14,5 @@ export const checkLanguage = (language: string): AvailableLanguagesType => {
 };
 
 export const getMessages = async (locale: AvailableLanguagesType) => {
-  return (await import(`@/dictionaries/${locale}.json`)).default;
+  return (await import(`@/messages/${locale}.json`)).default;
 };
