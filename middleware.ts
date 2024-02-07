@@ -4,8 +4,7 @@ import { availableLanguages } from "./config/i18nProperties";
 export default createMiddleware({
   // A list of all locales that are supported
   locales: [...availableLanguages],
-
-  // If this locale is matched, pathnames work without a prefix (e.g. `/about`)
+  localePrefix: "as-needed",
   defaultLocale: "en",
 });
 
