@@ -6,10 +6,10 @@ import { Accordion } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import Logo from "@/components/Logo";
 
-import DarkModeToggle from "./components/header/DarkModeToggle";
-import NavItem from "./components/header/nav/mobile/NavItem";
-import NavList from "./components/header/nav/mobile/NavList";
-import NavListItem from "./components/header/nav/mobile/NavListItem";
+import DarkModeToggle from "./DarkModeToggle";
+import NavItem from "./nav/mobile/NavItem";
+import NavList from "./nav/mobile/NavList";
+import NavListItem from "./nav/mobile/NavListItem";
 
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 

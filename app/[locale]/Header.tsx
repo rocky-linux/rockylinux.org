@@ -4,10 +4,10 @@ import Logo from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 
 import DarkModeToggle from "./components/header/DarkModeToggle";
-import DesktopNavigation from "./DesktopNavigation";
-import MobileNavigation from "./MobileNavigation";
+import DesktopNavigation from "./components/header/DesktopNavigation";
+import MobileNavigation from "./components/header/MobileNavigation";
 
-import type { NavigationMenuItems } from "./NavigationTypes";
+import type { NavigationMenuItems } from "./components/header/NavigationTypes";
 
 export default function Header() {
   const tGlobal = useTranslations("global");

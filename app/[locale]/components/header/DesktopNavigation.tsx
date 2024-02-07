@@ -5,9 +5,9 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 
-import NavItem from "./components/header/nav/desktop/NavItem";
-import NavList from "./components/header/nav/desktop/NavList";
-import NavListItem from "./components/header/nav/desktop/NavListItem";
+import NavItem from "./nav/desktop/NavItem";
+import NavList from "./nav/desktop/NavList";
+import NavListItem from "./nav/desktop/NavListItem";
 
 import type { NavigationMenuItems } from "./NavigationTypes";
 
