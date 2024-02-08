@@ -38,7 +38,7 @@ export default async function Post({ params }: Props) {
             {postData.title}
           </h1>
           <div
-            className="prose dark:prose-invert prose-headings:font-display prose-a:text-primary max-w-none"
+            className="prose dark:prose-invert prose-headings:font-display prose-a:text-primary prose-pre:bg-muted prose-pre:py-3 prose-pre:px-4 prose-pre:rounded prose-img:rounded-md max-w-none"
             dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
           />
         </div>
