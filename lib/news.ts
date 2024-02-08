@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 
 import matter from "gray-matter";
-import remarkFootnotes from "remark-footnotes";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
@@ -95,7 +94,6 @@ export async function getPostData(slug: string) {
   const processedContent = await unified()
     .use(remarkParse)
     .use(remarkGfm)
-    .use(remarkFootnotes, { inlineNotes: true })
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
     .use(rehypeStringify)
