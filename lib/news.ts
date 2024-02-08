@@ -8,7 +8,6 @@ import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import rehypeRaw from "rehype-raw";
-import remarkGridTables from "remark-grid-tables";
 import remarkGfm from "remark-gfm";
 
 const postsDirectory = path.join(process.cwd(), "news");
