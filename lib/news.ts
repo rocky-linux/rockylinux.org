@@ -2,8 +2,14 @@ import fs from "fs";
 import path from "path";
 
 import matter from "gray-matter";
-import { remark } from "remark";
-import html from "remark-html";
+import remarkFootnotes from "remark-footnotes";
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import rehypeStringify from "rehype-stringify";
+import rehypeRaw from "rehype-raw";
+import remarkGridTables from "remark-grid-tables";
+import remarkGfm from "remark-gfm";
 
 const postsDirectory = path.join(process.cwd(), "news");
 
@@ -87,8 +93,13 @@ export async function getPostData(slug: string) {
 
   const matterResult = matter(fileContents);
 
-  const processedContent = await remark()
-    .use(html)
+  const processedContent = await unified()
+    .use(remarkParse)
+    .use(remarkGfm)
+    .use(remarkFootnotes, { inlineNotes: true })
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
+    .use(rehypeStringify)
     .process(matterResult.content);
   const contentHtml = processedContent.toString();
 
