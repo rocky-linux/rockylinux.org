@@ -40,7 +40,7 @@ export default async function Post({ params }: Props) {
     notFound();
   }
 
-  const postData: PostData = await getPostData(params.slug);
+  const postData: PostData = await getPostData(slug);
 
   return (
     <div className="py-24 sm:py-32">
