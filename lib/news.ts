@@ -6,6 +6,26 @@ import { processMarkdownAsHTML } from "@/utils/remarkUtils";
 
 const postsDirectory = path.join(process.cwd(), "news");
 
+export async function checkIfSlugIsValid(slug: string) {
+  if (!slug || typeof slug !== "string") {
+    return false;
+  }
+
+  // Check that the slug does not contain any slashes to prevent directory traversal
+  if (slug.includes("/") || slug.includes("\\")) {
+    throw new Error("Invalid slug format.");
+  }
+
+  const fullPath = path.join(postsDirectory, `${slug}.md`);
+
+  try {
+    await fs.promises.access(fullPath);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export async function getSortedPostsData() {
   const fileNames = await fs.promises.readdir(postsDirectory);
 
