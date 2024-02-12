@@ -63,9 +63,10 @@ describe("News Library", () => {
       expect(isValid).toBe(false);
     });
 
-    it("should throw an error if the slug is in an invalid format", async () => {
+    it("should return false if the slug is in an invalid format", async () => {
       const slug = "invalid/slug";
-      await expect(newsLib.checkIfSlugIsValid(slug)).rejects.toThrow();
+      const isValid = await newsLib.checkIfSlugIsValid(slug);
+      expect(isValid).toBe(false);
     });
   });
 

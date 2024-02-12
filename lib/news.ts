@@ -13,7 +13,7 @@ export async function checkIfSlugIsValid(slug: string) {
 
   // Check that the slug does not contain any slashes to prevent directory traversal
   if (slug.includes("/") || slug.includes("\\")) {
-    throw new Error("Invalid slug format.");
+    return false;
   }
 
   const fullPath = path.join(postsDirectory, `${slug}.md`);
