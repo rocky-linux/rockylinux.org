@@ -11,23 +11,6 @@ import remarkGfm from "remark-gfm";
 
 const postsDirectory = path.join(process.cwd(), "news");
 
-// -------------------------------------------------
-// GET THE DATA OF ALL POSTS IN SORTED ORDER BY DATE
-/*
-  Returns an array that looks like this:
-  [
-    {
-      slug: 'ssg-ssr',
-      title: 'When to Use Static Generation v.s. Server-side Rendering',
-      date: '2020-01-01'
-    },
-    {
-      slug: 'pre-rendering',
-      title: 'Two Forms of Pre-rendering',
-      date: '2020-01-02'
-    }
-  ]
-*/
 export function getSortedPostsData() {
   const fileNames = fs.readdirSync(postsDirectory);
 
@@ -54,23 +37,6 @@ export function getSortedPostsData() {
   });
 }
 
-// ------------------------------------------------
-// GET THE SLUGS OF ALL POSTS FOR THE DYNAMIC ROUTING
-/*
-  Returns an array that looks like this:
-  [
-    {
-      params: {
-        slug: 'ssg-ssr'
-      }
-    },
-    {
-      params: {
-        slug: 'pre-rendering'
-      }
-    }
-  ]
-*/
 export function getAllPostSlugs() {
   const fileNames = fs.readdirSync(postsDirectory);
 
@@ -83,11 +49,9 @@ export function getAllPostSlugs() {
   });
 }
 
-// --------------------------------
-// GET THE DATA OF A SINGLE POST FROM THE SLUG
 export async function getPostData(slug: string) {
   const fullPath = path.join(postsDirectory, `${slug}.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
+  const fileContents = await fs.promises.readFile(fullPath, "utf8");
 
   const matterResult = matter(fileContents);
 
