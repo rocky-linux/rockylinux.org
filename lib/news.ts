@@ -2,48 +2,48 @@ import fs from "fs";
 import path from "path";
 
 import matter from "gray-matter";
-import { unified } from "unified";
-import remarkParse from "remark-parse";
-import remarkRehype from "remark-rehype";
-import rehypeStringify from "rehype-stringify";
-import rehypeRaw from "rehype-raw";
-import remarkGfm from "remark-gfm";
+import { processMarkdownAsHTML } from "@/utils/remarkUtils";
 
 const postsDirectory = path.join(process.cwd(), "news");
 
-// -------------------------------------------------
-// GET THE DATA OF ALL POSTS IN SORTED ORDER BY DATE
-/*
-  Returns an array that looks like this:
-  [
-    {
-      slug: 'ssg-ssr',
-      title: 'When to Use Static Generation v.s. Server-side Rendering',
-      date: '2020-01-01'
-    },
-    {
-      slug: 'pre-rendering',
-      title: 'Two Forms of Pre-rendering',
-      date: '2020-01-02'
-    }
-  ]
-*/
-export function getSortedPostsData() {
-  const fileNames = fs.readdirSync(postsDirectory);
+export async function checkIfSlugIsValid(slug: string) {
+  if (!slug || typeof slug !== "string") {
+    return false;
+  }
 
-  const allPostsData = fileNames.map((filename) => {
-    const slug = filename.replace(/\.md$/, "");
+  // Check that the slug does not contain any slashes to prevent directory traversal
+  if (slug.includes("/") || slug.includes("\\")) {
+    return false;
+  }
 
-    const fullPath = path.join(postsDirectory, filename);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
+  const fullPath = path.join(postsDirectory, `${slug}.md`);
 
-    const matterResult = matter(fileContents);
+  try {
+    await fs.promises.access(fullPath);
+    return true;
+  } catch {
+    return false;
+  }
+}
 
-    return {
-      slug,
-      ...(matterResult.data as { date: string; title: string }),
-    };
-  });
+export async function getSortedPostsData() {
+  const fileNames = await fs.promises.readdir(postsDirectory);
+
+  const allPostsData = await Promise.all(
+    fileNames.map(async (filename) => {
+      const slug = filename.replace(/\.md$/, "");
+
+      const fullPath = path.join(postsDirectory, filename);
+      const fileContents = await fs.promises.readFile(fullPath, "utf8");
+
+      const matterResult = matter(fileContents);
+
+      return {
+        slug,
+        ...(matterResult.data as { date: string; title: string }),
+      };
+    })
+  );
 
   return allPostsData.sort((a, b) => {
     if (a.date < b.date) {
@@ -54,25 +54,8 @@ export function getSortedPostsData() {
   });
 }
 
-// ------------------------------------------------
-// GET THE SLUGS OF ALL POSTS FOR THE DYNAMIC ROUTING
-/*
-  Returns an array that looks like this:
-  [
-    {
-      params: {
-        slug: 'ssg-ssr'
-      }
-    },
-    {
-      params: {
-        slug: 'pre-rendering'
-      }
-    }
-  ]
-*/
-export function getAllPostSlugs() {
-  const fileNames = fs.readdirSync(postsDirectory);
+export async function getAllPostSlugs() {
+  const fileNames = await fs.promises.readdir(postsDirectory);
 
   return fileNames.map((fileName) => {
     return {
@@ -83,22 +66,18 @@ export function getAllPostSlugs() {
   });
 }
 
-// --------------------------------
-// GET THE DATA OF A SINGLE POST FROM THE SLUG
 export async function getPostData(slug: string) {
   const fullPath = path.join(postsDirectory, `${slug}.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
+
+  const fileContents = await fs.promises.readFile(fullPath, "utf8");
+
+  if (!fileContents) {
+    throw new Error(`Post with slug "${slug}" does not exist.`);
+  }
 
   const matterResult = matter(fileContents);
 
-  const processedContent = await unified()
-    .use(remarkParse)
-    .use(remarkGfm)
-    .use(remarkRehype, { allowDangerousHtml: true })
-    .use(rehypeRaw)
-    .use(rehypeStringify)
-    .process(matterResult.content);
-  const contentHtml = processedContent.toString();
+  const contentHtml = await processMarkdownAsHTML(matterResult.content);
 
   return {
     slug,

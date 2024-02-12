@@ -66,5 +66,11 @@
         "description": "Migrate from other Enterprise Linux distributions without sweating it. We provide an easy-to-use migration script, free of charge."
       }
     }
+  },
+  "news": {
+    "notFound": {
+      "title": "Not Found",
+      "description": "The news post you are looking for does not exist. You can find all our news posts on the <newsLink>news page</newsLink>."
+    }
   }
 }
