@@ -1,4 +1,5 @@
 import Date from "@/components/Date";
+import ShareButtons from "@/components/shareButtons/ShareButtons";
 
 import { checkIfSlugIsValid, getPostData } from "@/lib/news";
 import { notFound } from "next/navigation";
@@ -55,6 +56,7 @@ export default async function Post({ params }: Props) {
           className="prose dark:prose-invert prose-headings:font-display prose-a:text-primary prose-pre:bg-muted prose-pre:py-3 prose-pre:px-4 prose-pre:rounded prose-img:rounded-md max-w-none"
           dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
         />
+        <ShareButtons slug={params.slug} />
       </div>
     </div>
   );
