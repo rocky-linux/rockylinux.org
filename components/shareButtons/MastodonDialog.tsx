@@ -25,12 +25,14 @@ export interface MastodonDialogProps {
   invalidUrlMsg: string;
   urlMsg: string;
   shareMsg: string;
+  mastodonSrMsg: string;
 }
 
 const MastodonDialog: React.FC<MastodonDialogProps> = ({
   invalidUrlMsg,
   urlMsg,
   shareMsg,
+  mastodonSrMsg,
 }) => {
   const mastodonShareSchema = z.object({
     instanceUrl: z
@@ -54,7 +56,7 @@ const MastodonDialog: React.FC<MastodonDialogProps> = ({
     <>
       <Popover>
         <PopoverTrigger>
-          <span className="sr-only">X</span>
+          <span className="sr-only">{mastodonSrMsg}</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"

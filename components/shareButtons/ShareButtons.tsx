@@ -22,6 +22,7 @@ const ShareButtons = ({ slug }: ShareButtonsProps) => {
           invalidUrlMsg={t("mastodon.url-valid")}
           urlMsg={t("mastodon.url")}
           shareMsg={t("shareName")}
+          mastodonSrMsg={t("mastodon.name")}
         />
         <Link
           href={facebookLink}
