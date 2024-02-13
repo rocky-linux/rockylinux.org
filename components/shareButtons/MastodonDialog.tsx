@@ -21,16 +21,23 @@ import {
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 
-const mastodonShareSchema = z.object({
-  instanceUrl: z
-    .string()
-    .regex(
-      /^(?:[a-zA-Z0-9\-_]+\.)+[a-zA-Z]{2,}$/,
-      "Please enter a valid Mastodon instance URL (without https://)"
-    ),
-});
+export interface MastodonDialogProps {
+  invalidUrlMsg: string;
+  urlMsg: string;
+  shareMsg: string;
+}
 
-const MastodonDialog = () => {
+const MastodonDialog: React.FC<MastodonDialogProps> = ({
+  invalidUrlMsg,
+  urlMsg,
+  shareMsg,
+}) => {
+  const mastodonShareSchema = z.object({
+    instanceUrl: z
+      .string()
+      .regex(/^(?:[a-zA-Z0-9\-_]+\.)+[a-zA-Z]{2,}$/, invalidUrlMsg),
+  });
+
   const form = useForm<z.infer<typeof mastodonShareSchema>>({
     resolver: zodResolver(mastodonShareSchema),
     defaultValues: {
@@ -65,7 +72,7 @@ const MastodonDialog = () => {
                 name="instanceUrl"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Mastodon Instance URL</FormLabel>
+                    <FormLabel>{urlMsg}</FormLabel>
                     <FormControl>
                       <Input
                         placeholder="mastodon.social"
@@ -80,7 +87,7 @@ const MastodonDialog = () => {
                 type="submit"
                 className="mt-4"
               >
-                Share
+                {shareMsg}
               </Button>
             </form>
           </Form>

@@ -1,4 +1,6 @@
+import { useTranslations } from "next-intl";
 import Link from "next/link";
+
 import MastodonDialog from "./MastodonDialog";
 
 interface ShareButtonsProps {
@@ -6,25 +8,27 @@ interface ShareButtonsProps {
 }
 
 const ShareButtons = ({ slug }: ShareButtonsProps) => {
-  const facebookLink =
-    "https://www.facebook.com/sharer/sharer.php?u=rockylinux.org/news/" + slug;
-  const xLink =
-    "https://twitter.com/intent/tweet?text=rockylinux.org/news/" + slug;
-  const linkedInLink =
-    "https://www.linkedin.com/sharing/share-offsite/?url=rockylinux.org/news/" +
-    slug;
+  const t = useTranslations("share");
+
+  const facebookLink = `https://www.facebook.com/sharer/sharer.php?u=rockylinux.org/news/${slug}`;
+  const xLink = `https://twitter.com/intent/tweet?text=rockylinux.org/news/${slug}`;
+  const linkedInLink = `https://www.linkedin.com/sharing/share-offsite/?url=rockylinux.org/news/${slug}`;
 
   return (
     <>
-      <h3 className="text-sm text-center mb-2">Share:</h3>
+      <h3 className="text-sm text-center mb-2">{t("shareName")}</h3>
       <div className="flex space-x-6 justify-center mb-12">
-        <MastodonDialog />
+        <MastodonDialog
+          invalidUrlMsg={t("mastodon.url-valid")}
+          urlMsg={t("mastodon.url")}
+          shareMsg={t("shareName")}
+        />
         <Link
           href={facebookLink}
           className="hover:text-primary"
           target="_blank"
         >
-          <span className="sr-only">Facebook</span>
+          <span className="sr-only">{t("facebook")}</span>
           <svg
             fill="currentColor"
             viewBox="0 0 24 24"
@@ -43,7 +47,7 @@ const ShareButtons = ({ slug }: ShareButtonsProps) => {
           className="hover:text-primary"
           target="_blank"
         >
-          <span className="sr-only">LinkedIn</span>
+          <span className="sr-only">{t("linkedin")}</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -58,7 +62,7 @@ const ShareButtons = ({ slug }: ShareButtonsProps) => {
           className="hover:text-primary"
           target="_blank"
         >
-          <span className="sr-only">X</span>
+          <span className="sr-only">{t("x")}</span>
           <svg
             fill="currentColor"
             viewBox="0 0 24 24"
