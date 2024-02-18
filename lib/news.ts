@@ -38,8 +38,14 @@ export async function getSortedPostsData() {
 
       const matterResult = matter(fileContents);
 
+      const contentHtml = await processMarkdownAsHTML(matterResult.content);
+
+      const plainText = contentHtml.replace(/<[^>]*>/g, "");
+      const excerpt = plainText.substring(0, 200) + "...";
+
       return {
         slug,
+        excerpt,
         ...(matterResult.data as { date: string; title: string }),
       };
     })
@@ -79,9 +85,13 @@ export async function getPostData(slug: string) {
 
   const contentHtml = await processMarkdownAsHTML(matterResult.content);
 
+  const plainText = contentHtml.replace(/<[^>]*>/g, "");
+  const excerpt = plainText.substring(0, 200) + "...";
+
   return {
     slug,
     contentHtml,
+    excerpt,
     ...(matterResult.data as { date: string; title: string }),
   };
 }
