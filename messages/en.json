@@ -68,6 +68,8 @@
     }
   },
   "news": {
+    "title": "News",
+    "description": "Stay up to date with the latest news and updates from the Rocky Linux community.",
     "notFound": {
       "title": "Not Found",
       "description": "The news post you are looking for does not exist. You can find all our news posts on the <newsLink>news page</newsLink>."
