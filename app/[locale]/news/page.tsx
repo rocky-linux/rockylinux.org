@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Link from "next/link";
-import { format } from "date-fns"; // Assuming you have a date formatting library
+import { format } from "date-fns";
 import { getSortedPostsData } from "@/lib/news";
 import {
   Card,
