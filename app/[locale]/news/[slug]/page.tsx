@@ -1,4 +1,5 @@
 import Date from "@/components/Date";
+import ShareButtons from "@/components/shareButtons/ShareButtons";
 
 import { checkIfSlugIsValid, getPostData } from "@/lib/news";
 import { notFound } from "next/navigation";
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: Props) {
   const postData: PostData = await getPostData(slug);
 
   return {
-    title: postData.title,
+    title: `${postData.title} - Rocky Linux`,
   };
 }
 
@@ -52,9 +53,10 @@ export default async function Post({ params }: Props) {
           {postData.title}
         </h1>
         <div
-          className="prose dark:prose-invert prose-headings:font-display prose-a:text-primary prose-pre:bg-muted prose-pre:py-3 prose-pre:px-4 prose-pre:rounded prose-img:rounded-md max-w-none"
+          className="prose dark:prose-invert prose-headings:font-display prose-a:text-primary prose-pre:bg-muted prose-pre:py-3 prose-pre:px-4 prose-pre:rounded prose-img:rounded-md max-w-none mb-12"
           dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
         />
+        <ShareButtons url={`https://rockylinux.org/news/${params.slug}`} />
       </div>
     </div>
   );

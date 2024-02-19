@@ -5,7 +5,7 @@ export default function SlugNotFound() {
   const t = useTranslations("news.notFound");
 
   return (
-    <div className="pt-10 pb-24 sm:pt-12 sm:pb-32">
+    <div className="py-24 sm:py-32">
       <div className="mx-auto max-w-3xl text-base leading-7">
         <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl mb-12 text-center font-display">
           {t("title")}
