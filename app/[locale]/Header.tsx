@@ -59,7 +59,7 @@ export default function Header() {
       >
         <div className="flex lg:flex-1">
           <a
-            href="#"
+            href="/"
             className="-m-1.5 p-1.5"
           >
             <span className="sr-only">{tGlobal("name")}</span>
