@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Header from "./Header";
+import Footer from "./Footer";
 
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
@@ -60,6 +61,7 @@ export default function RootLayout({
         >
           <Header />
           <main>{children}</main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

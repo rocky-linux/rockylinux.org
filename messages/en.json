@@ -43,6 +43,25 @@
       }
     }
   },
+  "footer": {
+    "footer": "Footer",
+    "nav": {
+      "licensingName": "Licensing",
+      "privacyPolicyName": "Privacy Policy",
+      "TrademarksName": "Trademarks"
+    },
+    "socialNav": {
+      "facebook": "Facebook",
+      "github": "GitHub",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn",
+      "mastodon": "Mastodon",
+      "threads": "Threads",
+      "x": "X",
+      "youtube": "YouTube"
+    },
+    "disclaimer": "Linux® is the registered trademark of Linus Torvalds in the U.S. and other countries. Red Hat Enterprise Linux, RHEL and CentOS are trademarks or registered trademarks of Red Hat, Inc. or its subsidiaries in the US and other countries. We are not affiliated with, endorsed by or sponsored by Red Hat, Inc."
+  },
   "home": {
     "hero": {
       "title": "Enterprise Linux, the community way.",
