@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 import Logo from "@/components/Logo";
 import { Button } from "@/components/ui/button";
@@ -58,13 +59,13 @@ export default function Header() {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <a
+          <Link
             href="/"
             className="-m-1.5 p-1.5"
           >
             <span className="sr-only">{tGlobal("name")}</span>
             <Logo />
-          </a>
+          </Link>
         </div>
         <MobileNavigation
           darkModeSRText={tHeader("toggleTheme")}
@@ -76,9 +77,9 @@ export default function Header() {
         <DesktopNavigation translations={navigationTranslations} />
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <DarkModeToggle srText={tHeader("toggleTheme")} />
-          <a href="/download">
+          <Link href="/download">
             <Button className="p-5 ml-2">{tGlobal("download")}</Button>
-          </a>
+          </Link>
         </div>
       </nav>
     </header>
