@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 import { JSX, SVGProps } from "react";
 
 export default function Footer() {
@@ -173,25 +174,25 @@ export default function Footer() {
               key={item.name}
               className="pb-6"
             >
-              <a
+              <Link
                 href={item.href}
                 className="text-sm leading-6"
               >
                 {item.name}
-              </a>
+              </Link>
             </div>
           ))}
         </nav>
         <div className="mt-10 flex justify-center items-center space-x-10">
           {navigation.social.map((item) => (
-            <a
+            <Link
               key={item.name}
               href={item.href}
               target="_blank"
             >
               <span className="sr-only">{item.name}</span>
               <item.icon aria-hidden="true" />
-            </a>
+            </Link>
           ))}
         </div>
         <p className="mt-10 text-center text-xs leading-5">
