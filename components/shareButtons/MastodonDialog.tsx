@@ -26,6 +26,7 @@ export interface MastodonDialogProps {
   urlMsg: string;
   shareMsg: string;
   mastodonSrMsg: string;
+  url: string;
 }
 
 const MastodonDialog: React.FC<MastodonDialogProps> = ({
@@ -33,6 +34,7 @@ const MastodonDialog: React.FC<MastodonDialogProps> = ({
   urlMsg,
   shareMsg,
   mastodonSrMsg,
+  url,
 }) => {
   const mastodonShareSchema = z.object({
     instanceUrl: z
@@ -48,7 +50,7 @@ const MastodonDialog: React.FC<MastodonDialogProps> = ({
   });
 
   function onSubmit(values: z.infer<typeof mastodonShareSchema>) {
-    const shareUrl = `https://${values.instanceUrl}/share?text=${encodeURIComponent(window.location.href)}`;
+    const shareUrl = `https://${values.instanceUrl}/share?text=${url}`;
 
     window.open(shareUrl, "_blank");
   }

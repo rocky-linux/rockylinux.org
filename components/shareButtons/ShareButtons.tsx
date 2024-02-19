@@ -4,15 +4,15 @@ import Link from "next/link";
 import MastodonDialog from "./MastodonDialog";
 
 interface ShareButtonsProps {
-  slug: string;
+  url: string;
 }
 
-const ShareButtons = ({ slug }: ShareButtonsProps) => {
+const ShareButtons = ({ url }: ShareButtonsProps) => {
   const t = useTranslations("share");
 
-  const facebookLink = `https://www.facebook.com/sharer/sharer.php?u=rockylinux.org/news/${slug}`;
-  const xLink = `https://twitter.com/intent/tweet?text=rockylinux.org/news/${slug}`;
-  const linkedInLink = `https://www.linkedin.com/sharing/share-offsite/?url=rockylinux.org/news/${slug}`;
+  const facebookLink = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+  const xLink = `https://twitter.com/intent/tweet?text=${url}`;
+  const linkedInLink = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
 
   return (
     <>
@@ -23,6 +23,7 @@ const ShareButtons = ({ slug }: ShareButtonsProps) => {
           urlMsg={t("mastodon.url")}
           shareMsg={t("shareName")}
           mastodonSrMsg={t("mastodon.name")}
+          url={url}
         />
         <Link
           href={facebookLink}
