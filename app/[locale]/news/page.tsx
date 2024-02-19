@@ -1,7 +1,11 @@
 import type { NextPage } from "next";
+
+import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import { format } from "date-fns";
+
 import { getSortedPostsData } from "@/lib/news";
+
 import {
   Card,
   CardContent,
@@ -9,7 +13,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { getTranslations } from "next-intl/server";
+
+export async function generateMetadata() {
+  const t = await getTranslations("news");
+
+  return {
+    title: `${t("title")} - Rocky Linux`,
+    description: `${t("description")}`,
+  };
+}
 
 const NewsPage: NextPage = async () => {
   const posts = await getSortedPostsData();

@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props) {
   const postData: PostData = await getPostData(slug);
 
   return {
-    title: postData.title,
+    title: `${postData.title} - Rocky Linux`,
   };
 }
 
