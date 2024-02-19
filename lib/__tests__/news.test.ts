@@ -74,8 +74,18 @@ describe("News Library", () => {
     it("should return an array of sorted post data", async () => {
       const sortedPosts = await newsLib.getSortedPostsData();
       expect(sortedPosts).toStrictEqual([
-        { slug: "post2", date: "2022-01-02", title: "Post 2" },
-        { slug: "post1", date: "2022-01-01", title: "Post 1" },
+        {
+          slug: "post2",
+          excerpt: "Mocked HTML content...",
+          date: "2022-01-02",
+          title: "Post 2",
+        },
+        {
+          slug: "post1",
+          excerpt: "Mocked HTML content...",
+          date: "2022-01-01",
+          title: "Post 1",
+        },
       ]);
     });
   });
