@@ -84,6 +84,28 @@
         "name": "Easy Migration",
         "description": "Migrate from other Enterprise Linux distributions without sweating it. We provide an easy-to-use migration script, free of charge."
       }
+    },
+    "news": {
+      "title": "Latest News",
+      "description": "We regularly share updates with the community about what's happening. Here's the latest."
+    },
+    "logos": {
+      "title": "Backed By",
+      "45drives": "45Drives",
+      "arm": "Arm",
+      "aws": "AWS",
+      "ciq": "CIQ",
+      "equinix": "Equinix",
+      "fastly": "Fastly",
+      "googlecloud": "Google Cloud",
+      "mattermost": "Mattermost",
+      "montavista": "MontaVista",
+      "navercloud": "Naver Cloud",
+      "opendrives": "OpenDrives",
+      "osuosl": "OSUOSL",
+      "rakutensymphony": "Rakuten Symphony",
+      "supermicro": "Supermicro",
+      "vmware": "VMware"
     }
   },
   "news": {
