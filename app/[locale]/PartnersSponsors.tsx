@@ -15,13 +15,13 @@ const PartnersSponsors = async () => {
 
   return (
     <div className="py-12 sm:py-24">
-      <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6 lg:gap-10">
-        <div className="space-y-3">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="lg:text-center">
           <h2 className="text-3xl font-bold font-display tracking-tight sm:text-4xl">
             {t("title")}
           </h2>
         </div>
-        <div className="mx-auto grid w-full grid-cols-2 items-center justify-center gap-6 md:grid-cols-5">
+        <div className="mx-auto grid w-full grid-cols-2 items-center justify-center gap-6 md:grid-cols-5 pt-10 sm:pt-16">
           <Link
             className="mx-auto flex w-full items-center justify-center p-4 sm:p-8 rounded-lg border focus-visible:outline-none focus-visible:ring-1"
             href="https://45drives.com"
