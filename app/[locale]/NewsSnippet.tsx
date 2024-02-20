@@ -19,7 +19,7 @@ const NewsSnippet = async () => {
   return (
     <div className="py-12 sm:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="text-center">
+        <div className="lg:text-center">
           <h2 className="text-3xl font-bold font-display tracking-tight sm:text-4xl">
             {t("title")}
           </h2>
