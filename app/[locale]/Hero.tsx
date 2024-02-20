@@ -10,7 +10,7 @@ const Hero = () => {
   return (
     <div className="relative isolate pt-12 sm:pt-24">
       <div className="pb-12 sm:pb-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-2 lg:px-0">
           <div className="mx-auto max-w-2xl text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl font-display">
               {t.rich("title", {

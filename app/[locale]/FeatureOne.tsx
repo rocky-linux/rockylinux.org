@@ -12,7 +12,7 @@ const FeatureOne = () => {
 
   return (
     <div className="py-12 sm:py-24">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-2 lg:px-0">
         <div className="mx-auto max-w-2xl lg:text-center">
           <h2 className="text-base font-semibold leading-7 text-primary font-display uppercase">
             {t("subText")}
