@@ -166,7 +166,7 @@ export default function Footer() {
     <footer>
       <div className="mx-auto max-w-7xl overflow-hidden px-2 lg:px-0 py-20 sm:py-24">
         <nav
-          className="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12"
+          className="flex flex-wrap justify-center items-center gap-10"
           aria-label={tFooter("footer")}
         >
           {navigation.main.map((item) => (
@@ -183,7 +183,7 @@ export default function Footer() {
             </div>
           ))}
         </nav>
-        <div className="mt-10 flex flex-wrap justify-center items-center gap-y-6 gap-x-6">
+        <div className="mt-6 flex flex-wrap justify-center items-center gap-y-6 gap-x-6">
           {navigation.social.map((item) => (
             <Link
               key={item.name}
