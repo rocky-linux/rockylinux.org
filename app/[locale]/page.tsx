@@ -1,7 +1,7 @@
 import Hero from "./Hero";
 import FeatureOne from "./FeatureOne";
 import NewsSnippet from "./NewsSnippet";
-import PartnersSponsors from "./PartnersSponsors";
+import LogoCloud from "@/components/logoCloud/LogoCloud";
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
       <Hero />
       <FeatureOne />
       <NewsSnippet />
-      <PartnersSponsors />
+      <LogoCloud />
     </>
   );
 }
