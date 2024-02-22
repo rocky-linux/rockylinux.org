@@ -95,7 +95,7 @@ export default function Footer() {
           >
             <g
               fill="none"
-              fillRule="evenodd"
+              fill-rule="evenodd"
             >
               <path
                 fill="currentColor"
