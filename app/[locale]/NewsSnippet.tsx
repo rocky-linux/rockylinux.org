@@ -31,7 +31,7 @@ const NewsSnippet = async () => {
               key={post.slug}
               href={`/news/${post.slug}`}
             >
-              <Card key={post.slug}>
+              <Card>
                 <CardHeader>
                   <CardTitle className="font-display font-bold truncate">
                     {post.title}
