@@ -1,0 +1,18 @@
+import { useTranslations } from "next-intl";
+
+export default function SlugNotFound() {
+  const t = useTranslations("global.notFound");
+
+  return (
+    <div className="py-24 sm:py-32">
+      <div className="mx-auto max-w-3xl text-base leading-7">
+        <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl mb-12 text-center font-display">
+          {t("title")}
+        </h1>
+        <div className="prose dark:prose-invert prose-headings:font-display prose-a:text-primary prose-pre:bg-muted prose-pre:py-3 prose-pre:px-4 prose-pre:rounded prose-img:rounded-md max-w-none text-center">
+          {t("description")}
+        </div>
+      </div>
+    </div>
+  );
+}
