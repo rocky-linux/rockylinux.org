@@ -8,17 +8,21 @@ const Hero = () => {
   const tGlobal = useTranslations("global");
 
   return (
-    <div className="relative isolate pt-14">
+    <div className="relative isolate pt-12 sm:pt-24">
       <div className="pb-12 sm:pb-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-2 lg:px-0">
           <div className="mx-auto max-w-2xl text-center">
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl font-display">
-              {t("title")}
+              {t.rich("title", {
+                span: (chunks) => (
+                  <span className="text-primary">{chunks}</span>
+                ),
+              })}
             </h1>
             <p className="mt-6 text-lg leading-8">{t("description")}</p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a href="/download">
-                <Button className="p-5 font-bold">{tGlobal("download")}</Button>
+                <Button className="p-5">{tGlobal("download")}</Button>
               </a>
               <a href="#">
                 <Button

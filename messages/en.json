@@ -68,7 +68,7 @@
   },
   "home": {
     "hero": {
-      "title": "Enterprise Linux, the community way.",
+      "title": "Enterprise Linux, the <span>community way.</span>",
       "description": "Rocky Linux is an open-source enterprise operating system designed to be 100% bug-for-bug compatible with Red Hat Enterprise Linux®. It is under intensive development by the community.",
       "migrate": "Migrate"
     },
@@ -88,6 +88,13 @@
         "name": "Easy Migration",
         "description": "Migrate from other Enterprise Linux distributions without sweating it. We provide an easy-to-use migration script, free of charge."
       }
+    },
+    "news": {
+      "title": "Latest News",
+      "description": "We regularly share updates with the community about what's happening. Here's the latest."
+    },
+    "logoCloud": {
+      "title": "Backed By"
     }
   },
   "news": {
@@ -107,7 +114,8 @@
     },
     "facebook": "Facebook",
     "linkedin": "LinkedIn",
-    "x": "X"
+    "x": "X",
+    "threads": "Threads"
   },
   "about": {
     "title": "About",

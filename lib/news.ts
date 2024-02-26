@@ -26,7 +26,7 @@ export async function checkIfSlugIsValid(slug: string) {
   }
 }
 
-export async function getSortedPostsData() {
+export async function getSortedPostsData(numPosts?: number) {
   const fileNames = await fs.promises.readdir(postsDirectory);
 
   const allPostsData = await Promise.all(
@@ -51,13 +51,17 @@ export async function getSortedPostsData() {
     })
   );
 
-  return allPostsData.sort((a, b) => {
-    if (a.date < b.date) {
-      return 1;
-    } else {
-      return -1;
-    }
-  });
+  const sortedAndLimitedPostsData = allPostsData
+    .sort((a, b) => {
+      if (a.date < b.date) {
+        return 1;
+      } else {
+        return -1;
+      }
+    })
+    .slice(0, numPosts || allPostsData.length);
+
+  return sortedAndLimitedPostsData;
 }
 
 export async function getAllPostSlugs() {
