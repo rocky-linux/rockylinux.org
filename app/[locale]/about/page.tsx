@@ -2,6 +2,12 @@ import LogoCloud from "@/components/logoCloud/LogoCloud";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About - Rocky Linux",
+  description: "It all started with a blog comment.",
+};
 
 const AboutPage = () => {
   const t = useTranslations("about");
