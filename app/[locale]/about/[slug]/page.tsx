@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
-export default async function Post({ params }: Props) {
+export default async function Page({ params }: Props) {
   const slug = params.slug;
 
   if (!(await checkIfSlugIsValid(slug))) {

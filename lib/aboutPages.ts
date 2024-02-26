@@ -4,7 +4,7 @@ import path from "path";
 import matter from "gray-matter";
 import { processMarkdownAsHTML } from "@/utils/remarkUtils";
 
-const contentDirectory = path.join(process.cwd(), "app/[locale]/about/[slug]");
+const contentDirectory = path.join(process.cwd(), "about");
 
 export async function checkIfSlugIsValid(slug: string) {
   if (!slug || typeof slug !== "string") {
