@@ -19,7 +19,7 @@ export default function AwsLogo(
         type="text/css"
         dangerouslySetInnerHTML={{
           __html:
-            "\n\t.st0{fill:#fff;}\n\t.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#FF9900;}\n",
+            "\n\t.st0{fill:#fff;}\n\t.st1{fillRrule:evenodd;clip-rule:evenodd;fill:#FF9900;}\n",
         }}
       />
       <g>
