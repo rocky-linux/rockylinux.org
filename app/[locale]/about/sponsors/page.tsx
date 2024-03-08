@@ -64,7 +64,9 @@ const SponsorsPage = () => {
                     <span className="flex items-center gap-x-3">
                       <p className="text-xl font-semibold">{sponsor.name}</p>
                       <div>
-                        {sponsor.founding && <Badge>Founding Sponsor</Badge>}
+                        {sponsor.founding && (
+                          <Badge>{t("foundingSponsor")}</Badge>
+                        )}
                       </div>
                     </span>
                     <p className="mt-3 text-base line-clamp-6 hover:line-clamp-none">

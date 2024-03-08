@@ -138,6 +138,7 @@
   "sponsors": {
     "title": "Sponsors",
     "description": "The Rocky Linux project is made possible by the generous support of our sponsors. We are grateful for their contributions to the project.",
-    "learnMore": "Learn More"
+    "learnMore": "Learn More",
+    "foundingSponsor": "Founding Sponsor"
   }
 }
