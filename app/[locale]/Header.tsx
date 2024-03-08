@@ -25,14 +25,13 @@ export default function Header() {
     about: {
       about: tNav("about.about"),
       charter: tNav("about.charter"),
+      wiki: tNav("about.wiki"),
       partners: tNav("about.partners"),
       sponsors: tNav("about.sponsors"),
     },
     resources: {
-      faq: tNav("resources.faq"),
-      guidesAndManuals: tNav("resources.guidesAndManuals"),
+      docs: tNav("resources.docs"),
       gpgKeyInfo: tNav("resources.gpgKeyInfo"),
-      wiki: tNav("resources.wiki"),
     },
     community: {
       forums: tNav("community.forums"),

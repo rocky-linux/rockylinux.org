@@ -20,13 +20,12 @@
       "about": {
         "about": "About Rocky Linux",
         "charter": "Community Charter",
+        "wiki": "Project Wiki",
         "sponsors": "Sponsors",
         "partners": "Partners"
       },
       "resources": {
-        "faq": "Frequently Asked Questions",
-        "wiki": "Wiki",
-        "guidesAndManuals": "Guides & Manuals",
+        "docs": "Documentation",
         "gpgKeyInfo": "GPG Key Info"
       },
       "community": {
@@ -41,7 +40,7 @@
         "submitBug": "Submit Bug"
       },
       "contribute": {
-        "contribute": "Contribute",
+        "contribute": "Contributing Guide",
         "shop": "Shop",
         "donate": "Donate"
       }

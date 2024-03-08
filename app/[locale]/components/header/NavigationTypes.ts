@@ -8,13 +8,12 @@ export interface NavigationMenuItems {
   about: {
     about: string;
     charter: string;
+    wiki: string;
     sponsors: string;
     partners: string;
   };
   resources: {
-    faq: string;
-    wiki: string;
-    guidesAndManuals: string;
+    docs: string;
     gpgKeyInfo: string;
   };
   community: {

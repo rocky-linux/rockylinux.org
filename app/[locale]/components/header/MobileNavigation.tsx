@@ -72,6 +72,10 @@ const MobileNavigation = ({
                 href="/about/charter"
               />
               <NavListItem
+                title={t.about.wiki}
+                href="https://wiki.rockylinux.org"
+              />
+              <NavListItem
                 title={t.about.sponsors}
                 href="/about/sponsors"
               />
@@ -82,42 +86,34 @@ const MobileNavigation = ({
             </NavList>
             <NavList name={t.resourcesName}>
               <NavListItem
-                title={t.resources.faq}
-                href="/resources/faq"
-              />
-              <NavListItem
-                title={t.resources.guidesAndManuals}
-                href="/resources/guides-and-manuals"
+                title={t.resources.docs}
+                href="https://docs.rockylinux.org"
               />
               <NavListItem
                 title={t.resources.gpgKeyInfo}
                 href="/resources/gpg-key-info"
               />
-              <NavListItem
-                title={t.resources.wiki}
-                href="/resources/wiki"
-              />
             </NavList>
             <NavList name={t.communityName}>
               <NavListItem
                 title={t.community.forums}
-                href="/community/forums"
+                href="https://forums.rockylinux.org"
               />
               <NavListItem
                 title={t.community.mailing}
-                href="/community/mailing"
+                href="https://lists.resf.org/"
               />
               <NavListItem
                 title={t.community.mattermost}
-                href="/community/mattermost"
+                href="https://chat.rockylinux.org/"
               />
               <NavListItem
                 title={t.community.irc}
-                href="/community/irc"
+                href="https://wiki.rockylinux.org/irc/"
               />
               <NavListItem
                 title={t.community.calendar}
-                href="/community/calendar"
+                href="https://calendar.google.com/calendar/u/0/embed?src=c_2e1oqh6t0i6sqhja5nu9lq8lgo@group.calendar.google.com"
               />
             </NavList>
             <NavList name={t.supportName}>
@@ -127,13 +123,13 @@ const MobileNavigation = ({
               />
               <NavListItem
                 title={t.support.submitBug}
-                href="/support/submit-bug"
+                href="https://bugs.rockylinux.org"
               />
             </NavList>
             <NavList name={t.contributeName}>
               <NavListItem
                 title={t.contribute.contribute}
-                href="/contribute/contribute"
+                href="https://wiki.rockylinux.org/contributing/"
               />
               <NavListItem
                 title={t.contribute.shop}
@@ -141,7 +137,7 @@ const MobileNavigation = ({
               />
               <NavListItem
                 title={t.contribute.donate}
-                href="/contribute/donate"
+                href="https://rockylinux.z2systems.com/np/clients/rockylinux/donation.jsp"
               />
             </NavList>
           </Accordion>
