@@ -11,7 +11,7 @@ export default function VmwareLogo(
       xmlnsXlink="http://www.w3.org/1999/xlink"
       x="0px"
       y="0px"
-      viewBox="0 0 520.2 65"
+      viewBox="0 -20 520.2 100"
       xmlSpace="preserve"
       {...props}
     >
