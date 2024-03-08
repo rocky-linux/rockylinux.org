@@ -140,5 +140,10 @@
     "description": "The Rocky Linux project is made possible by the generous support of our sponsors. We are grateful for their contributions to the project.",
     "learnMore": "Learn More",
     "foundingSponsor": "Founding Sponsor"
+  },
+  "partners": {
+    "title": "Partners",
+    "description": "The Rocky Linux project is proud to partner with the following organizations. We are grateful for their support and contributions to the project.",
+    "foundingPartner": "Founding Partner"
   }
 }
