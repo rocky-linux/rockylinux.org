@@ -12,7 +12,11 @@ const LogoCloud = async () => {
     ...data.partners.flatMap((group) => group.tierOne),
   ]);
 
-  const sortedSponsorsAndPartners = allSponsorsAndPartners.sort((a, b) =>
+  const uniqueSponsorsAndPartners = Array.from(
+    new Map(allSponsorsAndPartners.map((item) => [item.name, item])).values()
+  );
+
+  const sortedSponsorsAndPartners = uniqueSponsorsAndPartners.sort((a, b) =>
     a.name.localeCompare(b.name)
   );
 
