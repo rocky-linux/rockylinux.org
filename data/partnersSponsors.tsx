@@ -32,6 +32,7 @@ const partnerSponsorData = [
             name: "CIQ",
             description:
               "We believe in helping people do great things. This is why CIQ is a founding sponsor of the RESF. We provide commercial support and services for Rocky Linux to customers in research, academia, government, enterprise, partners, and everyone in between.",
+            founding: true,
           },
           {
             href: "https://cloud.google.com",
@@ -67,6 +68,20 @@ const partnerSponsorData = [
             name: "VMware",
             description:
               "VMware is a leading provider of multi-cloud services for all apps, enabling digital innovation with enterprise control.",
+          },
+        ],
+        tierFour: [
+          {
+            href: "https://www.openlogic.com/",
+            name: "OpenLogic by Perforce",
+          },
+          {
+            href: "https://www.procomputers.com/",
+            name: "ProComputers.com",
+          },
+          {
+            href: "https://www.seagategov.com/",
+            name: "Seagate Federal",
           },
         ],
       },
