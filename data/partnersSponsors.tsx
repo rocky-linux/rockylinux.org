@@ -104,6 +104,14 @@ const partnerSponsorData = [
               "Arm is committed to ensuring its architecture is a first-class citizen from day one with Rocky Linux. We have partnered with the RESF, providing dedicated engineering efforts to complement Rocky Linux development and testing teams, working closely together to test, validate, and support ARM now and long into the future.",
           },
           {
+            href: "https://ciq.com",
+            src: "/images/sponsors-partners/ciq.png",
+            name: "CIQ",
+            description:
+              "We believe in helping people do great things. This is why CIQ is a founding partner of the RESF. We provide commercial support and services for Rocky Linux to customers in research, academia, government, enterprise, partners, and everyone in between.",
+            founding: true,
+          },
+          {
             href: "https://equinix.com",
             logo: <EquinixLogo />,
             name: "Equinix",
@@ -151,6 +159,16 @@ const partnerSponsorData = [
             name: "Supermicro",
             description:
               "As a global leader in high performance, high-efficiency server technology, and innovation Supermicro is excited to work with the RESF and deliver data center servers and storage systems optimized for Rocky Linux.",
+          },
+        ],
+        tierFour: [
+          {
+            href: "https://crowdin.com",
+            name: "Crowdin",
+          },
+          {
+            href: "https://ontrackinternetsolutions.com",
+            name: "OnTrack Internet Solutions",
           },
         ],
       },
