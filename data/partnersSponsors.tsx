@@ -33,6 +33,9 @@ const partnerSponsorData = [
             description:
               "We believe in helping people do great things. This is why CIQ is a founding sponsor of the RESF. We provide commercial support and services for Rocky Linux to customers in research, academia, government, enterprise, partners, and everyone in between.",
             founding: true,
+            supportProvider: true,
+            supportDescription:
+              "We believe in helping people do great things. This is why CIQ is a founding partner of the RESF. We provide commercial support and services for Rocky Linux to customers in research, academia, government, enterprise, partners, and everyone in between.",
           },
           {
             href: "https://cloud.google.com",
@@ -47,6 +50,9 @@ const partnerSponsorData = [
             name: "MontaVista",
             description:
               "MontaVista Software is the leader in embedded commercial LInux, supporting MontaVista CGX, Yocto Project®, CentOS and Rocky Linux. MontaVista offers Open Source Software expertise, commercial-quality Linux distros, cost-effective maintenance and support for 10+ year life-cycles.",
+            supportProvider: true,
+            supportDescription:
+              "MontaVista Software is the leader in embedded commercial LInux, supporting MontaVista CGX, Yocto Project®️, CentOS and Rocky Linux. MontaVista offers Open Source Software expertise, commercial-quality Linux distros, cost-effective maintenance and support for 10+ year life-cycles.",
           },
           {
             href: "https://opendrives.com",
@@ -74,6 +80,7 @@ const partnerSponsorData = [
           {
             href: "https://www.openlogic.com/",
             name: "OpenLogic by Perforce",
+            supportProvider: true,
           },
           {
             href: "https://www.procomputers.com/",
