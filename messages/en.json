@@ -25,7 +25,6 @@
         "partners": "Partners"
       },
       "resources": {
-        "docs": "Documentation",
         "gpgKeyInfo": "GPG Key Info"
       },
       "community": {
@@ -36,8 +35,9 @@
         "calendar": "Calendar"
       },
       "support": {
-        "supportProviders": "Commercial Support",
-        "submitBug": "Submit Bug"
+        "docs": "Documentation",
+        "submitBug": "Submit Bug",
+        "supportProviders": "Commercial Support"
       },
       "contribute": {
         "contribute": "Contributing Guide",

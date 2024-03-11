@@ -18,7 +18,6 @@ export default function Header() {
   const navigationTranslations: NavigationMenuItems = {
     newsName: tNav("newsName"),
     aboutName: tNav("aboutName"),
-    resourcesName: tNav("resourcesName"),
     communityName: tNav("communityName"),
     supportName: tNav("supportName"),
     contributeName: tNav("contributeName"),
@@ -29,10 +28,6 @@ export default function Header() {
       partners: tNav("about.partners"),
       sponsors: tNav("about.sponsors"),
     },
-    resources: {
-      docs: tNav("resources.docs"),
-      gpgKeyInfo: tNav("resources.gpgKeyInfo"),
-    },
     community: {
       forums: tNav("community.forums"),
       mailing: tNav("community.mailing"),
@@ -41,8 +36,9 @@ export default function Header() {
       calendar: tNav("community.calendar"),
     },
     support: {
-      supportProviders: tNav("support.supportProviders"),
+      docs: tNav("support.docs"),
       submitBug: tNav("support.submitBug"),
+      supportProviders: tNav("support.supportProviders"),
     },
     contribute: {
       contribute: tNav("contribute.contribute"),

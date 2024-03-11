@@ -45,16 +45,6 @@ const DesktopNavigation = ({ translations: t }: DesktopNavigationProps) => {
             href="/about/partners"
           />
         </NavList>
-        <NavList name={t.resourcesName}>
-          <NavListItem
-            title={t.resources.docs}
-            href="https://docs.rockylinux.org"
-          />
-          <NavListItem
-            title={t.resources.gpgKeyInfo}
-            href="/resources/gpg-key-info"
-          />
-        </NavList>
         <NavList name={t.communityName}>
           <NavListItem
             title={t.community.forums}
@@ -79,12 +69,16 @@ const DesktopNavigation = ({ translations: t }: DesktopNavigationProps) => {
         </NavList>
         <NavList name={t.supportName}>
           <NavListItem
-            title={t.support.supportProviders}
+            title={t.support.docs}
             href="/support/support-providers"
           />
           <NavListItem
             title={t.support.submitBug}
             href="https://bugs.rockylinux.org"
+          />
+          <NavListItem
+            title={t.support.supportProviders}
+            href="/support/support-providers"
           />
         </NavList>
         <NavList name={t.contributeName}>

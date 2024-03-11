@@ -1,7 +1,6 @@
 export interface NavigationMenuItems {
   newsName: string;
   aboutName: string;
-  resourcesName: string;
   communityName: string;
   supportName: string;
   contributeName: string;
@@ -12,10 +11,6 @@ export interface NavigationMenuItems {
     sponsors: string;
     partners: string;
   };
-  resources: {
-    docs: string;
-    gpgKeyInfo: string;
-  };
   community: {
     forums: string;
     mailing: string;
@@ -24,8 +19,9 @@ export interface NavigationMenuItems {
     calendar: string;
   };
   support: {
-    supportProviders: string;
+    docs: string;
     submitBug: string;
+    supportProviders: string;
   };
   contribute: {
     contribute: string;
