@@ -149,5 +149,9 @@
     "title": "Commercial Support",
     "description": "The following sponsors provide commercial support for Rocky Linux.",
     "foundingSponsor": "Founding Sponsor"
+  },
+  "shop": {
+    "title": "Official Merchandise",
+    "description": "Purchase some swag! All of our vendors ship globally."
   }
 }
