@@ -36,7 +36,7 @@
         "calendar": "Calendar"
       },
       "support": {
-        "supportProviders": "Support Providers",
+        "supportProviders": "Commercial Support",
         "submitBug": "Submit Bug"
       },
       "contribute": {
@@ -144,5 +144,10 @@
     "title": "Partners",
     "description": "The Rocky Linux project is proud to partner with the following organizations. We are grateful for their support and contributions to the project.",
     "foundingPartner": "Founding Partner"
+  },
+  "supportProviders": {
+    "title": "Commercial Support",
+    "description": "The following sponsors provide commercial support for Rocky Linux.",
+    "foundingSponsor": "Founding Sponsor"
   }
 }
