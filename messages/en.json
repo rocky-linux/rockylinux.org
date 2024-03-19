@@ -153,5 +153,53 @@
   "shop": {
     "title": "Official Merchandise",
     "description": "Purchase some swag! All of our vendors ship globally."
+  },
+  "download": {
+    "title": "Download",
+    "description": "Download the latest Rocky Linux versions here.",
+    "tabs": {
+      "x86_64": "AMD/Intel (x86_64)",
+      "aarch64": "ARM (aarch64)",
+      "ppc64le": "PowerPC (ppc64le)",
+      "s390x": "IBM Z (s390x)",
+      "shortened": {
+        "x86_64": "x86_64",
+        "aarch64": "aarch64",
+        "ppc64le": "ppc64le",
+        "s390x": "s390x"
+      }
+    },
+    "selectVersion": "Select a version:",
+    "plannedEol": "Planned EOL:",
+    "cards": {
+      "defaultImages": {
+        "title": "Default Images",
+        "tooltips": {
+          "dvd": "DVD: Seamless installation, everything you need is included.",
+          "boot": "Boot: Minimal image for a custom, internet-based installation.",
+          "minimal": "Minimal: Minimal, self-contained image for offline system setup.",
+          "buttonLabel": "View Installation Guide"
+        },
+        "downloadOptions": {
+          "dvd": "DVD ISO",
+          "boot": "Boot ISO",
+          "minimal": "Minimal ISO"
+        },
+        "torrent": "Torrent (DVD ISO)",
+        "checksum": "CHECKSUM",
+        "baseOs": "BaseOS Packages",
+        "archived": "Archived Releases",
+        "x86_64": {
+          "r9": {
+            "versionName": "Rocky Linux 9",
+            "plannedEol": "May 31 2032"
+          },
+          "r8": {
+            "versionName": "Rocky Linux 8",
+            "plannedEol": "May 31 2029"
+          }
+        }
+      }
+    }
   }
 }
