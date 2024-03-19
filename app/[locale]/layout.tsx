@@ -48,7 +48,7 @@ export default function RootLayout({
     <html lang={locale}>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased max-w-7xl mx-auto px-4 xl:px-0",
+          "min-h-screen bg-background font-sans antialiased mx-auto px-4 xl:px-0",
           fontSans.variable,
           fontDisplay.variable
         )}
@@ -57,7 +57,6 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange
         >
           <Header />
           <main>{children}</main>
