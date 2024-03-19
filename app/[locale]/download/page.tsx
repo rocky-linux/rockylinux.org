@@ -59,6 +59,7 @@ const DownloadPage = () => {
                         text: `${t("cards.defaultImages.tooltips.minimal")}`,
                       },
                     ]}
+                    titleTooltipButtonLink="https://docs.rockylinux.org/guides/installation/"
                     titleTooltipButtonLabel={t(
                       "cards.defaultImages.tooltips.buttonLabel"
                     )}
@@ -159,6 +160,7 @@ const DownloadPage = () => {
                         text: `${t("cards.defaultImages.tooltips.minimal")}`,
                       },
                     ]}
+                    titleTooltipButtonLink="https://docs.rockylinux.org/guides/installation/"
                     titleTooltipButtonLabel={t(
                       "cards.defaultImages.tooltips.buttonLabel"
                     )}
@@ -259,6 +261,7 @@ const DownloadPage = () => {
                         text: `${t("cards.defaultImages.tooltips.minimal")}`,
                       },
                     ]}
+                    titleTooltipButtonLink="https://docs.rockylinux.org/guides/installation/"
                     titleTooltipButtonLabel={t(
                       "cards.defaultImages.tooltips.buttonLabel"
                     )}
@@ -321,6 +324,7 @@ const DownloadPage = () => {
                         text: `${t("cards.defaultImages.tooltips.minimal")}`,
                       },
                     ]}
+                    titleTooltipButtonLink="https://docs.rockylinux.org/guides/installation/"
                     titleTooltipButtonLabel={t(
                       "cards.defaultImages.tooltips.buttonLabel"
                     )}

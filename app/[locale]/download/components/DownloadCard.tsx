@@ -10,6 +10,8 @@ import {
 import { QuestionMarkCircledIcon } from "@radix-ui/react-icons";
 import { Tabs } from "@/components/ui/tabs";
 import VersionPicker from "./VersionPicker";
+import Link from "next/link";
+import { Url } from "next/dist/shared/lib/router/router";
 
 interface DownloadOption {
   label: string;
@@ -38,7 +40,8 @@ interface DownloadCardProps {
   title: string;
   titleTooltip: boolean;
   titleTooltipText?: TooltipText[];
-  titleTooltipButtonLabel?: string;
+  titleTooltipButtonLabel: string;
+  titleTooltipButtonLink: Url;
   versions: VersionItem[];
 }
 
@@ -47,6 +50,7 @@ const DownloadCard: React.FC<DownloadCardProps> = ({
   titleTooltip,
   titleTooltipText,
   titleTooltipButtonLabel,
+  titleTooltipButtonLink,
   versions,
 }) => (
   <Card>
@@ -69,7 +73,9 @@ const DownloadCard: React.FC<DownloadCardProps> = ({
                   {line.text}
                 </p>
               ))}
-              <Button className="mt-2">{titleTooltipButtonLabel}</Button>
+              <Link href={titleTooltipButtonLink}>
+                <Button className="mt-2">{titleTooltipButtonLabel}</Button>
+              </Link>
             </HoverCardContent>
           </HoverCard>
         ) : (
