@@ -5,7 +5,8 @@
     "notFound": {
       "title": "Not Found",
       "description": "The page you are looking for does not exist. Please check the URL and try again."
-    }
+    },
+    "close": "Close"
   },
   "header": {
     "toggleTheme": "Toggle Theme",
@@ -198,6 +199,29 @@
             "versionName": "Rocky Linux 8",
             "plannedEol": "May 31 2029"
           }
+        }
+      },
+      "cloudImages": {
+        "title": "Cloud Images",
+        "genericCloud": "Generic Cloud",
+        "cloudProviders": {
+          "title": "Cloud Providers",
+          "aws": {
+            "name": "Amazon Web Services",
+            "drawerTitle": "AWS AMI Images",
+            "table": {
+              "version": "Version",
+              "region": "Region",
+              "architecture": "Architecture",
+              "imageId": "Image ID",
+              "deploy": "Deploy"
+            }
+          },
+          "googleCloud": "Google Cloud",
+          "azure": "Microsoft Azure"
+        },
+        "downloadOptions": {
+          "qcow2": "QCOW2 Image"
         }
       }
     }

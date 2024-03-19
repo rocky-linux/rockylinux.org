@@ -36,7 +36,7 @@ interface VersionItem {
   links: Links[];
 }
 
-interface DownloadCardProps {
+interface DefaultImageCardProps {
   title: string;
   titleTooltip: boolean;
   titleTooltipText?: TooltipText[];
@@ -45,7 +45,7 @@ interface DownloadCardProps {
   versions: VersionItem[];
 }
 
-const DownloadCard: React.FC<DownloadCardProps> = ({
+const DefaultImageCard: React.FC<DefaultImageCardProps> = ({
   title,
   titleTooltip,
   titleTooltipText,
@@ -91,4 +91,4 @@ const DownloadCard: React.FC<DownloadCardProps> = ({
   </Card>
 );
 
-export default DownloadCard;
+export default DefaultImageCard;

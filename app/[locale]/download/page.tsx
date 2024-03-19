@@ -1,7 +1,8 @@
 import { useTranslations } from "next-intl";
 import type { Metadata } from "next";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import DownloadCard from "./components/DownloadCard";
+import DefaultImageCard from "./components/DefaultImage/Card";
+import CloudImageCard from "./components/CloudImage/Card";
 
 export const metadata: Metadata = {
   title: "Download - Rocky Linux",
@@ -45,7 +46,7 @@ const DownloadPage = () => {
               </TabsList>
               <TabsContent value="x86_64">
                 <div className="grid gap-6 mt-4">
-                  <DownloadCard
+                  <DefaultImageCard
                     title={t("cards.defaultImages.title")}
                     titleTooltip={true}
                     titleTooltipText={[
@@ -142,11 +143,55 @@ const DownloadPage = () => {
                       },
                     ]}
                   />
+                  <CloudImageCard
+                    title={t("cards.cloudImages.title")}
+                    titleTooltip={false}
+                    titleTooltipButtonLink=""
+                    titleTooltipButtonLabel=""
+                    versions={[
+                      {
+                        versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
+                        versionId: "rocky-9",
+                        currentVersion: "v9.3",
+                        plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
+                        downloadOptions: [
+                          {
+                            label: `${t("cards.cloudImages.downloadOptions.qcow2")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/9/images/x86_64/Rocky-9-GenericCloud-Base.latest.x86_64.qcow2",
+                          },
+                        ],
+                        links: [
+                          {
+                            name: `${t("cards.defaultImages.checksum")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/9/images/x86_64/CHECKSUM",
+                          },
+                        ],
+                      },
+                      {
+                        versionName: `${t("cards.defaultImages.x86_64.r8.versionName")}`,
+                        versionId: "rocky-8",
+                        currentVersion: "v8.4",
+                        plannedEol: `${t("cards.defaultImages.x86_64.r8.plannedEol")}`,
+                        downloadOptions: [
+                          {
+                            label: `${t("cards.cloudImages.downloadOptions.qcow2")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/8/images/x86_64/Rocky-8-GenericCloud-Base.latest.x86_64.qcow2",
+                          },
+                        ],
+                        links: [
+                          {
+                            name: `${t("cards.defaultImages.checksum")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/8/images/CHECKSUM",
+                          },
+                        ],
+                      },
+                    ]}
+                  />
                 </div>
               </TabsContent>
               <TabsContent value="aarch64">
                 <div className="grid gap-6 mt-4">
-                  <DownloadCard
+                  <DefaultImageCard
                     title={t("cards.defaultImages.title")}
                     titleTooltip={true}
                     titleTooltipText={[
@@ -243,11 +288,55 @@ const DownloadPage = () => {
                       },
                     ]}
                   />
+                  <CloudImageCard
+                    title={t("cards.cloudImages.title")}
+                    titleTooltip={false}
+                    titleTooltipButtonLink=""
+                    titleTooltipButtonLabel=""
+                    versions={[
+                      {
+                        versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
+                        versionId: "rocky-9",
+                        currentVersion: "v9.3",
+                        plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
+                        downloadOptions: [
+                          {
+                            label: `${t("cards.cloudImages.downloadOptions.qcow2")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-GenericCloud-Base.latest.aarch64.qcow2",
+                          },
+                        ],
+                        links: [
+                          {
+                            name: `${t("cards.defaultImages.checksum")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/9/images/aarch64/CHECKSUM",
+                          },
+                        ],
+                      },
+                      {
+                        versionName: `${t("cards.defaultImages.x86_64.r8.versionName")}`,
+                        versionId: "rocky-8",
+                        currentVersion: "v8.4",
+                        plannedEol: `${t("cards.defaultImages.x86_64.r8.plannedEol")}`,
+                        downloadOptions: [
+                          {
+                            label: `${t("cards.cloudImages.downloadOptions.qcow2")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/8/images/aarch64/Rocky-8-GenericCloud-Base.latest.aarch64.qcow2",
+                          },
+                        ],
+                        links: [
+                          {
+                            name: `${t("cards.defaultImages.checksum")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/8/images/CHECKSUM",
+                          },
+                        ],
+                      },
+                    ]}
+                  />
                 </div>
               </TabsContent>
               <TabsContent value="ppc64le">
                 <div className="grid gap-6 mt-4">
-                  <DownloadCard
+                  <DefaultImageCard
                     title={t("cards.defaultImages.title")}
                     titleTooltip={true}
                     titleTooltipText={[
@@ -306,11 +395,37 @@ const DownloadPage = () => {
                       },
                     ]}
                   />
+                  <CloudImageCard
+                    title={t("cards.cloudImages.title")}
+                    titleTooltip={false}
+                    titleTooltipButtonLink=""
+                    titleTooltipButtonLabel=""
+                    versions={[
+                      {
+                        versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
+                        versionId: "rocky-9",
+                        currentVersion: "v9.3",
+                        plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
+                        downloadOptions: [
+                          {
+                            label: `${t("cards.cloudImages.downloadOptions.qcow2")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/9/images/ppc64le/Rocky-9-GenericCloud-Base.latest.ppc64le.qcow2",
+                          },
+                        ],
+                        links: [
+                          {
+                            name: `${t("cards.defaultImages.checksum")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/9/images/ppc64le/CHECKSUM",
+                          },
+                        ],
+                      },
+                    ]}
+                  />
                 </div>
               </TabsContent>
               <TabsContent value="s390x">
                 <div className="grid gap-6 mt-4">
-                  <DownloadCard
+                  <DefaultImageCard
                     title={t("cards.defaultImages.title")}
                     titleTooltip={true}
                     titleTooltipText={[
@@ -364,6 +479,32 @@ const DownloadPage = () => {
                           {
                             name: `${t("cards.defaultImages.archived")}`,
                             link: "https://dl.rockylinux.org/vault/rocky",
+                          },
+                        ],
+                      },
+                    ]}
+                  />
+                  <CloudImageCard
+                    title={t("cards.cloudImages.title")}
+                    titleTooltip={false}
+                    titleTooltipButtonLink=""
+                    titleTooltipButtonLabel=""
+                    versions={[
+                      {
+                        versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
+                        versionId: "rocky-9",
+                        currentVersion: "v9.3",
+                        plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
+                        downloadOptions: [
+                          {
+                            label: `${t("cards.cloudImages.downloadOptions.qcow2")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/9/images/s390x/Rocky-9-GenericCloud-Base.latest.s390x.qcow2",
+                          },
+                        ],
+                        links: [
+                          {
+                            name: `${t("cards.defaultImages.checksum")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/9/images/s390x/CHECKSUM",
                           },
                         ],
                       },
