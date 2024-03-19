@@ -50,7 +50,7 @@ export default function Header() {
   return (
     <header>
       <nav
-        className="mx-auto flex items-center justify-between py-6 px-2 lg:px-0"
+        className="max-w-7xl mx-auto flex items-center justify-between py-6 px-2 lg:px-0"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
