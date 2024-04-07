@@ -27,7 +27,7 @@ interface VersionItem {
   currentVersion: string;
   plannedEol: string;
   downloadOptions: DownloadOption[];
-  links: Links[];
+  links?: Links[];
 }
 
 interface DownloadCardProps {
@@ -88,7 +88,7 @@ const VersionPicker: React.FC<DownloadCardProps> = ({ versions }) => {
           </div>
           {/* Links */}
           <div className="mt-4 sm:flex grid grid-cols-2 sm:gap-4">
-            {version.links.map((link, index) => (
+            {version.links?.map((link, index) => (
               <a
                 key={index}
                 href={link.link}

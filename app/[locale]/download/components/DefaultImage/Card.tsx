@@ -33,7 +33,7 @@ interface VersionItem {
   currentVersion: string;
   plannedEol: string;
   downloadOptions: DownloadOption[];
-  links: Links[];
+  links?: Links[];
 }
 
 interface DefaultImageCardProps {

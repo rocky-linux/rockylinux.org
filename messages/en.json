@@ -163,11 +163,13 @@
       "aarch64": "ARM (aarch64)",
       "ppc64le": "PowerPC (ppc64le)",
       "s390x": "IBM Z (s390x)",
+      "container": "Docker (OCI)",
       "shortened": {
         "x86_64": "x86_64",
         "aarch64": "aarch64",
         "ppc64le": "ppc64le",
-        "s390x": "s390x"
+        "s390x": "s390x",
+        "container": "OCI"
       }
     },
     "selectVersion": "Select a version:",
@@ -207,7 +209,7 @@
         "cloudProviders": {
           "title": "Cloud Providers",
           "aws": {
-            "name": "Amazon Web Services",
+            "name": "AWS AMI",
             "drawerTitle": "AWS AMI Images",
             "table": {
               "version": "Version",
@@ -222,6 +224,13 @@
         },
         "downloadOptions": {
           "qcow2": "QCOW2 Image"
+        }
+      },
+      "container": {
+        "title": "Docker (OCI) Images",
+        "downloadOptions": {
+          "fullImage": "Full Image",
+          "minimalImage": "Minimal Image"
         }
       }
     }
