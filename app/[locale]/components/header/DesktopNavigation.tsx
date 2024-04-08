@@ -47,6 +47,10 @@ const DesktopNavigation = ({ translations: t }: DesktopNavigationProps) => {
         </NavList>
         <NavList name={t.communityName}>
           <NavListItem
+            title={t.community.coc}
+            href="/about/coc"
+          />
+          <NavListItem
             title={t.community.forums}
             href="https://forums.rockylinux.org"
           />

@@ -29,6 +29,7 @@
         "gpgKeyInfo": "GPG Key Info"
       },
       "community": {
+        "coc": "Code of Conduct",
         "forums": "Forums",
         "mailing": "Mailing Lists",
         "mattermost": "Mattermost",

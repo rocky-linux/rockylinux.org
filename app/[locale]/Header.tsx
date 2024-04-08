@@ -29,6 +29,7 @@ export default function Header() {
       sponsors: tNav("about.sponsors"),
     },
     community: {
+      coc: tNav("community.coc"),
       forums: tNav("community.forums"),
       mailing: tNav("community.mailing"),
       mattermost: tNav("community.mattermost"),

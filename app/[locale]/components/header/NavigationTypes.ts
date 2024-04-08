@@ -12,6 +12,7 @@ export interface NavigationMenuItems {
     partners: string;
   };
   community: {
+    coc: string;
     forums: string;
     mailing: string;
     mattermost: string;
