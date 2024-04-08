@@ -1,3 +1,4 @@
+import { SheetClose } from "@/components/ui/sheet";
 import Link from "next/link";
 
 export interface NavListItemProps {
@@ -7,12 +8,14 @@ export interface NavListItemProps {
 
 const NavListItem = ({ title, href }: NavListItemProps) => {
   return (
-    <Link
-      className="flex w-full items-center py-2 focus:text-primary hover:underline"
-      href={href}
-    >
-      {title}
-    </Link>
+    <SheetClose asChild>
+      <Link
+        className="flex w-full items-center py-2 focus:text-primary hover:underline"
+        href={href}
+      >
+        {title}
+      </Link>
+    </SheetClose>
   );
 };
 

@@ -1,6 +1,11 @@
 "use client";
 
-import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetTrigger,
+  SheetContent,
+  SheetClose,
+} from "@/components/ui/sheet";
 import { Accordion } from "@/components/ui/accordion";
 
 import { Button } from "@/components/ui/button";
@@ -137,7 +142,9 @@ const MobileNavigation = ({
           </Accordion>
           <div className="mt-auto">
             <a href="/download">
-              <Button className="p-5 w-full mt-4">{downloadSRText}</Button>
+              <SheetClose asChild>
+                <Button className="p-5 w-full mt-4">{downloadSRText}</Button>
+              </SheetClose>
             </a>
           </div>
         </SheetContent>
