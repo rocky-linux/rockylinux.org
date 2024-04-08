@@ -24,7 +24,7 @@ const Hero = () => {
               <a href="/download">
                 <Button className="p-5">{tGlobal("download")}</Button>
               </a>
-              <a href="#">
+              <a href="https://docs.rockylinux.org/guides/migrate2rocky/">
                 <Button
                   variant="secondary"
                   className="p-5"

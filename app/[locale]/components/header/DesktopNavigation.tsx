@@ -70,7 +70,7 @@ const DesktopNavigation = ({ translations: t }: DesktopNavigationProps) => {
         <NavList name={t.supportName}>
           <NavListItem
             title={t.support.docs}
-            href="/support/support-providers"
+            href="https://docs.rockylinux.org"
           />
           <NavListItem
             title={t.support.submitBug}
