@@ -1,6 +1,7 @@
 ---
 title: Rocky Linux 8.4 GA Available Now
 date: "2021-06-21"
+author: "Release Engineering Team"
 ---
 
 The Rocky Enterprise Software Foundation (RESF) is pleased to announce the General Availability of Rocky Linux 8.4 for the following architectures:

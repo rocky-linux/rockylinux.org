@@ -1,6 +1,7 @@
 ---
 title: Rocky Linux 8.3 RC1 Available Now
 date: "2021-04-30"
+author: "Release Engineering Team"
 ---
 
 The Rocky Enterprise Software Foundation (RESF) is pleased to announce the general availability of the Rocky Linux 8.3 Release Candidate 1 for x86_64 and aarch64 architectures.

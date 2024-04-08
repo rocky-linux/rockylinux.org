@@ -1,6 +1,7 @@
 ---
 title: Rocky Linux 8.7 Available Now
 date: "2022-11-14"
+author: "Release Engineering Team"
 ---
 
 We are pleased to announce the general availability of Rocky Linux 8.7. This release is currently available for the x86-64 and AArch64 architectures. Please review the release notes in the [Rocky Linux Documentation](https://docs.rockylinux.org/release_notes/8_7) - These notes contain important information including known bugs and more comprehensive details about changes in this version.

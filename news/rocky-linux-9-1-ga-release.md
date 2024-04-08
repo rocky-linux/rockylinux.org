@@ -1,6 +1,7 @@
 ---
 title: Rocky Linux 9.1 Available Now
 date: "2022-11-26"
+author: "Release Engineering Team"
 ---
 
 We are pleased to announce the general availability of Rocky Linux 9.1. This release is currently available for the x86-64, aarch64, ppc64le, and s390x architectures. Please review the release notes in the [Rocky Linux Documentation](https://docs.rockylinux.org/release_notes/9_1) - These notes contain important information including known bugs and more comprehensive details about changes in this version.

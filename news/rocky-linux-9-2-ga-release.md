@@ -1,6 +1,7 @@
 ---
 title: Rocky Linux 9.2 Available Now
 date: "2023-05-16"
+author: "Release Engineering Team"
 ---
 
 We are pleased to announce the general availability of Rocky Linux 9.2. This release is currently available for the x86-64, aarch64, and s390x architectures. Please review the release notes in the [Rocky Linux Documentation](https://docs.rockylinux.org/release_notes/9_2) - These notes contain important information including known bugs and more comprehensive details about changes in this version.

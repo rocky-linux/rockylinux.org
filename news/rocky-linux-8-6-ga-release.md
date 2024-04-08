@@ -1,6 +1,7 @@
 ---
 title: Rocky Linux 8.6 Available Now
 date: "2022-05-16"
+author: "Release Engineering Team"
 ---
 
 We are pleased to announce the general availability of Rocky Linux 8.6. This

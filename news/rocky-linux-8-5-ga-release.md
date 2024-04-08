@@ -1,6 +1,7 @@
 ---
 title: Rocky Linux 8.5 Available Now
 date: "2021-11-15"
+author: "Release Engineering Team"
 ---
 
 Hello everyone. I am pleased to announce the general availability of Rocky Linux 8.5. This release is for the x86_64 and aarch64 architectures and is derived from Red Hat Enterprise Linux 8.5.

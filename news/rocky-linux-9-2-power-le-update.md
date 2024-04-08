@@ -1,6 +1,7 @@
 ---
 title: Rocky Linux 9.2 for PowerPC (ppc64le) is now available
 date: "2023-05-30"
+author: "Release Engineering Team"
 ---
 
 After additional testing and thorough investigation into the

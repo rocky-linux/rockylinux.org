@@ -1,6 +1,7 @@
 ---
 title: "Special Interest Group Announcement - Security"
 date: "2023-10-04"
+author: "Security Special Interest Group"
 ---
 
 # Special Interest Group Announcement - Security

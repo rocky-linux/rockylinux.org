@@ -1,6 +1,7 @@
 ---
 title: Secure Boot Key Refresh - 2024
 date: "2024-04-05"
+author: "Neil Hanlon, Infrastructure Lead"
 ---
 
 ![Rocky Linux Secure Boot Update](/images/news/2024-04-05-secureboot-refresh-header.png)

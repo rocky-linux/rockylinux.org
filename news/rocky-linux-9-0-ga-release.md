@@ -1,6 +1,7 @@
 ---
 title: Rocky Linux 9.0 Available Now
 date: "2022-07-14"
+author: "Release Engineering Team"
 ---
 
 We are pleased to announce the general availability of Rocky Linux 9.0. Release notes are available in the [Rocky Linux Documentation](https://docs.rockylinux.org/release_notes/9_0/) - these notes contain important information including known bugs and comprehensive details about changes in this version.

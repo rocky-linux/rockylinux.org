@@ -1,6 +1,7 @@
 ---
 title: "RESF Names Theodore Ts'o to Board"
 date: "2023-07-03"
+author: "Rocky Enterprise Software Foundation Board"
 ---
 
 Theodore Ts’o has joined the Rocky Enterprise Software Foundation’s Board of Directors.

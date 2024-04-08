@@ -1,6 +1,7 @@
 ---
 title: Happy Birthday Rocky Linux
 date: "2023-12-08"
+author: "Krista Burdine, Community Team Lead"
 ---
 
 ## Reflections on Three Years of Growth

@@ -1,6 +1,7 @@
 ---
 title: 12 Days of Rockmas
 date: "2023-11-27"
+author: "Krista Burdine, Community Team Lead"
 ---
 
 Hey, it’s almost Rocky Linux's third birthday! We will celebrate by counting down the next 12 days with games, giveaways, and gatherings to appreciate our community. And YOU are invited to join us.

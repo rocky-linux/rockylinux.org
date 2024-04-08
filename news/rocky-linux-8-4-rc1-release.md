@@ -1,6 +1,7 @@
 ---
 title: Rocky Linux 8.4 RC1 Available Now
 date: "2021-06-04"
+author: "Release Engineering Team"
 ---
 
 The Rocky Enterprise Software Foundation (RESF) is pleased to announce the availability of the Rocky Linux 8.4 Release Candidate for:

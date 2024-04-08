@@ -1,6 +1,7 @@
 ---
 title: Community Update - December 2020
 date: "2020-12-23"
+author: "Rocky Enterprise Software Foundation"
 ---
 
 ## Summary

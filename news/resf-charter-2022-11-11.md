@@ -1,6 +1,7 @@
 ---
 title: Rocky Enterprise Software Foundation (RESF) Approves New Bylaws and Charter Designed to Ensure Open Community Control of Rocky Linux and Future RESF Projects
 date: "2022-11-11"
+author: "Rocky Enterprise Software Foundation"
 ---
 
 The Rocky Enterprise Software Foundation (RESF) today published its charter and bylaws, documenting the organization’s governing structure and rules for hosting open source projects, including its namesake project, [Rocky Linux](https://rockylinux.org/). The charter and bylaws also describe the RESF vision to create and nurture a community of individuals and organizations that are committed to ensuring the longevity, stewardship and innovation of enterprise-grade open source software that is always freely available.

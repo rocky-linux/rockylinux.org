@@ -1,6 +1,7 @@
 ---
 title: Community Update - December 2021 - Q4
 date: "2021-12-10"
+author: "Rocky Enterprise Software Foundation"
 ---
 
 ## Highlights

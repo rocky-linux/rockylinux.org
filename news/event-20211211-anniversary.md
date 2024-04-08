@@ -1,6 +1,7 @@
 ---
 title: Rocky Linux 1 Year Anniversary Party 🥳
 date: "2021-11-25"
+author: "Brian Clemens, Project Manager"
 ---
 
 It's hard to believe it's already been a year since the Rocky Linux project began! We're hosting an informal online party to mark the occasion. Come celebrate with us!

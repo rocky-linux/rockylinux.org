@@ -15,6 +15,7 @@ export type Props = {
 export type PostData = {
   title: string;
   date: string;
+  author?: string;
   contentHtml: string;
 };
 
@@ -49,9 +50,12 @@ export default async function Post({ params }: Props) {
         <p className="text-base font-semibold leading-7 text-primary text-center uppercase font-display">
           <Date dateString={postData.date} />
         </p>
-        <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl mb-12 text-center font-display">
+        <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl mb-2 text-center font-display">
           {postData.title}
         </h1>
+        <p className="text-base leading-7 text-center mb-12 italic">
+          {postData.author ? postData.author : "Rocky Linux Team"}
+        </p>
         <div
           className="prose dark:prose-invert prose-headings:font-display prose-a:text-primary prose-pre:bg-muted prose-pre:py-3 prose-pre:px-4 prose-pre:rounded prose-img:rounded-md max-w-none mb-12"
           dangerouslySetInnerHTML={{ __html: postData.contentHtml }}

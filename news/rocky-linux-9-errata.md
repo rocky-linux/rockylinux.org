@@ -1,6 +1,7 @@
 ---
 title: Errata for Rocky Linux 9 Available Now
 date: "2023-02-06"
+author: "Peridot Team"
 ---
 
 We are delighted to announce the release of Errata for Rocky Linux 9!
