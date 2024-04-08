@@ -227,6 +227,82 @@ const DownloadPage = () => {
                       },
                     ]}
                   />
+                  <DefaultImageCard
+                    title={t("cards.liveImages.title")}
+                    titleTooltip={false}
+                    titleTooltipButtonLink=""
+                    titleTooltipButtonLabel=""
+                    versions={[
+                      {
+                        versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
+                        versionId: "rocky-9",
+                        currentVersion: "v9.3",
+                        plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
+                        downloadOptions: [
+                          {
+                            label: `${t("cards.liveImages.downloadOptions.gnome")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-Workstation-x86_64-latest.iso",
+                          },
+                          {
+                            label: `${t("cards.liveImages.downloadOptions.gnomeLite")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-Workstation-Lite-x86_64-latest.iso",
+                          },
+                          {
+                            label: `${t("cards.liveImages.downloadOptions.kde")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-KDE-x86_64-latest.iso",
+                          },
+                          {
+                            label: `${t("cards.liveImages.downloadOptions.xfce")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-XFCE-x86_64-latest.iso",
+                          },
+                          {
+                            label: `${t("cards.liveImages.downloadOptions.mate")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-MATE-x86_64-latest.iso",
+                          },
+                          {
+                            label: `${t("cards.liveImages.downloadOptions.cinnamon")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-Cinnamon-x86_64-latest.iso",
+                          },
+                        ],
+                        links: [
+                          {
+                            name: `${t("cards.defaultImages.checksums")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/9/live/x86_64/",
+                          },
+                        ],
+                      },
+                      {
+                        versionName: `${t("cards.defaultImages.x86_64.r8.versionName")}`,
+                        versionId: "rocky-8",
+                        currentVersion: "v9.3",
+                        plannedEol: `${t("cards.defaultImages.x86_64.r8.plannedEol")}`,
+                        downloadOptions: [
+                          {
+                            label: `${t("cards.liveImages.downloadOptions.gnome")}`,
+                            link: "https://download.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-Workstation-8-x86_64-latest.iso",
+                          },
+                          {
+                            label: `${t("cards.liveImages.downloadOptions.gnomeLite")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-8-Workstation-Lite-x86_64-latest.iso",
+                          },
+                          {
+                            label: `${t("cards.liveImages.downloadOptions.xfce")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-8-XFCE-x86_64-latest.iso",
+                          },
+                          {
+                            label: `${t("cards.liveImages.downloadOptions.mate")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-8-MATE-x86_64-latest.iso",
+                          },
+                        ],
+                        links: [
+                          {
+                            name: `${t("cards.defaultImages.checksums")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/8/live/x86_64/",
+                          },
+                        ],
+                      },
+                    ]}
+                  />
                 </div>
               </TabsContent>
               <TabsContent value="aarch64">
@@ -407,6 +483,104 @@ const DownloadPage = () => {
                           {
                             label: `${t("cards.container.downloadOptions.minimalImage")}`,
                             link: "https://hub.docker.com/layers/library/rockylinux/8-minimal/images/sha256-46c797fad395827bf7d861a3c1c5b87c4e737ea1b6df13da58ee7a3478065bc5?context=explore",
+                          },
+                        ],
+                      },
+                    ]}
+                  />
+                  <DefaultImageCard
+                    title={t("cards.liveImages.title")}
+                    titleTooltip={false}
+                    titleTooltipButtonLink=""
+                    titleTooltipButtonLabel=""
+                    versions={[
+                      {
+                        versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
+                        versionId: "rocky-9",
+                        currentVersion: "v9.3",
+                        plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
+                        downloadOptions: [
+                          {
+                            label: `${t("cards.liveImages.downloadOptions.gnome")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-Workstation-aarch64-latest.iso",
+                          },
+                          {
+                            label: `${t("cards.liveImages.downloadOptions.gnomeLite")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-Workstation-Lite-aarch64-latest.iso",
+                          },
+                          {
+                            label: `${t("cards.liveImages.downloadOptions.kde")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-KDE-aarch64-latest.iso",
+                          },
+                          {
+                            label: `${t("cards.liveImages.downloadOptions.xfce")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-XFCE-aarch64-latest.iso",
+                          },
+                          {
+                            label: `${t("cards.liveImages.downloadOptions.mate")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-MATE-aarch64-latest.iso",
+                          },
+                          {
+                            label: `${t("cards.liveImages.downloadOptions.cinnamon")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-Cinnamon-aarch64-latest.iso",
+                          },
+                        ],
+                        links: [
+                          {
+                            name: `${t("cards.defaultImages.checksums")}`,
+                            link: "https://dl.rockylinux.org/pub/rocky/9/live/aarch64/",
+                          },
+                        ],
+                      },
+                    ]}
+                  />
+                  <DefaultImageCard
+                    title={t("cards.rpiImages.title")}
+                    titleTooltip={false}
+                    titleTooltipButtonLink=""
+                    titleTooltipButtonLabel=""
+                    versions={[
+                      {
+                        versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
+                        versionId: "rocky-9",
+                        currentVersion: "v9.3",
+                        plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
+                        downloadOptions: [
+                          {
+                            label: `${t("cards.rpiImages.download")}`,
+                            link: "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images/RockyLinuxRpi_9-latest.img.xz",
+                          },
+                        ],
+                        links: [
+                          {
+                            name: `${t("cards.defaultImages.checksum")}`,
+                            link: "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images/RockyLinuxRpi_9-latest.img.xz.sha256sum",
+                          },
+                          {
+                            name: `${t("cards.rpiImages.readMe")}`,
+                            link: "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images/README.txt",
+                          },
+                        ],
+                      },
+                      {
+                        versionName: `${t("cards.defaultImages.x86_64.r8.versionName")}`,
+                        versionId: "rocky-8",
+                        currentVersion: "v8.9",
+                        plannedEol: `${t("cards.defaultImages.x86_64.r8.plannedEol")}`,
+                        downloadOptions: [
+                          {
+                            label: `${t("cards.rpiImages.download")}`,
+                            link: "https://dl.rockylinux.org/pub/sig/8/altarch/aarch64/images/RockyLinuxRpi_8-latest.img.xz",
+                          },
+                        ],
+                        links: [
+                          {
+                            name: `${t("cards.defaultImages.checksum")}`,
+                            link: "https://dl.rockylinux.org/pub/sig/8/altarch/aarch64/images/RockyLinuxRpi_8-latest.img.xz.sha256sum",
+                          },
+                          {
+                            name: `${t("cards.rpiImages.readMe")}`,
+                            link: "https://dl.rockylinux.org/pub/sig/8/altarch/aarch64/images/README.txt",
                           },
                         ],
                       },
@@ -641,6 +815,21 @@ const DownloadPage = () => {
                 </div>
               </TabsContent>
             </Tabs>
+          </div>
+          <hr className="my-8" />
+          <div>
+            <h1 className="text-xl font-bold font-display tracking-tight sm:text-2xl">
+              {t("getInvolved.title")}
+            </h1>
+            <p className="mt-2 text-base">{t("getInvolved.text")}</p>
+          </div>
+          <hr className="my-8" />
+          <div className="mt-6">
+            <h1 className="text-lg font-bold font-display tracking-tight sm:text-xl">
+              {t("exportCompliance.title")}
+            </h1>
+            <p className="mt-2 text-sm">{t("exportCompliance.text1")}</p>
+            <p className="mt-1 text-sm">{t("exportCompliance.text2")}</p>
           </div>
         </div>
       </div>
