@@ -5,6 +5,7 @@ function AccessibilityWidget() {
     <Script
       src="/sienna.min.js"
       strategy="afterInteractive"
+      defer
     />
   );
 }
