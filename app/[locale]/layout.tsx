@@ -13,6 +13,7 @@ import Footer from "./Footer";
 
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import AccessibilityWidget from "@/components/AccessibilityWidget";
 
 type RootLayoutProps = {
   children: ReactNode;
@@ -62,6 +63,7 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
         </ThemeProvider>
+        <AccessibilityWidget />
       </body>
     </html>
   );
