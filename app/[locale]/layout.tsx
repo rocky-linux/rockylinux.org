@@ -57,6 +57,7 @@ export default function RootLayout({
           trackFileDownloads
           taggedEvents
           scriptProps={{
+            // @ts-expect-error missing types
             "data-api": "https://img.resf.workers.dev/img/event",
           }}
         />
