@@ -53,9 +53,9 @@ export default function RootLayout({
         <PlausibleProvider
           domain="rockylinux.org"
           customDomain="https://img.resf.workers.dev"
-          trackOutboundLinks="true"
-          trackFileDownloads="true"
-          taggedEvents="true"
+          trackOutboundLinks
+          trackFileDownloads
+          taggedEvents
           scriptProps={{
             "data-api": "https://img.resf.workers.dev/img/event",
           }}
