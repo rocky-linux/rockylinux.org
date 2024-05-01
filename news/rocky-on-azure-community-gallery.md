@@ -1,8 +1,8 @@
 ---
 title: Rocky Linux included in new Azure Community Galleries Feature
-date: '2024-04-23'
-description: 'Downloading Rocky Linux from Azure community galleries has been more accessible since November 2023, with prebuilt images for x86_64 and aarch64 accompanying the version 8.9 and 9.3 release.'
-posttype: 'news'
+date: "2024-04-23"
+description: "Downloading Rocky Linux from Azure community galleries has been more accessible since November 2023, with prebuilt images for x86_64 and aarch64 accompanying the version 8.9 and 9.3 release."
+posttype: "news"
 author: Neil Hanlon, Infrastructure Lead
 ---
 
@@ -30,29 +30,29 @@ Getting started with Rocky on Azure has never been easier–in just a few steps 
 
     Search for “Community Images” in the top bar and navigate to the Service
 
-    ![](../images/rocky-azure-1.png)
+    ![](../images/news/rocky-azure-1.png)
 
     Once here, search for the Rocky Linux images using the gallery name “rocky-dc1c6aa6-905b-4d9c-9577-63ccc28c482a”.
 
-    ![](../images/rocky-azure-2.png)
+    ![](../images/news/rocky-azure-2.png)
 
 3.  Select the image suiting your needs
 
     Rocky offers both Base and LVM-enabled images for both 8 and 9, depending on your preference. In both cases, the root partition is the last partition allowing for ease of expansion using growpart and/or LVM utilities.
 
-    ![](../images/rocky-azure-3.png)
+    ![](../images/news/rocky-azure-3.png)
 
 4.  Configure the the Virtual Machine deployment
 
     Click the “Create VM” link on the image you wish to use to begin the deployment process. The portal will prompt you for information like the name, resource group, authentication details, and more.
 
-    ![](../images/rocky-azure-4.png)
+    ![](../images/news/rocky-azure-4.png)
 
 5.  Review and start deployment
 
     Once satisfied with the configuration options, proceed to the Review + Create button to double check your settings and begin the deployment by clicking “Create”
 
-    ![](../images/rocky-azure-5.png)
+    ![](../images/news/rocky-azure-5.png)
 
 Of course, you can also deploy these images using the command line, API, or your favorite Infrastructure-as-Code tool. Keep an eye out for a future blog post detailing how to get started with automated cloud deployments.
 
