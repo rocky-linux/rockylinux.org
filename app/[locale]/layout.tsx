@@ -15,6 +15,8 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import AccessibilityWidget from "@/components/AccessibilityWidget";
 
+import PlausibleProvider from "next-plausible";
+
 type RootLayoutProps = {
   children: ReactNode;
   params: { locale: string };
@@ -47,6 +49,19 @@ export default function RootLayout({
 
   return (
     <html lang={locale}>
+      <head>
+        <PlausibleProvider
+          domain="rockylinux.org"
+          customDomain="https://img.resf.workers.dev"
+          trackOutboundLinks
+          trackFileDownloads
+          taggedEvents
+          scriptProps={{
+            // @ts-expect-error missing types
+            "data-api": "https://img.resf.workers.dev/img/event",
+          }}
+        />
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased mx-auto px-4 xl:px-0",
