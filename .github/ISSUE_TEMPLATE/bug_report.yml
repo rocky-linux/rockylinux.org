@@ -46,6 +46,17 @@ body:
     validations:
       required: true
 
+  - type: dropdown
+    id: browser
+    attributes:
+      label: "Browser"
+      options:
+        - Blink (Chromium)
+        - Gecko (Firefox)
+        - WebKit (Safari)
+    validations:
+      required: true
+
   - type: input
     id: os
     attributes:
