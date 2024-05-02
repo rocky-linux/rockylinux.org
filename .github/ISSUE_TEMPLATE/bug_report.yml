@@ -1,9 +1,3 @@
-name: Bug Report
-description: Create a report to help us improve the website.
-title: "[BUG] "
-labels: ["type: bug"]
-assignees: []
-
 body:
   - type: markdown
     attributes:
@@ -19,7 +13,6 @@ body:
         2. Click on '...'
         3. Scroll down to '...'
         4. See error
-      value: ""
     validations:
       required: true
 
