@@ -6,7 +6,7 @@ export async function GET() {
     title: "Rocky Linux RSS Feed",
     description: "Get all the latest news from the Rocky Linux project.",
     site_url: "https://rockylinux.org",
-    feed_url: `https://rockylinux.org/feed.xml`,
+    feed_url: `https://rockylinux.org/rss.xml`,
     copyright: `${new Date().getFullYear()} Rocky Enterprise Software Foundation`,
     language: "en",
     pubDate: new Date(),
