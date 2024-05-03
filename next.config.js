@@ -19,6 +19,11 @@ const nextConfig = {
         destination: "/download",
         permanent: true,
       },
+      {
+        source: "/trademark",
+        destination: "/legal/trademarks",
+        permanent: true,
+      },
     ];
   },
 };
