@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { expectDownloadPage } from "./utils/PageUtils";
 
 test.describe("Core Rocky Brand", () => {
   test("has title", async ({ page }) => {
@@ -9,13 +10,8 @@ test.describe("Core Rocky Brand", () => {
   });
 });
 
-test.describe("Downloads Flow", () => {
-  test("has two download buttons on desktop", async ({ page, isMobile }) => {
-    const verifyDownloadPage = async () => {
-      await expect(page).toHaveURL(/\/download/);
-      await expect(page).toHaveTitle(/Download - Rocky Linux/);
-    };
-
+test.describe("Home Page Downloads Flow", () => {
+  test("has download buttons", async ({ page, isMobile }) => {
     await page.goto("/");
 
     // Check that we have a download button in the navigation on desktop.
@@ -28,7 +24,7 @@ test.describe("Downloads Flow", () => {
 
       await navDownloadButton.click();
 
-      await verifyDownloadPage();
+      await expectDownloadPage(page);
 
       await page.goBack();
     }
@@ -43,6 +39,6 @@ test.describe("Downloads Flow", () => {
 
     await heroDownloadButton.click();
 
-    await verifyDownloadPage();
+    await expectDownloadPage(page);
   });
 });
