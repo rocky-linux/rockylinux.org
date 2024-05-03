@@ -53,7 +53,7 @@ const SponsorsPage = () => {
                     ) : (
                       <Image
                         alt={sponsor.name}
-                        className="h-32 w-fit p-10 object-fit pointer-events-none"
+                        className="h-32 w-auto p-10 object-fit pointer-events-none"
                         height={1000}
                         src={sponsor.src || ""}
                         width={1000}
