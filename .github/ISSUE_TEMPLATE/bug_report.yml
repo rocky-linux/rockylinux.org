@@ -41,8 +41,9 @@ body:
     attributes:
       label: "Device"
       options:
-        - Desktop
+        - Desktop/Laptop
         - Smartphone
+        - Tablet
     validations:
       required: true
 
