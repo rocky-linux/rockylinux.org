@@ -10,7 +10,6 @@ test.describe("Website Redirects", () => {
 
     await expectDownloadPage(page);
   });
-  // /trademark redirects to /legal/trademarks
   test("redirects old /trademark to /legal/trademarks", async ({ page }) => {
     await page.goto("/trademark");
 
