@@ -13,6 +13,9 @@ const config = {
     "^@/(.*)$": "<rootDir>/$1",
     "^test-utils": "<rootDir>/@types/test-utils/test-utils.tsx",
   },
+  testPathIgnorePatterns: ["<rootDir>/e2e/"],
+  modulePathIgnorePatterns: ["<rootDir>/e2e/"],
+  passWithNoTests: true,
   collectCoverageFrom: [
     "**/*.{ts,tsx}",
     "!**/*.d.ts",
@@ -28,6 +31,7 @@ const config = {
     "!<rootDir>/tailwind.config.ts",
     "!**/postcss.config.js",
     "!**/layout.{ts,tsx,js,jsx}",
+    "!<rootDir>/e2e/**",
     "!<rootDir>/i18n.ts",
     "!<rootDir>/middleware.ts",
   ],
