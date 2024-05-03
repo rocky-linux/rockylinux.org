@@ -67,6 +67,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@playwright/test": "^1.43.1",
     "@storybook/addon-a11y": "^7.6.13",
     "@storybook/addon-actions": "^7.6.13",
     "@storybook/addon-docs": "^7.6.13",

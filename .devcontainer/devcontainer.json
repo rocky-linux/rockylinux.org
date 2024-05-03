@@ -39,6 +39,7 @@
         "austenc.tailwind-docs",
         "eamodio.gitlens",
         "unifiedjs.vscode-mdx",
+        "ms-playwright.playwright",
         "github.copilot"
       ]
     }
