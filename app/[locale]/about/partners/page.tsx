@@ -5,7 +5,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Partners - Rocky Linux",
@@ -50,7 +49,7 @@ const PartnersPage = () => {
                     ) : (
                       <Image
                         alt={partner.name}
-                        className="h-32 w-fit p-10 object-fit pointer-events-none"
+                        className="h-32 w-auto p-10 object-fit pointer-events-none"
                         height={1000}
                         src={partner.src || ""}
                         width={1000}
