@@ -1,3 +1,5 @@
+// noinspection HtmlRequiredTitleElement
+
 import { availableLanguages } from "@/config/i18nProperties";
 import { notFound } from "next/navigation";
 import "./globals.css";
@@ -13,7 +15,6 @@ import Footer from "./Footer";
 
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import AccessibilityWidget from "@/components/AccessibilityWidget";
 
 import PlausibleProvider from "next-plausible";
 
@@ -29,6 +30,11 @@ export const metadata: Metadata = {
   },
   description:
     "Rocky Linux is an open enterprise Operating System designed to be 100% bug-for-bug compatible with Enterprise Linux.",
+  alternates: {
+    types: {
+      "application/rss+xml": "https://rockylinux.org/rss.xml",
+    },
+  },
 };
 
 const fontSans = FontSans({
@@ -78,7 +84,6 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
         </ThemeProvider>
-        <AccessibilityWidget />
       </body>
     </html>
   );
