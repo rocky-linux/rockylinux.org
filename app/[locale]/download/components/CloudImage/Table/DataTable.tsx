@@ -36,10 +36,8 @@ interface DataTableProps<TData, TValue> {
 }
 
 const fuzzyFilter: FilterFn<any> = (row, columnId, value, addMeta) => {
-  // Rank the item
   const itemRank = rankItem(row.getValue(columnId), value);
 
-  // Store the itemRank info
   addMeta({
     itemRank,
   });
@@ -82,12 +80,17 @@ export function DataTable<TData, TValue>({
   });
 
   React.useEffect(() => {
-    if (table.getState().columnFilters[0]?.id === "fullName") {
-      if (table.getState().sorting[0]?.id !== "fullName") {
-        table.setSorting([{ id: "fullName", desc: false }]);
-      }
+    const columnFilters = table.getState().columnFilters[0];
+    const sorting = table.getState().sorting[0];
+
+    if (columnFilters?.id === "fullName" && sorting?.id !== "fullName") {
+      table.setSorting([{ id: "fullName", desc: false }]);
     }
-  }, [table.getState().columnFilters[0]?.id]);
+  }, [table]);
+
+  const noResultsText = "No results.";
+  const previousText = "Previous";
+  const nextText = "Next";
 
   return (
     <div>
@@ -142,7 +145,7 @@ export function DataTable<TData, TValue>({
                   colSpan={columns.length}
                   className="h-24 text-center"
                 >
-                  No results.
+                  {noResultsText}
                 </TableCell>
               </TableRow>
             )}
@@ -155,7 +158,7 @@ export function DataTable<TData, TValue>({
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
           >
-            Previous
+            {previousText}
           </Button>
           <Button
             variant="outline"
@@ -163,7 +166,7 @@ export function DataTable<TData, TValue>({
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
           >
-            Next
+            {nextText}
           </Button>
         </div>
       </div>
