@@ -33,7 +33,3 @@ Note: The Rocky Linux operating system includes a number of pre-existing softwar
 ### Website Content
 
 All content on this website (rockylinux.org) is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1).
-
-```
-
-```
