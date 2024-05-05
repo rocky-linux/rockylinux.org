@@ -10,6 +10,11 @@ test.describe("Website Redirects", () => {
 
     await expectDownloadPage(page);
   });
+  test("redirects old /alternative-images to /download", async ({ page }) => {
+    await page.goto("/alternative-images");
+
+    await expectDownloadPage(page);
+  });
   test("redirects old /trademark to /legal/trademarks", async ({ page }) => {
     await page.goto("/trademark");
 

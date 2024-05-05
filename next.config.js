@@ -20,6 +20,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/alternative-images",
+        destination: "/download",
+        permanent: true,
+      },
+      {
         source: "/trademark",
         destination: "/legal/trademarks",
         permanent: true,
