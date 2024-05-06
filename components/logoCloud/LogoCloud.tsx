@@ -16,9 +16,18 @@ const LogoCloud = async () => {
     new Map(allSponsorsAndPartners.map((item) => [item.name, item])).values()
   );
 
-  const sortedSponsorsAndPartners = uniqueSponsorsAndPartners.sort((a, b) =>
-    a.name.localeCompare(b.name)
-  );
+  const sortedSponsorsAndPartners = uniqueSponsorsAndPartners.sort((a, b) => {
+    const aIsFounding = a.founding;
+    const bIsFounding = b.founding;
+
+    if (aIsFounding && !bIsFounding) {
+      return -1;
+    } else if (!aIsFounding && bIsFounding) {
+      return 1;
+    } else {
+      return a.name.localeCompare(b.name);
+    }
+  });
 
   return (
     <div className="py-12 sm:py-24">

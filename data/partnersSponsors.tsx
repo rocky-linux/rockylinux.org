@@ -13,6 +13,17 @@ const partnerSponsorData = [
       {
         tierOne: [
           {
+            href: "https://ciq.com/products/rocky-linux/",
+            src: "/images/sponsors-partners/ciq.png",
+            name: "CIQ",
+            description:
+              "We believe in helping people do great things. This is why CIQ is a founding sponsor of the RESF. We provide commercial support and services for Rocky Linux to customers in research, academia, government, enterprise, partners, and everyone in between.",
+            founding: true,
+            supportProvider: true,
+            supportDescription:
+              "We believe in helping people do great things. This is why CIQ is a founding partner of the RESF. We provide commercial support and services for Rocky Linux to customers in research, academia, government, enterprise, partners, and everyone in between.",
+          },
+          {
             href: "https://45drives.com",
             logo: <FortyFiveDrivesLogo />,
             name: "45 Drives",
@@ -25,17 +36,6 @@ const partnerSponsorData = [
             name: "AWS",
             description:
               "The RESF utilizes AWS to run much of the underlying infrastructure critical to the development and deployment of the services supporting Rocky Linux. From Koji builders for x86_64 and aarch64 running in EC2 to SRPM blob storage in S3, AWS is foundational to much of what we do.",
-          },
-          {
-            href: "https://ciq.com",
-            src: "/images/sponsors-partners/ciq.png",
-            name: "CIQ",
-            description:
-              "We believe in helping people do great things. This is why CIQ is a founding sponsor of the RESF. We provide commercial support and services for Rocky Linux to customers in research, academia, government, enterprise, partners, and everyone in between.",
-            founding: true,
-            supportProvider: true,
-            supportDescription:
-              "We believe in helping people do great things. This is why CIQ is a founding partner of the RESF. We provide commercial support and services for Rocky Linux to customers in research, academia, government, enterprise, partners, and everyone in between.",
           },
           {
             href: "https://cloud.google.com",
@@ -97,6 +97,14 @@ const partnerSponsorData = [
       {
         tierOne: [
           {
+            href: "https://ciq.com/products/rocky-linux/",
+            src: "/images/sponsors-partners/ciq.png",
+            name: "CIQ",
+            description:
+              "We believe in helping people do great things. This is why CIQ is a founding partner of the RESF. We provide commercial support and services for Rocky Linux to customers in research, academia, government, enterprise, partners, and everyone in between.",
+            founding: true,
+          },
+          {
             href: "https://advancedclustering.com/",
             logo: <ActLogo />,
             name: "Advanced Clustering Technologies",
@@ -109,14 +117,6 @@ const partnerSponsorData = [
             name: "ARM",
             description:
               "Arm is committed to ensuring its architecture is a first-class citizen from day one with Rocky Linux. We have partnered with the RESF, providing dedicated engineering efforts to complement Rocky Linux development and testing teams, working closely together to test, validate, and support ARM now and long into the future.",
-          },
-          {
-            href: "https://ciq.com",
-            src: "/images/sponsors-partners/ciq.png",
-            name: "CIQ",
-            description:
-              "We believe in helping people do great things. This is why CIQ is a founding partner of the RESF. We provide commercial support and services for Rocky Linux to customers in research, academia, government, enterprise, partners, and everyone in between.",
-            founding: true,
           },
           {
             href: "https://equinix.com",
