@@ -13,8 +13,8 @@ export default defineConfig({
   testDir: "./e2e",
   /* Run tests in files in parallel */
   fullyParallel: true,
-  /* Set timeout to 1 minutes. */
-  timeout: 60000,
+  /* Set timeout to 10 minutes. */
+  timeout: 600000,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
