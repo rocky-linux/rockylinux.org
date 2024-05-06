@@ -25,3 +25,11 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 Note: The Rocky Linux operating system includes a number of pre-existing software components, each of which is governed by its own open source license and is made available to you under the terms of such applicable license. You are responsible for reviewing and complying with the terms of the licenses for those applicable software components. To obtain a list of applicable components and their corresponding software licenses, run the command:
 
 `rpm -qa --qf '%{NAME} - %{LICENSE}\n'`
+
+---
+
+## Additional Licenses
+
+### Website Content
+
+All content on this website (rockylinux.org) is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1).

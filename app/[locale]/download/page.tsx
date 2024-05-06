@@ -279,7 +279,7 @@ const DownloadPage = () => {
                         downloadOptions: [
                           {
                             label: `${t("cards.liveImages.downloadOptions.gnome")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-Workstation-8-x86_64-latest.iso",
+                            link: "https://dl.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-8-Workstation-x86_64-latest.iso",
                           },
                           {
                             label: `${t("cards.liveImages.downloadOptions.gnomeLite")}`,
