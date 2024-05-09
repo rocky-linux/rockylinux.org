@@ -47,7 +47,7 @@ export default async function Page({ params }: Props) {
           {pageData.title}
         </h1>
         <div
-          className="prose dark:prose-invert prose-headings:font-display prose-a:text-primary prose-pre:bg-muted prose-pre:py-3 prose-pre:px-4 prose-pre:rounded prose-img:rounded-md max-w-none mb-12"
+          className="prose dark:prose-invert prose-headings:font-display prose-a:text-primary prose-pre:bg-muted prose-pre:py-3 prose-pre:px-4 prose-pre:rounded prose-pre:text-black dark:prose-pre:text-white prose-img:rounded-md max-w-none mb-12"
           dangerouslySetInnerHTML={{ __html: pageData.contentHtml }}
         />
       </div>
