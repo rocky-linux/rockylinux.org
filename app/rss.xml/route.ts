@@ -18,6 +18,7 @@ export async function GET() {
     feed.item({
       title: post.title,
       description: post.excerpt,
+      custom_elements: [{ "content:encoded": post.contentHtml }],
       url: `https://rockylinux.org/news/${post.slug}`,
       date: new Date(post.date),
     });
