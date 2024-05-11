@@ -4,8 +4,6 @@ import path from "path";
 import matter from "gray-matter";
 import { processMarkdownAsHTML } from "@/utils/remarkUtils";
 
-import { Post } from "@/lib/types";
-
 const postsDirectory = path.join(process.cwd(), "news");
 
 export async function checkIfSlugIsValid(slug: string) {
@@ -24,7 +22,17 @@ export async function checkIfSlugIsValid(slug: string) {
   }
 }
 
-export async function getSortedPostsData(numPosts?: number): Promise<Post[]> {
+export async function getSortedPostsData(
+  numPosts?: number
+): Promise<
+  {
+    slug: string;
+    excerpt: string;
+    contentHtml: string;
+    date: string;
+    title: string;
+  }[]
+> {
   const fileNames = await fs.promises.readdir(postsDirectory);
 
   const allPostsData = await Promise.all(
@@ -37,13 +45,13 @@ export async function getSortedPostsData(numPosts?: number): Promise<Post[]> {
       const matterResult = matter(fileContents);
 
       const contentHtml = await processMarkdownAsHTML(matterResult.content);
-
       const plainText = contentHtml.replace(/<[^>]*>/g, "");
       const excerpt = plainText.substring(0, 200) + "...";
 
       return {
         slug,
-        excerpt,
+        excerpt, // Include both excerpt and full content
+        contentHtml,
         ...(matterResult.data as { date: string; title: string }),
       };
     })

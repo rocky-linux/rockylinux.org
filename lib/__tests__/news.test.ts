@@ -71,18 +71,20 @@ describe("News Library", () => {
   });
 
   describe("getSortedPostsData", () => {
-    it("should return an array of sorted post data", async () => {
+    it("should return an array of sorted post data with excerpt and contentHtml", async () => {
       const sortedPosts = await newsLib.getSortedPostsData();
       expect(sortedPosts).toStrictEqual([
         {
           slug: "post2",
           excerpt: "Mocked HTML content...",
+          contentHtml: "<p>Mocked HTML content</p>",
           date: "2022-01-02",
           title: "Post 2",
         },
         {
           slug: "post1",
           excerpt: "Mocked HTML content...",
+          contentHtml: "<p>Mocked HTML content</p>",
           date: "2022-01-01",
           title: "Post 1",
         },
