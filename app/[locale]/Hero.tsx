@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import DpgLogo from "@/components/otherLogosIcons/DpgLogo";
 
 import { Button } from "@/components/ui/button";
+import React from "react";
 
 const Hero = () => {
   const t = useTranslations("home.hero");
@@ -33,6 +35,8 @@ const Hero = () => {
                 </Button>
               </a>
             </div>
+            <DpgLogo />
+            <p className="text-md font-display mt-2">{t("dpg")}</p>
           </div>
           <div className="mt-16 flow-root sm:mt-24">
             <div className="-m-2 rounded-xl bg-slate-900/5 dark:bg-slate-100/5 p-2 ring-1 ring-inset ring-slate-900/10 dark:ring-slate-100/10 lg:-m-4 lg:rounded-2xl lg:p-4">
