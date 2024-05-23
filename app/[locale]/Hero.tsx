@@ -35,8 +35,13 @@ const Hero = () => {
                 </Button>
               </a>
             </div>
-            <DpgLogo />
-            <p className="text-md font-display mt-2">{t("dpg")}</p>
+            <a
+              href="https://digitalpublicgoods.net/"
+              target="_blank"
+            >
+              <DpgLogo />
+              <p className="text-md font-display mt-2">{t("dpg")}</p>
+            </a>
           </div>
           <div className="mt-16 flow-root sm:mt-24">
             <div className="-m-2 rounded-xl bg-slate-900/5 dark:bg-slate-100/5 p-2 ring-1 ring-inset ring-slate-900/10 dark:ring-slate-100/10 lg:-m-4 lg:rounded-2xl lg:p-4">
