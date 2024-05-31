@@ -106,26 +106,26 @@ const DownloadPage = () => {
                       {
                         versionName: `${t("cards.defaultImages.x86_64.r8.versionName")}`,
                         versionId: "rocky-8",
-                        currentVersion: "v8.9",
+                        currentVersion: "v8.10",
                         plannedEol: `${t("cards.defaultImages.x86_64.r8.plannedEol")}`,
                         downloadOptions: [
                           {
                             label: `${t("cards.defaultImages.downloadOptions.dvd")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.9-x86_64-dvd1.iso",
+                            link: "https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.10-x86_64-dvd1.iso",
                           },
                           {
                             label: `${t("cards.defaultImages.downloadOptions.boot")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.9-x86_64-boot.iso",
+                            link: "https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.10-x86_64-boot.iso",
                           },
                           {
                             label: `${t("cards.defaultImages.downloadOptions.minimal")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.9-x86_64-minimal.iso",
+                            link: "https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.10-x86_64-minimal.iso",
                           },
                         ],
                         links: [
                           {
                             name: `${t("cards.defaultImages.torrent")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.9-x86_64-dvd1.torrent",
+                            link: "https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.10-x86_64-dvd1.torrent",
                           },
                           {
                             name: `${t("cards.defaultImages.checksum")}`,
@@ -170,7 +170,7 @@ const DownloadPage = () => {
                       {
                         versionName: `${t("cards.defaultImages.x86_64.r8.versionName")}`,
                         versionId: "rocky-8",
-                        currentVersion: "v8.9",
+                        currentVersion: "v8.10",
                         plannedEol: `${t("cards.defaultImages.x86_64.r8.plannedEol")}`,
                         downloadOptions: [
                           {
@@ -212,7 +212,7 @@ const DownloadPage = () => {
                       {
                         versionName: `${t("cards.defaultImages.x86_64.r8.versionName")}`,
                         versionId: "rocky-8",
-                        currentVersion: "v8.9",
+                        currentVersion: "v8.10",
                         plannedEol: `${t("cards.defaultImages.x86_64.r8.plannedEol")}`,
                         downloadOptions: [
                           {
@@ -274,7 +274,7 @@ const DownloadPage = () => {
                       {
                         versionName: `${t("cards.defaultImages.x86_64.r8.versionName")}`,
                         versionId: "rocky-8",
-                        currentVersion: "v8.9",
+                        currentVersion: "v8.10",
                         plannedEol: `${t("cards.defaultImages.x86_64.r8.plannedEol")}`,
                         downloadOptions: [
                           {
@@ -367,26 +367,26 @@ const DownloadPage = () => {
                       {
                         versionName: `${t("cards.defaultImages.x86_64.r8.versionName")}`,
                         versionId: "rocky-8",
-                        currentVersion: "v8.9",
+                        currentVersion: "v8.10",
                         plannedEol: `${t("cards.defaultImages.x86_64.r8.plannedEol")}`,
                         downloadOptions: [
                           {
                             label: `${t("cards.defaultImages.downloadOptions.dvd")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.9-aarch64-dvd1.iso",
+                            link: "https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.10-aarch64-dvd1.iso",
                           },
                           {
                             label: `${t("cards.defaultImages.downloadOptions.boot")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.9-aarch64-boot.iso",
+                            link: "https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.10-aarch64-boot.iso",
                           },
                           {
                             label: `${t("cards.defaultImages.downloadOptions.minimal")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.9-aarch64-minimal.iso",
+                            link: "https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.10-aarch64-minimal.iso",
                           },
                         ],
                         links: [
                           {
                             name: `${t("cards.defaultImages.torrent")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.9-aarch64-dvd1.torrent",
+                            link: "https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.10-aarch64-dvd1.torrent",
                           },
                           {
                             name: `${t("cards.defaultImages.checksum")}`,
@@ -431,7 +431,7 @@ const DownloadPage = () => {
                       {
                         versionName: `${t("cards.defaultImages.x86_64.r8.versionName")}`,
                         versionId: "rocky-8",
-                        currentVersion: "v8.9",
+                        currentVersion: "v8.10",
                         plannedEol: `${t("cards.defaultImages.x86_64.r8.plannedEol")}`,
                         downloadOptions: [
                           {
@@ -473,7 +473,7 @@ const DownloadPage = () => {
                       {
                         versionName: `${t("cards.defaultImages.x86_64.r8.versionName")}`,
                         versionId: "rocky-8",
-                        currentVersion: "v8.9",
+                        currentVersion: "v8.10",
                         plannedEol: `${t("cards.defaultImages.x86_64.r8.plannedEol")}`,
                         downloadOptions: [
                           {
@@ -565,7 +565,7 @@ const DownloadPage = () => {
                       {
                         versionName: `${t("cards.defaultImages.x86_64.r8.versionName")}`,
                         versionId: "rocky-8",
-                        currentVersion: "v8.9",
+                        currentVersion: "v8.10",
                         plannedEol: `${t("cards.defaultImages.x86_64.r8.plannedEol")}`,
                         downloadOptions: [
                           {
