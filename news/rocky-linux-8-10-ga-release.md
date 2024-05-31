@@ -13,7 +13,7 @@ We are excited to announce the general availability of Rocky Linux 8.10. This re
 - Since Rocky Linux 8.9, Azure images are be published under the new publisher name: `resf`, moving away from the earlier, less intuitive name.
 * In addition to the Azure Marketplace, Rocky Linux is available for free on the Azure Community Gallery, providing incredibly easy access to run Rocky on Microsoft Azure. Instructions on how to utilize the Community Gallery images can be found on this [news post](https://rockylinux.org/news/rocky-on-azure-community-gallery/).
 
-For a thorough list of updates and changes, refer to the [Rocky Linux 8.10 Release Notes](https://docs.rockylinux.org/release_notes/8.10).
+For a thorough list of updates and changes, refer to the [Rocky Linux 8.10 Release Notes](https://docs.rockylinux.org/release_notes/8_10).
 
 ### Special Interest Group Notes
 
