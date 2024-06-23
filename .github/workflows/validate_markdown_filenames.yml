@@ -22,11 +22,10 @@ jobs:
         run: |
           find . -type f \( -iname "*.md" -o -iname "*.mdx" \) | while read file; do
             filename=$(basename "$file")
-            if [[ "$filename" =~ \. && ! "$filename" =~ ^[^.]*\.(md|mdx)$ ]] || [[ "$filename" =~ \.stories\.(md|mdx)$ ]]; then
-              echo "Skipping Storybook file or invalid filename: $filename"
-              if ! [[ "$filename" =~ \.stories\.(md|mdx)$ ]]; then
-                echo "::error ::Invalid filename detected: $filename"
-                exit 1
-              fi
+            if [[ "$filename" =~ \.stories\.(md|mdx)$ ]]; then
+              echo "Skipping Storybook file: $filename"
+            elif [[ "$filename" =~ \. && ! "$filename" =~ ^[^.]*\.(md|mdx)$ ]]; then
+              echo "::error ::Invalid filename detected: $filename"
+              exit 1
             fi
           done
