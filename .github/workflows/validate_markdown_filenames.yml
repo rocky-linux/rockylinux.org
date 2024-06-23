@@ -1,0 +1,31 @@
+name: Validate Markdown Filenames
+
+on:
+  push:
+    paths:
+      - "**/*.md"
+      - "**/*.mdx"
+  pull_request:
+    paths:
+      - "**/*.md"
+      - "**/*.mdx"
+
+jobs:
+  check-filenames:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check .md and .mdx filenames
+        run: |
+          find . -type f \( -iname "*.md" -o -iname "*.mdx" \) | while read file; do
+            filename=$(basename "$file")
+            if [[ "$filename" =~ \.stories\.(md|mdx)$ ]]; then
+              echo "Skipping Storybook file: $filename"
+            elif [[ "$filename" =~ \. && ! "$filename" =~ ^[^.]*\.(md|mdx)$ ]]; then
+              echo "::error ::Invalid filename detected: $filename"
+              exit 1
+            fi
+          done
