@@ -5,9 +5,11 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
+        protocol: "https",
         hostname: "www.rockylinux.org",
       },
       {
+        protocol: "https",
         hostname: "rockylinux.org",
       },
     ],
