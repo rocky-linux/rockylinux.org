@@ -127,5 +127,13 @@ describe("next.config", () => {
         permanent: true,
       });
     });
+
+    it("should have typo redirect for regresshion", async () => {
+      expect(redirects).toContainEqual<Redirect>({
+        source: "/news/2024-07-01-rocky-linux-9-cve-2024-6378-regression",
+        destination: "/news/2024-07-01-openssh-sigalrm-regression",
+        permanent: true,
+      });
+    )
   });
 });
