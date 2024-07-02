@@ -37,7 +37,7 @@ describe("next.config", () => {
     });
 
     it("should have the correct number of redirects", async () => {
-      expect(redirects).toHaveLength(11);
+      expect(redirects).toHaveLength(12);
     });
 
     it("should have the community-charter redirect", async () => {
