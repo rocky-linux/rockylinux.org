@@ -37,7 +37,7 @@ describe("next.config", () => {
     });
 
     it("should have the correct number of redirects", async () => {
-      expect(redirects).toHaveLength(11);
+      expect(redirects).toHaveLength(12);
     });
 
     it("should have the community-charter redirect", async () => {
@@ -124,6 +124,14 @@ describe("next.config", () => {
       expect(redirects).toContainEqual<Redirect>({
         source: "/trademark",
         destination: "/legal/trademarks",
+        permanent: true,
+      });
+    });
+
+    it("should have typo redirect for regresshion", async () => {
+      expect(redirects).toContainEqual<Redirect>({
+        source: "/news/2024-07-01-rocky-linux-9-cve-2024-6378-regression",
+        destination: "/news/2024-07-01-openssh-sigalrm-regression",
         permanent: true,
       });
     });
