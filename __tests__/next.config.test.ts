@@ -134,6 +134,6 @@ describe("next.config", () => {
         destination: "/news/2024-07-01-openssh-sigalrm-regression",
         permanent: true,
       });
-    )
+    });
   });
 });
