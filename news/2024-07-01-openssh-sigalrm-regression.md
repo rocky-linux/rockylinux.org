@@ -4,7 +4,15 @@ date: "2024-07-01"
 author: "Neil Hanlon"
 ---
 
-_Updated at 2024-07-02 14:00 UTC to add clarifications and warnings about SIG/Security override packages_
+**Update - 2024-07-03 17:00 UTC**
+
+Today, [RHSA-2024:4312](https://access.redhat.com/errata/RHSA-2024:4312) was released, addressing CVE-2024-6387. The update has been rebuilt for Rocky Linux and is available as `openssh-8.7p1-38.el9_4.1` on dl.rockylinux.org. It is currently propagating to the mirror network.
+
+If you have the SIG/Security `openssh` package installed, it will be upgraded to this new BaseOS package on your next `dnf upgrade`. You can confirm the installed version of `openssh` with `rpm -q openssh`.
+
+If you have applied the `LoginGraceTime` mitigation, it is recommended to revert this change after upgrading to a patched `openssh`, and restart sshd again.
+
+The original announcement is below:
 
 ## CVE-2024-6387: OpenSSH Vulnerability in Rocky Linux 9
 
