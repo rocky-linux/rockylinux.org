@@ -147,7 +147,7 @@ const partnerSponsorData = [
               "NAVER Cloud Platform is a South Korean cloud service that started in 2017 under NAVER Cloud, a subsidiary of NAVER. It provides over 170 individual services in 2021 and holds various security certifications including CSA STAR GOLD, GDPR, and more. It also currently provides cloud services in 10 locations around the world.",
           },
           {
-            href: "https://osslab.co.kr",
+            href: "http://oss-lab.co.kr",
             src: "/images/sponsors-partners/osslab.png",
             name: "OSSLAB",
             description:
