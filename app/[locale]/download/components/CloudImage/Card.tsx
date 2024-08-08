@@ -155,7 +155,7 @@ const CloudImageCard: React.FC<CloudImageCardProps> = ({
               </Button>
             </Link>
             <Link
-              href="https://console.cloud.google.com/marketplace/browse?filter=partner:Rocky%20Linux"
+              href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/resf.rockylinux-x86_64"
               target="_blank"
             >
               <Button>{t("cards.cloudImages.cloudProviders.azure")}</Button>
