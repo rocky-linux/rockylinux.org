@@ -17,7 +17,7 @@ const partnerSponsorData = [
             src: "/images/sponsors-partners/ciq.png",
             name: "CIQ",
             description:
-              "We believe in helping people do great things. This is why CIQ is a founding sponsor of the RESF. We provide commercial support and services for Rocky Linux to customers in research, academia, government, enterprise, partners, and everyone in between.",
+              "We believe in helping people do great things. This is why CIQ is a founding sponsor of the RESF. Rocky Linux is successful because of its incredible community and we are proud to stand alongside the wonderful people and organizations that make Rocky thrive.",
             founding: true,
             supportProvider: true,
             supportDescription:
@@ -101,7 +101,7 @@ const partnerSponsorData = [
             src: "/images/sponsors-partners/ciq.png",
             name: "CIQ",
             description:
-              "We believe in helping people do great things. This is why CIQ is a founding partner of the RESF. We provide commercial support and services for Rocky Linux to customers in research, academia, government, enterprise, partners, and everyone in between.",
+              "Our mission is to provide the best possible Rocky experience with secure, high-performance, compliant, and easy-to-use solutions to help our partners succeed. CIQ goes far beyond providing support for Rocky Linux — we partner with our customers. When they win, we win too.",
             founding: true,
           },
           {
