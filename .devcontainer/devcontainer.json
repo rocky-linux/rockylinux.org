@@ -5,7 +5,7 @@
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
 
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y bash-completion && npm install",
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y bash-completion && sudo npx --yes playwright install-deps && npm install",
 
   "customizations": {
     "vscode": {
