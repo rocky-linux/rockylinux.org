@@ -830,6 +830,31 @@ const DownloadPage = () => {
             </h1>
             <p className="mt-2 text-sm">{t("exportCompliance.text1")}</p>
             <p className="mt-1 text-sm">{t("exportCompliance.text2")}</p>
+            <p className="mt-1 text-sm">{t("exportCompliance.narrative")}</p>
+            <table>
+              <tbody align="left">
+                <tr>
+                  <th scope="row">{t("exportCompliance.product_title")}</th>
+                  <td>{t("exportCompliance.product_text")}</td>
+                </tr>
+                <tr>
+                  <th scope="row">{t("exportCompliance.eccn_title")}</th>
+                  <td>{t("exportCompliance.eccn_text")}</td>
+                </tr>
+                <tr>
+                  <th scope="row">{t("exportCompliance.exception_title")}</th>
+                  <td>{t("exportCompliance.exception_text")}</td>
+                </tr>
+                <tr>
+                  <th scope="row">{t("exportCompliance.ccats_title")}</th>
+                  <td>{t("exportCompliance.ccats_text")}</td>
+                </tr>
+                <tr>
+                  <th scope="row">{t("exportCompliance.ern_title")}</th>
+                  <td>{t("exportCompliance.ern_text")}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
