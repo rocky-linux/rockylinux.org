@@ -832,7 +832,7 @@ const DownloadPage = () => {
             <p className="mt-1 text-sm">{t("exportCompliance.text2")}</p>
             <p className="mt-1 text-sm">{t("exportCompliance.narrative")}</p>
             <table>
-              <tbody align="left">
+              <tbody>
                 <tr>
                   <th scope="row">{t("exportCompliance.product_title")}</th>
                   <td>{t("exportCompliance.product_text")}</td>
