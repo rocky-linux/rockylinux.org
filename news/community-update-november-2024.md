@@ -13,7 +13,7 @@ It’s that time again! The Rocky Linux team is working through the Release Play
 
 ## RISC-V Collaboration
 
-While the rest of the community waits, we have a major lookahead announcement to share with you about something we’ve been working on since August with [RISC-V International](https://riscv.org/). Are you ready?
+While the rest of the community waits, we have a major lookahead announcement to share with you about something we’ve been working on since August with RESF Partner [RISC-V International](https://riscv.org/). Are you ready?
 
 The AltArch SIG will support a RISC-V port in the upcoming release of Rocky Linux 10 (which we began working on in February). RISC-V is an innovative open source instruction set architecture (ISA). The organization is currently working with industry leaders in a coalition called [RISE](https://riseproject.dev/) to accelerate the development of open source software for this architecture. This is an exciting development in open source architectures, and we are really pleased to partner with RISC-V International and the RISE Project in making this architecture accessible to the world.
 
