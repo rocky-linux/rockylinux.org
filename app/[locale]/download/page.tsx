@@ -3,6 +3,15 @@ import type { Metadata } from "next";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import DefaultImageCard from "./components/DefaultImage/Card";
 import CloudImageCard from "./components/CloudImage/Card";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 export const metadata: Metadata = {
   title: "Download - Rocky Linux",
@@ -831,30 +840,40 @@ const DownloadPage = () => {
             <p className="mt-2 text-sm">{t("exportCompliance.text1")}</p>
             <p className="mt-1 text-sm">{t("exportCompliance.text2")}</p>
             <p className="mt-1 text-sm">{t("exportCompliance.narrative")}</p>
-            <table>
-              <tbody>
-                <tr>
-                  <th scope="row">{t("exportCompliance.product_title")}</th>
-                  <td>{t("exportCompliance.product_text")}</td>
-                </tr>
-                <tr>
-                  <th scope="row">{t("exportCompliance.eccn_title")}</th>
-                  <td>{t("exportCompliance.eccn_text")}</td>
-                </tr>
-                <tr>
-                  <th scope="row">{t("exportCompliance.exception_title")}</th>
-                  <td>{t("exportCompliance.exception_text")}</td>
-                </tr>
-                <tr>
-                  <th scope="row">{t("exportCompliance.ccats_title")}</th>
-                  <td>{t("exportCompliance.ccats_text")}</td>
-                </tr>
-                <tr>
-                  <th scope="row">{t("exportCompliance.ern_title")}</th>
-                  <td>{t("exportCompliance.ern_text")}</td>
-                </tr>
-              </tbody>
-            </table>
+            <Table className="mt-12">
+              <TableBody>
+                <TableRow>
+                  <TableCell className="font-bold">
+                    {t("exportCompliance.product_title")}
+                  </TableCell>
+                  <TableCell>{t("exportCompliance.product_text")}</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-bold">
+                    {t("exportCompliance.eccn_title")}
+                  </TableCell>
+                  <TableCell>{t("exportCompliance.eccn_text")}</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-bold">
+                    {t("exportCompliance.exception_title")}
+                  </TableCell>
+                  <TableCell>{t("exportCompliance.exception_text")}</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-bold">
+                    {t("exportCompliance.ccats_title")}
+                  </TableCell>
+                  <TableCell>{t("exportCompliance.ccats_text")}</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-bold">
+                    {t("exportCompliance.ern_title")}
+                  </TableCell>
+                  <TableCell>{t("exportCompliance.ern_text")}</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
           </div>
         </div>
       </div>
