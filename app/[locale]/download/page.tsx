@@ -3,15 +3,7 @@ import type { Metadata } from "next";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import DefaultImageCard from "./components/DefaultImage/Card";
 import CloudImageCard from "./components/CloudImage/Card";
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 
 export const metadata: Metadata = {
   title: "Download - Rocky Linux",
