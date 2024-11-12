@@ -7,7 +7,6 @@ export const availableLanguages = [
   "de-DE",
   "el-GR",
   "en",
-  "en-US",
   "es-ES",
   "fa-IR",
   "fi-FI",
