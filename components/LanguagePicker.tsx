@@ -10,6 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import Cookies from "js-cookie";
+import { Globe } from "lucide-react";
 
 type LanguagePickerProps = {
   availableLanguages: string[];
@@ -79,6 +80,7 @@ export default function LanguagePicker({
       onValueChange={handleLanguageChange}
     >
       <SelectTrigger className="w-[180px]">
+        <Globe className="mr-2 h-4 w-4" />
         <SelectValue placeholder="Select language" />
       </SelectTrigger>
       <SelectContent>

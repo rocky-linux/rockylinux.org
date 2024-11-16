@@ -171,9 +171,6 @@ export default function Footer() {
           aria-label={tFooter("footer")}
         >
           <div className="flex items-center gap-4">
-            <Suspense fallback={<div className="w-[180px]" />}>
-              <LanguagePickerWrapper />
-            </Suspense>
             {navigation.main.map((item) => (
               <div
                 key={item.name}
@@ -200,6 +197,11 @@ export default function Footer() {
               <item.icon aria-hidden="true" />
             </Link>
           ))}
+        </div>
+        <div className="mt-12 flex justify-center items-center">
+          <Suspense fallback={<div className="w-[180px]" />}>
+            <LanguagePickerWrapper />
+          </Suspense>
         </div>
         <p className="mt-10 text-center text-xs leading-5">
           {tFooter("disclaimer")}
