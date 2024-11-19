@@ -4,6 +4,8 @@ date: "2024-11-19"
 author: "Rocky Linux Team"
 ---
 
+![Rocky Linux 9.5 Available Now](/images/news/rocky-linux-9-5-ga-release-header.png)
+
 We are pleased to announce the general availability of Rocky Linux 9.5. Updated installation media, container, cloud, and live images are available from the [Rocky Linux Downloads](https://rockylinux.org/download) webpage. Please consult the [release notes](https://docs.rockylinux.org/release_notes/9_5/) published within [Rocky Linux Documentation](https://docs.rockylinux.org/) for important information, such as known issues and detailed changes in this version.
 
 ## Highlights
