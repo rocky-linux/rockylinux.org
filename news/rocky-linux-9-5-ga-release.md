@@ -13,7 +13,7 @@ We are pleased to announce the general availability of Rocky Linux 9.5. Updated 
 ### Notable New Features and Changes
 
 - **Podman** - Rocky Linux 9.5 ships with the latest and greatest [Podman version 5.0](https://blog.podman.io/2024/03/podman-5-0-has-been-released/). Podman 5.0 introduces exciting new features like fast Podman machine boot times, Podman Farm for multi-platform image building, greater compatibility for volumes in `podman kube play`, Quadlet enhancements, and a more performant default networking stack.
-- **Cockpit** - Cockpit, the web console for easy remote server management, now provides file management capabilities via the Cockpit Files plugin . Cockpit Files is This feature requires installing the `cockpit-files` package.
+- **Cockpit** - Cockpit, the web console for easy remote server management, now provides file management capabilities via the Cockpit Files plugin. This feature requires installing the `cockpit-files` package.
 - **Dynamic programming lanuages, web, and database servers**
   - Apache HTTP Server 2.4.62
   - Node.js 22
