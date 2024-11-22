@@ -56,6 +56,7 @@
       "TrademarksName": "Znaki towarowe"
     },
     "socialNav": {
+      "bluesky": "Bluesky",
       "facebook": "Facebook",
       "github": "GitHub",
       "instagram": "Instagram",
@@ -109,6 +110,7 @@
   },
   "share": {
     "shareName": "Udostępnij",
+    "bluesky": "Bluesky",
     "mastodon": {
       "name": "Mastodon",
       "url-valid": "Wprowadź poprawny adres URL instancji Mastodon (bez https://).",
