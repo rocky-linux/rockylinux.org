@@ -56,6 +56,7 @@
       "TrademarksName": "Marchi Registrati"
     },
     "socialNav": {
+      "bluesky": "Bluesky",
       "facebook": "Facebook",
       "github": "GitHub",
       "instagram": "Instagram",
@@ -109,6 +110,7 @@
   },
   "share": {
     "shareName": "Condividi",
+    "bluesky": "Bluesky",
     "mastodon": {
       "name": "Mastodon",
       "url-valid": "Inserire un URL valido dell'istanza Mastodon (senza https://).",
