@@ -200,11 +200,11 @@
         "x86_64": {
           "r9": {
             "versionName": "Rocky Linux 9",
-            "plannedEol": "May 31 2032"
+            "plannedEol": "2032-05-31"
           },
           "r8": {
             "versionName": "Rocky Linux 8",
-            "plannedEol": "May 31 2029"
+            "plannedEol": "2029-05-31"
           }
         }
       },
@@ -217,7 +217,7 @@
             "name": "AWS AMI",
             "drawerTitle": "AWS AMI Images",
             "table": {
-              "version": "Version",
+              "version": "Версія",
               "region": "Region",
               "architecture": "Architecture",
               "imageId": "Image ID",
