@@ -11,11 +11,11 @@
   "header": {
     "toggleTheme": "Toggle Theme",
     "nav": {
-      "newsName": "News",
+      "newsName": "სიახლეები",
       "aboutName": "შესახებ",
       "resourcesName": "Resources",
       "communityName": "Community",
-      "supportName": "Help",
+      "supportName": "დახმარება",
       "contributeName": "Contribute",
       "openMainMenu": "Open Main Menu",
       "about": {
