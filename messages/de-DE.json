@@ -1,43 +1,43 @@
 {
   "global": {
     "name": "Rocky Linux",
-    "download": "Download",
+    "download": "Herunterladen",
     "notFound": {
-      "title": "Not Found",
-      "description": "The page you are looking for does not exist. Please check the URL and try again."
+      "title": "Nicht Gefunden",
+      "description": "Die gesuchte Seite existiert nicht. Bitte überprüfen Sie die URL und versuchen Sie es erneut."
     },
-    "close": "Close"
+    "close": "Schließen"
   },
   "header": {
-    "toggleTheme": "Toggle Theme",
+    "toggleTheme": "Design wechseln",
     "nav": {
-      "newsName": "News",
-      "aboutName": "About",
-      "resourcesName": "Resources",
+      "newsName": "Neuigkeiten",
+      "aboutName": "Über uns",
+      "resourcesName": "Ressourcen",
       "communityName": "Community",
-      "supportName": "Help",
-      "contributeName": "Contribute",
-      "openMainMenu": "Open Main Menu",
+      "supportName": "Hilfe",
+      "contributeName": "Mitwirken",
+      "openMainMenu": "Hauptmenü öffnen",
       "about": {
-        "about": "About Rocky Linux",
-        "charter": "Community Charter",
-        "wiki": "Project Wiki",
-        "sponsors": "Sponsors",
-        "partners": "Partners"
+        "about": "Über Rocky Linux",
+        "charter": "Community-Charta",
+        "wiki": "Projekt-Wiki",
+        "sponsors": "Sponsoren",
+        "partners": "Partner"
       },
       "resources": {
-        "gpgKeyInfo": "GPG Key Info"
+        "gpgKeyInfo": "GPG-Schlüssel Info"
       },
       "community": {
-        "coc": "Code of Conduct",
-        "forums": "Forums",
-        "mailing": "Mailing Lists",
+        "coc": "Verhaltenskodex",
+        "forums": "Foren",
+        "mailing": "Mailing-Listen",
         "mattermost": "Mattermost",
         "irc": "IRC",
-        "calendar": "Calendar"
+        "calendar": "Kalender"
       },
       "support": {
-        "docs": "Documentation",
+        "docs": "Dokumentation",
         "submitBug": "Submit Bug",
         "supportProviders": "Commercial Support"
       },
