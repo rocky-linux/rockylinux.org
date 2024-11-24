@@ -63,7 +63,6 @@
       "linkedin": "LinkedIn",
       "mastodon": "Mastodon",
       "threads": "Discussioni",
-      "x": "X",
       "youtube": "YouTube"
     },
     "disclaimer": "Rocky Linux® è un marchio registrato della Rocky Enterprise Software Foundation negli Stati Uniti e in altri Paesi. Linux® è un marchio registrato di Linus Torvalds negli Stati Uniti e in altri Paesi. Red Hat Enterprise Linux, RHEL e CentOS sono marchi o marchi registrati di Red Hat, Inc. o delle sue filiali negli Stati Uniti e in altri Paesi. Non siamo affiliati, appoggiati o sponsorizzati da Red Hat, Inc."
@@ -118,7 +117,6 @@
     },
     "facebook": "Facebook",
     "linkedin": "LinkedIn",
-    "x": "X",
     "threads": "Discussioni"
   },
   "about": {
