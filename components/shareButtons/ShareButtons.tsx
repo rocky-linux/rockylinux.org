@@ -12,7 +12,6 @@ const ShareButtons = ({ url }: ShareButtonsProps) => {
 
   const blueskyLink = `https://bsky.app/intent/compose?text=${url}`;
   const facebookLink = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-  const xLink = `https://twitter.com/intent/tweet?text=${url}`;
   const linkedInLink = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
   const threadsLink = `https://threads.net/intent/post?text=${url}`;
 
@@ -98,21 +97,6 @@ const ShareButtons = ({ url }: ShareButtonsProps) => {
                 d="M62 62H51.316V43.802c0-4.99-1.896-7.777-5.845-7.777-4.296 0-6.54 2.901-6.54 7.777V62H28.632V27.333H38.93v4.67s3.096-5.729 10.453-5.729c7.353 0 12.617 4.49 12.617 13.777V62ZM16.35 22.794c-3.508 0-6.35-2.864-6.35-6.397C10 12.864 12.842 10 16.35 10c3.507 0 6.347 2.864 6.347 6.397 0 3.533-2.84 6.397-6.348 6.397ZM11.032 62h10.736V27.333H11.033V62Z"
               />
             </g>
-          </svg>
-        </Link>
-        <Link
-          href={xLink}
-          className="hover:text-primary"
-          target="_blank"
-        >
-          <span className="sr-only">{t("x")}</span>
-          <svg
-            fill="currentColor"
-            viewBox="0 0 24 24"
-            className="h-6 w-6"
-            aria-hidden="true"
-          >
-            <path d="M13.6823 10.6218L20.2391 3H18.6854L12.9921 9.61788L8.44486 3H3.2002L10.0765 13.0074L3.2002 21H4.75404L10.7663 14.0113L15.5685 21H20.8131L13.6819 10.6218H13.6823ZM11.5541 13.0956L10.8574 12.0991L5.31391 4.16971H7.70053L12.1742 10.5689L12.8709 11.5655L18.6861 19.8835H16.2995L11.5541 13.096V13.0956Z" />
           </svg>
         </Link>
       </div>
