@@ -63,7 +63,6 @@
       "linkedin": "LinkedIn",
       "mastodon": "Mastodon",
       "threads": "Fils de discussion",
-      "x": "X",
       "youtube": "YouTube"
     },
     "disclaimer": "Linux® est la marque déposée de Linus Torvalds aux États-Unis et dans d'autres pays. Red Hat Enterprise Linux, RHEL et CentOS sont des marques ou des marques déposées de Red Hat, Inc. ou de ses filiales aux États-Unis et dans d'autres pays. Nous ne sommes pas affiliés, approuvés ou sponsorisés par Red Hat, Inc."
@@ -118,7 +117,6 @@
     },
     "facebook": "Facebook",
     "linkedin": "LinkedIn",
-    "x": "X",
     "threads": "Fils de discussion"
   },
   "about": {
