@@ -63,7 +63,6 @@
       "linkedin": "LinkedIn",
       "mastodon": "Mastodon",
       "threads": "Threads",
-      "x": "X",
       "youtube": "YouTube"
     },
     "disclaimer": "Linux® jest zastrzeżonym znakiem towarowym Linusa Torvaldsa w USA i innych krajach. Red Hat Enterprise Linux, RHEL i CentOS są znakami towarowymi lub zastrzeżonymi znakami towarowymi firmy Red Hat, Inc. lub jej spółek zależnych w USA i innych krajach. Nie jesteśmy powiązani, popierani ani sponsorowani przez Red Hat, Inc."
@@ -118,7 +117,6 @@
     },
     "facebook": "Facebook",
     "linkedin": "LinkedIn",
-    "x": "X",
     "threads": "Threads"
   },
   "about": {
