@@ -162,7 +162,7 @@
     "description": "Download the latest Rocky Linux versions here.",
     "tabs": {
       "x86_64": "AMD/Intel (x86_64)",
-      "aarch64": "ARM (aarch64)",
+      "aarch64": "ARM64 (aarch64)",
       "ppc64le": "PowerPC (ppc64le)",
       "s390x": "IBM Z (s390x)",
       "container": "Docker (OCI)",
@@ -217,7 +217,7 @@
             "table": {
               "version": "Version",
               "region": "Region",
-              "architecture": "Architecture",
+              "architecture": "Архитектура",
               "imageId": "Image ID",
               "deploy": "Deploy"
             }
