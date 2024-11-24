@@ -12,10 +12,10 @@
     "toggleTheme": "Toggle Theme",
     "nav": {
       "newsName": "News",
-      "aboutName": "About",
+      "aboutName": "Om",
       "resourcesName": "Resources",
       "communityName": "Community",
-      "supportName": "Help",
+      "supportName": "Hjälp",
       "contributeName": "Contribute",
       "openMainMenu": "Open Main Menu",
       "about": {
@@ -37,7 +37,7 @@
         "calendar": "Calendar"
       },
       "support": {
-        "docs": "Documentation",
+        "docs": "Dokumentation",
         "submitBug": "Submit Bug",
         "supportProviders": "Commercial Support"
       },
@@ -120,7 +120,7 @@
     "threads": "Threads"
   },
   "about": {
-    "title": "About",
+    "title": "Om",
     "headings": {
       "title": "It all started with a blog comment.",
       "subTitle": "History"
@@ -304,7 +304,7 @@
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in one of our many SIG channels. Let us know what you're interested in working on, and we'll find something you can help out with! If you're interested in proposing a new SIG, please see our <link2>wiki page</link2> on the topic."
       },
       "docs": {
-        "title": "Documentation",
+        "title": "Dokumentation",
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Documentation</link2> channel. Make sure to review the contributing guide available on our <link3>README</link3>."
       }
     }
