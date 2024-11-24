@@ -63,7 +63,6 @@
       "linkedin": "LinkedIn",
       "mastodon": "Mastodon",
       "threads": "ძაფები",
-      "x": "X",
       "youtube": "YouTube"
     },
     "disclaimer": "Rocky Linux® is the registered trademark of the Rocky Enterprise Software Foundation in the U.S. and other countries. Linux® is the registered trademark of Linus Torvalds in the U.S. and other countries. Red Hat Enterprise Linux, RHEL and CentOS are trademarks or registered trademarks of Red Hat, Inc. or its subsidiaries in the US and other countries. We are not affiliated with, endorsed by or sponsored by Red Hat, Inc."
@@ -118,7 +117,6 @@
     },
     "facebook": "Facebook",
     "linkedin": "LinkedIn",
-    "x": "X",
     "threads": "Threads"
   },
   "about": {
