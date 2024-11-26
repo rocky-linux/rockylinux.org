@@ -79,7 +79,7 @@
       "subText": "STABLE, PRODUCTION READY LINUX",
       "description": "Rocky Linux rebuilds sources directly from RHEL®, so you can bet your best dollar that you'll have a super stable experience, no matter the use-case.",
       "productionReady": {
-        "name": "Production Ready",
+        "name": "Pronto para Produção",
         "description": "Rocky Linux is enterprise-ready, providing solid stability with regular updates and a 10-year support lifecycle, all at no cost."
       },
       "communitySupported": {
