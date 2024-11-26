@@ -92,7 +92,7 @@
       }
     },
     "news": {
-      "title": "Latest News",
+      "title": "Últimas Notícias",
       "description": "We regularly share updates with the community about what's happening. Here's the latest."
     },
     "logoCloud": {
@@ -192,7 +192,7 @@
         },
         "torrent": "Torrent (DVD ISO)",
         "checksum": "CHECKSUM",
-        "checksums": "CHECKSUMS",
+        "checksums": "VERIFICAÇÕES",
         "baseOs": "Pacotes BaseOS",
         "archived": "Versões Arquivadas",
         "x86_64": {
@@ -296,7 +296,7 @@
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Design</link2> channel. Let us know what you're interested in working on, and we'll find something you can help out with!"
       },
       "release": {
-        "title": "Release engineering",
+        "title": "Engenharia da versão",
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Development</link2> channel. Let us know what you're interested in working on, and we'll find something you can help out with!"
       },
       "sig": {
