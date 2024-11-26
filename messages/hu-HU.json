@@ -22,15 +22,15 @@
         "about": "About Rocky Linux",
         "charter": "Community Charter",
         "wiki": "Project Wiki",
-        "sponsors": "Sponsors",
-        "partners": "Partners"
+        "sponsors": "Szponzorok",
+        "partners": "Partnerek"
       },
       "resources": {
         "gpgKeyInfo": "GPG Key Info"
       },
       "community": {
         "coc": "Code of Conduct",
-        "forums": "Forums",
+        "forums": "Fórumok",
         "mailing": "Mailing Lists",
         "mattermost": "Mattermost",
         "irc": "IRC",
@@ -138,13 +138,13 @@
     }
   },
   "sponsors": {
-    "title": "Sponsors",
+    "title": "Szponzorok",
     "description": "The Rocky Linux project is made possible by the generous support of our sponsors. We are grateful for their contributions to the project.",
     "learnMore": "Learn More",
     "foundingSponsor": "Founding Sponsor"
   },
   "partners": {
-    "title": "Partners",
+    "title": "Partnerek",
     "description": "The Rocky Linux project is proud to partner with the following organizations. We are grateful for their support and contributions to the project.",
     "foundingPartner": "Founding Partner"
   },
