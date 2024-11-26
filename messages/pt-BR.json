@@ -31,7 +31,7 @@
       "community": {
         "coc": "Código de Conduta",
         "forums": "Fóruns",
-        "mailing": "Mailing Lists",
+        "mailing": "Listas de Discussão",
         "mattermost": "Mattermost",
         "irc": "IRC",
         "calendar": "Calendário"
@@ -53,7 +53,7 @@
     "nav": {
       "licensingName": "Licença",
       "privacyPolicyName": "Privacy Policy",
-      "TrademarksName": "Trademarks"
+      "TrademarksName": "Marcas Registradas"
     },
     "socialNav": {
       "bluesky": "Bluesky",
@@ -217,7 +217,7 @@
             "table": {
               "version": "Versão",
               "region": "Região",
-              "architecture": "Architecture",
+              "architecture": "Arquitetura",
               "imageId": "Image ID",
               "deploy": "Deploy"
             }
@@ -254,7 +254,7 @@
       }
     },
     "getInvolved": {
-      "title": "Get Involved",
+      "title": "Participar",
       "text": "As you download and use Rocky Linux, the Rocky Enterprise Software Foundation invites you to be a part of the community as a contributor. There are many ways to contribute to the project, from documentation, QA, and testing to coding changes for SIGs, providing mirroring or hosting, and helping other users."
     },
     "exportCompliance": {
