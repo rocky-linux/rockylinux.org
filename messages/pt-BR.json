@@ -154,7 +154,7 @@
     "foundingSponsor": "Founding Sponsor"
   },
   "shop": {
-    "title": "Official Merchandise",
+    "title": "Merchandising Oficial",
     "description": "Purchase some swag! All of our vendors ship globally."
   },
   "download": {
@@ -175,7 +175,7 @@
       }
     },
     "selectVersion": "Selecione uma versão",
-    "plannedEol": "Planned EOL:",
+    "plannedEol": "EOL, planejado:",
     "cards": {
       "defaultImages": {
         "title": "Imagem Padrão",
@@ -232,7 +232,7 @@
       "container": {
         "title": "Docker (OCI) Images",
         "downloadOptions": {
-          "fullImage": "Full Image",
+          "fullImage": "Imagem Completa",
           "minimalImage": "Imagem Mínima"
         }
       },
