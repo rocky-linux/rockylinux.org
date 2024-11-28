@@ -83,11 +83,11 @@
         "description": "Rocky Linux is enterprise-ready, providing solid stability with regular updates and a 10-year support lifecycle, all at no cost."
       },
       "communitySupported": {
-        "name": "Community Supported",
+        "name": "Apoiado pela Comunidade",
         "description": "The community, sponsors, and partners have invested with long-term commitments to ensure the project stays with the community."
       },
       "easyMigration": {
-        "name": "Easy Migration",
+        "name": "Migração Fácil",
         "description": "Migrate from other Enterprise Linux distributions without sweating it. We provide an easy-to-use migration script, free of charge."
       }
     },
@@ -113,7 +113,7 @@
     "mastodon": {
       "name": "Mastodon",
       "url-valid": "Please enter a valid Mastodon instance URL (without https://).",
-      "url": "Mastodon Instance URL"
+      "url": "URL da Instância do Mastodon"
     },
     "facebook": "Facebook",
     "linkedin": "LinkedIn",
@@ -154,7 +154,7 @@
     "foundingSponsor": "Founding Sponsor"
   },
   "shop": {
-    "title": "Official Merchandise",
+    "title": "Mercadoria Oficial",
     "description": "Purchase some swag! All of our vendors ship globally."
   },
   "download": {
@@ -174,8 +174,8 @@
         "container": "OCI"
       }
     },
-    "selectVersion": "Select a version:",
-    "plannedEol": "Planned EOL:",
+    "selectVersion": "Selecione uma versão:",
+    "plannedEol": "EOL, planeado:",
     "cards": {
       "defaultImages": {
         "title": "Imagens Padrão",
@@ -193,8 +193,8 @@
         "torrent": "Torrent (DVD ISO)",
         "checksum": "CHECKSUM",
         "checksums": "CHECKSUMS",
-        "baseOs": "BaseOS Packages",
-        "archived": "Archived Releases",
+        "baseOs": "Pacotes BaseOS",
+        "archived": "Versões Arquivadas",
         "x86_64": {
           "r9": {
             "versionName": "Rocky Linux 9",
@@ -210,15 +210,15 @@
         "title": "Imagens Cloud",
         "genericCloud": "Generic Cloud",
         "cloudProviders": {
-          "title": "Cloud Providers",
+          "title": "Provedores Cloud",
           "aws": {
             "name": "AWS AMI",
-            "drawerTitle": "AWS AMI Images",
+            "drawerTitle": "Imagens AWS AMI",
             "table": {
               "version": "Versão",
               "region": "Region",
               "architecture": "Arquitetura",
-              "imageId": "Image ID",
+              "imageId": "ID da Imagem",
               "deploy": "Deploy"
             }
           },
@@ -230,9 +230,9 @@
         }
       },
       "container": {
-        "title": "Docker (OCI) Images",
+        "title": "Imagens do Docker (OCI)",
         "downloadOptions": {
-          "fullImage": "Full Image",
+          "fullImage": "Imagem Inteira",
           "minimalImage": "Minimal Image"
         }
       },
