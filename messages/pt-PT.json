@@ -14,8 +14,8 @@
       "newsName": "Notícias",
       "aboutName": "Acerca",
       "resourcesName": "Recursos",
-      "communityName": "Community",
-      "supportName": "Help",
+      "communityName": "Comunidade",
+      "supportName": "Ajuda",
       "contributeName": "Contribuir",
       "openMainMenu": "Abrir o Menu Principal",
       "about": {
@@ -62,7 +62,7 @@
       "instagram": "Instagram",
       "linkedin": "LinkedIn",
       "mastodon": "Mastodon",
-      "threads": "Threads",
+      "threads": "Tópicos",
       "youtube": "YouTube"
     },
     "disclaimer": "Rocky Linux® is the registered trademark of the Rocky Enterprise Software Foundation in the U.S. and other countries. Linux® is the registered trademark of Linus Torvalds in the U.S. and other countries. Red Hat Enterprise Linux, RHEL and CentOS are trademarks or registered trademarks of Red Hat, Inc. or its subsidiaries in the US and other countries. We are not affiliated with, endorsed by or sponsored by Red Hat, Inc."
@@ -71,7 +71,7 @@
     "hero": {
       "title": "Enterprise Linux, the <span>community way.</span>",
       "description": "Rocky Linux is an open-source enterprise operating system designed to be 100% bug-for-bug compatible with Red Hat Enterprise Linux®. It is under intensive development by the community.",
-      "migrate": "Migrate",
+      "migrate": "Migração",
       "dpg": "A Registered Digital Public Good"
     },
     "features": {
@@ -108,7 +108,7 @@
     }
   },
   "share": {
-    "shareName": "Share",
+    "shareName": "Compartilhar",
     "bluesky": "Bluesky",
     "mastodon": {
       "name": "Mastodon",
@@ -117,24 +117,24 @@
     },
     "facebook": "Facebook",
     "linkedin": "LinkedIn",
-    "threads": "Threads"
+    "threads": "Tópicos"
   },
   "about": {
     "title": "Acerca",
     "headings": {
-      "title": "It all started with a blog comment.",
-      "subTitle": "History"
+      "title": "Tudo começou com um comentário no blog.",
+      "subTitle": "História"
     },
     "intro": "On December 8, 2020, Red Hat announced that they would discontinue development of CentOS, which has been a production-ready downstream version of Red Hat Enterprise Linux, in favor of a newer upstream development variant of that operating system known as \"CentOS Stream\". In response, the original founder of CentOS, Gregory Kurtzer, announced <link>via a comment on the CentOS website</link> that he would again start a project to achieve the original goals of CentOS. Its name was chosen as a tribute to early CentOS co-founder Rocky McGaugh. By December 12, the code repository of Rocky Linux had become the top-trending repository on GitHub.",
     "releaseInfo": "On December 22, 2020, Rocky Linux announced that the target for an initial release was anywhere between March and May of 2021. On January 20, 2021, it was announced that a test repository would be made available to the public by the end of February, and a release candidate was on target for the end of March 2021. However, that date was slightly pushed back, and on April 30, 2021, the first release candidate was officially released. The second release candidate, of version 8.4, the last before the stable release, was released on June 4, 2021. On June 21, 2021, the stable release of Rocky Linux 8.4 was released, with the code name \"Green Obsidian\".",
     "organizationInfo": {
-      "title": "Organization",
+      "title": "Organização",
       "info": "The Rocky Linux project is hosted by the Rocky Enterprise Software Foundation (RESF). To learn more about the organizational structure, please check out the <link>page</link> on the topic."
     },
     "quote": {
       "quote": "“Thinking back to early CentOS days... My cofounder was Rocky McGaugh. He is no longer with us, so as a H/T to him, who never got to see the success that CentOS came to be, I introduce to you...Rocky Linux.”",
       "author": "Gregory Kurtzer",
-      "role": "Co-Founder @ CentOS / Founder @ Rocky Linux"
+      "role": "Co-fundador @ CentOS / Fundador @ Rocky Linux"
     }
   },
   "sponsors": {
@@ -198,11 +198,11 @@
         "x86_64": {
           "r9": {
             "versionName": "Rocky Linux 9",
-            "plannedEol": "May 31 2032"
+            "plannedEol": "2032-05-31"
           },
           "r8": {
             "versionName": "Rocky Linux 8",
-            "plannedEol": "May 31 2029"
+            "plannedEol": "2029-05-31"
           }
         }
       },
@@ -216,7 +216,7 @@
             "drawerTitle": "Imagens AWS AMI",
             "table": {
               "version": "Versão",
-              "region": "Region",
+              "region": "Zona",
               "architecture": "Arquitetura",
               "imageId": "ID da Imagem",
               "deploy": "Deploy"
@@ -250,7 +250,7 @@
       "rpiImages": {
         "title": "Raspberry Pi Images",
         "download": "Descarregar",
-        "readMe": "README"
+        "readMe": "LEIA-ME"
       }
     },
     "getInvolved": {
@@ -292,7 +292,7 @@
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Web</link2> channel. Search our <link3>website repository</link3> to see if there are issues/enhancements that need to be made. Make them!"
       },
       "graphics": {
-        "title": "Graphic design",
+        "title": "Design Gráfico",
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Design</link2> channel. Let us know what you're interested in working on, and we'll find something you can help out with!"
       },
       "release": {
