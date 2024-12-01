@@ -12,7 +12,7 @@
     "toggleTheme": "Alternar Tema",
     "nav": {
       "newsName": "Notícias",
-      "aboutName": "About",
+      "aboutName": "Acerca",
       "resourcesName": "Recursos",
       "communityName": "Community",
       "supportName": "Help",
@@ -120,7 +120,7 @@
     "threads": "Threads"
   },
   "about": {
-    "title": "About",
+    "title": "Acerca",
     "headings": {
       "title": "It all started with a blog comment.",
       "subTitle": "History"
@@ -288,7 +288,7 @@
         "description": "Join our <link1>Mattermost chat</link1> to talk over your potential bug with the team and other community members. Search our <link2>bug tracker</link2> to see if there's an existing report for your issue."
       },
       "webdev": {
-        "title": "Web development",
+        "title": "Desenvolvimento Web",
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Web</link2> channel. Search our <link3>website repository</link3> to see if there are issues/enhancements that need to be made. Make them!"
       },
       "graphics": {
@@ -296,11 +296,11 @@
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Design</link2> channel. Let us know what you're interested in working on, and we'll find something you can help out with!"
       },
       "release": {
-        "title": "Release engineering",
+        "title": "Engenharia da versão",
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Development</link2> channel. Let us know what you're interested in working on, and we'll find something you can help out with!"
       },
       "sig": {
-        "title": "Special Interest Group (SIG)",
+        "title": "Grupo de Interesses Especial (SIG)",
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in one of our many SIG channels. Let us know what you're interested in working on, and we'll find something you can help out with! If you're interested in proposing a new SIG, please see our <link2>wiki page</link2> on the topic."
       },
       "docs": {
