@@ -44,7 +44,7 @@
       "contribute": {
         "contribute": "Guia de Contribuição",
         "shop": "Loja",
-        "donate": "Donate"
+        "donate": "Fazer uma doação"
       }
     }
   },
@@ -198,11 +198,11 @@
         "x86_64": {
           "r9": {
             "versionName": "Rocky Linux 9",
-            "plannedEol": "May 31 2032"
+            "plannedEol": "2032-05-31"
           },
           "r8": {
             "versionName": "Rocky Linux 8",
-            "plannedEol": "May 31 2029"
+            "plannedEol": "2029-05-31"
           }
         }
       },
