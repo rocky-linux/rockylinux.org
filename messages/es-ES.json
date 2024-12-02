@@ -19,17 +19,17 @@
       "contributeName": "Contribute",
       "openMainMenu": "Open Main Menu",
       "about": {
-        "about": "About Rocky Linux",
+        "about": "Acerca de Rocky Linux",
         "charter": "Community Charter",
-        "wiki": "Project Wiki",
+        "wiki": "Wiki del Proyecto",
         "sponsors": "Sponsors",
         "partners": "Partners"
       },
       "resources": {
-        "gpgKeyInfo": "GPG Key Info"
+        "gpgKeyInfo": "Información de llave GPG"
       },
       "community": {
-        "coc": "Code of Conduct",
+        "coc": "Código de Conducta",
         "forums": "Forums",
         "mailing": "Mailing Lists",
         "mattermost": "Mattermost",
