@@ -11,7 +11,7 @@
   "header": {
     "toggleTheme": "Toggle Theme",
     "nav": {
-      "newsName": "News",
+      "newsName": "소식",
       "aboutName": "About",
       "resourcesName": "Resources",
       "communityName": "Community",
@@ -100,7 +100,7 @@
     }
   },
   "news": {
-    "title": "News",
+    "title": "소식",
     "description": "Stay up to date with the latest news and updates from the Rocky Linux community.",
     "notFound": {
       "title": "Not Found",
