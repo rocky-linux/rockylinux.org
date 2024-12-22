@@ -1,59 +1,59 @@
 {
   "global": {
     "name": "Rocky Linux",
-    "download": "Download",
+    "download": "다운로드",
     "notFound": {
-      "title": "Not Found",
-      "description": "The page you are looking for does not exist. Please check the URL and try again."
+      "title": "404 Not Found ",
+      "description": "찾고 있는 페이지가 존재하지 않습니다. URL을 확인하고 다시 시도하세요."
     },
-    "close": "Close"
+    "close": "닫기"
   },
   "header": {
-    "toggleTheme": "Toggle Theme",
+    "toggleTheme": "테마 전환",
     "nav": {
       "newsName": "소식",
-      "aboutName": "About",
-      "resourcesName": "Resources",
-      "communityName": "Community",
-      "supportName": "Help",
-      "contributeName": "Contribute",
-      "openMainMenu": "Open Main Menu",
+      "aboutName": "소개",
+      "resourcesName": "리소스",
+      "communityName": "커뮤니티",
+      "supportName": "지원",
+      "contributeName": "기여",
+      "openMainMenu": "메인 메뉴 열기",
       "about": {
-        "about": "About Rocky Linux",
+        "about": "로키 리눅스에 대해서",
         "charter": "Community Charter",
-        "wiki": "Project Wiki",
-        "sponsors": "Sponsors",
-        "partners": "Partners"
+        "wiki": "위키",
+        "sponsors": "후원자",
+        "partners": "파트너"
       },
       "resources": {
-        "gpgKeyInfo": "GPG Key Info"
+        "gpgKeyInfo": "GPG 키 정보"
       },
       "community": {
-        "coc": "Code of Conduct",
-        "forums": "Forums",
-        "mailing": "Mailing Lists",
+        "coc": "지켜야할 지침",
+        "forums": "포럼",
+        "mailing": "메일링 리스트",
         "mattermost": "Mattermost",
         "irc": "IRC",
-        "calendar": "Calendar"
+        "calendar": "달력"
       },
       "support": {
-        "docs": "Documentation",
-        "submitBug": "Submit Bug",
-        "supportProviders": "Commercial Support"
+        "docs": "문서",
+        "submitBug": "버그 보고",
+        "supportProviders": "유료 지원"
       },
       "contribute": {
-        "contribute": "Contributing Guide",
-        "shop": "Shop",
-        "donate": "Donate"
+        "contribute": "기여 방법 안내",
+        "shop": "상점",
+        "donate": "후원"
       }
     }
   },
   "footer": {
-    "footer": "Footer",
+    "footer": "바닥글",
     "nav": {
-      "licensingName": "Licensing",
-      "privacyPolicyName": "Privacy Policy",
-      "TrademarksName": "Trademarks"
+      "licensingName": "라이센스",
+      "privacyPolicyName": "개인정보처리방침",
+      "TrademarksName": "상표권"
     },
     "socialNav": {
       "bluesky": "Bluesky",
@@ -62,104 +62,104 @@
       "instagram": "Instagram",
       "linkedin": "LinkedIn",
       "mastodon": "Mastodon",
-      "threads": "Threads",
+      "threads": "게시글",
       "youtube": "YouTube"
     },
-    "disclaimer": "Rocky Linux® is the registered trademark of the Rocky Enterprise Software Foundation in the U.S. and other countries. Linux® is the registered trademark of Linus Torvalds in the U.S. and other countries. Red Hat Enterprise Linux, RHEL and CentOS are trademarks or registered trademarks of Red Hat, Inc. or its subsidiaries in the US and other countries. We are not affiliated with, endorsed by or sponsored by Red Hat, Inc."
+    "disclaimer": "Rocky Linux®는 미국 및 기타 국가에서 Rocky Enterprise Software Foundation의 등록 상표입니다. Linux®는 미국 및 기타 국가에서 Linus Torvalds의 등록 상표입니다. Red Hat Enterprise Linux, RHEL 및 CentOS는 미국 및 기타 국가에서 Red Hat, Inc. 또는 그 자회사의 상표 또는 등록 상표입니다. 당사는 Red Hat, Inc.와 제휴하지 않으며, Red Hat, Inc.의 보증 또는 후원을 받지 않습니다."
   },
   "home": {
     "hero": {
-      "title": "Enterprise Linux, the <span>community way.</span>",
-      "description": "Rocky Linux is an open-source enterprise operating system designed to be 100% bug-for-bug compatible with Red Hat Enterprise Linux®. It is under intensive development by the community.",
-      "migrate": "Migrate",
-      "dpg": "A Registered Digital Public Good"
+      "title": "엔터프라이즈 리눅스, 커뮤니티 방식으로.",
+      "description": "Rocky Linux는 Red Hat Enterprise Linux®와 100% 버그 대 버그 호환되도록 설계된 오픈소스 엔터프라이즈 운영 체제입니다. 커뮤니티에서 집중적으로 개발 중입니다.",
+      "migrate": "마이그레이션하기",
+      "dpg": "등록된 디지털 공공재"
     },
     "features": {
-      "title": "Rock solid, no matter the use-case.",
-      "subText": "STABLE, PRODUCTION READY LINUX",
-      "description": "Rocky Linux rebuilds sources directly from RHEL®, so you can bet your best dollar that you'll have a super stable experience, no matter the use-case.",
+      "title": "어떤 사용 사례에서도 흔들림 없이 튼튼합니다.",
+      "subText": "견고함, 상용급 리눅스",
+      "description": "Rocky Linux는 RHEL에서 직접 소스를 rebuild 하므로 어떤 경우에 사용하든 상관없어 매우 안정적인 환경을 제공할 수 있습니다.",
       "productionReady": {
-        "name": "Production Ready",
-        "description": "Rocky Linux is enterprise-ready, providing solid stability with regular updates and a 10-year support lifecycle, all at no cost."
+        "name": "상용으로 사용 가능한",
+        "description": "Rocky Linux는 엔터프라이즈급으로 정기적인 업데이트와 10년 지원 수명 주기를 통해 견고한 안정성을 모두 무료로 제공합니다."
       },
       "communitySupported": {
-        "name": "Community Supported",
-        "description": "The community, sponsors, and partners have invested with long-term commitments to ensure the project stays with the community."
+        "name": "커뮤니티 후원",
+        "description": "지역사회, 후원자, 파트너는 프로젝트가 지역사회와 함께 지속되도록 장기적인 약속을 하며 투자해 왔습니다."
       },
       "easyMigration": {
-        "name": "Easy Migration",
-        "description": "Migrate from other Enterprise Linux distributions without sweating it. We provide an easy-to-use migration script, free of charge."
+        "name": "쉬운 마이그레이션",
+        "description": "다른 엔터프라이즈 리눅스 배포판에서 무리하지 않고 마이그레이션할 수 있습니다. 우리는 사용하기 쉬운 마이그레이션 스크립트를 무료로 제공합니다."
       }
     },
     "news": {
-      "title": "Latest News",
-      "description": "We regularly share updates with the community about what's happening. Here's the latest."
+      "title": "최신 뉴스",
+      "description": "우리는 정기적으로 커뮤니티에 무슨 일이 일어나고 있는지에 대한 업데이트를 공유합니다. 최신 소식은 다음과 같습니다."
     },
     "logoCloud": {
-      "title": "Backed By"
+      "title": "후원사"
     }
   },
   "news": {
     "title": "소식",
-    "description": "Stay up to date with the latest news and updates from the Rocky Linux community.",
+    "description": "Rocky Linux 커뮤니티의 최신 소식과 업데이트를 확인하세요.",
     "notFound": {
-      "title": "Not Found",
-      "description": "The news post you are looking for does not exist. You can find all our news posts on the <newsLink>news page</newsLink>."
+      "title": "404 Not Found ",
+      "description": "찾으시는 뉴스 게시물이 존재하지 않습니다. 모든 뉴스 게시물은 뉴스 페이지에서 찾을 수 있습니다."
     }
   },
   "share": {
-    "shareName": "Share",
+    "shareName": "공유",
     "bluesky": "Bluesky",
     "mastodon": {
       "name": "Mastodon",
-      "url-valid": "Please enter a valid Mastodon instance URL (without https://).",
-      "url": "Mastodon Instance URL"
+      "url-valid": "https:// 를 제외한 유효한 Mastodon 인스턴스 URL을 입력하세요.",
+      "url": "마스토돈 인스턴스 URL"
     },
     "facebook": "Facebook",
     "linkedin": "LinkedIn",
-    "threads": "Threads"
+    "threads": "게시글"
   },
   "about": {
-    "title": "About",
+    "title": "소개",
     "headings": {
-      "title": "It all started with a blog comment.",
-      "subTitle": "History"
+      "title": "이 모든 것은 블로그의 한 댓글로 시작되었습니다.",
+      "subTitle": "기록"
     },
-    "intro": "On December 8, 2020, Red Hat announced that they would discontinue development of CentOS, which has been a production-ready downstream version of Red Hat Enterprise Linux, in favor of a newer upstream development variant of that operating system known as \"CentOS Stream\". In response, the original founder of CentOS, Gregory Kurtzer, announced <link>via a comment on the CentOS website</link> that he would again start a project to achieve the original goals of CentOS. Its name was chosen as a tribute to early CentOS co-founder Rocky McGaugh. By December 12, the code repository of Rocky Linux had become the top-trending repository on GitHub.",
-    "releaseInfo": "On December 22, 2020, Rocky Linux announced that the target for an initial release was anywhere between March and May of 2021. On January 20, 2021, it was announced that a test repository would be made available to the public by the end of February, and a release candidate was on target for the end of March 2021. However, that date was slightly pushed back, and on April 30, 2021, the first release candidate was officially released. The second release candidate, of version 8.4, the last before the stable release, was released on June 4, 2021. On June 21, 2021, the stable release of Rocky Linux 8.4 was released, with the code name \"Green Obsidian\".",
+    "intro": "2020년 12월 8일, Red Hat은 Red Hat Enterprise Linux의 프로덕션 준비 다운스트림 버전인 CentOS의 개발을 중단하고 \"CentOS Stream\"이라는 운영 체제의 새로운 업스트림 개발 변형을 도입한다고 발표했습니다. 이에 대응하여 CentOS의 원래 설립자인 Gregory Kurtzer는 <link>CentOS 웹사이트에 게시한 댓글</link>을 통해 CentOS의 원래 목표를 달성하기 위한 프로젝트를 다시 시작할 것이라고 발표했습니다. 이 프로젝트 이름은 초기 CentOS 공동 설립자인 Rocky McGaugh에 대한 헌정으로 선택되었습니다. 12월 12일까지 Rocky Linux의 코드 저장소는 GitHub에서 가장 인기 있는 저장소가 되었습니다.",
+    "releaseInfo": "2020년 12월 22일, Rocky Linux는 최초 릴리스 목표가 2021년 3월에서 5월 사이라고 발표했습니다. 2021년 1월 20일, 테스트 저장소가 2월 말까지 대중에게 공개될 것이며 릴리스 후보는 2021년 3월 말로 예정되어 있다고 발표했습니다. 그러나 그 날짜는 약간 연기되었고, 2021년 4월 30일, 첫 번째 릴리스 후보가 공식적으로 릴리스되었습니다. 안정적인 릴리스 전 마지막인 버전 8.4의 두 번째 릴리스 후보는 2021년 6월 4일에 릴리스되었습니다. 2021년 6월 21일, Rocky Linux 8.4의 안정적인 릴리스가 코드명 \"Green Obsidian\"으로 릴리스되었습니다.",
     "organizationInfo": {
-      "title": "Organization",
-      "info": "The Rocky Linux project is hosted by the Rocky Enterprise Software Foundation (RESF). To learn more about the organizational structure, please check out the <link>page</link> on the topic."
+      "title": "기관",
+      "info": "Rocky Linux 프로젝트는 Rocky Enterprise Software Foundation(RESF)에서 관리합니다. 조직 구조에 대해 자세히 알아보려면 해당 주제에 대한 페이지를 확인하세요."
     },
     "quote": {
-      "quote": "“Thinking back to early CentOS days... My cofounder was Rocky McGaugh. He is no longer with us, so as a H/T to him, who never got to see the success that CentOS came to be, I introduce to you...Rocky Linux.”",
+      "quote": "“CentOS 초기에 돌이켜보면... 저의 공동 창설자는 Rocky McGaugh였습니다. 그는 이제 없으며, CentOS의 성공을 지켜보지 못한 그에게 경의를 표하며, 저는 여러분에게 소개합니다...Rocky Linux를.”",
       "author": "Gregory Kurtzer",
       "role": "Co-Founder @ CentOS / Founder @ Rocky Linux"
     }
   },
   "sponsors": {
-    "title": "Sponsors",
-    "description": "The Rocky Linux project is made possible by the generous support of our sponsors. We are grateful for their contributions to the project.",
-    "learnMore": "Learn More",
-    "foundingSponsor": "Founding Sponsor"
+    "title": "후원자",
+    "description": "Rocky Linux 프로젝트는 후원자들의 관대한 지원으로 가능해졌습니다. 우리는 그들이 프로젝트에 기여한 것에 감사드립니다.",
+    "learnMore": "자세히 보기",
+    "foundingSponsor": "창립 후원자"
   },
   "partners": {
-    "title": "Partners",
-    "description": "The Rocky Linux project is proud to partner with the following organizations. We are grateful for their support and contributions to the project.",
+    "title": "파트너",
+    "description": "Rocky Linux 프로젝트는 다음 조직과 협력하게 되어 자랑스럽습니다. 우리는 그들의 지원과 프로젝트에 대한 기여에 감사드립니다.",
     "foundingPartner": "Founding Partner"
   },
   "supportProviders": {
-    "title": "Commercial Support",
-    "description": "The following sponsors provide commercial support for Rocky Linux.",
-    "foundingSponsor": "Founding Sponsor"
+    "title": "유료 지원",
+    "description": "다음 후원사들은 Rocky Linux에 상업적 지원을 제공합니다.",
+    "foundingSponsor": "창립 후원자"
   },
   "shop": {
-    "title": "Official Merchandise",
-    "description": "Purchase some swag! All of our vendors ship globally."
+    "title": "공식 상품",
+    "description": "굿즈 구매하기! 모든 판매처에서 전 세계 배송이 가능합니다"
   },
   "download": {
-    "title": "Download",
-    "description": "Download the latest Rocky Linux versions here.",
+    "title": "다운로드",
+    "description": "최신 로키 리눅스 설치",
     "tabs": {
       "x86_64": "AMD/Intel (x86_64)",
       "aarch64": "ARM (aarch64)",
@@ -193,16 +193,16 @@
         "torrent": "Torrent (DVD ISO)",
         "checksum": "CHECKSUM",
         "checksums": "CHECKSUMS",
-        "baseOs": "BaseOS Packages",
-        "archived": "Archived Releases",
+        "baseOs": "기본 운영체제 패키지",
+        "archived": "아카이브된 릴리즈 버전",
         "x86_64": {
           "r9": {
             "versionName": "Rocky Linux 9",
-            "plannedEol": "May 31 2032"
+            "plannedEol": "2032-05-31"
           },
           "r8": {
             "versionName": "Rocky Linux 8",
-            "plannedEol": "May 31 2029"
+            "plannedEol": "2029-05-31"
           }
         }
       },
@@ -213,10 +213,10 @@
           "title": "Cloud Providers",
           "aws": {
             "name": "AWS AMI",
-            "drawerTitle": "AWS AMI Images",
+            "drawerTitle": "AWS 아마존 리눅스 이미지",
             "table": {
-              "version": "Version",
-              "region": "Region",
+              "version": "버전",
+              "region": "지역",
               "architecture": "Architecture",
               "imageId": "Image ID",
               "deploy": "Deploy"
@@ -230,10 +230,10 @@
         }
       },
       "container": {
-        "title": "Docker (OCI) Images",
+        "title": "도커(OCI) 이미지",
         "downloadOptions": {
-          "fullImage": "Full Image",
-          "minimalImage": "Minimal Image"
+          "fullImage": "모든 기능이 담긴 이미지",
+          "minimalImage": "최소 기능이 담긴 이미지"
         }
       },
       "liveImages": {
@@ -248,13 +248,13 @@
         }
       },
       "rpiImages": {
-        "title": "Raspberry Pi Images",
-        "download": "Download",
+        "title": "라즈베리 파이 이미지",
+        "download": "다운로드",
         "readMe": "README"
       }
     },
     "getInvolved": {
-      "title": "Get Involved",
+      "title": "관련 있는",
       "text": "As you download and use Rocky Linux, the Rocky Enterprise Software Foundation invites you to be a part of the community as a contributor. There are many ways to contribute to the project, from documentation, QA, and testing to coding changes for SIGs, providing mirroring or hosting, and helping other users."
     },
     "exportCompliance": {
@@ -262,7 +262,7 @@
       "text1": "By downloading Rocky Linux software, you acknowledge that you understand all of the following:",
       "text2": "Rocky Linux software and technical information may be subject to the U.S. Export Administration Regulations (the “EAR”) and other U.S. and foreign laws and may not be exported, re-exported or transferred (a) to a prohibited destination country under the EAR or U.S. sanctions regulations (currently Cuba, Iran, North Korea, Sudan, Syria, and the Crimea Region of Ukraine, subject to change as posted by the United States government); (b) to any prohibited destination or to any end user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government; or (c) for use in connection with the design, development or production of nuclear, chemical or biological weapons, or rocket systems, space launch vehicles, or sounding rockets, or unmanned air vehicle systems.",
       "narrative": "Rocky Linux in source code and binary code form is publicly available and is not subject to the EAR in accordance with §740.17(b)(1).",
-      "product_title": "Product",
+      "product_title": "상품",
       "product_text": "Rocky Linux. Includes Rocky Linux Project \"Special Interest Group\" repositories.",
       "eccn_title": "ECCN",
       "eccn_text": "5D992.c",
@@ -275,28 +275,28 @@
     }
   },
   "community": {
-    "title": "Welcome to the community!",
+    "title": "커뮤니티에 오신것을 환영합니다!",
     "description": "Select your area of interest, and we'll guide you to the right place.",
     "noSelection": "Select an option to see more details.",
     "interests": {
       "chatting": {
-        "title": "Just chatting",
+        "title": "채팅방",
         "description": "You can join the conversation on our <link>Mattermost</link> chat to connect with others in the community. Have fun!"
       },
       "bugs": {
-        "title": "Reporting bugs",
+        "title": "버그 제보",
         "description": "Join our <link1>Mattermost chat</link1> to talk over your potential bug with the team and other community members. Search our <link2>bug tracker</link2> to see if there's an existing report for your issue."
       },
       "webdev": {
-        "title": "Web development",
+        "title": "웹 개발",
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Web</link2> channel. Search our <link3>website repository</link3> to see if there are issues/enhancements that need to be made. Make them!"
       },
       "graphics": {
-        "title": "Graphic design",
+        "title": "그래픽 디자인",
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Design</link2> channel. Let us know what you're interested in working on, and we'll find something you can help out with!"
       },
       "release": {
-        "title": "Release engineering",
+        "title": "릴리즈 엔지니어링",
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Development</link2> channel. Let us know what you're interested in working on, and we'll find something you can help out with!"
       },
       "sig": {
@@ -304,7 +304,7 @@
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in one of our many SIG channels. Let us know what you're interested in working on, and we'll find something you can help out with! If you're interested in proposing a new SIG, please see our <link2>wiki page</link2> on the topic."
       },
       "docs": {
-        "title": "Documentation",
+        "title": "문서",
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Documentation</link2> channel. Make sure to review the contributing guide available on our <link3>README</link3>."
       }
     }
