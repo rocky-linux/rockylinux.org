@@ -174,11 +174,11 @@
         "container": "OCI"
       }
     },
-    "selectVersion": "Select a version:",
-    "plannedEol": "Planned EOL:",
+    "selectVersion": "버전 선택",
+    "plannedEol": "지원 계획",
     "cards": {
       "defaultImages": {
-        "title": "Default Images",
+        "title": "기본 이미지",
         "tooltips": {
           "dvd": "DVD: Seamless installation, everything you need is included.",
           "boot": "Boot: Minimal image for a custom, internet-based installation.",
@@ -187,8 +187,8 @@
         },
         "downloadOptions": {
           "dvd": "DVD ISO",
-          "boot": "Boot ISO",
-          "minimal": "Minimal ISO"
+          "boot": "부팅 ISO",
+          "minimal": "최소 기능 ISO"
         },
         "torrent": "Torrent (DVD ISO)",
         "checksum": "CHECKSUM",
