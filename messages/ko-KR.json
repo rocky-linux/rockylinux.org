@@ -70,7 +70,7 @@
   "home": {
     "hero": {
       "title": "엔터프라이즈 리눅스, 커뮤니티 방식으로.",
-      "description": "Rocky Linux는 Red Hat Enterprise Linux®와 100% 버그 대 버그 호환되도록 설계된 오픈소스 엔터프라이즈 운영 체제입니다. 커뮤니티에서 집중적으로 개발 중입니다.",
+      "description": "Rocky Linux is an open-source enterprise operating system designed to be 100% bug-for-bug compatible with Red Hat Enterprise Linux®. Rocky Linux is under intensive development by the community.",
       "migrate": "마이그레이션하기",
       "dpg": "등록된 디지털 공공재"
     },
