@@ -70,7 +70,7 @@
   "home": {
     "hero": {
       "title": "Enterprise Linux, la <span>méthode communautaire.</span>",
-      "description": "Rocky Linux is an open-source enterprise operating system designed to be 100% bug-for-bug compatible with Red Hat Enterprise Linux®. Rocky Linux is under intensive development by the community.",
+      "description": "Rocky Linux est un système d'exploitation d'entreprise Open Source conçu pour être 100 % compatible bogue pour bogue avec Red Hat Enterprise Linux®. Rocky Linux fait l'objet d'un développement intensif de la part de la communauté.",
       "migrate": "Migration",
       "dpg": "Registered Digital Public Good"
     },
