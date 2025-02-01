@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import DefaultImageCard from "./components/DefaultImage/Card";
 import CloudImageCard from "./components/CloudImage/Card";
+import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 
 export const metadata: Metadata = {
   title: "Download - Rocky Linux",
@@ -68,26 +69,26 @@ const DownloadPage = () => {
                       {
                         versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
                         versionId: "rocky-9",
-                        currentVersion: "v9.4",
+                        currentVersion: "v9.5",
                         plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
                         downloadOptions: [
                           {
                             label: `${t("cards.defaultImages.downloadOptions.dvd")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.4-x86_64-dvd.iso",
+                            link: "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.5-x86_64-dvd.iso",
                           },
                           {
                             label: `${t("cards.defaultImages.downloadOptions.boot")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.4-x86_64-boot.iso",
+                            link: "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.5-x86_64-boot.iso",
                           },
                           {
                             label: `${t("cards.defaultImages.downloadOptions.minimal")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.4-x86_64-minimal.iso",
+                            link: "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.5-x86_64-minimal.iso",
                           },
                         ],
                         links: [
                           {
                             name: `${t("cards.defaultImages.torrent")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.4-x86_64-dvd.torrent",
+                            link: "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.5-x86_64-dvd.torrent",
                           },
                           {
                             name: `${t("cards.defaultImages.checksum")}`,
@@ -152,7 +153,7 @@ const DownloadPage = () => {
                       {
                         versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
                         versionId: "rocky-9",
-                        currentVersion: "v9.4",
+                        currentVersion: "v9.5",
                         plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
                         downloadOptions: [
                           {
@@ -196,7 +197,7 @@ const DownloadPage = () => {
                       {
                         versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
                         versionId: "rocky-9",
-                        currentVersion: "v9.4",
+                        currentVersion: "v9.5",
                         plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
                         downloadOptions: [
                           {
@@ -236,7 +237,7 @@ const DownloadPage = () => {
                       {
                         versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
                         versionId: "rocky-9",
-                        currentVersion: "v9.4",
+                        currentVersion: "v9.5",
                         plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
                         downloadOptions: [
                           {
@@ -329,26 +330,26 @@ const DownloadPage = () => {
                       {
                         versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
                         versionId: "rocky-9",
-                        currentVersion: "v9.4",
+                        currentVersion: "v9.5",
                         plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
                         downloadOptions: [
                           {
                             label: `${t("cards.defaultImages.downloadOptions.dvd")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.4-aarch64-dvd.iso",
+                            link: "https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.5-aarch64-dvd.iso",
                           },
                           {
                             label: `${t("cards.defaultImages.downloadOptions.boot")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.4-aarch64-boot.iso",
+                            link: "https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.5-aarch64-boot.iso",
                           },
                           {
                             label: `${t("cards.defaultImages.downloadOptions.minimal")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.4-aarch64-minimal.iso",
+                            link: "https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.5-aarch64-minimal.iso",
                           },
                         ],
                         links: [
                           {
                             name: `${t("cards.defaultImages.torrent")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.4-aarch64-dvd.torrent",
+                            link: "https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.5-aarch64-dvd.torrent",
                           },
                           {
                             name: `${t("cards.defaultImages.checksum")}`,
@@ -413,7 +414,7 @@ const DownloadPage = () => {
                       {
                         versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
                         versionId: "rocky-9",
-                        currentVersion: "v9.4",
+                        currentVersion: "v9.5",
                         plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
                         downloadOptions: [
                           {
@@ -457,7 +458,7 @@ const DownloadPage = () => {
                       {
                         versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
                         versionId: "rocky-9",
-                        currentVersion: "v9.4",
+                        currentVersion: "v9.5",
                         plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
                         downloadOptions: [
                           {
@@ -497,7 +498,7 @@ const DownloadPage = () => {
                       {
                         versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
                         versionId: "rocky-9",
-                        currentVersion: "v9.4",
+                        currentVersion: "v9.5",
                         plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
                         downloadOptions: [
                           {
@@ -543,7 +544,7 @@ const DownloadPage = () => {
                       {
                         versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
                         versionId: "rocky-9",
-                        currentVersion: "v9.4",
+                        currentVersion: "v9.5",
                         plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
                         downloadOptions: [
                           {
@@ -612,26 +613,26 @@ const DownloadPage = () => {
                       {
                         versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
                         versionId: "rocky-9",
-                        currentVersion: "v9.4",
+                        currentVersion: "v9.5",
                         plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
                         downloadOptions: [
                           {
                             label: `${t("cards.defaultImages.downloadOptions.dvd")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.4-ppc64le-dvd.iso",
+                            link: "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.5-ppc64le-dvd.iso",
                           },
                           {
                             label: `${t("cards.defaultImages.downloadOptions.boot")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.4-ppc64le-boot.iso",
+                            link: "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.5-ppc64le-boot.iso",
                           },
                           {
                             label: `${t("cards.defaultImages.downloadOptions.minimal")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.4-ppc64le-minimal.iso",
+                            link: "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.5-ppc64le-minimal.iso",
                           },
                         ],
                         links: [
                           {
                             name: `${t("cards.defaultImages.torrent")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.4-ppc64le-dvd.torrent",
+                            link: "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.5-ppc64le-dvd.torrent",
                           },
                           {
                             name: `${t("cards.defaultImages.checksum")}`,
@@ -658,7 +659,7 @@ const DownloadPage = () => {
                       {
                         versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
                         versionId: "rocky-9",
-                        currentVersion: "v9.4",
+                        currentVersion: "v9.5",
                         plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
                         downloadOptions: [
                           {
@@ -684,7 +685,7 @@ const DownloadPage = () => {
                       {
                         versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
                         versionId: "rocky-9",
-                        currentVersion: "v9.4",
+                        currentVersion: "v9.5",
                         plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
                         downloadOptions: [
                           {
@@ -725,26 +726,26 @@ const DownloadPage = () => {
                       {
                         versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
                         versionId: "rocky-9",
-                        currentVersion: "v9.4",
+                        currentVersion: "v9.5",
                         plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
                         downloadOptions: [
                           {
                             label: `${t("cards.defaultImages.downloadOptions.dvd")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.4-s390x-dvd.iso",
+                            link: "https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.5-s390x-dvd.iso",
                           },
                           {
                             label: `${t("cards.defaultImages.downloadOptions.boot")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.4-s390x-boot.iso",
+                            link: "https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.5-s390x-boot.iso",
                           },
                           {
                             label: `${t("cards.defaultImages.downloadOptions.minimal")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.4-s390x-minimal.iso",
+                            link: "https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.5-s390x-minimal.iso",
                           },
                         ],
                         links: [
                           {
                             name: `${t("cards.defaultImages.torrent")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.4-s390x-dvd.torrent",
+                            link: "https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.5-s390x-dvd.torrent",
                           },
                           {
                             name: `${t("cards.defaultImages.checksum")}`,
@@ -771,7 +772,7 @@ const DownloadPage = () => {
                       {
                         versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
                         versionId: "rocky-9",
-                        currentVersion: "v9.4",
+                        currentVersion: "v9.5",
                         plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
                         downloadOptions: [
                           {
@@ -797,7 +798,7 @@ const DownloadPage = () => {
                       {
                         versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
                         versionId: "rocky-9",
-                        currentVersion: "v9.4",
+                        currentVersion: "v9.5",
                         plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
                         downloadOptions: [
                           {
@@ -830,6 +831,41 @@ const DownloadPage = () => {
             </h1>
             <p className="mt-2 text-sm">{t("exportCompliance.text1")}</p>
             <p className="mt-1 text-sm">{t("exportCompliance.text2")}</p>
+            <p className="mt-1 text-sm">{t("exportCompliance.narrative")}</p>
+            <Table className="mt-12">
+              <TableBody>
+                <TableRow>
+                  <TableCell className="font-bold">
+                    {t("exportCompliance.product_title")}
+                  </TableCell>
+                  <TableCell>{t("exportCompliance.product_text")}</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-bold">
+                    {t("exportCompliance.eccn_title")}
+                  </TableCell>
+                  <TableCell>{t("exportCompliance.eccn_text")}</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-bold">
+                    {t("exportCompliance.exception_title")}
+                  </TableCell>
+                  <TableCell>{t("exportCompliance.exception_text")}</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-bold">
+                    {t("exportCompliance.ccats_title")}
+                  </TableCell>
+                  <TableCell>{t("exportCompliance.ccats_text")}</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-bold">
+                    {t("exportCompliance.ern_title")}
+                  </TableCell>
+                  <TableCell>{t("exportCompliance.ern_text")}</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
           </div>
         </div>
       </div>

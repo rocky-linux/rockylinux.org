@@ -161,6 +161,13 @@ const partnerSponsorData = [
               "The Oregon State University Open Source Lab is a nonprofit organization working for the advancement of open source technologies. The OSL offers world-class hosting services, professional software development and on-the-ground training for promising students interested in open source management and programming.",
           },
           {
+            href: "https://riscv.org",
+            src: "/images/sponsors-partners/riscv.svg",
+            name: "RISC-V International",
+            description:
+              "RISC-V International comprises a large member organization building the first open, collaborative community of software and hardware innovators powering innovation at the edge forward. Through various events and workshops, RISC-V International is changing the way the industry works together and collaborates – creating a new kind of open hardware and software ecosystem. Become a member today and help pioneer the industry’s future de facto ISA for design innovation.",
+          },
+          {
             href: "https://supermicro.com",
             src: "/images/sponsors-partners/supermicro.svg",
             name: "Supermicro",

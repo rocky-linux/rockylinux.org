@@ -1,0 +1,312 @@
+{
+  "global": {
+    "name": "Rocky Linux",
+    "download": "Herunterladen",
+    "notFound": {
+      "title": "Nicht Gefunden",
+      "description": "Die gesuchte Seite existiert nicht. Bitte überprüfen Sie die URL und versuchen Sie es erneut."
+    },
+    "close": "Schließen"
+  },
+  "header": {
+    "toggleTheme": "Design wechseln",
+    "nav": {
+      "newsName": "Neuigkeiten",
+      "aboutName": "Über uns",
+      "resourcesName": "Ressourcen",
+      "communityName": "Community",
+      "supportName": "Hilfe",
+      "contributeName": "Mitwirken",
+      "openMainMenu": "Hauptmenü öffnen",
+      "about": {
+        "about": "Über Rocky Linux",
+        "charter": "Community-Charta",
+        "wiki": "Projekt-Wiki",
+        "sponsors": "Sponsoren",
+        "partners": "Partner"
+      },
+      "resources": {
+        "gpgKeyInfo": "GPG-Schlüssel Info"
+      },
+      "community": {
+        "coc": "Verhaltenskodex",
+        "forums": "Foren",
+        "mailing": "Mailing-Listen",
+        "mattermost": "Mattermost",
+        "irc": "IRC",
+        "calendar": "Kalender"
+      },
+      "support": {
+        "docs": "Dokumentation",
+        "submitBug": "Fehler melden",
+        "supportProviders": "Kommerzieller Support"
+      },
+      "contribute": {
+        "contribute": "Leitfaden für Mitwirkende",
+        "shop": "Shop",
+        "donate": "Spenden"
+      }
+    }
+  },
+  "footer": {
+    "footer": "Footer",
+    "nav": {
+      "licensingName": "Lizenzierung",
+      "privacyPolicyName": "Datenschutz-Bestimmungen",
+      "TrademarksName": "Markenzeichen"
+    },
+    "socialNav": {
+      "bluesky": "Bluesky",
+      "facebook": "Facebook",
+      "github": "GitHub",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn",
+      "mastodon": "Mastodon",
+      "threads": "Themen",
+      "youtube": "YouTube"
+    },
+    "disclaimer": "Rocky Linux®️ ist die eingetragene Marke der Rocky Enterprise Software Foundation in den USA. Linux®️ ist die eingetragene Marke von Linus Torvalds in den USA und anderen Ländern. Red Hat Enterprise Linux, RHEL und CentOS sind Warenzeichen oder eingetragene Warenzeichen von Red Hat, Inc. oder Tochtergesellschaften in den USA und anderen Ländern, mit denen wir nicht verbunden sind, unterstützt von Red Hat, Inc.\n<br/>\nRocky Linux® is the registered trademark of the Rocky Enterprise Software Foundation in the U.S. and other countries. Linux® is the registered trademark of Linus Torvalds in the U.S. and other countries. Red Hat Enterprise Linux, RHEL and CentOS are trademarks or registered trademarks of Red Hat, Inc. or its subsidiaries in the US and other countries. We are not affiliated with, endorsed by or sponsored by Red Hat, Inc."
+  },
+  "home": {
+    "hero": {
+      "title": "Enterprise Linux, der <span>Community-Weg.</span>",
+      "description": "Rocky Linux ist ein Open-Source Enterprise Betriebssystem, das entwickelt wurde, um 100% Bug-für-Bug kompatibel mit Red Hat Enterprise Linux® zu sein. Es befindet sich in intensiver Entwicklung durch die Community.",
+      "migrate": "Migration",
+      "dpg": "Registered Digital Public Good – Ein registriertes digitales öffentliches Gut"
+    },
+    "features": {
+      "title": "Resilient, unabhängig von der Anwendung.",
+      "subText": "STABIL und PRODUKTION FERTIG",
+      "description": "Rocky Linux baut die Quellen direkt von RHEL® neu auf, sodass Sie Ihren besten Euro wetten können, dass Sie eine super stabile Lösung erhalten, unabhängig vom Anwendungsfall.",
+      "productionReady": {
+        "name": "Produktionsbereit",
+        "description": "Rocky Linux ist schlüsselfertig und bietet Stabilität mit regelmäßigen Updates und einem 10-jährigen Support-Lebenszyklus, das alles kostenlos."
+      },
+      "communitySupported": {
+        "name": "Von der Community unterstützt",
+        "description": "Die Community, Sponsoren und Partner haben mit langfristigen Verpflichtungen investiert, um sicherzustellen, dass das Projekt in der Community bleibt."
+      },
+      "easyMigration": {
+        "name": "Einfache Migration",
+        "description": "Migration von anderen Enterprise Linux Distributionen ohne Schmerzen. Wir bieten ein einfach zu bedienendes Migrationsskript, und das kostenlos."
+      }
+    },
+    "news": {
+      "title": "Letzte Neuigkeiten",
+      "description": "Wir informieren die Community regelmäßig über Neuigkeiten. Hier ist das Neueste."
+    },
+    "logoCloud": {
+      "title": "Unterstützt Durch"
+    }
+  },
+  "news": {
+    "title": "News",
+    "description": "Bleiben Sie auf dem Laufenden über Neuigkeiten und Updates der Rocky Linux Community.",
+    "notFound": {
+      "title": "Not Found",
+      "description": "Der von Ihnen gesuchte Beitrag existiert nicht. Sie finden alle unsere Nachrichten auf der <newsLink>News-Seite</newsLink>."
+    }
+  },
+  "share": {
+    "shareName": "Teilen",
+    "bluesky": "Bluesky",
+    "mastodon": {
+      "name": "Mastodon",
+      "url-valid": "Bitte geben Sie eine gültige `Mastodon`-Instanz-URL ein (ohne https://).",
+      "url": "Mastodon-Instanz-URL"
+    },
+    "facebook": "Facebook",
+    "linkedin": "LinkedIn",
+    "threads": "Threads"
+  },
+  "about": {
+    "title": "About",
+    "headings": {
+      "title": "Alles begann mit einem Blog-Kommentar.",
+      "subTitle": "Historie"
+    },
+    "intro": "Am 8. Dezember 2020 gab Red Hat bekannt, dass die Entwicklung von CentOS Linux, einer produktionsreifen Downstream-Version von Red Hat Enterprise Linux, zugunsten einer neueren Upstream-Entwicklungsvariante dieses Betriebssystems namens „CentOS Stream“ eingestellt wird. Als Reaktion darauf kündigte der ursprüngliche Gründer von CentOS, Gregory Kurtzer, <link>über einen Kommentar auf der CentOS-Website</link> an, dass er erneut ein Projekt starten werde, um die ursprünglichen Ziele von CentOS zu erreichen. Der Name wurde als Hommage an den frühen CentOS-Mitbegründer Rocky McGaugh gewählt. Bis zum 12. Dezember war das Code-Repository von Rocky Linux zum angesagtesten Repository auf GitHub geworden.",
+    "releaseInfo": "Am 22. Dezember 2020 gab Rocky Linux bekannt, dass das Ziel für eine Erstveröffentlichung irgendwo zwischen März und Mai 2021 liege. Am 20. Januar 2021 wurde bekannt gegeben, dass bis Ende Februar ein Test-Repository der Öffentlichkeit zugänglich gemacht werden würde und ein Release Candidate für Ende März 2021 geplant sei. Dieses Datum wurde jedoch leicht verschoben und am 30. April 2021 wurde der erste Release Candidate offiziell veröffentlicht. Der zweite Release Candidate der Version 8.4, die letzte vor der stabilen Version, wurde am 4. Juni 2021 veröffentlicht. Am 21. Juni 2021 wurde die stabile Version von Rocky Linux 8.4 mit dem Codenamen „Green Obsidian“ veröffentlicht.",
+    "organizationInfo": {
+      "title": "Organisation",
+      "info": "Das Rocky Linux Projekt wird von der Rocky Enterprise Software Foundation (RESF) gehostet. Um mehr über die Organisationsstruktur zu erfahren, schauen Sie sich bitte die <link>Seite</link> zu diesem Thema an."
+    },
+    "quote": {
+      "quote": "„Wenn ich an die frühen Tage von CentOS zurückdenke … Ein Mitbegründer war Rocky McGaugh. Er ist nicht mehr unter uns, und als Ausdruck der Anerkennung an ihn, der den Erfolg von CentOS nie miterleben durfte, stelle ich Ihnen vor … Rocky Linux.“",
+      "author": "Gregory Kurtzer",
+      "role": "Co-Founder @ CentOS / Founder @ Rocky Linux"
+    }
+  },
+  "sponsors": {
+    "title": "Sponsors",
+    "description": "Das Rocky Linux Projekt wird durch die großzügige Unterstützung unserer Sponsoren ermöglicht und wir sind dankbar für ihre Beiträge zum Projekt.",
+    "learnMore": "Weitere Informationen",
+    "foundingSponsor": "Gründungssponsor"
+  },
+  "partners": {
+    "title": "Partners",
+    "description": "Das Rocky Linux Projekt ist stolz darauf, mit den folgenden Organisationen zusammenzuarbeiten. Wir sind sehr dankbar für ihre Unterstützung und Beiträge zum Projekt.",
+    "foundingPartner": "Gründungspartner"
+  },
+  "supportProviders": {
+    "title": "Commercial Support",
+    "description": "Die folgenden Sponsoren bieten kommerzielle Unterstützung für Rocky Linux.",
+    "foundingSponsor": "Founding Sponsor"
+  },
+  "shop": {
+    "title": "Offizielles Merchandise",
+    "description": "Kaufen Sie ein paar Swag! Alle unsere Verkäufer liefern weltweit."
+  },
+  "download": {
+    "title": "Download",
+    "description": "Laden Sie hier die neuesten Rocky Linux Versionen herunter.",
+    "tabs": {
+      "x86_64": "AMD/Intel (x86_64)",
+      "aarch64": "ARM (aarch64)",
+      "ppc64le": "PowerPC (ppc64le)",
+      "s390x": "IBM Z (s390x)",
+      "container": "Docker (OCI)",
+      "shortened": {
+        "x86_64": "x86_64",
+        "aarch64": "aarch64",
+        "ppc64le": "ppc64le",
+        "s390x": "s390x",
+        "container": "OCI"
+      }
+    },
+    "selectVersion": "Wählen Sie eine Version:",
+    "plannedEol": "Geplantes EOL:",
+    "cards": {
+      "defaultImages": {
+        "title": "Default Images",
+        "tooltips": {
+          "dvd": "DVD: nahtlose Installation, alles, was Sie benötigen, ist bereits integriert.",
+          "boot": "Boot: Minimales Image für eine benutzerdefinierte Internet-basierte Installation.",
+          "minimal": "Minimal: Minimales eigenständiges Bild für die Einrichtung von Offline-Systemen.",
+          "buttonLabel": "Installationshandbuch anzeigen"
+        },
+        "downloadOptions": {
+          "dvd": "DVD ISO",
+          "boot": "Boot ISO",
+          "minimal": "Minimal ISO"
+        },
+        "torrent": "Torrent (DVD ISO)",
+        "checksum": "CHECKSUM",
+        "checksums": "CHECKSUMS",
+        "baseOs": "BaseOS-Pakete",
+        "archived": "Archivierte Versionen",
+        "x86_64": {
+          "r9": {
+            "versionName": "Rocky Linux 9",
+            "plannedEol": "2032-05-31"
+          },
+          "r8": {
+            "versionName": "Rocky Linux 8",
+            "plannedEol": "2029-05-31"
+          }
+        }
+      },
+      "cloudImages": {
+        "title": "Cloud Images",
+        "genericCloud": "Generische Cloud",
+        "cloudProviders": {
+          "title": "Cloud Anbieter",
+          "aws": {
+            "name": "AWS AMI",
+            "drawerTitle": "AWS AMI Images",
+            "table": {
+              "version": "Version",
+              "region": "Region",
+              "architecture": "Architektur",
+              "imageId": "Image-ID",
+              "deploy": "Inbetriebnahme"
+            }
+          },
+          "googleCloud": "Google Cloud",
+          "azure": "Microsoft Azure"
+        },
+        "downloadOptions": {
+          "qcow2": "QCOW2-Image"
+        }
+      },
+      "container": {
+        "title": "Docker (OCI) Images",
+        "downloadOptions": {
+          "fullImage": "Vollständiges Image",
+          "minimalImage": "Minimales Image"
+        }
+      },
+      "liveImages": {
+        "title": "Desktop/Workstation Live-Images",
+        "downloadOptions": {
+          "gnome": "GNOME",
+          "gnomeLite": "GNOME (Lite)",
+          "kde": "KDE",
+          "xfce": "XFCE",
+          "mate": "MATE",
+          "cinnamon": "Cinnamon"
+        }
+      },
+      "rpiImages": {
+        "title": "Raspberry Pi Images",
+        "download": "Download",
+        "readMe": "LIESMICH"
+      }
+    },
+    "getInvolved": {
+      "title": "Mitwirken",
+      "text": "Während Sie Rocky Linux herunterladen und nutzen, lädt Sie die Rocky Enterprise Software Foundation ein, <>als Mitwirkender in der Community</> an dem RL-Projekt teil zunehmen. Es gibt viele Möglichkeiten, zum Projekt beizutragen, von der Dokumentation, der QA, und das Testen von Änderungen für SIGs, das Spiegeln oder Hosting-Bereitstellen sowie anderen Benutzern helfen."
+    },
+    "exportCompliance": {
+      "title": "Exportkonformität/Zollinformationen",
+      "text1": "Durch das Herunterladen von Rocky Linux Software erkennen Sie an, dass Sie Folgendes verstehen und bestätigen:",
+      "text2": "Die Software und technischen Informationen zu Rocky Linux unterliegen möglicherweise den Exportverwaltungsvorschriften der Vereinigten Staaten (den „EAR“) sowie anderen Gesetzen der Vereinigten Staaten und anderer Länder und dürfen nicht exportiert, reexportiert oder übertragen werden (a) in ein gemäß den EAR oder den Sanktionsvorschriften der Vereinigten Staaten verbotenes Zielland (derzeit Kuba, Iran, Nordkorea, Sudan, Syrien und die ukrainische Region Krim, vorbehaltlich von Änderungen gemäß Veröffentlichung durch die US-Regierung); (b) an ein verbotenes Zielland oder an einen Endnutzer, dem die Teilnahme an US-Exportgeschäften durch eine Bundesbehörde der US-Regierung untersagt wurde; oder (c) zur Verwendung im Zusammenhang mit dem Entwurf, der Entwicklung oder Produktion von nuklearen, chemischen oder biologischen Waffen oder Raketensystemen, Trägerraketen, Höhenforschungsraketen oder unbemannten Luftfahrzeugsystemen.\n<br/>\nRocky Linux software and technical information may be subject to the U.S. Export Administration Regulations (the “EAR”) and other U.S. and foreign laws and may not be exported, re-exported or transferred (a) to a prohibited destination country under the EAR or U.S. sanctions regulations (currently Cuba, Iran, North Korea, Sudan, Syria, and the Crimea Region of Ukraine, subject to change as posted by the United States government); (b) to any prohibited destination or to any end user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government; or (c) for use in connection with the design, development or production of nuclear, chemical or biological weapons, or rocket systems, space launch vehicles, or sounding rockets, or unmanned air vehicle systems.",
+      "narrative": "Rocky Linux als Quellcode und im Binär-Form ist öffentlich verfügbar und unterliegt nicht der Verordnung zur Exportkontrolle EAR gemäß §740.17(b)(1).",
+      "product_title": "Produkt",
+      "product_text": "Rocky Linux. Beinhaltet Rocky Linux Projekt \"Special Interest Group\" Repositorys.",
+      "eccn_title": "ECCN",
+      "eccn_text": "5D992.c",
+      "exception_title": "Lizenz-Ausnahme",
+      "exception_text": "Mass Market §740.17(b)(1)",
+      "ccats_title": "CCATS",
+      "ccats_text": "K/A",
+      "ern_title": "ERN",
+      "ern_text": "N/A"
+    }
+  },
+  "community": {
+    "title": "Willkommen in der Community!",
+    "description": "Wählen Sie Ihren Interessenbereich aus und wir führen Sie an den richtigen Ort.",
+    "noSelection": "Wählen Sie eine Option, um weitere Details anzuzeigen.",
+    "interests": {
+      "chatting": {
+        "title": "Einfach Chatten",
+        "description": "Du kannst an der Unterhaltung in unserem <link>Mattermost</link> Chat teilnehmen, um dich mit anderen in der Community zu verbinden. Viel Spaß!"
+      },
+      "bugs": {
+        "title": "Fehler melden",
+        "description": "Treten Sie unserem <link1>Mattermost Chat</link1> bei, um über Ihren potenziellen Fehler mit dem Team und anderen Community-Mitgliedern zu sprechen. Durchsuchen Sie unseren <link2>Bug-Tracker</link2>, um zu sehen, ob es einen existierenden Bericht für Ihr Problem gibt."
+      },
+      "webdev": {
+        "title": "Web-Entwicklung",
+        "description": "Treten Sie unserem <link1>Mattermost Chat</link1> bei und stellen Sie sich im <link2>~Web</link2> Kanal vor. Durchsuchen Sie unser <link3>Website-Repository</link3>, um zu sehen, ob es Probleme oder Verbesserungen gibt, die gemacht werden müssen. Machen Sie mit!"
+      },
+      "graphics": {
+        "title": "Grafik-Design",
+        "description": "Treten Sie unserem <link1>Mattermost Chat</link1> bei und stellen Sie sich im <link2>~Design</link2> Kanal vor. Lassen Sie uns wissen, woran Sie interessiert sind und wir finden etwas, mit dem Sie helfen können!"
+      },
+      "release": {
+        "title": "Release-Engineering",
+        "description": "Treten Sie unserem <link1>Mattermost Chat</link1> bei und stellen Sie sich im <link2>~Development</link2>-Kanal vor. Lassen Sie uns wissen, was Sie an der Entwicklung-Arbeit interessiert und wir finden etwas, mit dem Sie helfen können!"
+      },
+      "sig": {
+        "title": "Interessengruppe (SIG)",
+        "description": "Treten Sie unserem <link1>Mattermost Chat</link1> bei und stellen Sie sich in einem unserer vielen SIG Kanäle vor. Lassen Sie uns wissen, woran Sie interessiert sind und wir finden etwas, mit dem Sie helfen können! Wenn Sie daran interessiert sind, eine neue SIG vorzuschlagen, lesen Sie bitte unsere <link2>Wiki-Seite</link2> zum Thema."
+      },
+      "docs": {
+        "title": "Documentation",
+        "description": "Treten Sie unserem <link1>Mattermost Chat</link1> bei und stellen Sie sich im <link2>~Documentation</link2> Kanal vor. Werfen Sie einen Blick auf die zur Verfügung stehende Anleitung auf unserer <link3>README</link3>."
+      }
+    }
+  }
+}

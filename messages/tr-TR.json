@@ -3,42 +3,42 @@
     "name": "Rocky Linux",
     "download": "Download",
     "notFound": {
-      "title": "Não Encontrada",
-      "description": "A página que você está procurando não existe. Por favor, verifique a URL e tente novamente."
+      "title": "Not Found",
+      "description": "The page you are looking for does not exist. Please check the URL and try again."
     },
-    "close": "Fechar"
+    "close": "Close"
   },
   "header": {
     "toggleTheme": "Toggle Theme",
     "nav": {
-      "newsName": "Notícias",
-      "aboutName": "Sobre",
-      "resourcesName": "Recursos",
-      "communityName": "Comunidade",
-      "supportName": "Ajuda",
-      "contributeName": "Contribuição",
-      "openMainMenu": "Abrir o Menu Principal",
+      "newsName": "News",
+      "aboutName": "About",
+      "resourcesName": "Resources",
+      "communityName": "Community",
+      "supportName": "Yardım",
+      "contributeName": "Contribute",
+      "openMainMenu": "Open Main Menu",
       "about": {
-        "about": "Sobre o Rocky Linux",
-        "charter": "Carta da Comunidade",
-        "wiki": "Wiki do Projeto",
-        "sponsors": "Patrocinadores",
-        "partners": "Parceiros"
+        "about": "About Rocky Linux",
+        "charter": "Community Charter",
+        "wiki": "Project Wiki",
+        "sponsors": "Sponsors",
+        "partners": "Partners"
       },
       "resources": {
-        "gpgKeyInfo": "Informação da Chave GPG"
+        "gpgKeyInfo": "GPG Key Info"
       },
       "community": {
-        "coc": "Código de Conduta",
-        "forums": "Fóruns",
-        "mailing": "Listas de Discussão",
+        "coc": "Code of Conduct",
+        "forums": "Forums",
+        "mailing": "Mailing Lists",
         "mattermost": "Mattermost",
         "irc": "IRC",
-        "calendar": "Calendário"
+        "calendar": "Calendar"
       },
       "support": {
-        "docs": "Documentação ",
-        "submitBug": "Enviar Falha",
+        "docs": "Documentation",
+        "submitBug": "Submit Bug",
         "supportProviders": "Commercial Support"
       },
       "contribute": {
@@ -51,9 +51,9 @@
   "footer": {
     "footer": "Footer",
     "nav": {
-      "licensingName": "Licença",
+      "licensingName": "Licensing",
       "privacyPolicyName": "Privacy Policy",
-      "TrademarksName": "Marcas Registradas"
+      "TrademarksName": "Trademarks"
     },
     "socialNav": {
       "bluesky": "Bluesky",
@@ -62,7 +62,7 @@
       "instagram": "Instagram",
       "linkedin": "LinkedIn",
       "mastodon": "Mastodon",
-      "threads": "Tópicos",
+      "threads": "Threads",
       "youtube": "YouTube"
     },
     "disclaimer": "Rocky Linux® is the registered trademark of the Rocky Enterprise Software Foundation in the U.S. and other countries. Linux® is the registered trademark of Linus Torvalds in the U.S. and other countries. Red Hat Enterprise Linux, RHEL and CentOS are trademarks or registered trademarks of Red Hat, Inc. or its subsidiaries in the US and other countries. We are not affiliated with, endorsed by or sponsored by Red Hat, Inc."
@@ -71,7 +71,7 @@
     "hero": {
       "title": "Enterprise Linux, the <span>community way.</span>",
       "description": "Rocky Linux is an open-source enterprise operating system designed to be 100% bug-for-bug compatible with Red Hat Enterprise Linux®. It is under intensive development by the community.",
-      "migrate": "Migração",
+      "migrate": "Migrate",
       "dpg": "A Registered Digital Public Good"
     },
     "features": {
@@ -100,10 +100,10 @@
     }
   },
   "news": {
-    "title": "Notícias",
+    "title": "News",
     "description": "Stay up to date with the latest news and updates from the Rocky Linux community.",
     "notFound": {
-      "title": "Não Encontrada",
+      "title": "Not Found",
       "description": "The news post you are looking for does not exist. You can find all our news posts on the <newsLink>news page</newsLink>."
     }
   },
@@ -117,13 +117,13 @@
     },
     "facebook": "Facebook",
     "linkedin": "LinkedIn",
-    "threads": "Tópicos"
+    "threads": "Threads"
   },
   "about": {
-    "title": "Sobre",
+    "title": "About",
     "headings": {
       "title": "It all started with a blog comment.",
-      "subTitle": "História"
+      "subTitle": "History"
     },
     "intro": "On December 8, 2020, Red Hat announced that they would discontinue development of CentOS, which has been a production-ready downstream version of Red Hat Enterprise Linux, in favor of a newer upstream development variant of that operating system known as \"CentOS Stream\". In response, the original founder of CentOS, Gregory Kurtzer, announced <link>via a comment on the CentOS website</link> that he would again start a project to achieve the original goals of CentOS. Its name was chosen as a tribute to early CentOS co-founder Rocky McGaugh. By December 12, the code repository of Rocky Linux had become the top-trending repository on GitHub.",
     "releaseInfo": "On December 22, 2020, Rocky Linux announced that the target for an initial release was anywhere between March and May of 2021. On January 20, 2021, it was announced that a test repository would be made available to the public by the end of February, and a release candidate was on target for the end of March 2021. However, that date was slightly pushed back, and on April 30, 2021, the first release candidate was officially released. The second release candidate, of version 8.4, the last before the stable release, was released on June 4, 2021. On June 21, 2021, the stable release of Rocky Linux 8.4 was released, with the code name \"Green Obsidian\".",
@@ -138,13 +138,13 @@
     }
   },
   "sponsors": {
-    "title": "Patrocinadores",
+    "title": "Sponsors",
     "description": "The Rocky Linux project is made possible by the generous support of our sponsors. We are grateful for their contributions to the project.",
     "learnMore": "Learn More",
     "foundingSponsor": "Founding Sponsor"
   },
   "partners": {
-    "title": "Parceiros",
+    "title": "Partners",
     "description": "The Rocky Linux project is proud to partner with the following organizations. We are grateful for their support and contributions to the project.",
     "foundingPartner": "Founding Partner"
   },
@@ -215,9 +215,9 @@
             "name": "AWS AMI",
             "drawerTitle": "AWS AMI Images",
             "table": {
-              "version": "Versão",
-              "region": "Região",
-              "architecture": "Arquitetura",
+              "version": "Version",
+              "region": "Region",
+              "architecture": "Architecture",
               "imageId": "Image ID",
               "deploy": "Deploy"
             }
@@ -250,11 +250,11 @@
       "rpiImages": {
         "title": "Raspberry Pi Images",
         "download": "Download",
-        "readMe": "LEIA-ME"
+        "readMe": "README"
       }
     },
     "getInvolved": {
-      "title": "Participar",
+      "title": "Get Involved",
       "text": "As you download and use Rocky Linux, the Rocky Enterprise Software Foundation invites you to be a part of the community as a contributor. There are many ways to contribute to the project, from documentation, QA, and testing to coding changes for SIGs, providing mirroring or hosting, and helping other users."
     },
     "exportCompliance": {
@@ -262,16 +262,16 @@
       "text1": "By downloading Rocky Linux software, you acknowledge that you understand all of the following:",
       "text2": "Rocky Linux software and technical information may be subject to the U.S. Export Administration Regulations (the “EAR”) and other U.S. and foreign laws and may not be exported, re-exported or transferred (a) to a prohibited destination country under the EAR or U.S. sanctions regulations (currently Cuba, Iran, North Korea, Sudan, Syria, and the Crimea Region of Ukraine, subject to change as posted by the United States government); (b) to any prohibited destination or to any end user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government; or (c) for use in connection with the design, development or production of nuclear, chemical or biological weapons, or rocket systems, space launch vehicles, or sounding rockets, or unmanned air vehicle systems.",
       "narrative": "Rocky Linux in source code and binary code form is publicly available and is not subject to the EAR in accordance with §740.17(b)(1).",
-      "product_title": "Produto",
+      "product_title": "Product",
       "product_text": "Rocky Linux. Includes Rocky Linux Project \"Special Interest Group\" repositories.",
       "eccn_title": "ECCN",
       "eccn_text": "5D992.c",
       "exception_title": "License Exception",
       "exception_text": "Mass Market §740.17(b)(1)",
       "ccats_title": "CCATS",
-      "ccats_text": "N/D",
+      "ccats_text": "N/A",
       "ern_title": "ERN",
-      "ern_text": "N/D"
+      "ern_text": "N/A"
     }
   },
   "community": {
@@ -304,7 +304,7 @@
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in one of our many SIG channels. Let us know what you're interested in working on, and we'll find something you can help out with! If you're interested in proposing a new SIG, please see our <link2>wiki page</link2> on the topic."
       },
       "docs": {
-        "title": "Documentação ",
+        "title": "Documentation",
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Documentation</link2> channel. Make sure to review the contributing guide available on our <link3>README</link3>."
       }
     }
