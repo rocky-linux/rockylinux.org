@@ -69,6 +69,9 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@eslint/compat": "^1.2.6",
+    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/js": "^9.19.0",
     "@playwright/test": "^1.50.1",
     "@swc/jest": "^0.2.37",
     "@tailwindcss/typography": "^0.5.16",
@@ -79,6 +82,7 @@
     "@types/lodash": "^4.17.15",
     "@types/rss": "^0.0.32",
     "autoprefixer": "^10.4.20",
+    "globals": "^15.14.0",
     "husky": "^9.1.7",
     "jest": "^29.7.0",
     "jest-extended": "^4.0.2",
