@@ -1,40 +1,40 @@
-import { JSXElementConstructor, ReactElement, ReactNodeArray } from "react";
+import { JSXElementConstructor, ReactElement, ReactNode } from "react";
 
 export interface QuizInterests {
   chatting: string;
   chattingDescription:
     | string
     | ReactElement<any, string | JSXElementConstructor<any>>
-    | ReactNodeArray;
+    | ReactNode;
   bugs: string;
   bugsDescription:
     | string
     | ReactElement<any, string | JSXElementConstructor<any>>
-    | ReactNodeArray;
+    | ReactNode;
   webdev: string;
   webDevDescription:
     | string
     | ReactElement<any, string | JSXElementConstructor<any>>
-    | ReactNodeArray;
+    | ReactNode;
   graphics: string;
   graphicsDescription:
     | string
     | ReactElement<any, string | JSXElementConstructor<any>>
-    | ReactNodeArray;
+    | ReactNode;
   release: string;
   releaseDescription:
     | string
     | ReactElement<any, string | JSXElementConstructor<any>>
-    | ReactNodeArray;
+    | ReactNode;
   sig: string;
   sigDescription:
     | string
     | ReactElement<any, string | JSXElementConstructor<any>>
-    | ReactNodeArray;
+    | ReactNode;
   docs: string;
   docsDescription:
     | string
     | ReactElement<any, string | JSXElementConstructor<any>>
-    | ReactNodeArray;
+    | ReactNode;
   noSelection: string;
 }
