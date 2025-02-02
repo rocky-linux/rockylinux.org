@@ -20,7 +20,7 @@ import PlausibleProvider from "next-plausible";
 
 type RootLayoutProps = {
   children: ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 };
 
 export const metadata: Metadata = {
@@ -47,10 +47,12 @@ const fontDisplay = FontDisplay({
   variable: "--font-display",
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-  params: { locale },
+  params,
 }: RootLayoutProps) {
+  const { locale } = await params;
+
   if (!availableLanguages.includes(locale as any)) notFound();
 
   return (
