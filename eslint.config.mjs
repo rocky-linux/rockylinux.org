@@ -1,6 +1,5 @@
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
-import { fixupPluginRules } from "@eslint/compat";
 import globals from "globals";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -15,7 +14,7 @@ const compat = new FlatCompat({
   allConfig: js.configs.all,
 });
 
-export default [
+const eslintConfig = [
   {
     ignores: ["**/typings/", "**/public/", "**/scripts/"],
   },
@@ -64,3 +63,5 @@ export default [
     },
   },
 ];
+
+export default eslintConfig;
