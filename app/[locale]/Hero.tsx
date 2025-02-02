@@ -4,6 +4,7 @@ import DpgLogo from "@/components/otherLogosIcons/DpgLogo";
 
 import { Button } from "@/components/ui/button";
 import React from "react";
+import Link from "next/link";
 
 const Hero = () => {
   const t = useTranslations("home.hero");
@@ -23,25 +24,25 @@ const Hero = () => {
             </h1>
             <p className="mt-6 text-lg leading-8">{t("description")}</p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <a href="/download">
+              <Link href="/download">
                 <Button className="p-5">{tGlobal("download")}</Button>
-              </a>
-              <a href="https://docs.rockylinux.org/guides/migrate2rocky/">
+              </Link>
+              <Link href="https://docs.rockylinux.org/guides/migrate2rocky/">
                 <Button
                   variant="secondary"
                   className="p-5"
                 >
                   {t("migrate")}
                 </Button>
-              </a>
+              </Link>
             </div>
-            <a
+            <Link
               href="https://digitalpublicgoods.net/"
               target="_blank"
             >
               <DpgLogo />
               <p className="text-md font-display mt-2">{t("dpg")}</p>
-            </a>
+            </Link>
           </div>
           <div className="mt-16 flow-root sm:mt-24">
             <div className="-m-2 rounded-xl bg-slate-900/5 dark:bg-slate-100/5 p-2 ring-1 ring-inset ring-slate-900/10 dark:ring-slate-100/10 lg:-m-4 lg:rounded-2xl lg:p-4">
