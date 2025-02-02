@@ -9,7 +9,7 @@ export type Params = {
 };
 
 export type Props = {
-  params: Params;
+  params: Promise<Params>;
 };
 
 export type PostData = {
@@ -20,7 +20,7 @@ export type PostData = {
 };
 
 export async function generateMetadata({ params }: Props) {
-  const slug = params.slug;
+  const { slug } = await params;
 
   if (!(await checkIfSlugIsValid(slug))) {
     return {
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function Post({ params }: Props) {
-  const slug = params.slug;
+  const { slug } = await params;
 
   if (!(await checkIfSlugIsValid(slug))) {
     notFound();
@@ -60,7 +60,7 @@ export default async function Post({ params }: Props) {
           className="prose dark:prose-invert prose-headings:font-display prose-a:text-primary prose-pre:bg-muted prose-pre:py-3 prose-pre:px-4 prose-pre:rounded prose-pre:text-black dark:prose-pre:text-white prose-img:rounded-md max-w-none mb-12"
           dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
         />
-        <ShareButtons url={`https://rockylinux.org/news/${params.slug}`} />
+        <ShareButtons url={`https://rockylinux.org/news/${slug}`} />
       </div>
     </div>
   );
