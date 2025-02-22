@@ -56,7 +56,10 @@ export default async function RootLayout({
   if (!availableLanguages.includes(locale as any)) notFound();
 
   return (
-    <html lang={locale}>
+    <html
+      lang={locale}
+      suppressHydrationWarning
+    >
       <head>
         <PlausibleProvider
           domain="rockylinux.org"
@@ -71,6 +74,7 @@ export default async function RootLayout({
         />
       </head>
       <body
+        suppressHydrationWarning
         className={cn(
           "min-h-screen bg-background font-sans antialiased mx-auto px-4 xl:px-0",
           fontSans.variable,
