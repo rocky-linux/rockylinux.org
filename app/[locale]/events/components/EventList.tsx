@@ -19,7 +19,7 @@ interface Event {
 
 const events: Event[] = eventsData.map((event) => ({
   ...event,
-  date: new Date(event.date),
+  date: new Date(`${event.date}T12:00:00Z`),
 }));
 
 function CalendarIcon({ date, className }: { date: Date; className?: string }) {
