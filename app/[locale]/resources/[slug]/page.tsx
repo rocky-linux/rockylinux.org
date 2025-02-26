@@ -6,7 +6,7 @@ export type Params = {
 };
 
 export type Props = {
-  params: Params;
+  params: Promise<Params>;
 };
 
 export type pageData = {
@@ -16,7 +16,7 @@ export type pageData = {
 };
 
 export async function generateMetadata({ params }: Props) {
-  const slug = params.slug;
+  const { slug } = await params;
 
   if (!(await checkIfSlugIsValid(slug))) {
     return {
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function Page({ params }: Props) {
-  const slug = params.slug;
+  const { slug } = await params;
 
   if (!(await checkIfSlugIsValid(slug))) {
     notFound();

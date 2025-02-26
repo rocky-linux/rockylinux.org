@@ -34,3 +34,5 @@ export const availableLanguages = [
   "zh-CN",
   "zh-TW",
 ] as const;
+
+export const defaultLanguage = "en" as const;

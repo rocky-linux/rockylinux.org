@@ -19,6 +19,7 @@ import NavListItem from "./nav/mobile/NavListItem";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 
 import type { NavigationMenuItems } from "./NavigationTypes";
+import Link from "next/link";
 
 export interface MobileNavigationProps {
   darkModeSRText: string;
@@ -55,10 +56,10 @@ const MobileNavigation = ({
           side="right"
           className="w-full"
         >
-          <a href="/">
+          <Link href="/">
             <Logo />
             <span className="sr-only">{rockyLinuxSRText}</span>
-          </a>
+          </Link>
           <Accordion
             type="single"
             collapsible
@@ -141,11 +142,11 @@ const MobileNavigation = ({
             </NavList>
           </Accordion>
           <div className="mt-auto">
-            <a href="/download">
+            <Link href="/download">
               <SheetClose asChild>
                 <Button className="p-5 w-full mt-4">{downloadSRText}</Button>
               </SheetClose>
-            </a>
+            </Link>
           </div>
         </SheetContent>
       </Sheet>
