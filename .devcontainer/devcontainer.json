@@ -1,6 +1,6 @@
 {
   "name": "RockyLinux.org",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:0-20",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20",
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
