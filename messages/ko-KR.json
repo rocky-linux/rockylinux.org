@@ -63,7 +63,7 @@
       "linkedin": "LinkedIn",
       "mastodon": "Mastodon",
       "threads": "게시글",
-      "youtube": "YouTube"
+      "youtube": "유튜브"
     },
     "disclaimer": "Rocky Linux®는 미국 및 기타 국가에서 Rocky Enterprise Software Foundation의 등록 상표입니다. Linux®는 미국 및 기타 국가에서 Linus Torvalds의 등록 상표입니다. Red Hat Enterprise Linux, RHEL 및 CentOS는 미국 및 기타 국가에서 Red Hat, Inc. 또는 그 자회사의 상표 또는 등록 상표입니다. 당사는 Red Hat, Inc.와 제휴하지 않으며, Red Hat, Inc.의 보증 또는 후원을 받지 않습니다."
   },
@@ -207,10 +207,10 @@
         }
       },
       "cloudImages": {
-        "title": "Cloud Images",
+        "title": "클라우드 이미지",
         "genericCloud": "Generic Cloud",
         "cloudProviders": {
-          "title": "Cloud Providers",
+          "title": "클라우드 제공자",
           "aws": {
             "name": "AWS AMI",
             "drawerTitle": "AWS 아마존 리눅스 이미지",
