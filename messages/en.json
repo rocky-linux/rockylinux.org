@@ -308,5 +308,9 @@
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Documentation</link2> channel. Make sure to review the contributing guide available on our <link3>README</link3>."
       }
     }
+  },
+  "events": {
+    "title": "Events",
+    "description": "We host and attend a variety of events throughout each year. We invite you to join us at one of our events to learn more about the project and meet other members of the community."
   }
 }
