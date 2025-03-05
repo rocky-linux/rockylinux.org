@@ -1,21 +1,21 @@
 {
   "global": {
     "name": "Rocky Linux",
-    "download": "Download",
+    "download": "Λήψη",
     "notFound": {
-      "title": "Not Found",
-      "description": "The page you are looking for does not exist. Please check the URL and try again."
+      "title": "Δεν Βρέθηκε",
+      "description": "Η σελίδα που ψάχνετε δεν υπάρχει. Ελέγξτε τη διεύθυνση URL και προσπαθήστε ξανά."
     },
-    "close": "Close"
+    "close": "Κλείσιμο"
   },
   "header": {
     "toggleTheme": "Toggle Theme",
     "nav": {
-      "newsName": "News",
+      "newsName": "Νέα",
       "aboutName": "About",
       "resourcesName": "Resources",
-      "communityName": "Community",
-      "supportName": "Help",
+      "communityName": "Κοινότητα",
+      "supportName": "Βοήθεια",
       "contributeName": "Contribute",
       "openMainMenu": "Open Main Menu",
       "about": {
@@ -44,7 +44,7 @@
       "contribute": {
         "contribute": "Contributing Guide",
         "shop": "Shop",
-        "donate": "Donate"
+        "donate": "Δωρεά"
       }
     }
   },
@@ -70,7 +70,7 @@
   "home": {
     "hero": {
       "title": "Enterprise Linux, the <span>community way.</span>",
-      "description": "Rocky Linux is an open-source enterprise operating system designed to be 100% bug-for-bug compatible with Red Hat Enterprise Linux®. It is under intensive development by the community.",
+      "description": "Rocky Linux is an open-source enterprise operating system designed to be 100% bug-for-bug compatible with Red Hat Enterprise Linux®. Rocky Linux is under intensive development by the community.",
       "migrate": "Migrate",
       "dpg": "A Registered Digital Public Good"
     },
@@ -100,10 +100,10 @@
     }
   },
   "news": {
-    "title": "News",
+    "title": "Νέα",
     "description": "Stay up to date with the latest news and updates from the Rocky Linux community.",
     "notFound": {
-      "title": "Not Found",
+      "title": "Δεν Βρέθηκε",
       "description": "The news post you are looking for does not exist. You can find all our news posts on the <newsLink>news page</newsLink>."
     }
   },
@@ -158,7 +158,7 @@
     "description": "Purchase some swag! All of our vendors ship globally."
   },
   "download": {
-    "title": "Download",
+    "title": "Λήψη",
     "description": "Download the latest Rocky Linux versions here.",
     "tabs": {
       "x86_64": "AMD/Intel (x86_64)",
@@ -198,11 +198,11 @@
         "x86_64": {
           "r9": {
             "versionName": "Rocky Linux 9",
-            "plannedEol": "May 31 2032"
+            "plannedEol": "2032-05-31"
           },
           "r8": {
             "versionName": "Rocky Linux 8",
-            "plannedEol": "May 31 2029"
+            "plannedEol": "2029-05-31"
           }
         }
       },
@@ -249,7 +249,7 @@
       },
       "rpiImages": {
         "title": "Raspberry Pi Images",
-        "download": "Download",
+        "download": "Λήψη",
         "readMe": "README"
       }
     },
