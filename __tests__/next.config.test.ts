@@ -37,7 +37,7 @@ describe("next.config", () => {
     });
 
     it("should have the correct number of redirects", async () => {
-      expect(redirects).toHaveLength(12);
+      expect(redirects).toHaveLength(13);
     });
 
     it("should have the community-charter redirect", async () => {
@@ -132,6 +132,14 @@ describe("next.config", () => {
       expect(redirects).toContainEqual<Redirect>({
         source: "/news/2024-07-01-rocky-linux-9-cve-2024-6378-regression",
         destination: "/news/2024-07-01-openssh-sigalrm-regression",
+        permanent: true,
+      });
+    });
+
+    it("should redirect keys to the correct location", async () => {
+      expect(redirects).toContainEqual<Redirect>({
+        source: "/keys",
+        destination: "/resources/gpg-key-info",
         permanent: true,
       });
     });
