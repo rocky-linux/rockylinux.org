@@ -544,7 +544,7 @@ const DownloadPage = () => {
                       {
                         versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
                         versionId: "rocky-9",
-                        currentVersion: "v9.5",
+                        currentVersion: "v9.2 (Beta)",
                         plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
                         downloadOptions: [
                           {
