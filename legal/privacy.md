@@ -19,7 +19,7 @@ Unless explicitly noted, this Privacy Policy does not cover 3rd party services o
 
 ## What Data Do We Collect and Receive?
 
-In order for us to both provide and maintain our Services, we collect certain information, including through [Fathom](https://usefathom.com) for analytics on our websites. You may view the analytics we collect for this website [here](https://app.usefathom.com/share/qdepahys/website), as well as our documentation website [here](https://app.usefathom.com/share/ktsptdwy/documentation). Depending on your use of the Services, we may collect the following information:
+In order for us to both provide and maintain our Services, we collect certain information, including through [Plausible](https://plausible.io/) for analytics on our websites. You may view the analytics we collect for this website [here](https://plausible.io/rockylinux.org), as well as our documentation website [here](https://plausible.io/docs.rockylinux.org). Depending on your use of the Services, we may collect the following information:
 
 - **Information you provide when you contact us** – for example, when you ask for support, send us questions or comments, or report a problem, we will collect any information you provide to us, at a minimum including your email address, and message. We use this data in connection with answering the queries we receive.
 
