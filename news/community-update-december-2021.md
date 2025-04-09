@@ -108,9 +108,9 @@ We need you! The Community Team is seeking volunteers to help us grow community 
 
 - We have implemented Fathom Analytics on both the main website, as well as the Documentation website. Fathom is an open-source, privacy-friendly, cookie-less analytics solution. You can view our analytics publicly at the links below.
 
-- [Main Website Analytics](https://app.usefathom.com/share/qdepahys/website/)
+- [Main Website Analytics](https://plausible.io/rockylinux.org)
 
-- [Documentation Website Analytics](https://app.usefathom.com/share/ktsptdwy/documentation/)
+- [Documentation Website Analytics](https://plausible.io/docs.rockylinux.org)
 
 ## Special Interest Groups
 

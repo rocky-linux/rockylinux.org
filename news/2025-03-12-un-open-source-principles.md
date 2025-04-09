@@ -20,7 +20,7 @@ The UN Open Source Principles are comprised of eight guidelines and provide a fr
 
 The UN and the RESF invite other organizations to join in support of the UN Open Source Principles and in contributing to a future of open, inclusive digital solutions worldwide. To endorse the UN Open Source Principles, [submit your organization’s information here](https://forms.office.com/e/m75hJKPiyv).
 
-[Open Source United](https://www.un.org/digital-emerging-technologies/content/open-source-digital-transformation), a community of practice established by the DTN, works to advance Open Source technologies throughout UN agencies. It promotes collaboration and scalable solutions to support the UN’s digital transformation.
+[Open Source United](https://unite.un.org/news/digital-and-technology-network-facilitating-un-digital-transformation), a community of practice established by the DTN, works to advance Open Source technologies throughout UN agencies. It promotes collaboration and scalable solutions to support the UN’s digital transformation.
 
 The [RESF](https://resf.org), founded in 2020, was created with the mission to ensure the longevity, stewardship, and innovation of enterprise-class open-source software, always maintaining its free availability. The RESF supports [Rocky Linux](https://rockylinux.org), a UN recognized [Digital Public Good](https://www.digitalpublicgoods.net).
 
