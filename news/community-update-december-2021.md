@@ -106,7 +106,7 @@ We need you! The Community Team is seeking volunteers to help us grow community 
 
 - We are working on a UI toolkit which will replace all of the existing Tailwind CSS-based theming across the RESF’s web presence. This is to ensure consistency in design between all Rocky Linux experiences, and will have its debut on the main Rocky Linux website. More sites will follow, but for now it will just be the main website.
 
-- We have implemented Fathom Analytics on both the main website, as well as the Documentation website. Fathom is an open-source, privacy-friendly, cookie-less analytics solution. You can view our analytics publicly at the links below.
+- We have implemented Plausible Analytics on both the main website, as well as the Documentation website. Plausible is an open-source, privacy-friendly, cookie-less analytics solution. You can view our analytics publicly at the links below.
 
 - [Main Website Analytics](https://plausible.io/rockylinux.org)
 
