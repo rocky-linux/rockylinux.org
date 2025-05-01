@@ -21,11 +21,17 @@ const config = {
         jsc: {
           parser: { syntax: "typescript", tsx: true },
           transform: { react: { runtime: "automatic" } },
+          target: "es2022",
+          loose: true,
         },
+        module: { type: "commonjs" },
       },
     ],
   },
-  transformIgnorePatterns: ["/node_modules/(?!next-intl)/"],
+  transformIgnorePatterns: [
+    "/node_modules/(?!next-intl)/",
+    "^.+\\.module\\.(css|sass|scss)$",
+  ],
   testPathIgnorePatterns: ["<rootDir>/e2e/"],
   modulePathIgnorePatterns: ["<rootDir>/e2e/"],
   passWithNoTests: true,
@@ -47,6 +53,11 @@ const config = {
     "!<rootDir>/e2e/**",
     "!<rootDir>/i18n.ts",
     "!<rootDir>/middleware.ts",
+  ],
+  // Prevent Jest from using Babel
+  transformIgnorePatterns: [
+    "node_modules/(?!(@swc/jest|next-intl)/)",
+    "^.+\\.module\\.(css|sass|scss)$",
   ],
 };
 
