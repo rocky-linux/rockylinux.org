@@ -29,6 +29,7 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useTranslations } from "next-intl";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -53,6 +54,9 @@ export function DataTable<TData, TValue>({
     []
   );
   const [globalFilter, setGlobalFilter] = React.useState("");
+  const t = useTranslations(
+    "download.cards.cloudImages.cloudProviders.aws.table"
+  );
 
   const table = useReactTable({
     data,
@@ -88,15 +92,11 @@ export function DataTable<TData, TValue>({
     }
   }, [table]);
 
-  const noResultsText = "No results.";
-  const previousText = "Previous";
-  const nextText = "Next";
-
   return (
     <div>
       <div className="flex items-center py-4">
         <Input
-          placeholder="Search..."
+          placeholder={t("search")}
           value={globalFilter ?? ""}
           onChange={(event) => setGlobalFilter(event.target.value)}
           className="max-w-sm"
@@ -145,7 +145,7 @@ export function DataTable<TData, TValue>({
                   colSpan={columns.length}
                   className="h-24 text-center"
                 >
-                  {noResultsText}
+                  {t("noResults")}
                 </TableCell>
               </TableRow>
             )}
@@ -158,7 +158,7 @@ export function DataTable<TData, TValue>({
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
           >
-            {previousText}
+            {t("previous")}
           </Button>
           <Button
             variant="outline"
@@ -166,7 +166,7 @@ export function DataTable<TData, TValue>({
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
           >
-            {nextText}
+            {t("next")}
           </Button>
         </div>
       </div>
