@@ -28,8 +28,9 @@ const config = {
       },
     ],
   },
+  // Prevent Jest from using Babel and handle CSS modules
   transformIgnorePatterns: [
-    "/node_modules/(?!next-intl)/",
+    "node_modules/(?!(@swc/jest|next-intl)/)",
     "^.+\\.module\\.(css|sass|scss)$",
   ],
   testPathIgnorePatterns: ["<rootDir>/e2e/"],
@@ -53,11 +54,6 @@ const config = {
     "!<rootDir>/e2e/**",
     "!<rootDir>/i18n.ts",
     "!<rootDir>/middleware.ts",
-  ],
-  // Prevent Jest from using Babel
-  transformIgnorePatterns: [
-    "node_modules/(?!(@swc/jest|next-intl)/)",
-    "^.+\\.module\\.(css|sass|scss)$",
   ],
 };
 
