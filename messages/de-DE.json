@@ -219,7 +219,11 @@
               "region": "Region",
               "architecture": "Architektur",
               "imageId": "Image-ID",
-              "deploy": "Inbetriebnahme"
+              "deploy": "Inbetriebnahme",
+              "search": "Search...",
+              "noResults": "No results.",
+              "previous": "Previous",
+              "next": "Next"
             }
           },
           "googleCloud": "Google Cloud",
@@ -260,7 +264,7 @@
     "exportCompliance": {
       "title": "Exportkonformität/Zollinformationen",
       "text1": "Durch das Herunterladen von Rocky Linux Software erkennen Sie an, dass Sie Folgendes verstehen und bestätigen:",
-      "text2": "Die Software und technischen Informationen zu Rocky Linux unterliegen möglicherweise den Exportverwaltungsvorschriften der Vereinigten Staaten (den „EAR“) sowie anderen Gesetzen der Vereinigten Staaten und anderer Länder und dürfen nicht exportiert, reexportiert oder übertragen werden (a) in ein gemäß den EAR oder den Sanktionsvorschriften der Vereinigten Staaten verbotenes Zielland (derzeit Kuba, Iran, Nordkorea, Sudan, Syrien und die ukrainische Region Krim, vorbehaltlich von Änderungen gemäß Veröffentlichung durch die US-Regierung); (b) an ein verbotenes Zielland oder an einen Endnutzer, dem die Teilnahme an US-Exportgeschäften durch eine Bundesbehörde der US-Regierung untersagt wurde; oder (c) zur Verwendung im Zusammenhang mit dem Entwurf, der Entwicklung oder Produktion von nuklearen, chemischen oder biologischen Waffen oder Raketensystemen, Trägerraketen, Höhenforschungsraketen oder unbemannten Luftfahrzeugsystemen.\n<br/>\nRocky Linux software and technical information may be subject to the U.S. Export Administration Regulations (the “EAR”) and other U.S. and foreign laws and may not be exported, re-exported or transferred (a) to a prohibited destination country under the EAR or U.S. sanctions regulations (currently Cuba, Iran, North Korea, Sudan, Syria, and the Crimea Region of Ukraine, subject to change as posted by the United States government); (b) to any prohibited destination or to any end user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government; or (c) for use in connection with the design, development or production of nuclear, chemical or biological weapons, or rocket systems, space launch vehicles, or sounding rockets, or unmanned air vehicle systems.",
+      "text2": "Rocky Linux software and technical information may be subject to the U.S. Export Administration Regulations (the \"EAR\") and other U.S. and foreign laws and may not be exported, re-exported or transferred (a) to a prohibited destination country under the EAR or U.S. sanctions regulations (currently Cuba, Iran, North Korea, Sudan, Syria, and the Crimea Region of Ukraine, subject to change as posted by the United States government); (b) to any prohibited destination or to any end user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government; or (c) for use in connection with the design, development or production of nuclear, chemical or biological weapons, or rocket systems, space launch vehicles, or sounding rockets, or unmanned air vehicle systems.",
       "narrative": "Rocky Linux als Quellcode und im Binär-Form ist öffentlich verfügbar und unterliegt nicht der Verordnung zur Exportkontrolle EAR gemäß §740.17(b)(1).",
       "product_title": "Produkt",
       "product_text": "Rocky Linux. Beinhaltet Rocky Linux Projekt \"Special Interest Group\" Repositorys.",
