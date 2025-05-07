@@ -2,7 +2,6 @@ import Link from "next/link";
 
 import {
   NavigationMenuItem,
-  NavigationMenuLink,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
@@ -16,12 +15,9 @@ const NavItem = ({ title, href }: NavItemProps) => {
     <NavigationMenuItem>
       <Link
         href={href}
-        legacyBehavior
-        passHref
+        className={navigationMenuTriggerStyle()}
       >
-        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-          {title}
-        </NavigationMenuLink>
+        {title}
       </Link>
     </NavigationMenuItem>
   );
