@@ -4,37 +4,37 @@ export interface QuizInterests {
   chatting: string;
   chattingDescription:
     | string
-    | ReactElement<any, string | JSXElementConstructor<any>>
+    | ReactElement<unknown, string | JSXElementConstructor<unknown>>
     | ReactNode;
   bugs: string;
   bugsDescription:
     | string
-    | ReactElement<any, string | JSXElementConstructor<any>>
+    | ReactElement<unknown, string | JSXElementConstructor<unknown>>
     | ReactNode;
   webdev: string;
   webDevDescription:
     | string
-    | ReactElement<any, string | JSXElementConstructor<any>>
+    | ReactElement<unknown, string | JSXElementConstructor<unknown>>
     | ReactNode;
   graphics: string;
   graphicsDescription:
     | string
-    | ReactElement<any, string | JSXElementConstructor<any>>
+    | ReactElement<unknown, string | JSXElementConstructor<unknown>>
     | ReactNode;
   release: string;
   releaseDescription:
     | string
-    | ReactElement<any, string | JSXElementConstructor<any>>
+    | ReactElement<unknown, string | JSXElementConstructor<unknown>>
     | ReactNode;
   sig: string;
   sigDescription:
     | string
-    | ReactElement<any, string | JSXElementConstructor<any>>
+    | ReactElement<unknown, string | JSXElementConstructor<unknown>>
     | ReactNode;
   docs: string;
   docsDescription:
     | string
-    | ReactElement<any, string | JSXElementConstructor<any>>
+    | ReactElement<unknown, string | JSXElementConstructor<unknown>>
     | ReactNode;
   noSelection: string;
 }
