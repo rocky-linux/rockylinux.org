@@ -220,10 +220,10 @@
               "architecture": "Arquitetura",
               "imageId": "ID da Imagem",
               "deploy": "Deploy",
-              "search": "Search...",
-              "noResults": "No results.",
-              "previous": "Previous",
-              "next": "Next"
+              "search": "Buscar...",
+              "noResults": "Sem resultados.",
+              "previous": "Anterior",
+              "next": "Próximo"
             }
           },
           "googleCloud": "Google Cloud",
