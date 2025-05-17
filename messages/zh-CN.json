@@ -220,10 +220,10 @@
               "architecture": "架构",
               "imageId": "镜像 ID",
               "deploy": "部署",
-              "search": "Search...",
-              "noResults": "No results.",
-              "previous": "Previous",
-              "next": "Next"
+              "search": "搜索...",
+              "noResults": "没有相关结果。",
+              "previous": "上一个",
+              "next": "下一个"
             }
           },
           "googleCloud": "谷歌云",
@@ -264,7 +264,7 @@
     "exportCompliance": {
       "title": "出口合规/海关信息",
       "text1": "通过下载 Rocky Linux 软件，您承认您理解以下所有内容：",
-      "text2": "Rocky Linux software and technical information may be subject to the U.S. Export Administration Regulations (the \"EAR\") and other U.S. and foreign laws and may not be exported, re-exported or transferred (a) to a prohibited destination country under the EAR or U.S. sanctions regulations (currently Cuba, Iran, North Korea, Sudan, Syria, and the Crimea Region of Ukraine, subject to change as posted by the United States government); (b) to any prohibited destination or to any end user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government; or (c) for use in connection with the design, development or production of nuclear, chemical or biological weapons, or rocket systems, space launch vehicles, or sounding rockets, or unmanned air vehicle systems.",
+      "text2": "Rocky Linux 软件及技术资料可能受《美国出口管理条例》(\"EAR\")及其他国内外法律约束，其使用与传播需遵守以下出口管制要求：(a) 地域限制 —— 不得向 \"EAR\" 或美国制裁法规列明的禁运国家（当前包括古巴、伊朗、朝鲜、苏丹、叙利亚及乌克兰克里米亚地区，具体以美国政府最新公布清单为准）进行出口、再出口或转移‌；(b)主体限制 —— 禁止向被美国联邦政府机构列入出口管制名单的最终用户或受禁主体提供相关技术资料‌；(c) 用途限制 —— 不得用于核武器、生化武器、火箭系统（含航天运载工具、探空火箭）及无人飞行器系统的研发、设计或生产环节‌。",
       "narrative": "Rocky Linux 的源代码与二进制代码均属于公共可获取资源，依据《美国出口管理条例》(\"EAR\")第 740.17(b)(1) 条款的规定，其流通不受 \"EAR\" 管辖‌。",
       "product_title": "产品",
       "product_text": "Rocky Linux 包含 Rocky Linux 项目的\"Special Interest Group\" 存储库。",
