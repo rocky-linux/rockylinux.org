@@ -12,9 +12,9 @@ import {
   getFacetedMinMaxValues,
   getPaginationRowModel,
   getSortedRowModel,
-  FilterFn,
   ColumnDef,
   flexRender,
+  Row,
 } from "@tanstack/react-table";
 
 import { rankItem } from "@tanstack/match-sorter-utils";
@@ -29,21 +29,23 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useTranslations } from "next-intl";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
 }
 
-const fuzzyFilter: FilterFn<any> = (row, columnId, value, addMeta) => {
+function fuzzyFilter<TData>(
+  row: Row<TData>,
+  columnId: string,
+  value: string,
+  addMeta: (meta: { itemRank: { passed: boolean } }) => void
+): boolean {
   const itemRank = rankItem(row.getValue(columnId), value);
-
-  addMeta({
-    itemRank,
-  });
-
+  addMeta({ itemRank });
   return itemRank.passed;
-};
+}
 
 export function DataTable<TData, TValue>({
   columns,
@@ -53,17 +55,15 @@ export function DataTable<TData, TValue>({
     []
   );
   const [globalFilter, setGlobalFilter] = React.useState("");
+  const t = useTranslations(
+    "download.cards.cloudImages.cloudProviders.aws.table"
+  );
 
   const table = useReactTable({
     data,
     columns,
-    filterFns: {
-      fuzzy: fuzzyFilter,
-    },
-    state: {
-      columnFilters,
-      globalFilter,
-    },
+    filterFns: { fuzzy: fuzzyFilter },
+    state: { columnFilters, globalFilter },
     onColumnFiltersChange: setColumnFilters,
     onGlobalFilterChange: setGlobalFilter,
     globalFilterFn: fuzzyFilter,
@@ -88,15 +88,11 @@ export function DataTable<TData, TValue>({
     }
   }, [table]);
 
-  const noResultsText = "No results.";
-  const previousText = "Previous";
-  const nextText = "Next";
-
   return (
     <div>
       <div className="flex items-center py-4">
         <Input
-          placeholder="Search..."
+          placeholder={t("search")}
           value={globalFilter ?? ""}
           onChange={(event) => setGlobalFilter(event.target.value)}
           className="max-w-sm"
@@ -145,7 +141,7 @@ export function DataTable<TData, TValue>({
                   colSpan={columns.length}
                   className="h-24 text-center"
                 >
-                  {noResultsText}
+                  {t("noResults")}
                 </TableCell>
               </TableRow>
             )}
@@ -158,7 +154,7 @@ export function DataTable<TData, TValue>({
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
           >
-            {previousText}
+            {t("previous")}
           </Button>
           <Button
             variant="outline"
@@ -166,7 +162,7 @@ export function DataTable<TData, TValue>({
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
           >
-            {nextText}
+            {t("next")}
           </Button>
         </div>
       </div>

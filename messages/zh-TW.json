@@ -262,16 +262,16 @@
       "text1": "下載 Rocky Linux 軟體即表示您已了解以下所有內容：",
       "text2": "Rocky Linux software and technical information may be subject to the U.S. Export Administration Regulations (the “EAR”) and other U.S. and foreign laws and may not be exported, re-exported or transferred (a) to a prohibited destination country under the EAR or U.S. sanctions regulations (currently Cuba, Iran, North Korea, Sudan, Syria, and the Crimea Region of Ukraine, subject to change as posted by the United States government); (b) to any prohibited destination or to any end user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government; or (c) for use in connection with the design, development or production of nuclear, chemical or biological weapons, or rocket systems, space launch vehicles, or sounding rockets, or unmanned air vehicle systems.",
       "narrative": "Rocky Linux in source code and binary code form is publicly available and is not subject to the EAR in accordance with §740.17(b)(1).",
-      "product_title": "Product",
+      "product_title": "產品",
       "product_text": "Rocky Linux. Includes Rocky Linux Project \"Special Interest Group\" repositories.",
       "eccn_title": "ECCN",
       "eccn_text": "5D992.c",
       "exception_title": "License Exception",
       "exception_text": "Mass Market §740.17(b)(1)",
       "ccats_title": "CCATS",
-      "ccats_text": "N/A",
+      "ccats_text": "不適用",
       "ern_title": "ERN",
-      "ern_text": "N/A"
+      "ern_text": "不適用"
     }
   },
   "community": {
