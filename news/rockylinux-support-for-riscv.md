@@ -40,7 +40,7 @@ Special thanks to **RISC-V International**, **RISE**, **Rivos, Inc.**, and the *
 ### 🌟 What makes this different?
 
 - This is a **community-driven architecture**, with deep collaboration from upstream Fedora RISC-V efforts.
-- The toolchain was **bootstrapped from Fedora**, with CentOS Stream 10 patches to enable the port.
+- The compiler stack was **bootstrapped from Fedora RISC-V**, with necessary CentOS Stream 10 changes to enable the port.
 - Expect **rapid iteration and growth**, with your help and feedback!
 
 ---
