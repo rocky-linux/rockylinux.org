@@ -1,8 +1,6 @@
 import nextJest from "next/jest.js";
 
-const createJestConfig = nextJest({
-  dir: "./",
-});
+const createJestConfig = nextJest({ dir: "./" });
 
 // Add any custom config to be passed to Jest
 /** @type {import('jest').Config} */
@@ -12,7 +10,29 @@ const config = {
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/$1",
     "^test-utils": "<rootDir>/@types/test-utils/test-utils.tsx",
+    "^next-intl$": "<rootDir>/__mocks__/next-intl.tsx",
+    "^next-intl/plugin$": "<rootDir>/__mocks__/next-intl/plugin.js",
+    "^next-intl/(.*)$": "<rootDir>/__mocks__/next-intl.tsx",
   },
+  transform: {
+    "^.+\\.(js|jsx|ts|tsx)$": [
+      "@swc/jest",
+      {
+        jsc: {
+          parser: { syntax: "typescript", tsx: true },
+          transform: { react: { runtime: "automatic" } },
+          target: "es2022",
+          loose: true,
+        },
+        module: { type: "commonjs" },
+      },
+    ],
+  },
+  // Prevent Jest from using Babel and handle CSS modules
+  transformIgnorePatterns: [
+    "node_modules/(?!(@swc/jest|next-intl)/)",
+    "^.+\\.module\\.(css|sass|scss)$",
+  ],
   testPathIgnorePatterns: ["<rootDir>/e2e/"],
   modulePathIgnorePatterns: ["<rootDir>/e2e/"],
   passWithNoTests: true,

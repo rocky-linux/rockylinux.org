@@ -75,7 +75,12 @@ const nextConfig = {
         source: "/news/2024-07-01-rocky-linux-9-cve-2024-6378-regression",
         destination: "/news/2024-07-01-openssh-sigalrm-regression",
         permanent: true,
-      }
+      },
+      {
+        source: "/keys",
+        destination: "/resources/gpg-key-info",
+        permanent: true,
+      },
     ];
   },
 };

@@ -1,59 +1,59 @@
 {
   "global": {
     "name": "Rocky Linux",
-    "download": "Download",
+    "download": "下载",
     "notFound": {
-      "title": "Not Found",
-      "description": "The page you are looking for does not exist. Please check the URL and try again."
+      "title": "未找到",
+      "description": "您正在查找的页面不存在。请检查URL，然后重试。"
     },
-    "close": "Close"
+    "close": "关闭"
   },
   "header": {
-    "toggleTheme": "Toggle Theme",
+    "toggleTheme": "切换主题",
     "nav": {
-      "newsName": "News",
-      "aboutName": "About",
-      "resourcesName": "Resources",
-      "communityName": "Community",
-      "supportName": "Help",
-      "contributeName": "Contribute",
-      "openMainMenu": "Open Main Menu",
+      "newsName": "消息",
+      "aboutName": "关于",
+      "resourcesName": "资源",
+      "communityName": "社区",
+      "supportName": "帮助",
+      "contributeName": "贡献",
+      "openMainMenu": "打开主菜单",
       "about": {
-        "about": "About Rocky Linux",
-        "charter": "Community Charter",
-        "wiki": "Project Wiki",
-        "sponsors": "Sponsors",
-        "partners": "Partners"
+        "about": "关于 Rocky Linux",
+        "charter": "社区宪章",
+        "wiki": "项目维基",
+        "sponsors": "赞助商",
+        "partners": "合作伙伴"
       },
       "resources": {
-        "gpgKeyInfo": "GPG Key Info"
+        "gpgKeyInfo": "GPG 密钥信息"
       },
       "community": {
-        "coc": "Code of Conduct",
-        "forums": "Forums",
-        "mailing": "Mailing Lists",
+        "coc": "行为准则",
+        "forums": "论坛",
+        "mailing": "邮件列表",
         "mattermost": "Mattermost",
         "irc": "IRC",
-        "calendar": "Calendar"
+        "calendar": "日程表"
       },
       "support": {
-        "docs": "Documentation",
-        "submitBug": "Submit Bug",
-        "supportProviders": "Commercial Support"
+        "docs": "文档",
+        "submitBug": "提交Bug",
+        "supportProviders": "商业支持"
       },
       "contribute": {
-        "contribute": "Contributing Guide",
-        "shop": "Shop",
-        "donate": "Donate"
+        "contribute": "贡献指南",
+        "shop": "商店",
+        "donate": "捐助"
       }
     }
   },
   "footer": {
-    "footer": "Footer",
+    "footer": "底部",
     "nav": {
-      "licensingName": "Licensing",
-      "privacyPolicyName": "Privacy Policy",
-      "TrademarksName": "Trademarks"
+      "licensingName": "开源许可协议",
+      "privacyPolicyName": "隐私政策",
+      "TrademarksName": "商标"
     },
     "socialNav": {
       "bluesky": "Bluesky",
@@ -65,101 +65,101 @@
       "threads": "Threads",
       "youtube": "YouTube"
     },
-    "disclaimer": "Rocky Linux® is the registered trademark of the Rocky Enterprise Software Foundation in the U.S. and other countries. Linux® is the registered trademark of Linus Torvalds in the U.S. and other countries. Red Hat Enterprise Linux, RHEL and CentOS are trademarks or registered trademarks of Red Hat, Inc. or its subsidiaries in the US and other countries. We are not affiliated with, endorsed by or sponsored by Red Hat, Inc."
+    "disclaimer": "Rocky Linux®是 Rocky Enterprise Software Foundation 在美国和其他国家/地区的注册商标。Linux® 是 Linus Torvalds 在美国和其他国家/地区的注册商标。Red Hat Enterprise Linux、RHEL 和 CentOS 是 Red Hat 公司或其子公司在美国和其他国家/地区的商标或注册商标。我们不隶属于 Red Hat 公司，也没有得到 Red Hat 公司的背书或赞助。"
   },
   "home": {
     "hero": {
-      "title": "Enterprise Linux, the <span>community way.</span>",
-      "description": "Rocky Linux is an open-source enterprise operating system designed to be 100% bug-for-bug compatible with Red Hat Enterprise Linux®. It is under intensive development by the community.",
-      "migrate": "Migrate",
-      "dpg": "A Registered Digital Public Good"
+      "title": "以 <span>社区方式</span> 驱动的企业 Linux",
+      "description": "Rocky Linux 是一个开源的企业级操作系统，旨在与 Red Hat Enterprise Linux® 100% 完全兼容。Rocky Linux 正在由社区积极开发中。",
+      "migrate": "迁移",
+      "dpg": "注册 Digital Public Good"
     },
     "features": {
-      "title": "Rock solid, no matter the use-case.",
-      "subText": "STABLE, PRODUCTION READY LINUX",
-      "description": "Rocky Linux rebuilds sources directly from RHEL®, so you can bet your best dollar that you'll have a super stable experience, no matter the use-case.",
+      "title": "稳如磐石，无懈可击。",
+      "subText": "稳定可靠·企业级 Linux 系统",
+      "description": "Rocky Linux 直接从 RHEL® 重新构建源代码，因此不管是什么用途，您都可以拥有超级稳定的体验。",
       "productionReady": {
-        "name": "Production Ready",
-        "description": "Rocky Linux is enterprise-ready, providing solid stability with regular updates and a 10-year support lifecycle, all at no cost."
+        "name": "生产就绪",
+        "description": "Rocky Linux 是企业级的，通过定期更新和长达10年的生命周期支持提供稳定的稳定性，所有的这些都是免费的。"
       },
       "communitySupported": {
-        "name": "Community Supported",
-        "description": "The community, sponsors, and partners have invested with long-term commitments to ensure the project stays with the community."
+        "name": "社区强大支持",
+        "description": "社区、赞助商和合作伙伴已做出长期的投入承诺，确保该项目留在社区中。"
       },
       "easyMigration": {
-        "name": "Easy Migration",
-        "description": "Migrate from other Enterprise Linux distributions without sweating it. We provide an easy-to-use migration script, free of charge."
+        "name": "轻松迁移",
+        "description": "我们免费提供易于使用的迁移脚本，使您可以毫不费力地从其他 Enterprise Linux 发行版迁移。"
       }
     },
     "news": {
-      "title": "Latest News",
-      "description": "We regularly share updates with the community about what's happening. Here's the latest."
+      "title": "最新消息",
+      "description": "我们定期与社区分享最新动态，这是最新动态。"
     },
     "logoCloud": {
-      "title": "Backed By"
+      "title": "强力后盾"
     }
   },
   "news": {
-    "title": "News",
-    "description": "Stay up to date with the latest news and updates from the Rocky Linux community.",
+    "title": "消息",
+    "description": "随时了解来自 Rocky Linux 社区的最新消息和更新。",
     "notFound": {
-      "title": "Not Found",
-      "description": "The news post you are looking for does not exist. You can find all our news posts on the <newsLink>news page</newsLink>."
+      "title": "未找到",
+      "description": "您正在寻找的消息帖子不存在。您可以在  <newsLink>消息页面</newsLink> 上找到我们所有的消息帖子。"
     }
   },
   "share": {
-    "shareName": "Share",
+    "shareName": "分享",
     "bluesky": "Bluesky",
     "mastodon": {
       "name": "Mastodon",
-      "url-valid": "Please enter a valid Mastodon instance URL (without https://).",
-      "url": "Mastodon Instance URL"
+      "url-valid": "请输入一个有效的 Mastodon 实例 URL (没有 https://)。",
+      "url": "Mastodon 实例 URL"
     },
     "facebook": "Facebook",
     "linkedin": "LinkedIn",
     "threads": "Threads"
   },
   "about": {
-    "title": "About",
+    "title": "关于",
     "headings": {
-      "title": "It all started with a blog comment.",
-      "subTitle": "History"
+      "title": "这一切都始于一条博客评论。",
+      "subTitle": "历史"
     },
-    "intro": "On December 8, 2020, Red Hat announced that they would discontinue development of CentOS, which has been a production-ready downstream version of Red Hat Enterprise Linux, in favor of a newer upstream development variant of that operating system known as \"CentOS Stream\". In response, the original founder of CentOS, Gregory Kurtzer, announced <link>via a comment on the CentOS website</link> that he would again start a project to achieve the original goals of CentOS. Its name was chosen as a tribute to early CentOS co-founder Rocky McGaugh. By December 12, the code repository of Rocky Linux had become the top-trending repository on GitHub.",
-    "releaseInfo": "On December 22, 2020, Rocky Linux announced that the target for an initial release was anywhere between March and May of 2021. On January 20, 2021, it was announced that a test repository would be made available to the public by the end of February, and a release candidate was on target for the end of March 2021. However, that date was slightly pushed back, and on April 30, 2021, the first release candidate was officially released. The second release candidate, of version 8.4, the last before the stable release, was released on June 4, 2021. On June 21, 2021, the stable release of Rocky Linux 8.4 was released, with the code name \"Green Obsidian\".",
+    "intro": "2020年12月8日，Red Hat 公司宣布将停止开发 CentOS（一个可用于生产环境的 Red Hat Enterprise Linux下游版本）。作为替代，Red Hat 采用该操作系统较新的上游开发版本——称为 \"CentOS Stream\"。作为回应，CentOS 的最初创始人格雷戈里·库尔泽(Gregory Kurtzer)  <link>通过 CentOS 网站上的评论</link> 宣布，他将再次启动一个项目以实现 CentOS 的最初目标。而之所以命名为 Rocky Linux，是为了向早期 CentOS 的联合创始人洛基·麦高(Rocky McGaugh) 致敬。截止到12月12日，Rocky Linux 的代码库已经成为 GitHub 上最热门的代码库之一。",
+    "releaseInfo": "2020年12月22日，Rocky Linux 宣布初始版本发布的目标时间是在2021年3月至5月之间。2021年1月20日，它宣布将会在2月底向公众提供一个测试存储库，并计划将在2021年3月底发布候选版本(Release Candidate)。然而这一日期被略微推迟到了2021年4月30日才正式发布第一个候选版本。2021年6月4日，第二个候选版本也就是 8.4  版本正式发布，这是稳定版(Stable版本，也叫GA版本)之前的最后一个版本。2021年6月21日，Rocky Linux 8.4 稳定版发布，代号为 \"Green Obsidian\"(绿色黑曜石)。",
     "organizationInfo": {
-      "title": "Organization",
-      "info": "The Rocky Linux project is hosted by the Rocky Enterprise Software Foundation (RESF). To learn more about the organizational structure, please check out the <link>page</link> on the topic."
+      "title": "组织",
+      "info": "Rocky Linux 项目由 Rocky 企业软件基金会 (RESF) 组织。要了解该组织架构的更新消息，请参阅  <link>此页面 </link> 。"
     },
     "quote": {
-      "quote": "“Thinking back to early CentOS days... My cofounder was Rocky McGaugh. He is no longer with us, so as a H/T to him, who never got to see the success that CentOS came to be, I introduce to you...Rocky Linux.”",
-      "author": "Gregory Kurtzer",
-      "role": "Co-Founder @ CentOS / Founder @ Rocky Linux"
+      "quote": "\"追忆起在早期 CentOS 的日子，我的联合创始人洛基·麦高(Rocky McGaugh)这位伙伴已永远离开了我们。他从未见亲眼见证 CentOS 日后的辉煌成就， 所以为了致敬这位曾经的挚友并完成他的心愿，我向全世界隆重介绍 Rocky Linux。\"",
+      "author": "格雷戈里·库尔泽(Gregory Kurtzer)",
+      "role": "联合创始人 @ CentOS / 创始人 @ Rocky Linux"
     }
   },
   "sponsors": {
-    "title": "Sponsors",
-    "description": "The Rocky Linux project is made possible by the generous support of our sponsors. We are grateful for their contributions to the project.",
-    "learnMore": "Learn More",
-    "foundingSponsor": "Founding Sponsor"
+    "title": "赞助商",
+    "description": "Rocky Linux 项目是在我们赞助商的慷慨支持下实现的。我们非常感谢他们对该项目的贡献。",
+    "learnMore": "了解更多",
+    "foundingSponsor": "创始赞助商"
   },
   "partners": {
-    "title": "Partners",
-    "description": "The Rocky Linux project is proud to partner with the following organizations. We are grateful for their support and contributions to the project.",
-    "foundingPartner": "Founding Partner"
+    "title": "合作伙伴",
+    "description": "Rocky Linux 项目很荣幸能与以下组织合作。我们非常感谢他们对该项目的支持和贡献。",
+    "foundingPartner": "创始合作伙伴"
   },
   "supportProviders": {
-    "title": "Commercial Support",
-    "description": "The following sponsors provide commercial support for Rocky Linux.",
-    "foundingSponsor": "Founding Sponsor"
+    "title": "商业支持",
+    "description": "以下赞助商为 Rocky Linux 提供商业支持服务。",
+    "foundingSponsor": "创始赞助商"
   },
   "shop": {
-    "title": "Official Merchandise",
-    "description": "Purchase some swag! All of our vendors ship globally."
+    "title": "官方商品",
+    "description": "购买专属品牌周边！全球合作供应商支持跨境直达。"
   },
   "download": {
-    "title": "Download",
-    "description": "Download the latest Rocky Linux versions here.",
+    "title": "下载",
+    "description": "在这里下载最新的 Rocky Linux 版本。",
     "tabs": {
       "x86_64": "AMD/Intel (x86_64)",
       "aarch64": "ARM (aarch64)",
@@ -174,16 +174,16 @@
         "container": "OCI"
       }
     },
-    "selectVersion": "Select a version:",
-    "plannedEol": "Planned EOL:",
+    "selectVersion": "选择版本：",
+    "plannedEol": "计划的EOL：",
     "cards": {
       "defaultImages": {
-        "title": "Default Images",
+        "title": "默认镜像",
         "tooltips": {
-          "dvd": "DVD: Seamless installation, everything you need is included.",
-          "boot": "Boot: Minimal image for a custom, internet-based installation.",
-          "minimal": "Minimal: Minimal, self-contained image for offline system setup.",
-          "buttonLabel": "View Installation Guide"
+          "dvd": "DVD：安装无门槛，所需皆备齐。",
+          "boot": "Boot：用于基于互联网的自定义安装的最小镜像。",
+          "minimal": "Minimal：离线系统安装的最小化镜像。",
+          "buttonLabel": "查看安装指南"
         },
         "downloadOptions": {
           "dvd": "DVD ISO",
@@ -193,51 +193,51 @@
         "torrent": "Torrent (DVD ISO)",
         "checksum": "CHECKSUM",
         "checksums": "CHECKSUMS",
-        "baseOs": "BaseOS Packages",
-        "archived": "Archived Releases",
+        "baseOs": "BaseOS 软件包",
+        "archived": "存档版本",
         "x86_64": {
           "r9": {
             "versionName": "Rocky Linux 9",
-            "plannedEol": "May 31 2032"
+            "plannedEol": "2032-05-31"
           },
           "r8": {
             "versionName": "Rocky Linux 8",
-            "plannedEol": "May 31 2029"
+            "plannedEol": "2029-05-31"
           }
         }
       },
       "cloudImages": {
-        "title": "Cloud Images",
-        "genericCloud": "Generic Cloud",
+        "title": "云镜像",
+        "genericCloud": "通用云",
         "cloudProviders": {
-          "title": "Cloud Providers",
+          "title": "云服务提供商",
           "aws": {
             "name": "AWS AMI",
-            "drawerTitle": "AWS AMI Images",
+            "drawerTitle": "AWS AMI 镜像",
             "table": {
-              "version": "Version",
-              "region": "Region",
-              "architecture": "Architecture",
-              "imageId": "Image ID",
-              "deploy": "Deploy"
+              "version": "版本",
+              "region": "地区",
+              "architecture": "架构",
+              "imageId": "镜像 ID",
+              "deploy": "部署"
             }
           },
-          "googleCloud": "Google Cloud",
-          "azure": "Microsoft Azure"
+          "googleCloud": "谷歌云",
+          "azure": "微软 Azure"
         },
         "downloadOptions": {
-          "qcow2": "QCOW2 Image"
+          "qcow2": "QCOW2 镜像"
         }
       },
       "container": {
-        "title": "Docker (OCI) Images",
+        "title": "Docker (OCI) 镜像",
         "downloadOptions": {
-          "fullImage": "Full Image",
-          "minimalImage": "Minimal Image"
+          "fullImage": "完整镜像",
+          "minimalImage": "最小化镜像"
         }
       },
       "liveImages": {
-        "title": "Desktop/Workstation Live Images",
+        "title": "桌面/工作站 Live 镜像",
         "downloadOptions": {
           "gnome": "GNOME",
           "gnomeLite": "GNOME (Lite)",
@@ -248,64 +248,64 @@
         }
       },
       "rpiImages": {
-        "title": "Raspberry Pi Images",
-        "download": "Download",
-        "readMe": "README"
+        "title": "树莓派镜像",
+        "download": "下载",
+        "readMe": "自述文件"
       }
     },
     "getInvolved": {
-      "title": "Get Involved",
-      "text": "As you download and use Rocky Linux, the Rocky Enterprise Software Foundation invites you to be a part of the community as a contributor. There are many ways to contribute to the project, from documentation, QA, and testing to coding changes for SIGs, providing mirroring or hosting, and helping other users."
+      "title": "参与进来",
+      "text": "当你下载和使用 Rocky Linux 时，Rocky 企业软件基金会（RESF）邀请您作为贡献者成为社区的一员。对项目做出贡献的方式有很多——文档、QA、测试 SIG 所做的代码更改、提供镜像托管、帮助其他用户等。"
     },
     "exportCompliance": {
-      "title": "Export Compliance/Customs Information",
-      "text1": "By downloading Rocky Linux software, you acknowledge that you understand all of the following:",
-      "text2": "Rocky Linux software and technical information may be subject to the U.S. Export Administration Regulations (the “EAR”) and other U.S. and foreign laws and may not be exported, re-exported or transferred (a) to a prohibited destination country under the EAR or U.S. sanctions regulations (currently Cuba, Iran, North Korea, Sudan, Syria, and the Crimea Region of Ukraine, subject to change as posted by the United States government); (b) to any prohibited destination or to any end user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government; or (c) for use in connection with the design, development or production of nuclear, chemical or biological weapons, or rocket systems, space launch vehicles, or sounding rockets, or unmanned air vehicle systems.",
-      "narrative": "Rocky Linux in source code and binary code form is publicly available and is not subject to the EAR in accordance with §740.17(b)(1).",
-      "product_title": "Product",
-      "product_text": "Rocky Linux. Includes Rocky Linux Project \"Special Interest Group\" repositories.",
+      "title": "出口合规/海关信息",
+      "text1": "通过下载 Rocky Linux 软件，您承认您理解以下所有内容：",
+      "text2": "Rocky Linux 软件及技术资料可能受《美国出口管理条例》(\"EAR\")及其他国内外法律约束，其使用与传播需遵守以下出口管制要求：(a) 地域限制 —— 不得向 \"EAR\" 或美国制裁法规列明的禁运国家（当前包括古巴、伊朗、朝鲜、苏丹、叙利亚及乌克兰克里米亚地区，具体以美国政府最新公布清单为准）进行出口、再出口或转移‌；(b)主体限制 —— 禁止向被美国联邦政府机构列入出口管制名单的最终用户或受禁主体提供相关技术资料‌；(c) 用途限制 —— 不得用于核武器、生化武器、火箭系统（含航天运载工具、探空火箭）及无人飞行器系统的研发、设计或生产环节‌。",
+      "narrative": "Rocky Linux 的源代码与二进制代码均属于公共可获取资源，依据《美国出口管理条例》(\"EAR\")第 740.17(b)(1) 条款的规定，其流通不受 \"EAR\" 管辖‌。",
+      "product_title": "产品",
+      "product_text": "Rocky Linux 包含 Rocky Linux 项目的\"Special Interest Group\" 存储库。",
       "eccn_title": "ECCN",
       "eccn_text": "5D992.c",
-      "exception_title": "License Exception",
-      "exception_text": "Mass Market §740.17(b)(1)",
+      "exception_title": "许可证例外",
+      "exception_text": "《大众市场软件》第740.17(b)(1)条款（美国出口管理条例）",
       "ccats_title": "CCATS",
-      "ccats_text": "N/A",
+      "ccats_text": "不适用",
       "ern_title": "ERN",
-      "ern_text": "N/A"
+      "ern_text": "不适用"
     }
   },
   "community": {
-    "title": "Welcome to the community!",
-    "description": "Select your area of interest, and we'll guide you to the right place.",
-    "noSelection": "Select an option to see more details.",
+    "title": "欢迎来到社区！",
+    "description": "选择您感兴趣的区域，我们将引导您到正确的地方。",
+    "noSelection": "选择一个选项以查看更多详细信息。",
     "interests": {
       "chatting": {
-        "title": "Just chatting",
-        "description": "You can join the conversation on our <link>Mattermost</link> chat to connect with others in the community. Have fun!"
+        "title": "只是聊天",
+        "description": "您可以加入我们的 <link>Mattermost</link> 聊天并与社区中的其他人联系。玩得开心！"
       },
       "bugs": {
-        "title": "Reporting bugs",
-        "description": "Join our <link1>Mattermost chat</link1> to talk over your potential bug with the team and other community members. Search our <link2>bug tracker</link2> to see if there's an existing report for your issue."
+        "title": "报告 bug",
+        "description": "加入我们的 <link1>Mattermost 聊天</link1> ，与开发团队及社区成员讨论您发现的潜在缺陷；访问我们的 <link2>bug 追踪器</link2>，查询该问题是否已有相关记录‌。"
       },
       "webdev": {
-        "title": "Web development",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Web</link2> channel. Search our <link3>website repository</link3> to see if there are issues/enhancements that need to be made. Make them!"
+        "title": "Web 开发",
+        "description": "加入我们的 <link1>Mattermost 聊天</link1> 并在  <link2>~Web</link2> 频道中完成自我介绍。检索 <link3>网站代码库</link3> 中待处理的缺陷或功能优化需求，并着手实施改进‌。"
       },
       "graphics": {
-        "title": "Graphic design",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Design</link2> channel. Let us know what you're interested in working on, and we'll find something you can help out with!"
+        "title": "平面设计",
+        "description": "加入我们的  <link1>Mattermost 聊天</link1> 并在 <link2>~Design</link2> 频道中完成自我介绍。说明您希望参与的技术方向，社区将为您分配合适的开发任务‌。"
       },
       "release": {
-        "title": "Release engineering",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Development</link2> channel. Let us know what you're interested in working on, and we'll find something you can help out with!"
+        "title": "发布工程说明",
+        "description": "加入我们的  <link1>Mattermost 聊天</link1> 并在 <link2>~Developmen</link2> 频道中完成自我介绍。说明您希望参与的技术方向，社区将为您分配合适的开发任务‌。"
       },
       "sig": {
-        "title": "Special Interest Group (SIG)",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in one of our many SIG channels. Let us know what you're interested in working on, and we'll find something you can help out with! If you're interested in proposing a new SIG, please see our <link2>wiki page</link2> on the topic."
+        "title": "特别兴趣小组（SIG）",
+        "description": "加入我们的  <link1>Mattermost 聊天</link1> 并在众多的 SIG 频道中完成自我介绍。说明您希望参与的技术方向，社区将为您分配合适的开发任务‌。如果您有兴趣提议新的 SIG，请参阅我们关于该主题的 <link2>维基页面</link2>。"
       },
       "docs": {
-        "title": "Documentation",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Documentation</link2> channel. Make sure to review the contributing guide available on our <link3>README</link3>."
+        "title": "文档",
+        "description": "加入我们的  <link1>Mattermost 聊天</link1> 并在 <link2>~Documentation</link2> 频道中完成自我介绍。请务必查看 <link3>README</link3> 上提供的贡献指南。"
       }
     }
   }

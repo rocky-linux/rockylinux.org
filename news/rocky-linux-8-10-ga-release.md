@@ -10,7 +10,7 @@ We are excited to announce the general availability of Rocky Linux 8.10. This re
 
 ### Notable New Features and Changes
 
-- Since Rocky Linux 8.9, Azure images are be published under the new publisher name: `resf`, moving away from the earlier, less intuitive name.
+- Since Rocky Linux 8.9, Azure images are published under the new publisher name: `resf`, moving away from the earlier, less intuitive name.
 
 * In addition to the Azure Marketplace, Rocky Linux is available for free on the Azure Community Gallery, providing incredibly easy access to run Rocky on Microsoft Azure. Instructions on how to utilize the Community Gallery images can be found on this [news post](https://rockylinux.org/news/rocky-on-azure-community-gallery/).
 
@@ -23,7 +23,7 @@ For a thorough list of updates and changes, refer to the [Rocky Linux 8.10 Relea
 
 ### Release Engineering Notes
 
-- This is the final minor release for the Rocky Linux 8.10--there will not be a Rocky Linux 8.11 in November. Instead, Rocky Linux 8 will receive security updates only for the next 5 years, in line with upstream’s lifecycle. For more information, please see our [version guide](https://wiki.rockylinux.org/rocky/version/).
+- This is the final minor release for the Rocky Linux 8.10--there will not be a Rocky Linux 8.11 in November. Instead, Rocky Linux 8 will receive security updates only for the next 5 years, in line with upstream’s life cycle. For more information, please see our [version guide](https://wiki.rockylinux.org/rocky/version/).
 
 ### Testing
 

@@ -11,7 +11,7 @@
   "header": {
     "toggleTheme": "Toggle Theme",
     "nav": {
-      "newsName": "News",
+      "newsName": "ニュース",
       "aboutName": "About",
       "resourcesName": "Resources",
       "communityName": "Community",
@@ -70,7 +70,7 @@
   "home": {
     "hero": {
       "title": "Enterprise Linux, the <span>community way.</span>",
-      "description": "Rocky Linux is an open-source enterprise operating system designed to be 100% bug-for-bug compatible with Red Hat Enterprise Linux®. It is under intensive development by the community.",
+      "description": "Rocky Linux is an open-source enterprise operating system designed to be 100% bug-for-bug compatible with Red Hat Enterprise Linux®. Rocky Linux is under intensive development by the community.",
       "migrate": "Migrate",
       "dpg": "A Registered Digital Public Good"
     },
@@ -100,7 +100,7 @@
     }
   },
   "news": {
-    "title": "News",
+    "title": "ニュース",
     "description": "Stay up to date with the latest news and updates from the Rocky Linux community.",
     "notFound": {
       "title": "Not Found",

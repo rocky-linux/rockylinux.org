@@ -19,7 +19,7 @@
       "contributeName": "Mitwirken",
       "openMainMenu": "Hauptmenü öffnen",
       "about": {
-        "about": "Über Rocky Linux",
+        "about": "Ueber Rocky Linux",
         "charter": "Community-Charta",
         "wiki": "Projekt-Wiki",
         "sponsors": "Sponsoren",
@@ -70,7 +70,7 @@
   "home": {
     "hero": {
       "title": "Enterprise Linux, der <span>Community-Weg.</span>",
-      "description": "Rocky Linux ist ein Open-Source Enterprise Betriebssystem, das entwickelt wurde, um 100% Bug-für-Bug kompatibel mit Red Hat Enterprise Linux® zu sein. Es befindet sich in intensiver Entwicklung durch die Community.",
+      "description": "Rocky Linux ist ein Open-Source Enterprise Betriebssystem, das entwickelt wurde, um 100% Bug-für-Bug kompatibel mit Red Hat Enterprise Linux® zu sein. Rocky Linux befindet sich in intensiver Entwicklung durch die Community.",
       "migrate": "Migration",
       "dpg": "Registered Digital Public Good – Ein registriertes digitales öffentliches Gut"
     },

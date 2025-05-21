@@ -19,7 +19,7 @@
       "contributeName": "Contribution",
       "openMainMenu": "Ouvrir le Menu Principal",
       "about": {
-        "about": "À propos de Rocky Linux",
+        "about": "À Propos de Rocky Linux",
         "charter": "Charte Communautaire",
         "wiki": "Wiki du Projet",
         "sponsors": "Sponsors",
@@ -38,7 +38,7 @@
       },
       "support": {
         "docs": "Documentation",
-        "submitBug": "Soumettre un bogue",
+        "submitBug": "Soumettre un Bogue",
         "supportProviders": "Support Commercial"
       },
       "contribute": {
@@ -53,7 +53,7 @@
     "nav": {
       "licensingName": "Licence",
       "privacyPolicyName": "Politique de Confidentialité",
-      "TrademarksName": "Marque déposée"
+      "TrademarksName": "Marques Déposées"
     },
     "socialNav": {
       "bluesky": "Bluesky",
@@ -62,15 +62,15 @@
       "instagram": "Instagram",
       "linkedin": "LinkedIn",
       "mastodon": "Mastodon",
-      "threads": "Fils de discussion",
+      "threads": "Fils de Discussion",
       "youtube": "YouTube"
     },
-    "disclaimer": "Linux® est la marque déposée de Linus Torvalds aux États-Unis et dans d'autres pays. Red Hat Enterprise Linux, RHEL et CentOS sont des marques ou des marques déposées de Red Hat, Inc. ou de ses filiales aux États-Unis et dans d'autres pays. Nous ne sommes pas affiliés, approuvés ou sponsorisés par Red Hat, Inc."
+    "disclaimer": "Linux® est la marque déposée de Linus Torvalds aux États-Unis et dans d'autres pays. Red Hat Enterprise Linux, RHEL et CentOS sont des marques ou des marques déposées de Red Hat, Inc. ou de ses filiales aux États-Unis et dans d'autres pays. Nous ne sommes pas affiliés, approuvés ni sponsorisés par Red Hat, Inc."
   },
   "home": {
     "hero": {
       "title": "Enterprise Linux, la <span>méthode communautaire.</span>",
-      "description": "Rocky Linux est un système d'exploitation d'entreprise Open Source conçu pour être 100 % compatible bug pour bug avec Red Hat Enterprise Linux®. Il fait l'objet d'un développement intensif de la part de la communauté.",
+      "description": "Rocky Linux est un système d'exploitation d'entreprise Open Source conçu pour être 100 % compatible bogue pour bogue avec Red Hat Enterprise Linux®. Rocky Linux fait l'objet d'un développement intensif de la part de la communauté.",
       "migrate": "Migration",
       "dpg": "Registered Digital Public Good"
     },
@@ -117,7 +117,7 @@
     },
     "facebook": "Facebook",
     "linkedin": "LinkedIn",
-    "threads": "Fils de discussion"
+    "threads": "Fils de Discussion"
   },
   "about": {
     "title": "À propos",

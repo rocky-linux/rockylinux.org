@@ -20,27 +20,20 @@ import PlausibleProvider from "next-plausible";
 
 type RootLayoutProps = {
   children: ReactNode;
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: (typeof availableLanguages)[number] }>;
 };
 
 export const metadata: Metadata = {
   title: "Rocky Linux",
-  icons: {
-    icon: "/favicon.png",
-  },
+  icons: { icon: "/favicon.png" },
   description:
     "Rocky Linux is an open enterprise Operating System designed to be 100% bug-for-bug compatible with Enterprise Linux.",
   alternates: {
-    types: {
-      "application/rss+xml": "https://rockylinux.org/rss.xml",
-    },
+    types: { "application/rss+xml": "https://rockylinux.org/rss.xml" },
   },
 };
 
-const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
+const fontSans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 
 const fontDisplay = FontDisplay({
   subsets: ["latin"],
@@ -53,10 +46,13 @@ export default async function RootLayout({
 }: RootLayoutProps) {
   const { locale } = await params;
 
-  if (!availableLanguages.includes(locale as any)) notFound();
+  if (!availableLanguages.includes(locale)) notFound();
 
   return (
-    <html lang={locale}>
+    <html
+      lang={locale}
+      suppressHydrationWarning
+    >
       <head>
         <PlausibleProvider
           domain="rockylinux.org"
@@ -71,6 +67,7 @@ export default async function RootLayout({
         />
       </head>
       <body
+        suppressHydrationWarning
         className={cn(
           "min-h-screen bg-background font-sans antialiased mx-auto px-4 xl:px-0",
           fontSans.variable,
