@@ -13,8 +13,7 @@
     "e2e:dev": "playwright test --ui",
     "e2e:install": "playwright install",
     "test": "jest",
-    "test:coverage": "jest --coverage",
-    "test:nowatch": "jest --watchAll=false"
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.2",
