@@ -12,68 +12,13 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-      - name: Setup Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js 20
         uses: actions/setup-node@v4
         with:
           node-version: 20
       - name: Install Dependencies
         run: npm ci
       - name: Run ESLint
-        run: |
-          if [[ ${{ github.event_name }} == 'pull_request' ]]; then
-            npm run lint:ci
-          else
-            npm run lint
-          fi
-        continue-on-error: ${{ github.event_name == 'pull_request' }}
-      - name: Comment ESLint warnings/errors on PR
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: actions/github-script@v5
-        with:
-          script: |
-            const fs = require('fs');
-            const eslintOutput = fs.readFileSync('eslint-output.txt', 'utf8');
-            if (eslintOutput) {
-              github.rest.issues.createComment({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                body: "ESLint warnings/errors:\n```\n" + eslintOutput + "\n```"
-              });
-            }
+        run: npm run lint
       - name: Run Unit Tests
-        run: |
-          if [[ ${{ github.event_name }} == 'pull_request' ]]; then
-            npm run test:ci
-          else
-            npm run test:nowatch
-          fi
-        continue-on-error: ${{ github.event_name == 'pull_request' }}
-      - name: Comment failed unit tests on PR
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: actions/github-script@v5
-        with:
-          script: |
-            const fs = require('fs');
-            const testOutput = fs.readFileSync('jest-output.txt', 'utf8');
-            const jestOutputObj = JSON.parse(fs.readFileSync('jest-output.json', 'utf8'));
-            if (jestOutputObj.numFailedTests > 0) {
-              github.rest.issues.createComment({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                body: "Failed unit tests:\n```\n" + testOutput + "\n```"
-              });
-            }
-      - name: Fail workflow if there are ESLint errors or failed unit tests
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: actions/github-script@v5
-        with:
-          script: |
-            const fs = require('fs');
-            const eslintOutput = fs.readFileSync('eslint-output.txt', 'utf8');
-            const jestOutput = JSON.parse(fs.readFileSync('jest-output.json', 'utf8'));
-            const eslintErrorRegex = /[1-9]\d* errors?/;
-            if (eslintErrorRegex.test(eslintOutput) || jestOutput.numFailedTests > 0) {
-              core.setFailed('ESLint errors or failed unit tests detected');
-            }
+        run: npm run test
