@@ -63,17 +63,18 @@ We extend deepest thanks to the Rocky Linux project volunteers and leaders for t
 
 Special recognition to these contributors for their work on this release:
 
-- Alexia Stein
-- Al Bowles
 - Alan Marshall
-- Boris Reisig
+- Alexey Melezhik
+- Alexia Stein
+- Anna Zhyrnova
 - Brian Clemens
+- Bryan (@codedude)
 - Chris Stackpole
+- Fredrik Nystrom
 - @grayeul
-- @Gwendolyn
-- Krista Burdine
 - Louis Abel
 - Lukas Magauer
+- Michael Young
 - Mustafa Gezen
 - Neil Hanlon
 - Pablo Greco
