@@ -2,13 +2,7 @@ name: Validate Markdown Filenames
 
 on:
   push:
-    paths:
-      - "**/*.md"
-      - "**/*.mdx"
-  pull_request:
-    paths:
-      - "**/*.md"
-      - "**/*.mdx"
+    paths: ["**/*.md", "**/*.mdx"]
 
 jobs:
   check-filenames:
