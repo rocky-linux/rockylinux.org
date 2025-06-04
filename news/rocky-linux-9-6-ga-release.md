@@ -31,7 +31,7 @@ We are pleased to announce the general availability of Rocky Linux 9.6. Updated 
 
 #### SIG/Cloud
 - With the release of Rocky Linux 9.6, the process of building and delivering our images continues to improve. [KIWI](https://github.com/OSInside/kiwi/), a modern image-building tool that allows for a more consistent and maintainable workflow, created most of the images for this release.
-- A new image type is available in this release--Windows Sybstem for Linux (or WSL)-compatible container archives can be downloaded and run on a Windows 10 or Windows 11 system with ease.
+- A new image type is available in this release--Windows Subsystem for Linux (or WSL)-compatible container archives can be downloaded and run on a Windows 10 or Windows 11 system with ease.
 - Utilities for Oracle Cloud images have been updated to the most recent versions
 
 For a more complete explanation of updates and changes, please see the [Rocky Linux 9.6 Release Notes](https://docs.rockylinux.org/release_notes/9_6/).
