@@ -71,9 +71,11 @@ Special recognition to these contributors for their work on this release:
 - Bryan (@codedude)
 - Chris Stackpole
 - Fredrik Nystrom
+- Gabriel Graves
 - @grayeul
 - Louis Abel
 - Lukas Magauer
+- Michael Kinder
 - Michael Young
 - Mustafa Gezen
 - Neil Hanlon
