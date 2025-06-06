@@ -28,7 +28,7 @@ Details on how to find and launch Rocky Linux on Azure will be soon forthcoming.
 
 ## Leadership
 
-We’ve received a few questions from the community about the structure of the RESF, and while this information has always been available on our website, we made updates for clarity. Summarized, the Rocky Enterprise Software Foundation (RESF) is a Public Benefit Corporation (PBC) formed in Delaware (file number 4429978), backed by a board of advisors with access control policies that utilize the principle of least privilege and separation of duty to ensure that no action can be taken unilaterally (not even by the legal owner, Gregory Kurtzer). For more information, see our [Organizational Structure](https://rockylinux.org/organizational-structure/).
+We’ve received a few questions from the community about the structure of the RESF, and while this information has always been available on our website, we made updates for clarity. Summarized, the Rocky Enterprise Software Foundation (RESF) is a Public Benefit Corporation (PBC) formed in Delaware (file number 4429978), backed by a board of advisors with access control policies that utilize the principle of least privilege and separation of duty to ensure that no action can be taken unilaterally (not even by the legal owner, Gregory Kurtzer). For more information, see our [Organizational Structure](https://www.resf.org/about).
 
 ## Documentation
 

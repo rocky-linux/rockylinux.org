@@ -47,7 +47,7 @@ Responsibility to the community is critical to our success. To that end, we’ve
 
 ### FAQ
 
-We’ve expanded upon and published a [FAQ](https://rockylinux.org/faq/) which addresses a number of questions that we’ve received. Questions such as “If Rocky Linux is just a respin of RHEL, what’s taking so long for a release candidate?” and “If you’re not just repackaging RHEL, then what exactly are you doing?” and more are all addressed. We will be adding to the FAQ over time based on questions the community surfaces.
+We’ve expanded upon and published a [FAQ](https://wiki.rockylinux.org/archive/legacy/faq/) which addresses a number of questions that we’ve received. Questions such as “If Rocky Linux is just a respin of RHEL, what’s taking so long for a release candidate?” and “If you’re not just repackaging RHEL, then what exactly are you doing?” and more are all addressed. We will be adding to the FAQ over time based on questions the community surfaces.
 
 ### Mattermost
 

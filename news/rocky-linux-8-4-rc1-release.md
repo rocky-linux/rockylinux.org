@@ -33,7 +33,7 @@ No, we plan to iron out any reported bugs in Rocky Linux 8.4 RC1 and then move s
 
 There will not be a stable release of Rocky Linux 8.3. The first stable release of Rocky Linux will be 8.4.
 
-More FAQ can be found on our website [here](https://rockylinux.org/faq/).
+More FAQ can be found on our website [here](https://wiki.rockylinux.org/archive/legacy/faq/).
 
 ---
 
