@@ -72,7 +72,7 @@ Special recognition to these contributors for their work on this release:
 - Chris Stackpole
 - Fredrik Nystrom
 - Gabriel Graves
-- @grayeul
+- Bob Robison
 - Louis Abel
 - Lukas Magauer
 - Michael Kinder
