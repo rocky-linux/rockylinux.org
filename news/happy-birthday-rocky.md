@@ -28,4 +28,4 @@ More recently, the creation of the Open Enterprise Linux Association (OpenELA) h
 
 For three years the core Rocky Linux team and an army of contributors have held fast to their commitment to excellence. The adoption rates of Rocky Linux continue to rise. What does the next chapter hold? You are invited to come along for the ride!
 
-Check out the project at [rockylinux.org](rockylinux.org). Find community at [chat.rockylinux.org](chat.rockylinux.org), get troubleshooting help at [forums.rockylinux.org](forums.rockylinux.org), peruse the documentation at [docs.rockylinux.org](docs.rockylinux.org).
+Check out the project at [rockylinux.org](https://rockylinux.org). Find community at [chat.rockylinux.org](https://chat.rockylinux.org), get troubleshooting help at [forums.rockylinux.org](https://forums.rockylinux.org), peruse the documentation at [docs.rockylinux.org](https://docs.rockylinux.org).

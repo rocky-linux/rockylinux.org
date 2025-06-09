@@ -11,7 +11,7 @@ We are pleased to announce the general availability of Rocky Linux 9.6. Updated 
 ### Notable New Features and Changes
 
 - **Dynamic programming languages, web, and database servers**
-  - PHP 8.3 and 8.4
+  - PHP 8.3
   - nginx 1.26 
   - MySQL 8.4
 - **Performance tools and debuggers**
@@ -71,9 +71,11 @@ Special recognition to these contributors for their work on this release:
 - Bryan (@codedude)
 - Chris Stackpole
 - Fredrik Nystrom
-- @grayeul
+- Gabriel Graves
+- Bob Robison
 - Louis Abel
 - Lukas Magauer
+- Michael Kinder
 - Michael Young
 - Mustafa Gezen
 - Neil Hanlon
