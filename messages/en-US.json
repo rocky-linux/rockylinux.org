@@ -253,6 +253,11 @@
         "title": "Raspberry Pi Images",
         "download": "Download",
         "readMe": "README"
+      },
+      "wslImages": {
+        "title": "Windows Subsystem for Linux (WSL) Images",
+        "download": "Download",
+        "readMe": "README"
       }
     },
     "getInvolved": {
