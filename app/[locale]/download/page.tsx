@@ -142,6 +142,33 @@ const DownloadPage = () => {
       : [],
   });
 
+  const mapVersionToWslVersionItem = (version: Version): VersionItem => ({
+    versionName: version.versionName,
+    versionId: version.versionId,
+    currentVersion: version.currentVersion,
+    plannedEol: version.plannedEol,
+    downloadOptions: version.downloadOptions.wslImages
+      ? [
+          {
+            label: `${t("cards.rpiImages.download")}`,
+            link: version.downloadOptions.wslImages.download,
+          },
+        ]
+      : [],
+    links: version.links.wslImages
+      ? [
+          {
+            name: `${t("cards.defaultImages.checksum")}`,
+            link: version.links.wslImages.checksum,
+          },
+          {
+            name: `${t("cards.rpiImages.readMe")}`,
+            link: version.links.wslImages.readMe,
+          },
+        ]
+      : [],
+  });
+
   return (
     <>
       <div className="py-24 sm:py-32">
@@ -238,6 +265,17 @@ const DownloadPage = () => {
                           titleTooltipButtonLabel=""
                           versions={data.versions.map(
                             mapVersionToRpiVersionItem
+                          )}
+                        />
+                      ) : null}
+                      {arch === "x86_64" ? (
+                        <DefaultImageCard
+                          title={t("cards.wslImages.title")}
+                          titleTooltip={false}
+                          titleTooltipButtonLink=""
+                          titleTooltipButtonLabel=""
+                          versions={data.versions.map(
+                            mapVersionToWslVersionItem
                           )}
                         />
                       ) : null}

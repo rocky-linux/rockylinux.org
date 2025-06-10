@@ -41,6 +41,9 @@ export interface DownloadOptions {
   rpiImages?: {
     download: string;
   };
+  wslImages?: {
+    download: string;
+  };
 }
 
 export interface Links {
@@ -57,6 +60,10 @@ export interface Links {
     checksums: string;
   };
   rpiImages?: {
+    checksum: string;
+    readMe: string;
+  };
+  wslImages?: {
     checksum: string;
     readMe: string;
   };
