@@ -17,8 +17,8 @@
               "qcow2": "https://dl.rockylinux.org/pub/rocky/10/images/x86_64/Rocky-10-GenericCloud-Base.latest.x86_64.qcow2"
             },
             "container": {
-              "fullImage": "#",
-              "minimalImage": "#"
+              "fullImage": "https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.0",
+              "minimalImage": "https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.0-minimal"
             },
             "liveImages": {
               "gnome": "https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-Workstation-x86_64-latest.iso",
@@ -29,7 +29,7 @@
               "cinnamon": "https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-Cinnamon-x86_64-latest.iso"
             },
             "wslImages": {
-              "download": "#"
+              "download": "https://dl.rockylinux.org/pub/rocky/10/images/x86_64/Rocky-10-WSL-Base.latest.x86_64.wsl"
             }
           },
           "links": {
@@ -46,8 +46,8 @@
               "checksums": "https://dl.rockylinux.org/pub/rocky/10/live/x86_64/"
             },
             "wslImages": {
-              "checksum": "#",
-              "readMe": "#"
+              "checksum": "https://dl.rockylinux.org/pub/rocky/10/images/x86_64/Rocky-10-WSL-Base.latest.x86_64.wsl.CHECKSUM",
+              "readMe": "https://docs.rockylinux.org/guides/interoperability/import_rocky_to_wsl/"
             }
           }
         },
@@ -152,8 +152,8 @@
               "qcow2": "https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-GenericCloud-Base.latest.aarch64.qcow2"
             },
             "container": {
-              "fullImage": "#",
-              "minimalImage": "#"
+              "fullImage": "https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.0",
+              "minimalImage": "https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.0-minimal"
             },
             "liveImages": {
               "gnome": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-Workstation-aarch64-latest.iso",
@@ -292,8 +292,8 @@
               "qcow2": "https://dl.rockylinux.org/pub/rocky/10/images/ppc64le/Rocky-10-GenericCloud-Base.latest.ppc64le.qcow2"
             },
             "container": {
-              "fullImage": "#",
-              "minimalImage": "#"
+              "fullImage": "https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.0",
+              "minimalImage": "https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.0-minimal"
             }
           },
           "links": {
@@ -358,8 +358,8 @@
               "qcow2": "https://dl.rockylinux.org/pub/rocky/10/images/s390x/Rocky-10-GenericCloud-Base.latest.s390x.qcow2"
             },
             "container": {
-              "fullImage": "#",
-              "minimalImage": "#"
+              "fullImage": "https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.0",
+              "minimalImage": "https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.0-minimal"
             }
           },
           "links": {
@@ -424,8 +424,8 @@
               "qcow2": "https://dl.rockylinux.org/pub/rocky/10/images/riscv64/Rocky-10-GenericCloud-Base.latest.riscv64.qcow2"
             },
             "container": {
-              "fullImage": "#",
-              "minimalImage": "#"
+              "fullImage": "https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.0",
+              "minimalImage": "https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.0-minimal"
             }
           },
           "links": {
