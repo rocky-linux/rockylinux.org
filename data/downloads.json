@@ -3,6 +3,55 @@
     "x86_64": {
       "versions": [
         {
+          "versionName": "Rocky Linux 10",
+          "versionId": "rocky-10",
+          "currentVersion": "v10.0",
+          "plannedEol": "May 31, 2035",
+          "downloadOptions": {
+            "defaultImages": {
+              "dvd": "https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.0-x86_64-dvd.iso",
+              "boot": "https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.0-x86_64-boot.iso",
+              "minimal": "https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.0-x86_64-minimal.iso"
+            },
+            "cloudImages": {
+              "qcow2": "https://dl.rockylinux.org/pub/rocky/10/images/x86_64/Rocky-10-GenericCloud-Base.latest.x86_64.qcow2"
+            },
+            "container": {
+              "fullImage": "#",
+              "minimalImage": "#"
+            },
+            "liveImages": {
+              "gnome": "https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-Workstation-x86_64-latest.iso",
+              "gnomeLite": "https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-Workstation-Lite-x86_64-latest.iso",
+              "kde": "https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-KDE-x86_64-latest.iso",
+              "xfce": "https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-XFCE-x86_64-latest.iso",
+              "mate": "https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-MATE-x86_64-latest.iso",
+              "cinnamon": "https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-Cinnamon-x86_64-latest.iso"
+            },
+            "wslImages": {
+              "download": "#"
+            }
+          },
+          "links": {
+            "defaultImages": {
+              "torrent": "https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.0-x86_64-dvd.torrent",
+              "checksum": "https://download.rockylinux.org/pub/rocky/10/isos/x86_64/CHECKSUM",
+              "baseOs": "https://download.rockylinux.org/pub/rocky/10/BaseOS/x86_64/",
+              "archived": "https://dl.rockylinux.org/vault/rocky"
+            },
+            "cloudImages": {
+              "checksum": "https://dl.rockylinux.org/pub/rocky/10/images/x86_64/CHECKSUM"
+            },
+            "liveImages": {
+              "checksums": "https://dl.rockylinux.org/pub/rocky/10/live/x86_64/"
+            },
+            "wslImages": {
+              "checksum": "#",
+              "readMe": "#"
+            }
+          }
+        },
+        {
           "versionName": "Rocky Linux 9",
           "versionId": "rocky-9",
           "currentVersion": "v9.6",
@@ -88,6 +137,55 @@
     },
     "aarch64": {
       "versions": [
+        {
+          "versionName": "Rocky Linux 10",
+          "versionId": "rocky-10",
+          "currentVersion": "v10.0",
+          "plannedEol": "May 31, 2035",
+          "downloadOptions": {
+            "defaultImages": {
+              "dvd": "https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.0-aarch64-dvd.iso",
+              "boot": "https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.0-aarch64-boot.iso",
+              "minimal": "https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.0-aarch64-minimal.iso"
+            },
+            "cloudImages": {
+              "qcow2": "https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-GenericCloud-Base.latest.aarch64.qcow2"
+            },
+            "container": {
+              "fullImage": "#",
+              "minimalImage": "#"
+            },
+            "liveImages": {
+              "gnome": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-Workstation-aarch64-latest.iso",
+              "gnomeLite": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-Workstation-Lite-aarch64-latest.iso",
+              "kde": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-KDE-aarch64-latest.iso",
+              "xfce": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-XFCE-aarch64-latest.iso",
+              "mate": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-MATE-aarch64-latest.iso",
+              "cinnamon": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-Cinnamon-aarch64-latest.iso"
+            },
+            "rpiImages": {
+              "download": "https://dl.rockylinux.org/pub/sig/10/altarch/aarch64/images/RockyLinuxRpi_10-latest.img.xz"
+            }
+          },
+          "links": {
+            "defaultImages": {
+              "torrent": "https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.0-aarch64-dvd.torrent",
+              "checksum": "https://download.rockylinux.org/pub/rocky/10/isos/aarch64/CHECKSUM",
+              "baseOs": "https://download.rockylinux.org/pub/rocky/10/BaseOS/aarch64/",
+              "archived": "https://dl.rockylinux.org/vault/rocky"
+            },
+            "cloudImages": {
+              "checksum": "https://dl.rockylinux.org/pub/rocky/10/images/aarch64/CHECKSUM"
+            },
+            "liveImages": {
+              "checksums": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64/"
+            },
+            "rpiImages": {
+              "checksum": "https://dl.rockylinux.org/pub/sig/10/altarch/aarch64/images/RockyLinuxRpi_10-latest.img.xz.sha256sum",
+              "readMe": "https://dl.rockylinux.org/pub/sig/10/altarch/aarch64/images/README.txt"
+            }
+          }
+        },
         {
           "versionName": "Rocky Linux 9",
           "versionId": "rocky-9",
@@ -180,6 +278,37 @@
     "ppc64le": {
       "versions": [
         {
+          "versionName": "Rocky Linux 10",
+          "versionId": "rocky-10",
+          "currentVersion": "v10.0",
+          "plannedEol": "May 31, 2035",
+          "downloadOptions": {
+            "defaultImages": {
+              "dvd": "https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.0-ppc64le-dvd.iso",
+              "boot": "https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.0-ppc64le-boot.iso",
+              "minimal": "https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.0-ppc64le-minimal.iso"
+            },
+            "cloudImages": {
+              "qcow2": "https://dl.rockylinux.org/pub/rocky/10/images/ppc64le/Rocky-10-GenericCloud-Base.latest.ppc64le.qcow2"
+            },
+            "container": {
+              "fullImage": "#",
+              "minimalImage": "#"
+            }
+          },
+          "links": {
+            "defaultImages": {
+              "torrent": "https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.0-ppc64le-dvd.torrent",
+              "checksum": "https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/CHECKSUM",
+              "baseOs": "https://download.rockylinux.org/pub/rocky/10/BaseOS/ppc64le/",
+              "archived": "https://dl.rockylinux.org/vault/rocky"
+            },
+            "cloudImages": {
+              "checksum": "https://dl.rockylinux.org/pub/rocky/10/images/ppc64le/CHECKSUM"
+            }
+          }
+        },
+        {
           "versionName": "Rocky Linux 9",
           "versionId": "rocky-9",
           "currentVersion": "v9.6",
@@ -215,6 +344,37 @@
     "s390x": {
       "versions": [
         {
+          "versionName": "Rocky Linux 10",
+          "versionId": "rocky-10",
+          "currentVersion": "v10.0",
+          "plannedEol": "May 31, 2035",
+          "downloadOptions": {
+            "defaultImages": {
+              "dvd": "https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.0-s390x-dvd.iso",
+              "boot": "https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.0-s390x-boot.iso",
+              "minimal": "https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.0-s390x-minimal.iso"
+            },
+            "cloudImages": {
+              "qcow2": "https://dl.rockylinux.org/pub/rocky/10/images/s390x/Rocky-10-GenericCloud-Base.latest.s390x.qcow2"
+            },
+            "container": {
+              "fullImage": "#",
+              "minimalImage": "#"
+            }
+          },
+          "links": {
+            "defaultImages": {
+              "torrent": "https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.0-s390x-dvd.torrent",
+              "checksum": "https://download.rockylinux.org/pub/rocky/10/isos/s390x/CHECKSUM",
+              "baseOs": "https://download.rockylinux.org/pub/rocky/10/BaseOS/s390x/",
+              "archived": "https://dl.rockylinux.org/vault/rocky"
+            },
+            "cloudImages": {
+              "checksum": "https://dl.rockylinux.org/pub/rocky/10/images/s390x/CHECKSUM"
+            }
+          }
+        },
+        {
           "versionName": "Rocky Linux 9",
           "versionId": "rocky-9",
           "currentVersion": "v9.6",
@@ -242,6 +402,41 @@
             },
             "cloudImages": {
               "checksum": "https://dl.rockylinux.org/pub/rocky/9/images/s390x/CHECKSUM"
+            }
+          }
+        }
+      ]
+    },
+    "riscv64": {
+      "versions": [
+        {
+          "versionName": "Rocky Linux 10",
+          "versionId": "rocky-10",
+          "currentVersion": "v10.0",
+          "plannedEol": "May 31, 2035",
+          "downloadOptions": {
+            "defaultImages": {
+              "dvd": "https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.0-riscv64-dvd.iso",
+              "boot": "https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.0-riscv64-boot.iso",
+              "minimal": "https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.0-riscv64-minimal.iso"
+            },
+            "cloudImages": {
+              "qcow2": "https://dl.rockylinux.org/pub/rocky/10/images/riscv64/Rocky-10-GenericCloud-Base.latest.riscv64.qcow2"
+            },
+            "container": {
+              "fullImage": "#",
+              "minimalImage": "#"
+            }
+          },
+          "links": {
+            "defaultImages": {
+              "torrent": "https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.0-riscv64-dvd.torrent",
+              "checksum": "https://download.rockylinux.org/pub/rocky/10/isos/riscv64/CHECKSUM",
+              "baseOs": "https://download.rockylinux.org/pub/rocky/10/BaseOS/riscv64/",
+              "archived": "https://dl.rockylinux.org/vault/rocky"
+            },
+            "cloudImages": {
+              "checksum": "https://dl.rockylinux.org/pub/rocky/10/images/riscv64/CHECKSUM"
             }
           }
         }
