@@ -84,7 +84,7 @@ const DefaultImageCard: React.FC<DefaultImageCardProps> = ({
       </CardTitle>
     </CardHeader>
     <CardContent>
-      <Tabs defaultValue="rocky-9">
+      <Tabs defaultValue="rocky-10">
         <VersionPicker versions={versions} />
       </Tabs>
     </CardContent>
