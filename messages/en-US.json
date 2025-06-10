@@ -165,13 +165,15 @@
       "aarch64": "ARM (aarch64)",
       "ppc64le": "PowerPC (ppc64le)",
       "s390x": "IBM Z (s390x)",
+      "riscv64": "RISC-V (riscv64)",
       "container": "Docker (OCI)",
       "shortened": {
         "x86_64": "x86_64",
         "aarch64": "aarch64",
         "ppc64le": "ppc64le",
         "s390x": "s390x",
-        "container": "OCI"
+        "container": "OCI",
+        "riscv64": "riscv64"
       }
     },
     "selectVersion": "Select a version:",
