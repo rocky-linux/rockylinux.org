@@ -256,7 +256,7 @@
       },
       "wslImages": {
         "title": "Windows Subsystem for Linux (WSL) Images",
-        "download": "Download",
+        "download": "다운로드",
         "readMe": "README"
       }
     },
