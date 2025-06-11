@@ -8,7 +8,7 @@ author: "Rocky Linux Team"
 
 By Neil Hanlon, Infrastructure Lead and Alexia Stein, Community Lead
 
-We are pleased to announce the general availability of **Rocky Linux 10**. Updated installation media, containers, cloud images, and live images are available from the [Rocky Linux Downloads](https://rockylinux.org/download) webpage. Please consult the [release notes](https://docs.rockylinux.org/release_notes/10/) published in the [Rocky Linux Documentation](https://docs.rockylinux.org/) for important information, including known issues and detailed changes in this version.
+We are pleased to announce the general availability of **Rocky Linux 10**. Updated installation media, containers, cloud images, and live images are available from the [Rocky Linux Downloads](https://rockylinux.org/download) webpage. Please consult the [release notes](https://docs.rockylinux.org/release_notes/10_0/) published in the [Rocky Linux Documentation](https://docs.rockylinux.org/) for important information, including known issues and detailed changes in this version.
 
 ### Important Notices
 
