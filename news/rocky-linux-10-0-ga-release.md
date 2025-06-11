@@ -89,7 +89,7 @@ To participate in this testing process for future releases, join the [~Testing c
 
 Rocky Linux does not support upgrades to any major release. To move from 8.x or 9.x to Rocky Linux 10, a fresh install of the operating system is recommended.
 
-### Known Issues'
+### Known Issues
 
 **SELinux issue on hosts with passt installed** When using a workstation, server, or virtual host with a `passt` back end installed, the interface will fail to start if SELinux is enabled. See [this upstream issue](https://issues.redhat.com/browse/RHEL-80407) for more information.
 
