@@ -23,7 +23,7 @@
             "liveImages": {
               "gnome": "https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-Workstation-x86_64-latest.iso",
               "gnomeLite": "https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-Workstation-Lite-x86_64-latest.iso",
-              "kde": "https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-KDE-x86_64-latest.iso",
+              "kde": "https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-KDE-x86_64-latest.iso"
             },
             "wslImages": {
               "download": "https://dl.rockylinux.org/pub/rocky/10/images/x86_64/Rocky-10-WSL-Base.latest.x86_64.wsl"
