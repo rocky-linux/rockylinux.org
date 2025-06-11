@@ -24,9 +24,6 @@
               "gnome": "https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-Workstation-x86_64-latest.iso",
               "gnomeLite": "https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-Workstation-Lite-x86_64-latest.iso",
               "kde": "https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-KDE-x86_64-latest.iso",
-              "xfce": "https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-XFCE-x86_64-latest.iso",
-              "mate": "https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-MATE-x86_64-latest.iso",
-              "cinnamon": "https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-Cinnamon-x86_64-latest.iso"
             },
             "wslImages": {
               "download": "https://dl.rockylinux.org/pub/rocky/10/images/x86_64/Rocky-10-WSL-Base.latest.x86_64.wsl"
@@ -159,9 +156,6 @@
               "gnome": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-Workstation-aarch64-latest.iso",
               "gnomeLite": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-Workstation-Lite-aarch64-latest.iso",
               "kde": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-KDE-aarch64-latest.iso",
-              "xfce": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-XFCE-aarch64-latest.iso",
-              "mate": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-MATE-aarch64-latest.iso",
-              "cinnamon": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-Cinnamon-aarch64-latest.iso"
             },
             "rpiImages": {
               "download": "https://dl.rockylinux.org/pub/sig/10/altarch/aarch64/images/RockyLinuxRpi_10-latest.img.xz"
