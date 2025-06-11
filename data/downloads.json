@@ -155,7 +155,7 @@
             "liveImages": {
               "gnome": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-Workstation-aarch64-latest.iso",
               "gnomeLite": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-Workstation-Lite-aarch64-latest.iso",
-              "kde": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-KDE-aarch64-latest.iso",
+              "kde": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-KDE-aarch64-latest.iso"
             },
             "rpiImages": {
               "download": "https://dl.rockylinux.org/pub/sig/10/altarch/aarch64/images/RockyLinuxRpi_10-latest.img.xz"
