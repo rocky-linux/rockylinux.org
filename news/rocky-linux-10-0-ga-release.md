@@ -112,4 +112,39 @@ All in all, this decision reflects our commitment to long-term maintainability, 
 
 We extend our deepest thanks to the Rocky Linux project volunteers and leaders for their commitment to making this release possible through compiling, testing, and documenting it. We extend our gratitude to our sponsors and partners for their continued support, which ensures we have the necessary resources for this task.
 
+Special thanks to the following contributors for their efforts in this release:
+
+- Ahmed Al-Battshi
+- Alan Marshall
+- Alexey Melezhik
+- Alexia Stein
+- Anna Zhyrnova
+- Anna Zhyrnova
+- Bob Robison
+- Boris Reisig
+- Brian Clemens
+- Bryan (@codedude)
+- Chris Short
+- Chris Stackpole
+- David Gomez
+- Fredrik Nystrom
+- Gabriel Graves
+- Louis Abel
+- Lukas Magauer
+- Michael Kinder
+- Michael Young
+- Mustafa Gezen
+- Nathan B
+- Neil Hanlon
+- Pablo Greco
+- Sherif Nagy
+- Skip Grube
+- Steven Spencer
+- Taylor Goodwill
+- Trevor Cooper
+- Wale Soyinka
+- @roy.nielsen
+- @stevo81989
+- @wrsomsky
+
 Finally, we appreciate our Enterprise Linux ecosystem—especially the upstream development work of Fedora Linux and the curation work in CentOS Stream—as well as the many additional developers and projects that contribute to all the Enterprise Linux distributions.
