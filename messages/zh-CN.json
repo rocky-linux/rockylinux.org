@@ -171,8 +171,10 @@
         "aarch64": "aarch64",
         "ppc64le": "ppc64le",
         "s390x": "s390x",
-        "container": "OCI"
-      }
+        "container": "OCI",
+        "riscv64": "riscv64"
+      },
+      "riscv64": "RISC-V (riscv64)"
     },
     "selectVersion": "选择版本：",
     "plannedEol": "计划的EOL：",
@@ -251,6 +253,11 @@
         "title": "树莓派镜像",
         "download": "下载",
         "readMe": "自述文件"
+      },
+      "wslImages": {
+        "title": "Windows Subsystem for Linux (WSL) Images",
+        "download": "Download",
+        "readMe": "README"
       }
     },
     "getInvolved": {

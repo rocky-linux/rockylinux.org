@@ -171,8 +171,10 @@
         "aarch64": "aarch64",
         "ppc64le": "ppc64le",
         "s390x": "s390x",
-        "container": "OCI"
-      }
+        "container": "OCI",
+        "riscv64": "riscv64"
+      },
+      "riscv64": "RISC-V (riscv64)"
     },
     "selectVersion": "Select a version:",
     "plannedEol": "Planned EOL:",
@@ -250,6 +252,11 @@
       "rpiImages": {
         "title": "Raspberry Pi Images",
         "download": "Λήψη",
+        "readMe": "README"
+      },
+      "wslImages": {
+        "title": "Windows Subsystem for Linux (WSL) Images",
+        "download": "Download",
         "readMe": "README"
       }
     },

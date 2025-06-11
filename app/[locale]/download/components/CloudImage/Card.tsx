@@ -113,7 +113,7 @@ const CloudImageCard: React.FC<CloudImageCardProps> = ({
         <h3 className="text-lg font-display font-bold">
           {t("cards.cloudImages.genericCloud")}
         </h3>
-        <Tabs defaultValue="rocky-9">
+        <Tabs defaultValue="rocky-10">
           <VersionPicker versions={versions} />
         </Tabs>
         <hr className="my-8" />
