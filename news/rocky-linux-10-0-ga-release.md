@@ -73,11 +73,9 @@ In RL 10, Wayland replaces the X.Org Server. Xwayland will support most X11 clie
 
 Rocky Linux 10 introduces support for the RISC-V architecture, expanding the range of hardware platforms that can run Rocky Linux. This is a significant step towards making Rocky Linux more versatile and accessible to a broader audience.
 
-Platforms/subsystems supported on release day include * StarFive VisionFive 2 (VF2), **QEMU**, and SiFive HiFive Premier P550. (There is no p550 kernel built yet. Do we really want to keep this if it's not true yet?)
-
 More details about this milestone, including Rocky Linux 10's RISC-V support, [can be found here](https://rockylinux.org/news/rockylinux-support-for-riscv).
 
-If you're interested in getting RISC-V hardware working with Rocky Linux, please join [~SIG/AltArch in the Rocky Linux Mattermost](https://chat.rockylinux.org/rocky-linux/channels/altarch).
+If you're interested in getting RISC-V hardware working with Rocky Linux, please join [~SIG/AltArch](https://chat.rockylinux.org/rocky-linux/channels/altarch) on the [Rocky Linux Mattermost](https://chat.rockylinux.org/).
 
 ### Testing
 
