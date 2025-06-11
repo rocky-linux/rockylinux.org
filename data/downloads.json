@@ -73,6 +73,9 @@
               "xfce": "https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-XFCE-x86_64-latest.iso",
               "mate": "https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-MATE-x86_64-latest.iso",
               "cinnamon": "https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-Cinnamon-x86_64-latest.iso"
+            },
+            "wslImages": {
+              "download": "https://dl.rockylinux.org/pub/rocky/9/images/x86_64/Rocky-9-WSL-Base.latest.x86_64.wsl"
             }
           },
           "links": {
@@ -87,6 +90,10 @@
             },
             "liveImages": {
               "checksums": "https://dl.rockylinux.org/pub/rocky/9/live/x86_64/"
+            },
+            "wslImages": {
+              "checksum": "https://dl.rockylinux.org/pub/rocky/9/images/x86_64/Rocky-9-WSL-Base.latest.x86_64.wsl.CHECKSUM",
+              "readMe": "https://docs.rockylinux.org/guides/interoperability/import_rocky_to_wsl/"
             }
           }
         },
@@ -159,6 +166,9 @@
             },
             "rpiImages": {
               "download": "https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz"
+            },
+            "wslImages": {
+              "download": "https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-WSL-Base.latest.aarch64.wsl"
             }
           },
           "links": {
@@ -177,6 +187,10 @@
             "rpiImages": {
               "checksum": "https://dl.rockylinux.org/pub/sig/10/altarch/aarch64/images/RockyLinuxRpi_10-latest.img.xz.sha256sum",
               "readMe": "https://dl.rockylinux.org/pub/sig/10/altarch/aarch64/images/README.txt"
+            },
+            "wslImages": {
+              "checksum": "https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-WSL-Base.latest.aarch64.wsl.CHECKSUM",
+              "readMe": "https://docs.rockylinux.org/guides/interoperability/import_rocky_to_wsl/"
             }
           }
         },
@@ -208,6 +222,9 @@
             },
             "rpiImages": {
               "download": "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images/RockyLinuxRpi_9-latest.img.xz"
+            },
+            "wslImages": {
+              "download": "https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-WSL-Base.latest.aarch64.wsl"
             }
           },
           "links": {
@@ -226,6 +243,10 @@
             "rpiImages": {
               "checksum": "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images/RockyLinuxRpi_9-latest.img.xz.sha256sum",
               "readMe": "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images/README.txt"
+            },
+            "wslImages": {
+              "checksum": "https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-WSL-Base.latest.aarch64.wsl.CHECKSUM",
+              "readMe": "https://docs.rockylinux.org/guides/interoperability/import_rocky_to_wsl/"
             }
           }
         },

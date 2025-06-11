@@ -256,8 +256,8 @@
       },
       "wslImages": {
         "title": "Windows Subsystem for Linux (WSL) Images",
-        "download": "Download",
-        "readMe": "README"
+        "download": "下载",
+        "readMe": "自述文件"
       }
     },
     "getInvolved": {

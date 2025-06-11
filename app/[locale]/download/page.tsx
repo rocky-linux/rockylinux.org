@@ -268,7 +268,7 @@ const DownloadPage = () => {
                           )}
                         />
                       ) : null}
-                      {arch === "x86_64" ? (
+                      {arch === "x86_64" || arch === "aarch64" ? (
                         <DefaultImageCard
                           title={t("cards.wslImages.title")}
                           titleTooltip={false}
