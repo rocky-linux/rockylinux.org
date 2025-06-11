@@ -179,10 +179,6 @@
             },
             "liveImages": {
               "checksums": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64/"
-            },
-            "rpiImages": {
-              "checksum": "https://dl.rockylinux.org/pub/sig/10/altarch/aarch64/images/RockyLinuxRpi_10-latest.img.xz.sha256sum",
-              "readMe": "https://dl.rockylinux.org/pub/sig/10/altarch/aarch64/images/README.txt"
             }
           }
         },
