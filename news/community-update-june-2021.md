@@ -6,7 +6,7 @@ author: "Rocky Enterprise Software Foundation"
 
 ## Summary
 
-After seven months of long, hard work, we are beyond excited to announce that Rocky Linux 8.4 has reached General Availability for x86_64 and aarch64! We made fantastic progress with our release candidates and are happy to recommend this version for installation on your production systems. A [migration tool](https://github.com/rocky-linux/rocky-tools/tree/main/migrate2rocky) is available in our GitHub repository, and [release notes](https://docs.rockylinux.org/release_notes/8.4/) are available on our new documentation site.
+After seven months of long, hard work, we are beyond excited to announce that Rocky Linux 8.4 has reached General Availability for x86_64 and aarch64! We made fantastic progress with our release candidates and are happy to recommend this version for installation on your production systems. A [migration tool](https://github.com/rocky-linux/rocky-tools/tree/main/migrate2rocky) is available in our GitHub repository, and [release notes](https://docs.rockylinux.org/release_notes/8_4/) are available on our new documentation site.
 
 Within 72 hours of launch, Rocky’s assets have been downloaded **nearly 70,000 times** from our Tier0 mirror, served from Fastly--not counting the number of downloads from our mirrors, of which we have nearly 100--and we count approximately 10,000 downloads of our torrent file.
 
