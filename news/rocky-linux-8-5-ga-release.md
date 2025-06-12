@@ -6,7 +6,7 @@ author: "Release Engineering Team"
 
 Hello everyone. I am pleased to announce the general availability of Rocky Linux 8.5. This release is for the x86_64 and aarch64 architectures and is derived from Red Hat Enterprise Linux 8.5.
 
-Please read through the release notes at: https://docs.rockylinux.org/release_notes/8.5/ - These notes contain important information about the release, details about some of the content inside the release (such as newer modules or updates throughout the distribution).
+Please read through the release notes at: https://docs.rockylinux.org/release_notes/8_5/ - These notes contain important information about the release, details about some of the content inside the release (such as newer modules or updates throughout the distribution).
 
 # Secure Boot
 
