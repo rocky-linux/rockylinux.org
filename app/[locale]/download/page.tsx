@@ -30,10 +30,14 @@ const DownloadPage = () => {
         label: `${t("cards.defaultImages.downloadOptions.boot")}`,
         link: version.downloadOptions.defaultImages.boot,
       },
-      {
-        label: `${t("cards.defaultImages.downloadOptions.minimal")}`,
-        link: version.downloadOptions.defaultImages.minimal,
-      },
+      ...(version.downloadOptions.defaultImages.minimal
+        ? [
+            {
+              label: `${t("cards.defaultImages.downloadOptions.minimal")}`,
+              link: version.downloadOptions.defaultImages.minimal as string,
+            },
+          ]
+        : []),
     ],
     links: [
       {
