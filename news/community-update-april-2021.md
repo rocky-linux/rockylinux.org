@@ -59,7 +59,7 @@ We’re now using [Bugzilla](https://bugs.rockylinux.org/) for bug tracking. If 
 
 ## Release Engineering
 
-We have released a [devtools](https://github.com/rocky-linux/devtools) repository to help configure a build development for Rocky Linux package maintainers. It’s a great way to [help you get started](https://github.com/rocky-linux/documentation/blob/main/en/rocky/8/guides/developer_start2.md) working on failed packages as reported in our [Koji build system](https://kojidev.rockylinux.org/koji/).
+We have released a [devtools](https://github.com/rocky-linux/devtools) repository to help configure a build development for Rocky Linux package maintainers. It’s a great way to [help you get started](https://docs.rockylinux.org/guides/package_management/package_dev_start/) working on failed packages as reported in our [Koji build system](https://kojidev.rockylinux.org/koji/).
 
 [Mustafa Gezen](mailto:mustafa@rockylinux.org) has also released a work-in-progress of a [distrobuild](https://github.com/rocky-linux/distrobuild) utility as well as [srpmproc](https://github.com/rocky-linux/srpmproc), which help tremendously in our build efforts. Both are licensed under MIT.
 
