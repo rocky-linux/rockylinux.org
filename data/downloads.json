@@ -9,7 +9,7 @@
           "plannedEol": "May 31, 2035",
           "downloadOptions": {
             "defaultImages": {
-              "dvd": "https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.0-x86_64-dvd.iso",
+              "dvd": "https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.0-x86_64-dvd1.iso",
               "boot": "https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.0-x86_64-boot.iso",
               "minimal": "https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.0-x86_64-minimal.iso"
             },
@@ -148,7 +148,7 @@
           "plannedEol": "May 31, 2035",
           "downloadOptions": {
             "defaultImages": {
-              "dvd": "https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.0-aarch64-dvd.iso",
+              "dvd": "https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.0-aarch64-dvd1.iso",
               "boot": "https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.0-aarch64-boot.iso",
               "minimal": "https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.0-aarch64-minimal.iso"
             },
@@ -299,7 +299,7 @@
           "plannedEol": "May 31, 2035",
           "downloadOptions": {
             "defaultImages": {
-              "dvd": "https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.0-ppc64le-dvd.iso",
+              "dvd": "https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.0-ppc64le-dvd1.iso",
               "boot": "https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.0-ppc64le-boot.iso",
               "minimal": "https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.0-ppc64le-minimal.iso"
             },
@@ -330,7 +330,7 @@
           "plannedEol": "May 31, 2032",
           "downloadOptions": {
             "defaultImages": {
-              "dvd": "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.6-ppc64le-dvd.iso",
+              "dvd": "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.6-ppc64le-dvd1.iso",
               "boot": "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.6-ppc64le-boot.iso",
               "minimal": "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.6-ppc64le-minimal.iso"
             },
@@ -365,7 +365,7 @@
           "plannedEol": "May 31, 2035",
           "downloadOptions": {
             "defaultImages": {
-              "dvd": "https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.0-s390x-dvd.iso",
+              "dvd": "https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.0-s390x-dvd1.iso",
               "boot": "https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.0-s390x-boot.iso",
               "minimal": "https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.0-s390x-minimal.iso"
             },
@@ -431,7 +431,7 @@
           "plannedEol": "May 31, 2035",
           "downloadOptions": {
             "defaultImages": {
-              "dvd": "https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.0-riscv64-dvd.iso",
+              "dvd": "https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.0-riscv64-dvd1.iso",
               "boot": "https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.0-riscv64-boot.iso",
               "minimal": "https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.0-riscv64-minimal.iso"
             },
