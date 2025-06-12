@@ -18,11 +18,11 @@ The most significant change in Rocky Linux 10 is the removal of support for x86-
 
 Rocky Linux 10 is supported on the following processor architectures:
 
-* 64-bit AMD/Intel x86-64-v3 (x86_64)
-* 64-bit RISC-V (riscv64)
-* 64-bit ARMv8.0-A (aarch64)
-* IBM POWER, little endian (ppc64le)
-* IBM z (s390x)
+- 64-bit AMD/Intel x86-64-v3 (x86_64)
+- 64-bit RISC-V (riscv64)
+- 64-bit ARMv8.0-A (aarch64)
+- IBM POWER, little endian (ppc64le)
+- IBM z (s390x)
 
 All 32-bit packages have been removed from Rocky Linux 10. This means that 32-bit applications will no longer run on this version of Rocky Linux. Please use 64-bit libraries or containers with 32-bit dependencies instead.
 
@@ -46,28 +46,28 @@ In RL 10, Wayland replaces the X.Org Server. Xwayland will support most X11 clie
 
 #### Notable New Features and Changes
 
-* Dynamic programming languages, web, and database servers
-  * PHP 8.3
-  * Python 3.12
-  * nginx 1.26
-  * PostgreSQL 16.8
-  * MySQL 8.4
-  * Valkey 8.0
-  * MariaDB 10.11
-* Performance tools and debuggers
-  * GDB 14.2
-  * Valgrind 3.23.0
-  * SystemTap 5.1
-  * Dyninst 12.3.0
-  * elfutils 0.192
-  * libabigail 2.6
-* Performance monitoring tools
-  * Performance Co-pilot 6.3.0
-  * Grafana 10.2.6
-* Compiler toolsets
-  * LLVM Toolset 19.1.7
-  * Rust Toolset 1.84.1
-  * Go Toolset 1.23
+- Dynamic programming languages, web, and database servers
+  - PHP 8.3
+  - Python 3.12
+  - nginx 1.26
+  - PostgreSQL 16.8
+  - MySQL 8.4
+  - Valkey 8.0
+  - MariaDB 10.11
+- Performance tools and debuggers
+  - GDB 14.2
+  - Valgrind 3.23.0
+  - SystemTap 5.1
+  - Dyninst 12.3.0
+  - elfutils 0.192
+  - libabigail 2.6
+- Performance monitoring tools
+  - Performance Co-pilot 6.3.0
+  - Grafana 10.2.6
+- Compiler toolsets
+  - LLVM Toolset 19.1.7
+  - Rust Toolset 1.84.1
+  - Go Toolset 1.23
 
 #### Support for RISC-V Architecture
 
@@ -97,13 +97,13 @@ With Rocky Linux 10, we're making a notable change: the builds will **not** come
 
 Here's why:
 
-* **Peridot Two isn't ready (and we're okay with that).**
+- **Peridot Two isn't ready (and we're okay with that).**
   We learned in the early days of Rocky Linux that dogfooding an unfinished system during a major release is risky and inefficient. This time, we're building smarter. Peridot Two will be a clean, modern reimplementation of Koji's XML-RPC interface on top of a gRPC backend—and when it's ready, it'll work out-of-the-box for existing Koji users.
 
-* **IMA signing is a top priority.**
+- **IMA signing is a top priority.**
   One of the key features RHEL introduced—and we're now aiming to support—is **IMA (Integrity Measurement Architecture)**. This provides kernel-level file attestation using a dedicated signing CA, already baked into our Rocky Linux 9 kernels. Supporting this properly requires careful integration, which Keykeeper (Peridot's signing tool) doesn't currently support. So for now, Koji gives us the control we need to do this right.
 
-* **Compatibility and transition readiness.**
+- **Compatibility and transition readiness.**
   By building Rocky 10 in Koji now, we ensure a clean upgrade path to Peridot Two later, since it will support seamless import of builds and metadata from Koji instances.
 
 All in all, this decision reflects our commitment to long-term maintainability, community transparency, and secure, production-grade infrastructure.
@@ -146,5 +146,12 @@ Special thanks to the following contributors for their efforts in this release:
 - @roy.nielsen
 - @stevo81989
 - @wrsomsky
+
+We would also like to recognize our Rocky Linux 10 wallpaper contest winners:
+
+- Natalie Forde
+- Gwendolyn K
+- @summer
+- @kami (Kyren)
 
 Finally, we appreciate our Enterprise Linux ecosystem—especially the upstream development work of Fedora Linux and the curation work in CentOS Stream—as well as the many additional developers and projects that contribute to all the Enterprise Linux distributions.
