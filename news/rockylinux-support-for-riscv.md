@@ -56,7 +56,7 @@ The RISC-V builds for Rocky Linux 10 will be considered an Alternative Architect
 - 💬 **Join the conversation** in our Mattermost `SIG/Altarch` channel:  
   [chat.rockylinux.org](https://chat.rockylinux.org)
 
-Stay updated via [Bluesky](https://bsky.app/profile/rockylinux.bsky.social), [LinkedIn](https://www.linkedin.com/company/rocky-linux), or subscribe to our **RSS feed**.
+Stay updated via [Bluesky](https://bsky.app/profile/rockylinux.bsky.social), [LinkedIn](https://www.linkedin.com/company/rockylinux), or subscribe to our **RSS feed**.
 
 ---
 
@@ -69,4 +69,3 @@ Whether you're deploying rock-solid production systems or tinkering with open ha
 Let’s build it together.
 
 *By Neil Hanlon (Infrastructure Lead) & Alexia Stein (Community Lead)*
-

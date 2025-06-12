@@ -21,7 +21,7 @@ export interface DownloadOptions {
   defaultImages: {
     dvd: string;
     boot: string;
-    minimal: string;
+    minimal?: string;
   };
   cloudImages: {
     qcow2: string;

@@ -42,7 +42,7 @@ Now that RHEL 8.4 has landed, we’re working to build a release candidate. Rock
 
 ## Testing
 
-If you’re interested in helping us test the Rocky Linux 8.4 RC, please join our Testing team! The Testing team meets weekly on Thursdays at 18:00 ET. There’s [live chat](https://chat.rockylinux.org/rocky-linux/channels/testing) on our Mattermost server, and durable discussion on [our forums](https://forums.rockylinux.org/c/devel/testing). Please be sure to [report](https://bugs.rockylinux.org/) any bugs you encounter.
+If you’re interested in helping us test the Rocky Linux 8.4 RC, please join our Testing team! The Testing team meets weekly on Thursdays at 18:00 ET. There’s [live chat](https://chat.rockylinux.org/rocky-linux/channels/testing) on our Mattermost server. Please be sure to [report](https://bugs.rockylinux.org/) any bugs you encounter.
 
 ---
 

@@ -32,11 +32,11 @@ First, create an account using [Rocky Linux Account Services](https://accounts.r
 
 > How can I get involved with the Testing team?
 
-Please join the [~Testing channel](https://chat.rockylinux.org/rocky-linux/channels/testing) on our Mattermost server to get started. There’s also a [testing topic on the forums](https://forums.rockylinux.org/c/devel/testing/19) for more durable conversation.
+Please join the [~Testing channel](https://chat.rockylinux.org/rocky-linux/channels/testing) on our Mattermost server to get started.
 
 > Where can I find the latest news about Rocky Linux?
 
-Stay tuned to our [website](https://rockylinux.org), [Twitter](https://twitter.com/rocky_linux), [LinkedIn](https://linkedin.com/company/rockylinux), [forums](https://forums.rockylinux.org), and other platforms listed in our [link directory](https://wiki.rockylinux.org/en/link-directory) for the latest announcements.
+Stay tuned to our [website](https://rockylinux.org), [Twitter](https://twitter.com/rocky_linux), [LinkedIn](https://linkedin.com/company/rockylinux), [forums](https://forums.rockylinux.org), and other platforms listed in our [link directory](https://wiki.rockylinux.org/links/) for the latest announcements.
 
 > What if I have feedback or my question wasn’t answered here?
 
