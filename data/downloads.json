@@ -31,7 +31,7 @@
           },
           "links": {
             "defaultImages": {
-              "torrent": "https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.0-x86_64-dvd.torrent",
+              "torrent": "https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.0-x86_64-dvd1.torrent",
               "checksum": "https://download.rockylinux.org/pub/rocky/10/isos/x86_64/CHECKSUM",
               "baseOs": "https://download.rockylinux.org/pub/rocky/10/BaseOS/x86_64/",
               "archived": "https://dl.rockylinux.org/vault/rocky"
