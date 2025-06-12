@@ -433,7 +433,6 @@
             "defaultImages": {
               "dvd": "https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.0-riscv64-dvd1.iso",
               "boot": "https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.0-riscv64-boot.iso",
-              "minimal": "https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.0-riscv64-minimal.iso"
             },
             "cloudImages": {
               "qcow2": "https://dl.rockylinux.org/pub/rocky/10/images/riscv64/Rocky-10-GenericCloud-Base.latest.riscv64.qcow2"
