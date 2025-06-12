@@ -66,7 +66,7 @@ We need you! The Community Team is seeking volunteers to help us grow community 
 
 ### Infrastructure
 
-- A pastebin application has been created to facilitate exchange of text files and long messages on our IRC channels, available at [https://rpa.st](https://rpa.st/) / [https://paste.resf.org](https://paste.resf.org/) / [https://paste.rockylinux.org](https://paste.rockylinux.org/). It can be used easily with the rpaste package available in the Rocky-Extras repository.
+- A pastebin application has been created to facilitate exchange of text files and long messages on our IRC channels, available at [https://rpa.st](https://rpa.st/) / [https://paste.rockylinux.org](https://paste.rockylinux.org/). It can be used easily with the rpaste package available in the Rocky-Extras repository.
 
 - We completed many projects to support other teams, including deploying PowerPC build platforms and deploying the highly secure infrastructure necessary for building secure boot components.
 
