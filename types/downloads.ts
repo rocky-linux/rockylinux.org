@@ -44,6 +44,9 @@ export interface DownloadOptions {
   wslImages?: {
     download: string;
   };
+  visionfive2Images?: {
+    download: string;
+  };
 }
 
 export interface Links {
@@ -64,6 +67,10 @@ export interface Links {
     readMe: string;
   };
   wslImages?: {
+    checksum: string;
+    readMe: string;
+  };
+  visionfive2Images?: {
     checksum: string;
     readMe: string;
   };

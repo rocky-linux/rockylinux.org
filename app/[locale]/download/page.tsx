@@ -173,6 +173,35 @@ const DownloadPage = () => {
       : [],
   });
 
+  const mapVersionToVisionFive2VersionItem = (
+    version: Version
+  ): VersionItem => ({
+    versionName: version.versionName,
+    versionId: version.versionId,
+    currentVersion: version.currentVersion,
+    plannedEol: version.plannedEol,
+    downloadOptions: version.downloadOptions.visionfive2Images
+      ? [
+          {
+            label: `${t("cards.visionfive2Images.download")}`,
+            link: version.downloadOptions.visionfive2Images.download,
+          },
+        ]
+      : [],
+    links: version.links.visionfive2Images
+      ? [
+          {
+            name: `${t("cards.defaultImages.checksum")}`,
+            link: version.links.visionfive2Images.checksum,
+          },
+          {
+            name: `${t("cards.visionfive2Images.readMe")}`,
+            link: version.links.visionfive2Images.readMe,
+          },
+        ]
+      : [],
+  });
+
   return (
     <>
       <div className="py-24 sm:py-32">
@@ -269,6 +298,17 @@ const DownloadPage = () => {
                           titleTooltipButtonLabel=""
                           versions={data.versions.map(
                             mapVersionToRpiVersionItem
+                          )}
+                        />
+                      ) : null}
+                      {arch === "riscv64" ? (
+                        <DefaultImageCard
+                          title={t("cards.visionfive2Images.title")}
+                          titleTooltip={false}
+                          titleTooltipButtonLink=""
+                          titleTooltipButtonLabel=""
+                          versions={data.versions.map(
+                            mapVersionToVisionFive2VersionItem
                           )}
                         />
                       ) : null}
