@@ -194,10 +194,14 @@ const DownloadPage = () => {
             name: `${t("cards.defaultImages.checksum")}`,
             link: version.links.visionfive2Images.checksum,
           },
-          {
-            name: `${t("cards.visionfive2Images.readMe")}`,
-            link: version.links.visionfive2Images.readMe,
-          },
+          ...(version.links.visionfive2Images.readMe
+            ? [
+                {
+                  name: `${t("cards.visionfive2Images.readMe")}`,
+                  link: version.links.visionfive2Images.readMe,
+                },
+              ]
+            : []),
         ]
       : [],
   });

@@ -72,7 +72,7 @@ export interface Links {
   };
   visionfive2Images?: {
     checksum: string;
-    readMe: string;
+    readMe?: string;
   };
 }
 
