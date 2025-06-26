@@ -1,4 +1,6 @@
-const withNextIntl = require("next-intl/plugin")("./i18n.ts");
+import withNextIntl from "next-intl/plugin";
+
+const withNextIntlPlugin = withNextIntl("./i18n.ts");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -75,9 +77,14 @@ const nextConfig = {
         source: "/news/2024-07-01-rocky-linux-9-cve-2024-6378-regression",
         destination: "/news/2024-07-01-openssh-sigalrm-regression",
         permanent: true,
-      }
+      },
+      {
+        source: "/keys",
+        destination: "/resources/gpg-key-info",
+        permanent: true,
+      },
     ];
   },
 };
 
-module.exports = withNextIntl(nextConfig);
+export default withNextIntlPlugin(nextConfig);

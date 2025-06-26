@@ -19,17 +19,17 @@
       "contributeName": "Contribute",
       "openMainMenu": "Open Main Menu",
       "about": {
-        "about": "About Rocky Linux",
+        "about": "Acerca de Rocky Linux",
         "charter": "Community Charter",
-        "wiki": "Project Wiki",
+        "wiki": "Wiki del Proyecto",
         "sponsors": "Sponsors",
         "partners": "Partners"
       },
       "resources": {
-        "gpgKeyInfo": "GPG Key Info"
+        "gpgKeyInfo": "Información de llave GPG"
       },
       "community": {
-        "coc": "Code of Conduct",
+        "coc": "Código de Conducta",
         "forums": "Forums",
         "mailing": "Mailing Lists",
         "mattermost": "Mattermost",
@@ -56,13 +56,13 @@
       "TrademarksName": "Trademarks"
     },
     "socialNav": {
+      "bluesky": "Bluesky",
       "facebook": "Facebook",
       "github": "GitHub",
       "instagram": "Instagram",
       "linkedin": "LinkedIn",
       "mastodon": "Mastodon",
       "threads": "Threads",
-      "x": "X",
       "youtube": "YouTube"
     },
     "disclaimer": "Rocky Linux® is the registered trademark of the Rocky Enterprise Software Foundation in the U.S. and other countries. Linux® is the registered trademark of Linus Torvalds in the U.S. and other countries. Red Hat Enterprise Linux, RHEL and CentOS are trademarks or registered trademarks of Red Hat, Inc. or its subsidiaries in the US and other countries. We are not affiliated with, endorsed by or sponsored by Red Hat, Inc."
@@ -70,7 +70,7 @@
   "home": {
     "hero": {
       "title": "Enterprise Linux, the <span>community way.</span>",
-      "description": "Rocky Linux is an open-source enterprise operating system designed to be 100% bug-for-bug compatible with Red Hat Enterprise Linux®. It is under intensive development by the community.",
+      "description": "Rocky Linux is an open-source enterprise operating system designed to be 100% bug-for-bug compatible with Red Hat Enterprise Linux®. Rocky Linux is under intensive development by the community.",
       "migrate": "Migrate",
       "dpg": "A Registered Digital Public Good"
     },
@@ -109,6 +109,7 @@
   },
   "share": {
     "shareName": "Share",
+    "bluesky": "Bluesky",
     "mastodon": {
       "name": "Mastodon",
       "url-valid": "Please enter a valid Mastodon instance URL (without https://).",
@@ -116,7 +117,6 @@
     },
     "facebook": "Facebook",
     "linkedin": "LinkedIn",
-    "x": "X",
     "threads": "Threads"
   },
   "about": {
@@ -171,8 +171,10 @@
         "aarch64": "aarch64",
         "ppc64le": "ppc64le",
         "s390x": "s390x",
-        "container": "OCI"
-      }
+        "container": "OCI",
+        "riscv64": "riscv64"
+      },
+      "riscv64": "RISC-V (riscv64)"
     },
     "selectVersion": "Select a version:",
     "plannedEol": "Planned EOL:",
@@ -249,6 +251,11 @@
       },
       "rpiImages": {
         "title": "Raspberry Pi Images",
+        "download": "Download",
+        "readMe": "README"
+      },
+      "wslImages": {
+        "title": "Windows Subsystem for Linux (WSL) Images",
         "download": "Download",
         "readMe": "README"
       }

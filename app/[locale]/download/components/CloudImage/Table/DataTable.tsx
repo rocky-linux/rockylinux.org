@@ -12,9 +12,9 @@ import {
   getFacetedMinMaxValues,
   getPaginationRowModel,
   getSortedRowModel,
-  FilterFn,
   ColumnDef,
   flexRender,
+  Row,
 } from "@tanstack/react-table";
 
 import { rankItem } from "@tanstack/match-sorter-utils";
@@ -35,15 +35,16 @@ interface DataTableProps<TData, TValue> {
   data: TData[];
 }
 
-const fuzzyFilter: FilterFn<any> = (row, columnId, value, addMeta) => {
+function fuzzyFilter<TData>(
+  row: Row<TData>,
+  columnId: string,
+  value: string,
+  addMeta: (meta: { itemRank: { passed: boolean } }) => void
+): boolean {
   const itemRank = rankItem(row.getValue(columnId), value);
-
-  addMeta({
-    itemRank,
-  });
-
+  addMeta({ itemRank });
   return itemRank.passed;
-};
+}
 
 export function DataTable<TData, TValue>({
   columns,
@@ -57,13 +58,8 @@ export function DataTable<TData, TValue>({
   const table = useReactTable({
     data,
     columns,
-    filterFns: {
-      fuzzy: fuzzyFilter,
-    },
-    state: {
-      columnFilters,
-      globalFilter,
-    },
+    filterFns: { fuzzy: fuzzyFilter },
+    state: { columnFilters, globalFilter },
     onColumnFiltersChange: setColumnFilters,
     onGlobalFilterChange: setGlobalFilter,
     globalFilterFn: fuzzyFilter,

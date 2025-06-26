@@ -1,11 +1,18 @@
 import deepmerge from "deepmerge";
-import { getRequestConfig } from "next-intl/server";
+import { availableLanguages, defaultLanguage } from "./config/i18nProperties";
 
-export default getRequestConfig(async ({ locale }) => {
-  const userMessages = (await import(`./messages/${locale}.json`)).default;
+export default async function getMessages(locale: string) {
+  let validLocale = locale;
+
+  if (
+    !locale ||
+    !availableLanguages.includes(locale as (typeof availableLanguages)[number])
+  ) {
+    validLocale = defaultLanguage;
+  }
+
+  const userMessages = (await import(`./messages/${validLocale}.json`)).default;
   const defaultMessages = (await import(`./messages/en.json`)).default;
 
-  return {
-    messages: deepmerge(defaultMessages, userMessages),
-  };
-});
+  return deepmerge(defaultMessages, userMessages);
+}

@@ -4,12 +4,12 @@ date: "2022-11-11"
 author: "Rocky Enterprise Software Foundation"
 ---
 
-The Rocky Enterprise Software Foundation (RESF) today published its charter and bylaws, documenting the organization’s governing structure and rules for hosting open source projects, including its namesake project, [Rocky Linux](https://rockylinux.org/). The charter and bylaws also describe the RESF vision to create and nurture a community of individuals and organizations that are committed to ensuring the longevity, stewardship and innovation of enterprise-grade open source software that is always freely available.
+The Rocky Enterprise Software Foundation (RESF) today published its charter and bylaws, documenting the organization’s governing structure and rules for hosting open source projects, including its namesake project, [Rocky Linux][1]. The charter and bylaws also describe the RESF vision to create and nurture a community of individuals and organizations that are committed to ensuring the longevity, stewardship and innovation of enterprise-grade open source software that is always freely available.
 
 ### RESF Resources
 
-- [Charter and Bylaws](https://rockylinux.org/bylaws-charter)
-- [Frequently Asked Questions](https://rockylinux.org/resf-faq)
+- [Charter and Bylaws][2]
+- [Frequently Asked Questions][3]
 
 Adopted on November 9, the new RESF charter and bylaws were voted on by the initial charter member group of 30 RESF and Rocky Linux contributors. The vote was procedurally ratified by Gregory Kurtzer, who filed the original paperwork to establish the RESF as a Delaware Public Benefits Corporation (PBC). By ratifying the new bylaws and charter, Kurtzer legally has turned over the control of the RESF to the structure defined within those documents, a structure designed to ensure community control while specifically enabling enterprise use-cases and the participation of vendors and other commercial entities.
 
@@ -25,9 +25,9 @@ Although avoiding singular corporate control is integral to the governing princi
 - Every project gets a voice within the foundation and is governed by checks and balances. Every project will have a project board, and each project board will have a seat on the foundation board.
 - Each Tier 1 Principal Sponsor is granted a single advisory seat. The advisory committees do not have the ability to vote on decisions within the RESF or projects; they exist primarily to provide guidance and collaboration.
 
-Read the full charter and bylaws of the RESF [here](https://rockylinux.org/bylaws-charter).
+Read the full charter and bylaws of the RESF [here][2].
 
-“The model reflected in the RESF charter and bylaws represents the model behind Rocky Linux and one of the major reasons Rocky Linux has so quickly become the leading successor to CentOS,” said Kurtzer, citing [EPEL statistics](https://ciq.com/tracking-rocky-linux-growth-using-fedoras-epel-project/) and [Hyperion Research data](https://hyperionresearch.com/wp-content/uploads/2022/11/Hyperion-Research-SC22-HPC-Market_Combined-1.pdf) (slide 63). “Rocky Linux benefits not only from an active community but also from strong commercial support. A number of well known organizations provide financial support and value-add contributions as sponsors. Additionally many companies provide representatives who are active project contributors, and many of our community members offer their own commercial products and services based on Rocky Linux.”
+“The model reflected in the RESF charter and bylaws represents the model behind Rocky Linux and one of the major reasons Rocky Linux has so quickly become the leading successor to CentOS,” said Kurtzer, citing [EPEL statistics][4] and [Hyperion Research data][5] (slide 63). “Rocky Linux benefits not only from an active community but also from strong commercial support. A number of well known organizations provide financial support and value-add contributions as sponsors. Additionally many companies provide representatives who are active project contributors, and many of our community members offer their own commercial products and services based on Rocky Linux.”
 
 “We, the RESF charter members, want to create a place where other projects can take advantage of this model as well,” said Benjamin Agner, deputy CISO at Unum Group and a co-lead of the security and compliance team for Rocky Linux and the RESF. “So, we’ve worked hard to design a protective structure—based on principles of accountability and transparency—to balance corporate interests and needs with those of the community. We’re confident this structure will support growth and deliver stability and longevity as well.”
 
@@ -37,4 +37,11 @@ The RESF welcomes any open source projects that need a neutral ground to operate
 
 ## About the RESF
 
-The Rocky Enterprise Software Foundation (RESF) exists to organize open-source communities comprising enterprise, research, academia, individuals and other institutions to collaborate on building and maintaining the open source tools that these organizations need. The vision of the RESF is to create and nurture a community that is committed to ensuring the longevity, stewardship and innovation of enterprise-grade open source software that is always freely available. Organizations interested in becoming a sponsor and learning about the multiple benefits of RESF sponsorship should contact sponsor@resf.org. Individuals interested in becoming a member of the RESF must first be active in an RESF project; visit the [Rocky Wiki](https://wiki.rockylinux.org/contributing/#signing-agreements) to learn more.
+The Rocky Enterprise Software Foundation (RESF) exists to organize open-source communities comprising enterprise, research, academia, individuals and other institutions to collaborate on building and maintaining the open source tools that these organizations need. The vision of the RESF is to create and nurture a community that is committed to ensuring the longevity, stewardship and innovation of enterprise-grade open source software that is always freely available. Organizations interested in becoming a sponsor and learning about the multiple benefits of RESF sponsorship should contact sponsor@resf.org. Individuals interested in becoming a member of the RESF must first be active in an RESF project; visit the [Rocky Wiki][6] to learn more.
+
+[1]: https://rockylinux.org "Rocky Linux"
+[2]: https://www.resf.org/about "RESF Charter and Bylaws"
+[3]: https://www.resf.org/faq "RESF Frequently Asked Questions"
+[4]: https://ciq.com/blog/tracking-rocky-linux-growth-using-fedoras-epel-project/ "Tracking Rocky Linux Growth Using Fedora’s EPEL Project"
+[5]: https://hyperionresearch.com/wp-content/uploads/2022/11/Hyperion-Research-SC22-HPC-Market_Combined-1.pdf
+[6]: https://wiki.rockylinux.org/contributing/#signing-agreements "Rocky Wiki: Contributing"

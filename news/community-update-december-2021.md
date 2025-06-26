@@ -66,7 +66,7 @@ We need you! The Community Team is seeking volunteers to help us grow community 
 
 ### Infrastructure
 
-- A pastebin application has been created to facilitate exchange of text files and long messages on our IRC channels, available at [https://rpa.st](https://rpa.st/) / [https://paste.resf.org](https://paste.resf.org/) / [https://paste.rockylinux.org](https://paste.rockylinux.org/). It can be used easily with the rpaste package available in the Rocky-Extras repository.
+- A pastebin application has been created to facilitate exchange of text files and long messages on our IRC channels, available at [https://rpa.st](https://rpa.st/) / [https://paste.rockylinux.org](https://paste.rockylinux.org/). It can be used easily with the rpaste package available in the Rocky-Extras repository.
 
 - We completed many projects to support other teams, including deploying PowerPC build platforms and deploying the highly secure infrastructure necessary for building secure boot components.
 
@@ -106,11 +106,11 @@ We need you! The Community Team is seeking volunteers to help us grow community 
 
 - We are working on a UI toolkit which will replace all of the existing Tailwind CSS-based theming across the RESF’s web presence. This is to ensure consistency in design between all Rocky Linux experiences, and will have its debut on the main Rocky Linux website. More sites will follow, but for now it will just be the main website.
 
-- We have implemented Fathom Analytics on both the main website, as well as the Documentation website. Fathom is an open-source, privacy-friendly, cookie-less analytics solution. You can view our analytics publicly at the links below.
+- We have implemented Plausible Analytics on both the main website, as well as the Documentation website. Plausible is an open-source, privacy-friendly, cookie-less analytics solution. You can view our analytics publicly at the links below.
 
-- [Main Website Analytics](https://app.usefathom.com/share/qdepahys/website/)
+- [Main Website Analytics](https://plausible.io/rockylinux.org)
 
-- [Documentation Website Analytics](https://app.usefathom.com/share/ktsptdwy/documentation/)
+- [Documentation Website Analytics](https://plausible.io/docs.rockylinux.org)
 
 ## Special Interest Groups
 

@@ -12,6 +12,15 @@ export interface DarkModeToggleProps {
 
 const DarkModeToggle = ({ srText }: DarkModeToggleProps) => {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   const toggleTheme = () => {
     if (theme === "light") {

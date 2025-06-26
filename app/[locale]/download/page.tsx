@@ -4,6 +4,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import DefaultImageCard from "./components/DefaultImage/Card";
 import CloudImageCard from "./components/CloudImage/Card";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
+import downloadData from "@/data/downloads.json";
+import type { DownloadData, VersionItem, Version } from "@/types/downloads";
 
 export const metadata: Metadata = {
   title: "Download - Rocky Linux",
@@ -12,6 +14,164 @@ export const metadata: Metadata = {
 
 const DownloadPage = () => {
   const t = useTranslations("download");
+  const typedDownloadData = downloadData as DownloadData;
+
+  const mapVersionToVersionItem = (version: Version): VersionItem => ({
+    versionName: version.versionName,
+    versionId: version.versionId,
+    currentVersion: version.currentVersion,
+    plannedEol: version.plannedEol,
+    downloadOptions: [
+      {
+        label: `${t("cards.defaultImages.downloadOptions.dvd")}`,
+        link: version.downloadOptions.defaultImages.dvd,
+      },
+      {
+        label: `${t("cards.defaultImages.downloadOptions.boot")}`,
+        link: version.downloadOptions.defaultImages.boot,
+      },
+      ...(version.downloadOptions.defaultImages.minimal
+        ? [
+            {
+              label: `${t("cards.defaultImages.downloadOptions.minimal")}`,
+              link: version.downloadOptions.defaultImages.minimal as string,
+            },
+          ]
+        : []),
+    ],
+    links: [
+      {
+        name: `${t("cards.defaultImages.torrent")}`,
+        link: version.links.defaultImages.torrent,
+      },
+      {
+        name: `${t("cards.defaultImages.checksum")}`,
+        link: version.links.defaultImages.checksum,
+      },
+      {
+        name: `${t("cards.defaultImages.baseOs")}`,
+        link: version.links.defaultImages.baseOs,
+      },
+      {
+        name: `${t("cards.defaultImages.archived")}`,
+        link: version.links.defaultImages.archived,
+      },
+    ],
+  });
+
+  const mapVersionToCloudVersionItem = (version: Version): VersionItem => ({
+    versionName: version.versionName,
+    versionId: version.versionId,
+    currentVersion: version.currentVersion,
+    plannedEol: version.plannedEol,
+    downloadOptions: [
+      {
+        label: `${t("cards.cloudImages.downloadOptions.qcow2")}`,
+        link: version.downloadOptions.cloudImages.qcow2,
+      },
+    ],
+    links: [
+      {
+        name: `${t("cards.defaultImages.checksum")}`,
+        link: version.links.cloudImages.checksum,
+      },
+    ],
+  });
+
+  const mapVersionToContainerVersionItem = (version: Version): VersionItem => ({
+    versionName: version.versionName,
+    versionId: version.versionId,
+    currentVersion: version.currentVersion,
+    plannedEol: version.plannedEol,
+    downloadOptions: [
+      {
+        label: `${t("cards.container.downloadOptions.fullImage")}`,
+        link: version.downloadOptions.container.fullImage,
+      },
+      {
+        label: `${t("cards.container.downloadOptions.minimalImage")}`,
+        link: version.downloadOptions.container.minimalImage,
+      },
+    ],
+    links: [],
+  });
+
+  const mapVersionToLiveVersionItem = (version: Version): VersionItem => ({
+    versionName: version.versionName,
+    versionId: version.versionId,
+    currentVersion: version.currentVersion,
+    plannedEol: version.plannedEol,
+    downloadOptions: version.downloadOptions.liveImages
+      ? Object.entries(version.downloadOptions.liveImages).map(
+          ([key, link]) => ({
+            label: `${t(`cards.liveImages.downloadOptions.${key}`)}`,
+            link: link as string,
+          })
+        )
+      : [],
+    links: version.links.liveImages
+      ? [
+          {
+            name: `${t("cards.defaultImages.checksums")}`,
+            link: version.links.liveImages.checksums,
+          },
+        ]
+      : [],
+  });
+
+  const mapVersionToRpiVersionItem = (version: Version): VersionItem => ({
+    versionName: version.versionName,
+    versionId: version.versionId,
+    currentVersion: version.currentVersion,
+    plannedEol: version.plannedEol,
+    downloadOptions: version.downloadOptions.rpiImages
+      ? [
+          {
+            label: `${t("cards.rpiImages.download")}`,
+            link: version.downloadOptions.rpiImages.download,
+          },
+        ]
+      : [],
+    links: version.links.rpiImages
+      ? [
+          {
+            name: `${t("cards.defaultImages.checksum")}`,
+            link: version.links.rpiImages.checksum,
+          },
+          {
+            name: `${t("cards.rpiImages.readMe")}`,
+            link: version.links.rpiImages.readMe,
+          },
+        ]
+      : [],
+  });
+
+  const mapVersionToWslVersionItem = (version: Version): VersionItem => ({
+    versionName: version.versionName,
+    versionId: version.versionId,
+    currentVersion: version.currentVersion,
+    plannedEol: version.plannedEol,
+    downloadOptions: version.downloadOptions.wslImages
+      ? [
+          {
+            label: `${t("cards.rpiImages.download")}`,
+            link: version.downloadOptions.wslImages.download,
+          },
+        ]
+      : [],
+    links: version.links.wslImages
+      ? [
+          {
+            name: `${t("cards.defaultImages.checksum")}`,
+            link: version.links.wslImages.checksum,
+          },
+          {
+            name: `${t("cards.rpiImages.readMe")}`,
+            link: version.links.wslImages.readMe,
+          },
+        ]
+      : [],
+  });
 
   return (
     <>
@@ -26,795 +186,107 @@ const DownloadPage = () => {
           <div className="mx-auto mt-10 border-t pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none">
             <Tabs defaultValue="x86_64">
               <TabsList className="sm:flex justify-center gap-4 hidden">
-                <TabsTrigger value="x86_64">{t("tabs.x86_64")}</TabsTrigger>
-                <TabsTrigger value="aarch64">{t("tabs.aarch64")}</TabsTrigger>
-                <TabsTrigger value="ppc64le">{t("tabs.ppc64le")}</TabsTrigger>
-                <TabsTrigger value="s390x">{t("tabs.s390x")}</TabsTrigger>
+                {Object.keys(typedDownloadData.architectures).map((arch) => (
+                  <TabsTrigger
+                    key={arch}
+                    value={arch}
+                  >
+                    {t(`tabs.${arch}`)}
+                  </TabsTrigger>
+                ))}
               </TabsList>
               <TabsList className="flex justify-center gap-4 sm:hidden">
-                <TabsTrigger value="x86_64">
-                  {t("tabs.shortened.x86_64")}
-                </TabsTrigger>
-                <TabsTrigger value="aarch64">
-                  {t("tabs.shortened.aarch64")}
-                </TabsTrigger>
-                <TabsTrigger value="ppc64le">
-                  {t("tabs.shortened.ppc64le")}
-                </TabsTrigger>
-                <TabsTrigger value="s390x">
-                  {t("tabs.shortened.s390x")}
-                </TabsTrigger>
+                {Object.keys(typedDownloadData.architectures).map((arch) => (
+                  <TabsTrigger
+                    key={arch}
+                    value={arch}
+                  >
+                    {t(`tabs.shortened.${arch}`)}
+                  </TabsTrigger>
+                ))}
               </TabsList>
-              <TabsContent value="x86_64">
-                <div className="grid gap-6 mt-4">
-                  <DefaultImageCard
-                    title={t("cards.defaultImages.title")}
-                    titleTooltip={true}
-                    titleTooltipText={[
-                      {
-                        text: `${t("cards.defaultImages.tooltips.dvd")}`,
-                      },
-                      {
-                        text: `${t("cards.defaultImages.tooltips.boot")}`,
-                      },
-                      {
-                        text: `${t("cards.defaultImages.tooltips.minimal")}`,
-                      },
-                    ]}
-                    titleTooltipButtonLink="https://docs.rockylinux.org/guides/installation/"
-                    titleTooltipButtonLabel={t(
-                      "cards.defaultImages.tooltips.buttonLabel"
-                    )}
-                    versions={[
-                      {
-                        versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
-                        versionId: "rocky-9",
-                        currentVersion: "v9.4",
-                        plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
-                        downloadOptions: [
-                          {
-                            label: `${t("cards.defaultImages.downloadOptions.dvd")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.4-x86_64-dvd.iso",
-                          },
-                          {
-                            label: `${t("cards.defaultImages.downloadOptions.boot")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.4-x86_64-boot.iso",
-                          },
-                          {
-                            label: `${t("cards.defaultImages.downloadOptions.minimal")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.4-x86_64-minimal.iso",
-                          },
-                        ],
-                        links: [
-                          {
-                            name: `${t("cards.defaultImages.torrent")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.4-x86_64-dvd.torrent",
-                          },
-                          {
-                            name: `${t("cards.defaultImages.checksum")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/CHECKSUM",
-                          },
-                          {
-                            name: `${t("cards.defaultImages.baseOs")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/BaseOS/x86_64/",
-                          },
-                          {
-                            name: `${t("cards.defaultImages.archived")}`,
-                            link: "https://dl.rockylinux.org/vault/rocky",
-                          },
-                        ],
-                      },
-                      {
-                        versionName: `${t("cards.defaultImages.x86_64.r8.versionName")}`,
-                        versionId: "rocky-8",
-                        currentVersion: "v8.10",
-                        plannedEol: `${t("cards.defaultImages.x86_64.r8.plannedEol")}`,
-                        downloadOptions: [
-                          {
-                            label: `${t("cards.defaultImages.downloadOptions.dvd")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.10-x86_64-dvd1.iso",
-                          },
-                          {
-                            label: `${t("cards.defaultImages.downloadOptions.boot")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.10-x86_64-boot.iso",
-                          },
-                          {
-                            label: `${t("cards.defaultImages.downloadOptions.minimal")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.10-x86_64-minimal.iso",
-                          },
-                        ],
-                        links: [
-                          {
-                            name: `${t("cards.defaultImages.torrent")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.10-x86_64-dvd1.torrent",
-                          },
-                          {
-                            name: `${t("cards.defaultImages.checksum")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/8/isos/x86_64/CHECKSUM",
-                          },
-                          {
-                            name: `${t("cards.defaultImages.baseOs")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/8/BaseOS/x86_64/",
-                          },
-                          {
-                            name: `${t("cards.defaultImages.archived")}`,
-                            link: "https://dl.rockylinux.org/vault/rocky",
-                          },
-                        ],
-                      },
-                    ]}
-                  />
-                  <CloudImageCard
-                    title={t("cards.cloudImages.title")}
-                    titleTooltip={false}
-                    titleTooltipButtonLink=""
-                    titleTooltipButtonLabel=""
-                    versions={[
-                      {
-                        versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
-                        versionId: "rocky-9",
-                        currentVersion: "v9.4",
-                        plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
-                        downloadOptions: [
-                          {
-                            label: `${t("cards.cloudImages.downloadOptions.qcow2")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/9/images/x86_64/Rocky-9-GenericCloud-Base.latest.x86_64.qcow2",
-                          },
-                        ],
-                        links: [
-                          {
-                            name: `${t("cards.defaultImages.checksum")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/9/images/x86_64/CHECKSUM",
-                          },
-                        ],
-                      },
-                      {
-                        versionName: `${t("cards.defaultImages.x86_64.r8.versionName")}`,
-                        versionId: "rocky-8",
-                        currentVersion: "v8.10",
-                        plannedEol: `${t("cards.defaultImages.x86_64.r8.plannedEol")}`,
-                        downloadOptions: [
-                          {
-                            label: `${t("cards.cloudImages.downloadOptions.qcow2")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/8/images/x86_64/Rocky-8-GenericCloud-Base.latest.x86_64.qcow2",
-                          },
-                        ],
-                        links: [
-                          {
-                            name: `${t("cards.defaultImages.checksum")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/8/images/CHECKSUM",
-                          },
-                        ],
-                      },
-                    ]}
-                  />
-                  <DefaultImageCard
-                    title={t("cards.container.title")}
-                    titleTooltip={false}
-                    titleTooltipButtonLink=""
-                    titleTooltipButtonLabel=""
-                    versions={[
-                      {
-                        versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
-                        versionId: "rocky-9",
-                        currentVersion: "v9.4",
-                        plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
-                        downloadOptions: [
-                          {
-                            label: `${t("cards.container.downloadOptions.fullImage")}`,
-                            link: "https://hub.docker.com/layers/library/rockylinux/9/images/sha256-45cc42828cc5ceeffa3a9b4f6363fb582fac3ab91f77bf403daa067f8f049f96?context=explore",
-                          },
-                          {
-                            label: `${t("cards.container.downloadOptions.minimalImage")}`,
-                            link: "https://hub.docker.com/layers/library/rockylinux/9-minimal/images/sha256-2cf09800dfe5f0b55fd8960675ce9345ff325827f9977a7e9e01348da50d2a22?context=explore",
-                          },
-                        ],
-                      },
-                      {
-                        versionName: `${t("cards.defaultImages.x86_64.r8.versionName")}`,
-                        versionId: "rocky-8",
-                        currentVersion: "v8.10",
-                        plannedEol: `${t("cards.defaultImages.x86_64.r8.plannedEol")}`,
-                        downloadOptions: [
-                          {
-                            label: `${t("cards.container.downloadOptions.fullImage")}`,
-                            link: "https://hub.docker.com/layers/library/rockylinux/8/images/sha256-69cecc7163282ad83e27b739fe8473b7c56e280e83827dcda60e5d37102457f1?context=explore",
-                          },
-                          {
-                            label: `${t("cards.container.downloadOptions.minimalImage")}`,
-                            link: "https://hub.docker.com/layers/library/rockylinux/8-minimal/images/sha256-87784fa4b10033267a335350072288daa1197145315ce29a6996fa5f148d095a?context=explore",
-                          },
-                        ],
-                      },
-                    ]}
-                  />
-                  <DefaultImageCard
-                    title={t("cards.liveImages.title")}
-                    titleTooltip={false}
-                    titleTooltipButtonLink=""
-                    titleTooltipButtonLabel=""
-                    versions={[
-                      {
-                        versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
-                        versionId: "rocky-9",
-                        currentVersion: "v9.4",
-                        plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
-                        downloadOptions: [
-                          {
-                            label: `${t("cards.liveImages.downloadOptions.gnome")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-Workstation-x86_64-latest.iso",
-                          },
-                          {
-                            label: `${t("cards.liveImages.downloadOptions.gnomeLite")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-Workstation-Lite-x86_64-latest.iso",
-                          },
-                          {
-                            label: `${t("cards.liveImages.downloadOptions.kde")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-KDE-x86_64-latest.iso",
-                          },
-                          {
-                            label: `${t("cards.liveImages.downloadOptions.xfce")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-XFCE-x86_64-latest.iso",
-                          },
-                          {
-                            label: `${t("cards.liveImages.downloadOptions.mate")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-MATE-x86_64-latest.iso",
-                          },
-                          {
-                            label: `${t("cards.liveImages.downloadOptions.cinnamon")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-Cinnamon-x86_64-latest.iso",
-                          },
-                        ],
-                        links: [
-                          {
-                            name: `${t("cards.defaultImages.checksums")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/9/live/x86_64/",
-                          },
-                        ],
-                      },
-                      {
-                        versionName: `${t("cards.defaultImages.x86_64.r8.versionName")}`,
-                        versionId: "rocky-8",
-                        currentVersion: "v8.10",
-                        plannedEol: `${t("cards.defaultImages.x86_64.r8.plannedEol")}`,
-                        downloadOptions: [
-                          {
-                            label: `${t("cards.liveImages.downloadOptions.gnome")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-8-Workstation-x86_64-latest.iso",
-                          },
-                          {
-                            label: `${t("cards.liveImages.downloadOptions.gnomeLite")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-8-Workstation-Lite-x86_64-latest.iso",
-                          },
-                          {
-                            label: `${t("cards.liveImages.downloadOptions.xfce")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-8-XFCE-x86_64-latest.iso",
-                          },
-                          {
-                            label: `${t("cards.liveImages.downloadOptions.mate")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-8-MATE-x86_64-latest.iso",
-                          },
-                        ],
-                        links: [
-                          {
-                            name: `${t("cards.defaultImages.checksums")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/8/live/x86_64/",
-                          },
-                        ],
-                      },
-                    ]}
-                  />
-                </div>
-              </TabsContent>
-              <TabsContent value="aarch64">
-                <div className="grid gap-6 mt-4">
-                  <DefaultImageCard
-                    title={t("cards.defaultImages.title")}
-                    titleTooltip={true}
-                    titleTooltipText={[
-                      {
-                        text: `${t("cards.defaultImages.tooltips.dvd")}`,
-                      },
-                      {
-                        text: `${t("cards.defaultImages.tooltips.boot")}`,
-                      },
-                      {
-                        text: `${t("cards.defaultImages.tooltips.minimal")}`,
-                      },
-                    ]}
-                    titleTooltipButtonLink="https://docs.rockylinux.org/guides/installation/"
-                    titleTooltipButtonLabel={t(
-                      "cards.defaultImages.tooltips.buttonLabel"
-                    )}
-                    versions={[
-                      {
-                        versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
-                        versionId: "rocky-9",
-                        currentVersion: "v9.4",
-                        plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
-                        downloadOptions: [
-                          {
-                            label: `${t("cards.defaultImages.downloadOptions.dvd")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.4-aarch64-dvd.iso",
-                          },
-                          {
-                            label: `${t("cards.defaultImages.downloadOptions.boot")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.4-aarch64-boot.iso",
-                          },
-                          {
-                            label: `${t("cards.defaultImages.downloadOptions.minimal")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.4-aarch64-minimal.iso",
-                          },
-                        ],
-                        links: [
-                          {
-                            name: `${t("cards.defaultImages.torrent")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.4-aarch64-dvd.torrent",
-                          },
-                          {
-                            name: `${t("cards.defaultImages.checksum")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/aarch64/CHECKSUM",
-                          },
-                          {
-                            name: `${t("cards.defaultImages.baseOs")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/BaseOS/aarch64/",
-                          },
-                          {
-                            name: `${t("cards.defaultImages.archived")}`,
-                            link: "https://dl.rockylinux.org/vault/rocky",
-                          },
-                        ],
-                      },
-                      {
-                        versionName: `${t("cards.defaultImages.x86_64.r8.versionName")}`,
-                        versionId: "rocky-8",
-                        currentVersion: "v8.10",
-                        plannedEol: `${t("cards.defaultImages.x86_64.r8.plannedEol")}`,
-                        downloadOptions: [
-                          {
-                            label: `${t("cards.defaultImages.downloadOptions.dvd")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.10-aarch64-dvd1.iso",
-                          },
-                          {
-                            label: `${t("cards.defaultImages.downloadOptions.boot")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.10-aarch64-boot.iso",
-                          },
-                          {
-                            label: `${t("cards.defaultImages.downloadOptions.minimal")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.10-aarch64-minimal.iso",
-                          },
-                        ],
-                        links: [
-                          {
-                            name: `${t("cards.defaultImages.torrent")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.10-aarch64-dvd1.torrent",
-                          },
-                          {
-                            name: `${t("cards.defaultImages.checksum")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/8/isos/aarch64/CHECKSUM",
-                          },
-                          {
-                            name: `${t("cards.defaultImages.baseOs")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/8/BaseOS/aarch64/",
-                          },
-                          {
-                            name: `${t("cards.defaultImages.archived")}`,
-                            link: "https://dl.rockylinux.org/vault/rocky",
-                          },
-                        ],
-                      },
-                    ]}
-                  />
-                  <CloudImageCard
-                    title={t("cards.cloudImages.title")}
-                    titleTooltip={false}
-                    titleTooltipButtonLink=""
-                    titleTooltipButtonLabel=""
-                    versions={[
-                      {
-                        versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
-                        versionId: "rocky-9",
-                        currentVersion: "v9.4",
-                        plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
-                        downloadOptions: [
-                          {
-                            label: `${t("cards.cloudImages.downloadOptions.qcow2")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-GenericCloud-Base.latest.aarch64.qcow2",
-                          },
-                        ],
-                        links: [
-                          {
-                            name: `${t("cards.defaultImages.checksum")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/9/images/aarch64/CHECKSUM",
-                          },
-                        ],
-                      },
-                      {
-                        versionName: `${t("cards.defaultImages.x86_64.r8.versionName")}`,
-                        versionId: "rocky-8",
-                        currentVersion: "v8.10",
-                        plannedEol: `${t("cards.defaultImages.x86_64.r8.plannedEol")}`,
-                        downloadOptions: [
-                          {
-                            label: `${t("cards.cloudImages.downloadOptions.qcow2")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/8/images/aarch64/Rocky-8-GenericCloud-Base.latest.aarch64.qcow2",
-                          },
-                        ],
-                        links: [
-                          {
-                            name: `${t("cards.defaultImages.checksum")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/8/images/CHECKSUM",
-                          },
-                        ],
-                      },
-                    ]}
-                  />
-                  <DefaultImageCard
-                    title={t("cards.container.title")}
-                    titleTooltip={false}
-                    titleTooltipButtonLink=""
-                    titleTooltipButtonLabel=""
-                    versions={[
-                      {
-                        versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
-                        versionId: "rocky-9",
-                        currentVersion: "v9.4",
-                        plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
-                        downloadOptions: [
-                          {
-                            label: `${t("cards.container.downloadOptions.fullImage")}`,
-                            link: "https://hub.docker.com/layers/library/rockylinux/9/images/sha256-ae32ae7f54215074bd0400dd82a4d543f8bc7d7d4b205563aa50f638dd20b335?context=explore",
-                          },
-                          {
-                            label: `${t("cards.container.downloadOptions.minimalImage")}`,
-                            link: "https://hub.docker.com/layers/library/rockylinux/9-minimal/images/sha256-f28cf6f0ad919341be4c41ee31f3a27851bc82a47b1430aa4ba263d992ff8f03?context=explore",
-                          },
-                        ],
-                      },
-                      {
-                        versionName: `${t("cards.defaultImages.x86_64.r8.versionName")}`,
-                        versionId: "rocky-8",
-                        currentVersion: "v8.10",
-                        plannedEol: `${t("cards.defaultImages.x86_64.r8.plannedEol")}`,
-                        downloadOptions: [
-                          {
-                            label: `${t("cards.container.downloadOptions.fullImage")}`,
-                            link: "https://hub.docker.com/layers/library/rockylinux/8/images/sha256-be879ad24fd5387ed135b99ebf0622c323afab20ff7f1967d6f06e5dbf07ee31?context=explore",
-                          },
-                          {
-                            label: `${t("cards.container.downloadOptions.minimalImage")}`,
-                            link: "https://hub.docker.com/layers/library/rockylinux/8-minimal/images/sha256-46c797fad395827bf7d861a3c1c5b87c4e737ea1b6df13da58ee7a3478065bc5?context=explore",
-                          },
-                        ],
-                      },
-                    ]}
-                  />
-                  <DefaultImageCard
-                    title={t("cards.liveImages.title")}
-                    titleTooltip={false}
-                    titleTooltipButtonLink=""
-                    titleTooltipButtonLabel=""
-                    versions={[
-                      {
-                        versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
-                        versionId: "rocky-9",
-                        currentVersion: "v9.4",
-                        plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
-                        downloadOptions: [
-                          {
-                            label: `${t("cards.liveImages.downloadOptions.gnome")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-Workstation-aarch64-latest.iso",
-                          },
-                          {
-                            label: `${t("cards.liveImages.downloadOptions.gnomeLite")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-Workstation-Lite-aarch64-latest.iso",
-                          },
-                          {
-                            label: `${t("cards.liveImages.downloadOptions.kde")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-KDE-aarch64-latest.iso",
-                          },
-                          {
-                            label: `${t("cards.liveImages.downloadOptions.xfce")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-XFCE-aarch64-latest.iso",
-                          },
-                          {
-                            label: `${t("cards.liveImages.downloadOptions.mate")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-MATE-aarch64-latest.iso",
-                          },
-                          {
-                            label: `${t("cards.liveImages.downloadOptions.cinnamon")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-Cinnamon-aarch64-latest.iso",
-                          },
-                        ],
-                        links: [
-                          {
-                            name: `${t("cards.defaultImages.checksums")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/9/live/aarch64/",
-                          },
-                        ],
-                      },
-                    ]}
-                  />
-                  <DefaultImageCard
-                    title={t("cards.rpiImages.title")}
-                    titleTooltip={false}
-                    titleTooltipButtonLink=""
-                    titleTooltipButtonLabel=""
-                    versions={[
-                      {
-                        versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
-                        versionId: "rocky-9",
-                        currentVersion: "v9.4",
-                        plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
-                        downloadOptions: [
-                          {
-                            label: `${t("cards.rpiImages.download")}`,
-                            link: "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images/RockyLinuxRpi_9-latest.img.xz",
-                          },
-                        ],
-                        links: [
-                          {
-                            name: `${t("cards.defaultImages.checksum")}`,
-                            link: "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images/RockyLinuxRpi_9-latest.img.xz.sha256sum",
-                          },
-                          {
-                            name: `${t("cards.rpiImages.readMe")}`,
-                            link: "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images/README.txt",
-                          },
-                        ],
-                      },
-                      {
-                        versionName: `${t("cards.defaultImages.x86_64.r8.versionName")}`,
-                        versionId: "rocky-8",
-                        currentVersion: "v8.10",
-                        plannedEol: `${t("cards.defaultImages.x86_64.r8.plannedEol")}`,
-                        downloadOptions: [
-                          {
-                            label: `${t("cards.rpiImages.download")}`,
-                            link: "https://dl.rockylinux.org/pub/sig/8/altarch/aarch64/images/RockyLinuxRpi_8-latest.img.xz",
-                          },
-                        ],
-                        links: [
-                          {
-                            name: `${t("cards.defaultImages.checksum")}`,
-                            link: "https://dl.rockylinux.org/pub/sig/8/altarch/aarch64/images/RockyLinuxRpi_8-latest.img.xz.sha256sum",
-                          },
-                          {
-                            name: `${t("cards.rpiImages.readMe")}`,
-                            link: "https://dl.rockylinux.org/pub/sig/8/altarch/aarch64/images/README.txt",
-                          },
-                        ],
-                      },
-                    ]}
-                  />
-                </div>
-              </TabsContent>
-              <TabsContent value="ppc64le">
-                <div className="grid gap-6 mt-4">
-                  <DefaultImageCard
-                    title={t("cards.defaultImages.title")}
-                    titleTooltip={true}
-                    titleTooltipText={[
-                      {
-                        text: `${t("cards.defaultImages.tooltips.dvd")}`,
-                      },
-                      {
-                        text: `${t("cards.defaultImages.tooltips.boot")}`,
-                      },
-                      {
-                        text: `${t("cards.defaultImages.tooltips.minimal")}`,
-                      },
-                    ]}
-                    titleTooltipButtonLink="https://docs.rockylinux.org/guides/installation/"
-                    titleTooltipButtonLabel={t(
-                      "cards.defaultImages.tooltips.buttonLabel"
-                    )}
-                    versions={[
-                      {
-                        versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
-                        versionId: "rocky-9",
-                        currentVersion: "v9.4",
-                        plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
-                        downloadOptions: [
-                          {
-                            label: `${t("cards.defaultImages.downloadOptions.dvd")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.4-ppc64le-dvd.iso",
-                          },
-                          {
-                            label: `${t("cards.defaultImages.downloadOptions.boot")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.4-ppc64le-boot.iso",
-                          },
-                          {
-                            label: `${t("cards.defaultImages.downloadOptions.minimal")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.4-ppc64le-minimal.iso",
-                          },
-                        ],
-                        links: [
-                          {
-                            name: `${t("cards.defaultImages.torrent")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.4-ppc64le-dvd.torrent",
-                          },
-                          {
-                            name: `${t("cards.defaultImages.checksum")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/CHECKSUM",
-                          },
-                          {
-                            name: `${t("cards.defaultImages.baseOs")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/BaseOS/ppc64le/",
-                          },
-                          {
-                            name: `${t("cards.defaultImages.archived")}`,
-                            link: "https://dl.rockylinux.org/vault/rocky",
-                          },
-                        ],
-                      },
-                    ]}
-                  />
-                  <CloudImageCard
-                    title={t("cards.cloudImages.title")}
-                    titleTooltip={false}
-                    titleTooltipButtonLink=""
-                    titleTooltipButtonLabel=""
-                    versions={[
-                      {
-                        versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
-                        versionId: "rocky-9",
-                        currentVersion: "v9.4",
-                        plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
-                        downloadOptions: [
-                          {
-                            label: `${t("cards.cloudImages.downloadOptions.qcow2")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/9/images/ppc64le/Rocky-9-GenericCloud-Base.latest.ppc64le.qcow2",
-                          },
-                        ],
-                        links: [
-                          {
-                            name: `${t("cards.defaultImages.checksum")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/9/images/ppc64le/CHECKSUM",
-                          },
-                        ],
-                      },
-                    ]}
-                  />
-                  <DefaultImageCard
-                    title={t("cards.container.title")}
-                    titleTooltip={false}
-                    titleTooltipButtonLink=""
-                    titleTooltipButtonLabel=""
-                    versions={[
-                      {
-                        versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
-                        versionId: "rocky-9",
-                        currentVersion: "v9.4",
-                        plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
-                        downloadOptions: [
-                          {
-                            label: `${t("cards.container.downloadOptions.fullImage")}`,
-                            link: "https://hub.docker.com/layers/library/rockylinux/9/images/sha256-200abd84e3fdd2b9b691f5ac4630dbb21837a4f7e0edf4424b7a08d81be3805c?context=explore",
-                          },
-                          {
-                            label: `${t("cards.container.downloadOptions.minimalImage")}`,
-                            link: "https://hub.docker.com/layers/library/rockylinux/9-minimal/images/sha256-e64e70d4fe1d619b45f1dff7948d8c4cb7840ddce3015cd64890f3ea70a475bd?context=explore",
-                          },
-                        ],
-                      },
-                    ]}
-                  />
-                </div>
-              </TabsContent>
-              <TabsContent value="s390x">
-                <div className="grid gap-6 mt-4">
-                  <DefaultImageCard
-                    title={t("cards.defaultImages.title")}
-                    titleTooltip={true}
-                    titleTooltipText={[
-                      {
-                        text: `${t("cards.defaultImages.tooltips.dvd")}`,
-                      },
-                      {
-                        text: `${t("cards.defaultImages.tooltips.boot")}`,
-                      },
-                      {
-                        text: `${t("cards.defaultImages.tooltips.minimal")}`,
-                      },
-                    ]}
-                    titleTooltipButtonLink="https://docs.rockylinux.org/guides/installation/"
-                    titleTooltipButtonLabel={t(
-                      "cards.defaultImages.tooltips.buttonLabel"
-                    )}
-                    versions={[
-                      {
-                        versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
-                        versionId: "rocky-9",
-                        currentVersion: "v9.4",
-                        plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
-                        downloadOptions: [
-                          {
-                            label: `${t("cards.defaultImages.downloadOptions.dvd")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.4-s390x-dvd.iso",
-                          },
-                          {
-                            label: `${t("cards.defaultImages.downloadOptions.boot")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.4-s390x-boot.iso",
-                          },
-                          {
-                            label: `${t("cards.defaultImages.downloadOptions.minimal")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.4-s390x-minimal.iso",
-                          },
-                        ],
-                        links: [
-                          {
-                            name: `${t("cards.defaultImages.torrent")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.4-s390x-dvd.torrent",
-                          },
-                          {
-                            name: `${t("cards.defaultImages.checksum")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/isos/s390x/CHECKSUM",
-                          },
-                          {
-                            name: `${t("cards.defaultImages.baseOs")}`,
-                            link: "https://download.rockylinux.org/pub/rocky/9/BaseOS/s390x/",
-                          },
-                          {
-                            name: `${t("cards.defaultImages.archived")}`,
-                            link: "https://dl.rockylinux.org/vault/rocky",
-                          },
-                        ],
-                      },
-                    ]}
-                  />
-                  <CloudImageCard
-                    title={t("cards.cloudImages.title")}
-                    titleTooltip={false}
-                    titleTooltipButtonLink=""
-                    titleTooltipButtonLabel=""
-                    versions={[
-                      {
-                        versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
-                        versionId: "rocky-9",
-                        currentVersion: "v9.4",
-                        plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
-                        downloadOptions: [
-                          {
-                            label: `${t("cards.cloudImages.downloadOptions.qcow2")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/9/images/s390x/Rocky-9-GenericCloud-Base.latest.s390x.qcow2",
-                          },
-                        ],
-                        links: [
-                          {
-                            name: `${t("cards.defaultImages.checksum")}`,
-                            link: "https://dl.rockylinux.org/pub/rocky/9/images/s390x/CHECKSUM",
-                          },
-                        ],
-                      },
-                    ]}
-                  />
-                  <DefaultImageCard
-                    title={t("cards.container.title")}
-                    titleTooltip={false}
-                    titleTooltipButtonLink=""
-                    titleTooltipButtonLabel=""
-                    versions={[
-                      {
-                        versionName: `${t("cards.defaultImages.x86_64.r9.versionName")}`,
-                        versionId: "rocky-9",
-                        currentVersion: "v9.4",
-                        plannedEol: `${t("cards.defaultImages.x86_64.r9.plannedEol")}`,
-                        downloadOptions: [
-                          {
-                            label: `${t("cards.container.downloadOptions.fullImage")}`,
-                            link: "https://hub.docker.com/layers/library/rockylinux/9/images/sha256-e4e211cc4ed838ab9842b9243e0e969defcd83e07c52e2f6cded0e9438a3fecd?context=explore",
-                          },
-                          {
-                            label: `${t("cards.container.downloadOptions.minimalImage")}`,
-                            link: "https://hub.docker.com/layers/library/rockylinux/9-minimal/images/sha256-224e0c52f257564a4dcaac65a8e0057714b6192b1fad5674adef5884f0f64437?context=explore",
-                          },
-                        ],
-                      },
-                    ]}
-                  />
-                </div>
-              </TabsContent>
+              {Object.entries(typedDownloadData.architectures).map(
+                ([arch, data]) => (
+                  <TabsContent
+                    key={arch}
+                    value={arch}
+                  >
+                    <div className="grid gap-6 mt-4">
+                      <DefaultImageCard
+                        title={t("cards.defaultImages.title")}
+                        titleTooltip={true}
+                        titleTooltipText={[
+                          {
+                            text: `${t("cards.defaultImages.tooltips.dvd")}`,
+                          },
+                          {
+                            text: `${t("cards.defaultImages.tooltips.boot")}`,
+                          },
+                          {
+                            text: `${t("cards.defaultImages.tooltips.minimal")}`,
+                          },
+                        ]}
+                        titleTooltipButtonLink="https://docs.rockylinux.org/guides/installation/"
+                        titleTooltipButtonLabel={t(
+                          "cards.defaultImages.tooltips.buttonLabel"
+                        )}
+                        versions={data.versions.map(mapVersionToVersionItem)}
+                      />
+                      <CloudImageCard
+                        title={t("cards.cloudImages.title")}
+                        titleTooltip={false}
+                        titleTooltipButtonLink=""
+                        titleTooltipButtonLabel=""
+                        versions={data.versions.map(
+                          mapVersionToCloudVersionItem
+                        )}
+                      />
+                      <DefaultImageCard
+                        title={t("cards.container.title")}
+                        titleTooltip={false}
+                        titleTooltipButtonLink=""
+                        titleTooltipButtonLabel=""
+                        versions={data.versions.map(
+                          mapVersionToContainerVersionItem
+                        )}
+                      />
+                      {arch === "x86_64" || arch === "aarch64" ? (
+                        <DefaultImageCard
+                          title={t("cards.liveImages.title")}
+                          titleTooltip={false}
+                          titleTooltipButtonLink=""
+                          titleTooltipButtonLabel=""
+                          versions={data.versions.map(
+                            mapVersionToLiveVersionItem
+                          )}
+                        />
+                      ) : null}
+                      {arch === "aarch64" ? (
+                        <DefaultImageCard
+                          title={t("cards.rpiImages.title")}
+                          titleTooltip={false}
+                          titleTooltipButtonLink=""
+                          titleTooltipButtonLabel=""
+                          versions={data.versions.map(
+                            mapVersionToRpiVersionItem
+                          )}
+                        />
+                      ) : null}
+                      {arch === "x86_64" || arch === "aarch64" ? (
+                        <DefaultImageCard
+                          title={t("cards.wslImages.title")}
+                          titleTooltip={false}
+                          titleTooltipButtonLink=""
+                          titleTooltipButtonLabel=""
+                          versions={data.versions.map(
+                            mapVersionToWslVersionItem
+                          )}
+                        />
+                      ) : null}
+                    </div>
+                  </TabsContent>
+                )
+              )}
             </Tabs>
           </div>
           <hr className="my-8" />

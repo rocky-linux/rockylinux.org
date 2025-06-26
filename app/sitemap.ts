@@ -33,7 +33,7 @@ async function getStaticPagesData(
         entry.name !== "[slug]" &&
         !isExcludedDirectory(entry.name)
       ) {
-        let relativeRoutePath = path
+        const relativeRoutePath = path
           .relative("app/[locale]", res)
           .replace(/\.tsx$/, "");
         const routePath = "/" + relativeRoutePath + "/";
@@ -50,26 +50,14 @@ async function getStaticPagesData(
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseLinks = [
-    {
-      url: "https://rockylinux.org",
-      lastModified: new Date(),
-    },
-    {
-      url: "https://rockylinux.org/legal/licensing",
-      lastModified: new Date(),
-    },
-    {
-      url: "https://rockylinux.org/legal/privacy",
-      lastModified: new Date(),
-    },
+    { url: "https://rockylinux.org", lastModified: new Date() },
+    { url: "https://rockylinux.org/legal/licensing", lastModified: new Date() },
+    { url: "https://rockylinux.org/legal/privacy", lastModified: new Date() },
     {
       url: "https://rockylinux.org/legal/trademarks",
       lastModified: new Date(),
     },
-    {
-      url: "https://rockylinux.org/about/coc",
-      lastModified: new Date(),
-    },
+    { url: "https://rockylinux.org/about/coc", lastModified: new Date() },
   ];
 
   const [posts, staticPages] = await Promise.all([

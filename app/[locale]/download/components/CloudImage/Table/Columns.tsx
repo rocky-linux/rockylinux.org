@@ -57,10 +57,7 @@ export const Columns: ColumnDef<CloudImage>[] = [
       );
     },
   },
-  {
-    accessorKey: "imageid",
-    header: "Image ID",
-  },
+  { accessorKey: "imageid", header: "Image ID" },
   {
     accessorKey: "deploylink",
     header: "Deploy",

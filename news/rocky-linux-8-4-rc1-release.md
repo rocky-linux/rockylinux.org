@@ -15,7 +15,7 @@ Please note that a release candidate is not suitable for production use. You can
 
 To download the release, visit [https://rockylinux.org/download](https://rockylinux.org/download).
 
-Release notes are available [here](https://docs.rockylinux.org/en/rocky/8/release_notes/rocky_linux_8-4_release).
+Release notes are available [here](https://docs.rockylinux.org/release_notes/8_4/).
 
 Once this release candidate has been validated, we will transition Rocky Linux 8.4 to General Availability. If our 8.4 RC goes as smoothly as our 8.3 RC did, you won’t have long to wait.
 
@@ -33,7 +33,7 @@ No, we plan to iron out any reported bugs in Rocky Linux 8.4 RC1 and then move s
 
 There will not be a stable release of Rocky Linux 8.3. The first stable release of Rocky Linux will be 8.4.
 
-More FAQ can be found on our website [here](https://rockylinux.org/faq/).
+More FAQ can be found on our website [here](https://wiki.rockylinux.org/archive/legacy/faq/).
 
 ---
 

@@ -19,7 +19,7 @@
       "contributeName": "Contribution",
       "openMainMenu": "Ouvrir le Menu Principal",
       "about": {
-        "about": "À propos de Rocky Linux",
+        "about": "À Propos de Rocky Linux",
         "charter": "Charte Communautaire",
         "wiki": "Wiki du Projet",
         "sponsors": "Sponsors",
@@ -38,7 +38,7 @@
       },
       "support": {
         "docs": "Documentation",
-        "submitBug": "Soumettre un bogue",
+        "submitBug": "Soumettre un Bogue",
         "supportProviders": "Support Commercial"
       },
       "contribute": {
@@ -53,24 +53,24 @@
     "nav": {
       "licensingName": "Licence",
       "privacyPolicyName": "Politique de Confidentialité",
-      "TrademarksName": "Marque déposée"
+      "TrademarksName": "Marques Déposées"
     },
     "socialNav": {
+      "bluesky": "Bluesky",
       "facebook": "Facebook",
       "github": "GitHub",
       "instagram": "Instagram",
       "linkedin": "LinkedIn",
       "mastodon": "Mastodon",
-      "threads": "Fils de discussion",
-      "x": "X",
+      "threads": "Fils de Discussion",
       "youtube": "YouTube"
     },
-    "disclaimer": "Linux® est la marque déposée de Linus Torvalds aux États-Unis et dans d'autres pays. Red Hat Enterprise Linux, RHEL et CentOS sont des marques ou des marques déposées de Red Hat, Inc. ou de ses filiales aux États-Unis et dans d'autres pays. Nous ne sommes pas affiliés, approuvés ou sponsorisés par Red Hat, Inc."
+    "disclaimer": "Linux® est la marque déposée de Linus Torvalds aux États-Unis et dans d'autres pays. Red Hat Enterprise Linux, RHEL et CentOS sont des marques ou des marques déposées de Red Hat, Inc. ou de ses filiales aux États-Unis et dans d'autres pays. Nous ne sommes pas affiliés, approuvés ni sponsorisés par Red Hat, Inc."
   },
   "home": {
     "hero": {
       "title": "Enterprise Linux, la <span>méthode communautaire.</span>",
-      "description": "Rocky Linux est un système d'exploitation d'entreprise Open Source conçu pour être 100 % compatible bug pour bug avec Red Hat Enterprise Linux®. Il fait l'objet d'un développement intensif de la part de la communauté.",
+      "description": "Rocky Linux est un système d'exploitation d'entreprise Open Source conçu pour être 100 % compatible bogue pour bogue avec Red Hat Enterprise Linux®. Rocky Linux fait l'objet d'un développement intensif de la part de la communauté.",
       "migrate": "Migration",
       "dpg": "Registered Digital Public Good"
     },
@@ -109,6 +109,7 @@
   },
   "share": {
     "shareName": "Partage",
+    "bluesky": "Bluesky",
     "mastodon": {
       "name": "Mastodon",
       "url-valid": "Veuillez saisir une URL d'instance Mastodon valide (sans https://).",
@@ -116,8 +117,7 @@
     },
     "facebook": "Facebook",
     "linkedin": "LinkedIn",
-    "x": "X",
-    "threads": "Fils de discussion"
+    "threads": "Fils de Discussion"
   },
   "about": {
     "title": "À propos",
@@ -171,8 +171,10 @@
         "aarch64": "aarch64",
         "ppc64le": "ppc64le",
         "s390x": "s390x",
-        "container": "OCI"
-      }
+        "container": "OCI",
+        "riscv64": "riscv64"
+      },
+      "riscv64": "RISC-V (riscv64)"
     },
     "selectVersion": "Sélectionnez une version :",
     "plannedEol": "EOL planifié :",
@@ -251,6 +253,11 @@
         "title": "Images Raspberry Pi",
         "download": "Téléchargement",
         "readMe": "LISEZ-MOI"
+      },
+      "wslImages": {
+        "title": "Windows Subsystem for Linux (WSL) Images",
+        "download": "Download",
+        "readMe": "README"
       }
     },
     "getInvolved": {
@@ -260,7 +267,7 @@
     "exportCompliance": {
       "title": "Conformité à l'exportation/Informations douanières",
       "text1": "En téléchargeant le logiciel Rocky Linux, vous reconnaissez que vous comprenez tous les éléments suivants :",
-      "text2": "Rocky Linux software and technical information may be subject to the U.S. Export Administration Regulations (the “EAR”) and other U.S. and foreign laws and may not be exported, re-exported or transferred (a) to a prohibited destination country under the EAR or U.S. sanctions regulations (currently Cuba, Iran, North Korea, Sudan, Syria, and the Crimea Region of Ukraine, subject to change as posted by the United States government); (b) to any prohibited destination or to any end user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government; or (c) for use in connection with the design, development or production of nuclear, chemical or biological weapons, or rocket systems, space launch vehicles, or sounding rockets, or unmanned air vehicle systems.<br/>\nLes logiciels et les informations techniques de Rocky Linux peuvent être soumis aux réglementations de l'administration américaine des exportations (les « EAR ») et à d'autres lois américaines et étrangères et ne peuvent être exportés, réexportés ou transférés (a) vers un pays de destination interdit en vertu des réglementations de l'EAR ou des sanctions américaines (actuellement Cuba, l'Iran, la Corée du Nord, le Soudan, la Syrie et la région de Crimée en Ukraine, sous réserve de modifications telles que publiées par le gouvernement des États-Unis) ; (b) vers toute destination interdite ou à tout utilisateur final qui s'est vu interdire de participer à des transactions d'exportation américaines par toute agence fédérale du gouvernement américain ; ou (c) pour une utilisation en relation avec la conception, le développement ou la production d'armes nucléaires, chimiques ou biologiques, ou de systèmes de fusées, de lanceurs spatiaux, de fusées-sondes ou de systèmes de véhicules aériens sans pilote.",
+      "text2": "Rocky Linux software and technical information may be subject to the U.S. Export Administration Regulations (the “EAR”) and other U.S. and foreign laws and may not be exported, re-exported or transferred (a) to a prohibited destination country under the EAR or U.S. sanctions regulations (currently Cuba, Iran, North Korea, Sudan, Syria, and the Crimea Region of Ukraine, subject to change as posted by the United States government); (b) to any prohibited destination or to any end user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government; or (c) for use in connection with the design, development or production of nuclear, chemical or biological weapons, or rocket systems, space launch vehicles, or sounding rockets, or unmanned air vehicle systems.",
       "narrative": "Rocky Linux sous forme de code source et de code binaire est disponible publiquement et n'est pas soumis à l'EAR conformément à §740.17(b)(1).",
       "product_title": "Produit",
       "product_text": "Rocky Linux inclut les dépôts du projet Rocky Linux \"Special Interest Group\".",
