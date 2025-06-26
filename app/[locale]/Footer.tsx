@@ -199,7 +199,7 @@ export default function Footer() {
           ))}
         </div>
         <div className="mt-12 flex justify-center items-center">
-          <Suspense fallback={<div className="w-[180px]" />}>
+          <Suspense fallback={<div className="w-[180px] h-[40px]" />}>
             <LanguagePickerWrapper />
           </Suspense>
         </div>
