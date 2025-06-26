@@ -45,6 +45,7 @@ export async function getAvailableLanguages(
 
     return [...new Set(["en", ...qualifiedLanguages])].sort();
   } catch (error) {
+    console.error("Error fetching available languages:", error);
     return [...availableLanguages];
   }
 }
