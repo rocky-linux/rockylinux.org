@@ -16,3 +16,10 @@ export default async function getMessages(locale: string) {
 
   return deepmerge(defaultMessages, userMessages);
 }
+
+export const getRequestConfig = async ({ locale }: { locale: string }) => {
+  return {
+    messages: await getMessages(locale),
+    locale: locale,
+  };
+};
