@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { JSX, SVGProps } from "react";
+import { JSX, SVGProps, Suspense } from "react";
+import LanguagePickerWrapper from "@/components/LanguagePickerWrapper";
 
 export default function Footer() {
   const tFooter = useTranslations("footer");
@@ -172,19 +173,21 @@ export default function Footer() {
           className="flex flex-wrap justify-center items-center gap-10"
           aria-label={tFooter("footer")}
         >
-          {navigation.main.map((item) => (
-            <div
-              key={item.name}
-              className="pb-6"
-            >
-              <Link
-                href={item.href}
-                className="text-sm leading-6"
+          <div className="flex items-center gap-4">
+            {navigation.main.map((item) => (
+              <div
+                key={item.name}
+                className="pb-6"
               >
-                {item.name}
-              </Link>
-            </div>
-          ))}
+                <Link
+                  href={item.href}
+                  className="text-sm leading-6"
+                >
+                  {item.name}
+                </Link>
+              </div>
+            ))}
+          </div>
         </nav>
         <div className="mt-6 flex flex-wrap justify-center items-center gap-y-6 gap-x-6">
           {navigation.social.map((item) => (
@@ -197,6 +200,11 @@ export default function Footer() {
               <item.icon aria-hidden="true" />
             </Link>
           ))}
+        </div>
+        <div className="mt-12 flex justify-center items-center">
+          <Suspense fallback={<div className="w-[180px] h-[40px]" />}>
+            <LanguagePickerWrapper />
+          </Suspense>
         </div>
         <p className="mt-10 text-center text-xs leading-5">
           {tFooter("disclaimer")}

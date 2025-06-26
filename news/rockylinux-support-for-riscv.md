@@ -1,8 +1,8 @@
 ---
 title: RockyLinux Official Support for RISC-V in RL10!
-date: '2025-05-21'
-description: 'Info about official support for RISC-V Architectures'
-posttype: 'news'
+date: "2025-05-21"
+description: "Info about official support for RISC-V Architectures"
+posttype: "news"
 author: Alexia Stein, Community Lead
 ---
 
@@ -34,16 +34,16 @@ The RISC-V builds for Rocky Linux 10 will be considered an Alternative Architect
 
 ### 🔍 What hardware is supported?
 
-| Hardware                     | Status                       | Notes                                               |
-|------------------------------|------------------------------|-----------------------------------------------------|
-| **StarFive VisionFive 2**    | ✅ Supported                 | Recommended board; standard kernel support          |
-| **QEMU**                     | ✅ Supported                 | Ideal for testing and evaluation                    |
-| **SiFive HiFive P550**       | ⚠️ Limited support           | Vendor kernel;  some feature limitations             |
-| **Milk-V / Banana Pi**       | 🚧 Not yet supported         | Under consideration as mainline support matures     |
+| Hardware                  | Status               | Notes                                           |
+| ------------------------- | -------------------- | ----------------------------------------------- |
+| **StarFive VisionFive 2** | ✅ Supported         | Recommended board; standard kernel support      |
+| **QEMU**                  | ✅ Supported         | Ideal for testing and evaluation                |
+| **SiFive HiFive P550**    | ⚠️ Limited support   | Vendor kernel; some feature limitations         |
+| **Milk-V / Banana Pi**    | 🚧 Not yet supported | Under consideration as mainline support matures |
 
 ### 🌟 What makes this different?
 
-- This has been a **community-driven initiative** since early 2024, collaborating with upstream Fedora RISC-V efforts. 
+- This has been a **community-driven initiative** since early 2024, collaborating with upstream Fedora RISC-V efforts.
 - The compiler stack was **bootstrapped from Fedora RISC-V**, with necessary backports to EL10 to enable the port--with many already contributed upstreamed.
 - Expect **rapid iteration and growth**, with your help and feedback!
 
@@ -68,4 +68,4 @@ Whether you're deploying rock-solid production systems or tinkering with open ha
 
 Let’s build it together.
 
-*By Neil Hanlon (Infrastructure Lead) & Alexia Stein (Community Lead)*
+_By Neil Hanlon (Infrastructure Lead) & Alexia Stein (Community Lead)_
