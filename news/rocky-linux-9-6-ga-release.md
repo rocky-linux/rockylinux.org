@@ -12,7 +12,7 @@ We are pleased to announce the general availability of Rocky Linux 9.6. Updated 
 
 - **Dynamic programming languages, web, and database servers**
   - PHP 8.3
-  - nginx 1.26 
+  - nginx 1.26
   - MySQL 8.4
 - **Performance tools and debuggers**
   - Valgrind 3.24.0
@@ -30,6 +30,7 @@ We are pleased to announce the general availability of Rocky Linux 9.6. Updated 
 ### Special Interest Group Notes and Changes
 
 #### SIG/Cloud
+
 - With the release of Rocky Linux 9.6, the process of building and delivering our images continues to improve. [KIWI](https://github.com/OSInside/kiwi/), a modern image-building tool that allows for a more consistent and maintainable workflow, created most of the images for this release.
 - A new image type is available in this release--Windows Subsystem for Linux (or WSL)-compatible container archives can be downloaded and run on a Windows 10 or Windows 11 system with ease.
 - Utilities for Oracle Cloud images have been updated to the most recent versions

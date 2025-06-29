@@ -130,7 +130,7 @@
               "archived": "https://dl.rockylinux.org/vault/rocky"
             },
             "cloudImages": {
-              "checksum": "https://dl.rockylinux.org/pub/rocky/8/images/CHECKSUM"
+              "checksum": "https://dl.rockylinux.org/pub/rocky/8/images/x86_64/CHECKSUM"
             },
             "liveImages": {
               "checksums": "https://dl.rockylinux.org/pub/rocky/8/live/x86_64/"
@@ -280,7 +280,7 @@
               "archived": "https://dl.rockylinux.org/vault/rocky"
             },
             "cloudImages": {
-              "checksum": "https://dl.rockylinux.org/pub/rocky/8/images/CHECKSUM"
+              "checksum": "https://dl.rockylinux.org/pub/rocky/8.10/images/aarch64/CHECKSUM"
             },
             "rpiImages": {
               "checksum": "https://dl.rockylinux.org/pub/sig/8/altarch/aarch64/images/RockyLinuxRpi_8-latest.img.xz.sha256sum",

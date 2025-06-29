@@ -12,6 +12,8 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Header from "./Header";
 import Footer from "./Footer";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
 
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
@@ -48,6 +50,8 @@ export default async function RootLayout({
 
   if (!availableLanguages.includes(locale)) notFound();
 
+  const messages = await getMessages();
+
   return (
     <html
       lang={locale}
@@ -74,15 +78,20 @@ export default async function RootLayout({
           fontDisplay.variable
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
+        <NextIntlClientProvider
+          locale={locale}
+          messages={messages}
         >
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </ThemeProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+          >
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

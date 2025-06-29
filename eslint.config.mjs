@@ -22,10 +22,11 @@ const eslintConfig = [
     ignores: [
       "**/typings/",
       "**/public/",
-      "**/scripts/",
+      "scripts/**",
       "**/__mocks__/**",
       "**/__tests__/**",
       ".lintstagedrc.js",
+      "next.config.mjs",
     ],
   },
   ...compat.config({
@@ -53,7 +54,7 @@ const eslintConfig = [
       ...js.configs.recommended.rules,
       ...typescriptPlugin.configs.recommended.rules,
       ...nextPlugin.configs.recommended.rules,
-      "no-console": "error",
+      "no-console": "off",
       "@typescript-eslint/no-unused-vars": [
         "warn",
         {
