@@ -7,11 +7,10 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 import { Accordion } from "@/components/ui/accordion";
-import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import RockyPrideLogo from "@/public/images/pride-logo.png";
+import Logo from "@/components/Logo";
 
 import DarkModeToggle from "./DarkModeToggle";
 import NavItem from "./nav/mobile/NavItem";
@@ -58,21 +57,7 @@ const MobileNavigation = ({
           className="w-full"
         >
           <Link href="/">
-            <div className="flex items-center gap-2">
-              <Image
-                src={RockyPrideLogo}
-                alt="Rocky Linux Pride Logo"
-                className="h-9 w-auto"
-              />
-              <span className="text-2xl font-display">
-                <span className="font-extrabold">
-                  {rockyLinuxSRText.split(" ")[0]}
-                </span>{" "}
-                <span className="font-normal">
-                  {rockyLinuxSRText.split(" ")[1]}
-                </span>
-              </span>
-            </div>
+            <Logo />
             <span className="sr-only">{rockyLinuxSRText}</span>
           </Link>
           <Accordion

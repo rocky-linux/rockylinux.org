@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import Image from "next/image";
 
-import RockyPrideLogo from "@/public/images/pride-logo.png";
+import Logo from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 
 import DarkModeToggle from "./components/header/DarkModeToggle";
@@ -61,21 +61,7 @@ export default function Header() {
             className="-m-1.5 p-1.5"
           >
             <span className="sr-only">{tGlobal("name")}</span>
-            <div className="flex items-center gap-2">
-              <Image
-                src={RockyPrideLogo}
-                alt="Rocky Linux Pride Logo"
-                className="h-9 w-auto"
-              />
-              <span className="text-2xl font-display">
-                <span className="font-extrabold">
-                  {tGlobal("name").split(" ")[0]}
-                </span>{" "}
-                <span className="font-normal">
-                  {tGlobal("name").split(" ")[1]}
-                </span>
-              </span>
-            </div>
+            <Logo />
           </Link>
         </div>
         <MobileNavigation
