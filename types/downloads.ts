@@ -17,6 +17,13 @@ export interface VersionItem {
   links: Link[];
 }
 
+export interface SpecializedDevice {
+  name: string;
+  download: string;
+  checksum: string;
+  readMe?: string;
+}
+
 export interface DownloadOptions {
   defaultImages: {
     dvd: string;
@@ -44,6 +51,10 @@ export interface DownloadOptions {
   wslImages?: {
     download: string;
   };
+  visionfive2Images?: {
+    download: string;
+  };
+  specializedDevices?: SpecializedDevice[];
 }
 
 export interface Links {
@@ -67,6 +78,15 @@ export interface Links {
     checksum: string;
     readMe: string;
   };
+  visionfive2Images?: {
+    checksum: string;
+    readMe?: string;
+  };
+  specializedDevices?: {
+    name: string;
+    checksum: string;
+    readMe?: string;
+  }[];
 }
 
 export interface Version {
