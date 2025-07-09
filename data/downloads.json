@@ -441,7 +441,7 @@
               "minimalImage": "https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.0-minimal"
             },
             "visionfive2Images": {
-              "download": "https://dl.rockylinux.org/pub/rocky/10/images/riscv64/Rocky-10-SBC-VisionFive2.latest.riscv64.raw.xz"
+              "download": "https://dl.rockylinux.org/pub/rocky/10/images/riscv64/Rocky-10-VisionFive2-latest.riscv64.tar.xz"
             }
           },
           "links": {
