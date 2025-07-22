@@ -117,7 +117,9 @@ const DownloadTabs = ({ downloadData }: DownloadTabsProps) => {
   const mapVersionToRpiVersionItem = (version: Version): VersionItem => ({
     versionName: version.versionName,
     versionId: version.versionId,
-    currentVersion: version.currentVersion,
+    currentVersion:
+      version.downloadOptions.rpiImages?.currentVersion ||
+      version.currentVersion,
     plannedEol: version.plannedEol,
     downloadOptions: version.downloadOptions.rpiImages
       ? [
@@ -144,7 +146,9 @@ const DownloadTabs = ({ downloadData }: DownloadTabsProps) => {
   const mapVersionToWslVersionItem = (version: Version): VersionItem => ({
     versionName: version.versionName,
     versionId: version.versionId,
-    currentVersion: version.currentVersion,
+    currentVersion:
+      version.downloadOptions.wslImages?.currentVersion ||
+      version.currentVersion,
     plannedEol: version.plannedEol,
     downloadOptions: version.downloadOptions.wslImages
       ? [
@@ -173,7 +177,9 @@ const DownloadTabs = ({ downloadData }: DownloadTabsProps) => {
   ): VersionItem => ({
     versionName: version.versionName,
     versionId: version.versionId,
-    currentVersion: version.currentVersion,
+    currentVersion:
+      version.downloadOptions.visionfive2Images?.currentVersion ||
+      version.currentVersion,
     plannedEol: version.plannedEol,
     downloadOptions: version.downloadOptions.visionfive2Images
       ? [

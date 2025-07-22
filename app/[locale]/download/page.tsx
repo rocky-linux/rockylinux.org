@@ -16,7 +16,6 @@ export const metadata: Metadata = {
 const DownloadPage = () => {
   const t = useTranslations("download");
   const typedDownloadData = downloadData as DownloadData;
-
   return (
     <>
       <div className="py-24 sm:py-32">

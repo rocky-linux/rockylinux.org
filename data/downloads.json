@@ -164,6 +164,10 @@
               "gnomeLite": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-Workstation-Lite-aarch64-latest.iso",
               "kde": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-KDE-aarch64-latest.iso"
             },
+            "rpiImages": {
+              "currentVersion": "v10.0",
+              "download": "https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz"
+            },
             "specializedDevices": [
               {
                 "name": "Raspberry Pi",
@@ -188,6 +192,10 @@
             },
             "liveImages": {
               "checksums": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64/"
+            },
+            "rpiImages": {
+              "checksum": "https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz.CHECKSUM",
+              "readMe": "https://dl.rockylinux.org/pub/sig/10/altarch/aarch64/images/README.txt"
             },
             "wslImages": {
               "checksum": "https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-WSL-Base.latest.aarch64.wsl.CHECKSUM",
@@ -221,6 +229,10 @@
               "mate": "https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-MATE-aarch64-latest.iso",
               "cinnamon": "https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-Cinnamon-aarch64-latest.iso"
             },
+            "rpiImages": {
+              "currentVersion": "v9.2",
+              "download": "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images/RockyRpi_9.2.img.xz"
+            },
             "specializedDevices": [
               {
                 "name": "Raspberry Pi",
@@ -242,6 +254,10 @@
             },
             "cloudImages": {
               "checksum": "https://dl.rockylinux.org/pub/rocky/9/images/aarch64/CHECKSUM"
+            },
+            "rpiImages": {
+              "checksum": "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images/RockyRpi_9.2.img.xz.sha256sum",
+              "readMe": "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images/README.txt"
             },
             "liveImages": {
               "checksums": "https://dl.rockylinux.org/pub/rocky/9/live/aarch64/"
@@ -266,6 +282,10 @@
             "cloudImages": {
               "qcow2": "https://dl.rockylinux.org/pub/rocky/8/images/aarch64/Rocky-8-GenericCloud-Base.latest.aarch64.qcow2"
             },
+            "rpiImages": {
+              "currentVersion": "v8.8",
+              "download": "https://dl.rockylinux.org/pub/sig/8/altarch/aarch64/images/RockyRpi_8.8.img.xz"
+            },
             "container": {
               "fullImage": "https://hub.docker.com/layers/library/rockylinux/8/images/sha256-be879ad24fd5387ed135b99ebf0622c323afab20ff7f1967d6f06e5dbf07ee31?context=explore",
               "minimalImage": "https://hub.docker.com/layers/library/rockylinux/8-minimal/images/sha256-46c797fad395827bf7d861a3c1c5b87c4e737ea1b6df13da58ee7a3478065bc5?context=explore"
@@ -282,7 +302,7 @@
               "checksum": "https://dl.rockylinux.org/pub/rocky/8.10/images/aarch64/CHECKSUM"
             },
             "rpiImages": {
-              "checksum": "https://dl.rockylinux.org/pub/sig/8/altarch/aarch64/images/RockyLinuxRpi_8-latest.img.xz.sha256sum",
+              "checksum": "https://dl.rockylinux.org/pub/sig/8/altarch/aarch64/images/RockyRpi_8.8.img.xz.sha256sum",
               "readMe": "https://dl.rockylinux.org/pub/sig/8/altarch/aarch64/images/README.txt"
             }
           }
