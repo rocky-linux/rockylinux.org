@@ -2,94 +2,12 @@
 
 import { useEffect, useState, useRef } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { detectArchitecture } from "@/utils/architectureDetection";
 
 import DefaultImageCard from "./DefaultImage/Card";
 import CloudImageCard from "./CloudImage/Card";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
-interface NavigatorUserAgentData {
-  platform: string;
-  brands: Array<{ brand: string; version: string }>;
-  mobile: boolean;
-}
-
-interface NavigatorWithUserAgentData extends Navigator {
-  userAgentData?: NavigatorUserAgentData;
-}
-
-const detectArchitecture = (): string => {
-  if (typeof window === "undefined") return "x86_64"; // SSR fallback
-
-  const userAgent = navigator.userAgent;
-
-  // Modern approach: use userAgentData if available
-  const navigatorWithUserAgentData = navigator as NavigatorWithUserAgentData;
-  if (navigatorWithUserAgentData.userAgentData?.platform) {
-    const platform = navigatorWithUserAgentData.userAgentData.platform;
-
-    // Check for Apple Silicon (M1/M2/M3/M4/etc.)
-    if (platform === "macOS" && userAgent.includes("ARM64")) {
-      return "aarch64";
-    }
-  }
-
-  // Enhanced Apple Silicon detection for browsers that don't report ARM64 correctly
-  if (userAgent.includes("Mac")) {
-    // Check for explicit ARM64 mentions
-    if (userAgent.includes("ARM64")) {
-      return "aarch64";
-    }
-
-    // Dynamic Apple Silicon detection - check for any "Apple M" chip (M1, M2, M3, M4, M5, etc.)
-    if (userAgent.includes("Apple M")) {
-      return "aarch64";
-    }
-
-    // WebGL-based detection for Apple Silicon (more reliable than user agent parsing)
-    try {
-      const canvas = document.createElement("canvas");
-      const gl = canvas.getContext("webgl");
-      if (gl) {
-        // Apple Silicon supports WEBGL_compressed_texture_etc extension
-        // This is a reliable indicator of Apple Silicon vs Intel
-        const extensions = gl.getSupportedExtensions();
-        if (extensions && extensions.includes("WEBGL_compressed_texture_etc")) {
-          return "aarch64";
-        }
-      }
-    } catch (_e) {
-      // WebGL detection failed, continue with other methods
-    }
-
-    // Fallback: Try to detect Apple Silicon based on system characteristics
-    // Apple Silicon Macs typically have 8+ cores and run newer macOS versions
-    if (navigator.hardwareConcurrency >= 8) {
-      const osVersionMatch = userAgent.match(/Mac OS X (\d+)_(\d+)_(\d+)/);
-      if (osVersionMatch) {
-        const majorVersion = parseInt(osVersionMatch[1]);
-        // macOS 11+ (Big Sur) is when Apple Silicon was introduced
-        if (majorVersion >= 11) {
-          // Additional check: if it's a Mac with many cores and newer macOS, likely Apple Silicon
-          return "aarch64";
-        }
-      }
-    }
-  }
-
-  // Check for ARM64 on other platforms
-  if (userAgent.includes("ARM64") || userAgent.includes("aarch64")) {
-    return "aarch64";
-  }
-
-  // Check for RISC-V (less common, but possible)
-  if (userAgent.includes("riscv64") || userAgent.includes("RISC-V")) {
-    return "riscv64";
-  }
-
-  // Default to x86_64 for most cases
-  return "x86_64";
-};
 
 interface ProcessedVersion {
   versionName: string;
