@@ -165,6 +165,7 @@
               "kde": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-KDE-aarch64-latest.iso"
             },
             "rpiImages": {
+              "currentVersion": "v10.0",
               "download": "https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz"
             },
             "specializedDevices": [
@@ -229,6 +230,7 @@
               "cinnamon": "https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-Cinnamon-aarch64-latest.iso"
             },
             "rpiImages": {
+              "currentVersion": "v9.2",
               "download": "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images/RockyRpi_9.2.img.xz"
             },
             "specializedDevices": [
@@ -281,6 +283,7 @@
               "qcow2": "https://dl.rockylinux.org/pub/rocky/8/images/aarch64/Rocky-8-GenericCloud-Base.latest.aarch64.qcow2"
             },
             "rpiImages": {
+              "currentVersion": "v8.8",
               "download": "https://dl.rockylinux.org/pub/sig/8/altarch/aarch64/images/RockyRpi_8.8.img.xz"
             },
             "container": {
