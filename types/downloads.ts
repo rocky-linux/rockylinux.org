@@ -46,12 +46,15 @@ export interface DownloadOptions {
     cinnamon?: string;
   };
   rpiImages?: {
+    currentVersion?: string;
     download: string;
   };
   wslImages?: {
+    currentVersion?: string;
     download: string;
   };
   visionfive2Images?: {
+    currentVersion?: string;
     download: string;
   };
   specializedDevices?: SpecializedDevice[];
@@ -71,14 +74,17 @@ export interface Links {
     checksums: string;
   };
   rpiImages?: {
+    currentVersion?: string;
     checksum: string;
     readMe: string;
   };
   wslImages?: {
+    currentVersion?: string;
     checksum: string;
     readMe: string;
   };
   visionfive2Images?: {
+    currentVersion?: string;
     checksum: string;
     readMe?: string;
   };
