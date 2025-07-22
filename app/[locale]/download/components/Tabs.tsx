@@ -1,8 +1,8 @@
 import { useTranslations } from "next-intl";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import DefaultImageCard from "./DefaultImage/Card";
-import CloudImageCard from "./CloudImage/Card";
-import type { DownloadData, VersionItem, Version } from "@/types/downloads";
+
+import TabsClient from "./TabsClient";
+
+import type { DownloadData } from "@/types/downloads";
 
 interface DownloadTabsProps {
   downloadData: DownloadData;
@@ -11,304 +11,273 @@ interface DownloadTabsProps {
 const DownloadTabs = ({ downloadData }: DownloadTabsProps) => {
   const t = useTranslations("download");
 
-  const mapVersionToVersionItem = (version: Version): VersionItem => ({
-    versionName: version.versionName,
-    versionId: version.versionId,
-    currentVersion: version.currentVersion,
-    plannedEol: version.plannedEol,
-    downloadOptions: [
-      {
-        label: `${t("cards.defaultImages.downloadOptions.dvd")}`,
-        link: version.downloadOptions.defaultImages.dvd,
+  // Pre-process translations on server side for client component
+  const translations = {
+    tabs: Object.fromEntries(
+      Object.keys(downloadData.architectures).map((arch) => [
+        arch,
+        t(`tabs.${arch}`),
+      ])
+    ),
+    tabsShortened: Object.fromEntries(
+      Object.keys(downloadData.architectures).map((arch) => [
+        arch,
+        t(`tabs.shortened.${arch}`),
+      ])
+    ),
+    cards: {
+      defaultImages: {
+        title: t("cards.defaultImages.title"),
+        tooltips: {
+          dvd: t("cards.defaultImages.tooltips.dvd"),
+          boot: t("cards.defaultImages.tooltips.boot"),
+          minimal: t("cards.defaultImages.tooltips.minimal"),
+          buttonLabel: t("cards.defaultImages.tooltips.buttonLabel"),
+        },
+        downloadOptions: {
+          dvd: t("cards.defaultImages.downloadOptions.dvd"),
+          boot: t("cards.defaultImages.downloadOptions.boot"),
+          minimal: t("cards.defaultImages.downloadOptions.minimal"),
+        },
+        torrent: t("cards.defaultImages.torrent"),
+        checksum: t("cards.defaultImages.checksum"),
+        baseOs: t("cards.defaultImages.baseOs"),
+        archived: t("cards.defaultImages.archived"),
+        checksums: t("cards.defaultImages.checksums"),
       },
-      {
-        label: `${t("cards.defaultImages.downloadOptions.boot")}`,
-        link: version.downloadOptions.defaultImages.boot,
+      cloudImages: {
+        title: t("cards.cloudImages.title"),
+        downloadOptions: {
+          qcow2: t("cards.cloudImages.downloadOptions.qcow2"),
+        },
       },
-      ...(version.downloadOptions.defaultImages.minimal
-        ? [
-            {
-              label: `${t("cards.defaultImages.downloadOptions.minimal")}`,
-              link: version.downloadOptions.defaultImages.minimal as string,
-            },
-          ]
-        : []),
-    ],
-    links: [
-      {
-        name: `${t("cards.defaultImages.torrent")}`,
-        link: version.links.defaultImages.torrent,
+      container: {
+        title: t("cards.container.title"),
+        downloadOptions: {
+          fullImage: t("cards.container.downloadOptions.fullImage"),
+          minimalImage: t("cards.container.downloadOptions.minimalImage"),
+        },
       },
-      {
-        name: `${t("cards.defaultImages.checksum")}`,
-        link: version.links.defaultImages.checksum,
+      liveImages: {
+        title: t("cards.liveImages.title"),
+        downloadOptions: {
+          // This will be populated dynamically based on available options
+        },
       },
-      {
-        name: `${t("cards.defaultImages.baseOs")}`,
-        link: version.links.defaultImages.baseOs,
+      rpiImages: {
+        title: t("cards.rpiImages.title"),
+        download: t("cards.rpiImages.download"),
+        readMe: t("cards.rpiImages.readMe"),
       },
-      {
-        name: `${t("cards.defaultImages.archived")}`,
-        link: version.links.defaultImages.archived,
+      wslImages: {
+        title: t("cards.wslImages.title"),
       },
-    ],
-  });
+      visionfive2Images: {
+        title: t("cards.visionfive2Images.title"),
+        download: t("cards.visionfive2Images.download"),
+        readMe: t("cards.visionfive2Images.readMe"),
+      },
+    },
+  };
 
-  const mapVersionToCloudVersionItem = (version: Version): VersionItem => ({
-    versionName: version.versionName,
-    versionId: version.versionId,
-    currentVersion: version.currentVersion,
-    plannedEol: version.plannedEol,
-    downloadOptions: [
+  // Transform raw data into client-ready format
+  const processedArchitectures = Object.fromEntries(
+    Object.entries(downloadData.architectures).map(([arch, data]) => [
+      arch,
       {
-        label: `${t("cards.cloudImages.downloadOptions.qcow2")}`,
-        link: version.downloadOptions.cloudImages.qcow2,
+        versions: data.versions.map((version) => {
+          // Create a combined version with all the different mappings
+          const baseVersion = {
+            versionName: version.versionName,
+            versionId: version.versionId,
+            currentVersion: version.currentVersion,
+            plannedEol: version.plannedEol,
+          };
+
+          const defaultImages = {
+            downloadOptions: [
+              {
+                label: translations.cards.defaultImages.downloadOptions.dvd,
+                link: version.downloadOptions.defaultImages.dvd,
+              },
+              {
+                label: translations.cards.defaultImages.downloadOptions.boot,
+                link: version.downloadOptions.defaultImages.boot,
+              },
+              ...(version.downloadOptions.defaultImages.minimal
+                ? [
+                    {
+                      label:
+                        translations.cards.defaultImages.downloadOptions
+                          .minimal,
+                      link: version.downloadOptions.defaultImages
+                        .minimal as string,
+                    },
+                  ]
+                : []),
+            ],
+            links: [
+              {
+                name: translations.cards.defaultImages.torrent,
+                link: version.links.defaultImages.torrent,
+              },
+              {
+                name: translations.cards.defaultImages.checksum,
+                link: version.links.defaultImages.checksum,
+              },
+              {
+                name: translations.cards.defaultImages.baseOs,
+                link: version.links.defaultImages.baseOs,
+              },
+              {
+                name: translations.cards.defaultImages.archived,
+                link: version.links.defaultImages.archived,
+              },
+            ],
+          };
+
+          const cloudImages = {
+            downloadOptions: [
+              {
+                label: translations.cards.cloudImages.downloadOptions.qcow2,
+                link: version.downloadOptions.cloudImages.qcow2,
+              },
+            ],
+            links: [
+              {
+                name: translations.cards.defaultImages.checksum,
+                link: version.links.cloudImages.checksum,
+              },
+            ],
+          };
+
+          const containerImages = {
+            downloadOptions: [
+              {
+                label: translations.cards.container.downloadOptions.fullImage,
+                link: version.downloadOptions.container.fullImage,
+              },
+              {
+                label:
+                  translations.cards.container.downloadOptions.minimalImage,
+                link: version.downloadOptions.container.minimalImage,
+              },
+            ],
+            links: [],
+          };
+
+          const liveImages = {
+            downloadOptions: version.downloadOptions.liveImages
+              ? Object.entries(version.downloadOptions.liveImages).map(
+                  ([key, link]) => ({
+                    label: t(`cards.liveImages.downloadOptions.${key}`),
+                    link: link as string,
+                  })
+                )
+              : [],
+            links: version.links.liveImages
+              ? [
+                  {
+                    name: translations.cards.defaultImages.checksums,
+                    link: version.links.liveImages.checksums,
+                  },
+                ]
+              : [],
+          };
+
+          const rpiImages = {
+            downloadOptions: version.downloadOptions.rpiImages
+              ? [
+                  {
+                    label: translations.cards.rpiImages.download,
+                    link: version.downloadOptions.rpiImages.download,
+                  },
+                ]
+              : [],
+            links: version.links.rpiImages
+              ? [
+                  {
+                    name: translations.cards.defaultImages.checksum,
+                    link: version.links.rpiImages.checksum,
+                  },
+                  {
+                    name: translations.cards.rpiImages.readMe,
+                    link: version.links.rpiImages.readMe,
+                  },
+                ]
+              : [],
+          };
+
+          const wslImages = {
+            downloadOptions: version.downloadOptions.wslImages
+              ? [
+                  {
+                    label: translations.cards.rpiImages.download,
+                    link: version.downloadOptions.wslImages.download,
+                  },
+                ]
+              : [],
+            links: version.links.wslImages
+              ? [
+                  {
+                    name: translations.cards.defaultImages.checksum,
+                    link: version.links.wslImages.checksum,
+                  },
+                  {
+                    name: translations.cards.rpiImages.readMe,
+                    link: version.links.wslImages.readMe,
+                  },
+                ]
+              : [],
+          };
+
+          const visionFive2Images = {
+            downloadOptions: version.downloadOptions.visionfive2Images
+              ? [
+                  {
+                    label: translations.cards.visionfive2Images.download,
+                    link: version.downloadOptions.visionfive2Images.download,
+                  },
+                ]
+              : [],
+            links: version.links.visionfive2Images
+              ? [
+                  {
+                    name: translations.cards.defaultImages.checksum,
+                    link: version.links.visionfive2Images.checksum,
+                  },
+                  ...(version.links.visionfive2Images.readMe
+                    ? [
+                        {
+                          name: translations.cards.visionfive2Images.readMe,
+                          link: version.links.visionfive2Images.readMe,
+                        },
+                      ]
+                    : []),
+                ]
+              : [],
+          };
+
+          return {
+            ...baseVersion,
+            defaultImages,
+            cloudImages,
+            containerImages,
+            liveImages,
+            rpiImages,
+            wslImages,
+            visionFive2Images,
+          };
+        }),
       },
-    ],
-    links: [
-      {
-        name: `${t("cards.defaultImages.checksum")}`,
-        link: version.links.cloudImages.checksum,
-      },
-    ],
-  });
-
-  const mapVersionToContainerVersionItem = (version: Version): VersionItem => ({
-    versionName: version.versionName,
-    versionId: version.versionId,
-    currentVersion: version.currentVersion,
-    plannedEol: version.plannedEol,
-    downloadOptions: [
-      {
-        label: `${t("cards.container.downloadOptions.fullImage")}`,
-        link: version.downloadOptions.container.fullImage,
-      },
-      {
-        label: `${t("cards.container.downloadOptions.minimalImage")}`,
-        link: version.downloadOptions.container.minimalImage,
-      },
-    ],
-    links: [],
-  });
-
-  const mapVersionToLiveVersionItem = (version: Version): VersionItem => ({
-    versionName: version.versionName,
-    versionId: version.versionId,
-    currentVersion: version.currentVersion,
-    plannedEol: version.plannedEol,
-    downloadOptions: version.downloadOptions.liveImages
-      ? Object.entries(version.downloadOptions.liveImages).map(
-          ([key, link]) => ({
-            label: `${t(`cards.liveImages.downloadOptions.${key}`)}`,
-            link: link as string,
-          })
-        )
-      : [],
-    links: version.links.liveImages
-      ? [
-          {
-            name: `${t("cards.defaultImages.checksums")}`,
-            link: version.links.liveImages.checksums,
-          },
-        ]
-      : [],
-  });
-
-  const mapVersionToRpiVersionItem = (version: Version): VersionItem => ({
-    versionName: version.versionName,
-    versionId: version.versionId,
-    currentVersion:
-      version.downloadOptions.rpiImages?.currentVersion ||
-      version.currentVersion,
-    plannedEol: version.plannedEol,
-    downloadOptions: version.downloadOptions.rpiImages
-      ? [
-          {
-            label: `${t("cards.rpiImages.download")}`,
-            link: version.downloadOptions.rpiImages.download,
-          },
-        ]
-      : [],
-    links: version.links.rpiImages
-      ? [
-          {
-            name: `${t("cards.defaultImages.checksum")}`,
-            link: version.links.rpiImages.checksum,
-          },
-          {
-            name: `${t("cards.rpiImages.readMe")}`,
-            link: version.links.rpiImages.readMe,
-          },
-        ]
-      : [],
-  });
-
-  const mapVersionToWslVersionItem = (version: Version): VersionItem => ({
-    versionName: version.versionName,
-    versionId: version.versionId,
-    currentVersion:
-      version.downloadOptions.wslImages?.currentVersion ||
-      version.currentVersion,
-    plannedEol: version.plannedEol,
-    downloadOptions: version.downloadOptions.wslImages
-      ? [
-          {
-            label: `${t("cards.rpiImages.download")}`,
-            link: version.downloadOptions.wslImages.download,
-          },
-        ]
-      : [],
-    links: version.links.wslImages
-      ? [
-          {
-            name: `${t("cards.defaultImages.checksum")}`,
-            link: version.links.wslImages.checksum,
-          },
-          {
-            name: `${t("cards.rpiImages.readMe")}`,
-            link: version.links.wslImages.readMe,
-          },
-        ]
-      : [],
-  });
-
-  const mapVersionToVisionFive2VersionItem = (
-    version: Version
-  ): VersionItem => ({
-    versionName: version.versionName,
-    versionId: version.versionId,
-    currentVersion:
-      version.downloadOptions.visionfive2Images?.currentVersion ||
-      version.currentVersion,
-    plannedEol: version.plannedEol,
-    downloadOptions: version.downloadOptions.visionfive2Images
-      ? [
-          {
-            label: `${t("cards.visionfive2Images.download")}`,
-            link: version.downloadOptions.visionfive2Images.download,
-          },
-        ]
-      : [],
-    links: version.links.visionfive2Images
-      ? [
-          {
-            name: `${t("cards.defaultImages.checksum")}`,
-            link: version.links.visionfive2Images.checksum,
-          },
-          ...(version.links.visionfive2Images.readMe
-            ? [
-                {
-                  name: `${t("cards.visionfive2Images.readMe")}`,
-                  link: version.links.visionfive2Images.readMe,
-                },
-              ]
-            : []),
-        ]
-      : [],
-  });
+    ])
+  );
 
   return (
-    <Tabs defaultValue="x86_64">
-      <TabsList className="sm:flex justify-center gap-4 hidden">
-        {Object.keys(downloadData.architectures).map((arch) => (
-          <TabsTrigger
-            key={arch}
-            value={arch}
-          >
-            {t(`tabs.${arch}`)}
-          </TabsTrigger>
-        ))}
-      </TabsList>
-      <TabsList className="flex justify-center gap-4 sm:hidden">
-        {Object.keys(downloadData.architectures).map((arch) => (
-          <TabsTrigger
-            key={arch}
-            value={arch}
-          >
-            {t(`tabs.shortened.${arch}`)}
-          </TabsTrigger>
-        ))}
-      </TabsList>
-      {Object.entries(downloadData.architectures).map(([arch, data]) => (
-        <TabsContent
-          key={arch}
-          value={arch}
-        >
-          <div className="grid gap-6 mt-4">
-            <DefaultImageCard
-              title={t("cards.defaultImages.title")}
-              titleTooltip={true}
-              titleTooltipText={[
-                {
-                  text: `${t("cards.defaultImages.tooltips.dvd")}`,
-                },
-                {
-                  text: `${t("cards.defaultImages.tooltips.boot")}`,
-                },
-                {
-                  text: `${t("cards.defaultImages.tooltips.minimal")}`,
-                },
-              ]}
-              titleTooltipButtonLink="https://docs.rockylinux.org/guides/installation/"
-              titleTooltipButtonLabel={t(
-                "cards.defaultImages.tooltips.buttonLabel"
-              )}
-              versions={data.versions.map(mapVersionToVersionItem)}
-            />
-            <CloudImageCard
-              title={t("cards.cloudImages.title")}
-              titleTooltip={false}
-              titleTooltipButtonLink=""
-              titleTooltipButtonLabel=""
-              versions={data.versions.map(mapVersionToCloudVersionItem)}
-            />
-            <DefaultImageCard
-              title={t("cards.container.title")}
-              titleTooltip={false}
-              titleTooltipButtonLink=""
-              titleTooltipButtonLabel=""
-              versions={data.versions.map(mapVersionToContainerVersionItem)}
-            />
-            {arch === "x86_64" || arch === "aarch64" ? (
-              <DefaultImageCard
-                title={t("cards.liveImages.title")}
-                titleTooltip={false}
-                titleTooltipButtonLink=""
-                titleTooltipButtonLabel=""
-                versions={data.versions.map(mapVersionToLiveVersionItem)}
-              />
-            ) : null}
-            {arch === "aarch64" ? (
-              <DefaultImageCard
-                title={t("cards.rpiImages.title")}
-                titleTooltip={false}
-                titleTooltipButtonLink=""
-                titleTooltipButtonLabel=""
-                versions={data.versions.map(mapVersionToRpiVersionItem)}
-              />
-            ) : null}
-            {arch === "riscv64" ? (
-              <DefaultImageCard
-                title={t("cards.visionfive2Images.title")}
-                titleTooltip={false}
-                titleTooltipButtonLink=""
-                titleTooltipButtonLabel=""
-                versions={data.versions.map(mapVersionToVisionFive2VersionItem)}
-              />
-            ) : null}
-            {arch === "x86_64" || arch === "aarch64" ? (
-              <DefaultImageCard
-                title={t("cards.wslImages.title")}
-                titleTooltip={false}
-                titleTooltipButtonLink=""
-                titleTooltipButtonLabel=""
-                versions={data.versions.map(mapVersionToWslVersionItem)}
-              />
-            ) : null}
-          </div>
-        </TabsContent>
-      ))}
-    </Tabs>
+    <TabsClient
+      architectures={processedArchitectures}
+      translations={translations}
+    />
   );
 };
 
