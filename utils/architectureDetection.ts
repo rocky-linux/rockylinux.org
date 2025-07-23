@@ -45,8 +45,9 @@ export const detectArchitecture = (): string => {
       const canvas = document.createElement("canvas");
       const gl = canvas.getContext("webgl");
       if (gl) {
-        // Apple Silicon supports WEBGL_compressed_texture_etc extension
-        // This is a reliable indicator of Apple Silicon vs Intel
+        // Apple Silicon supports the WEBGL_compressed_texture_etc extension.
+        // However, this is not a definitive indicator, as some Intel Macs with certain GPUs
+        // might also support this extension. This is one of several heuristics used for detection.
         const extensions = gl.getSupportedExtensions();
         if (extensions && extensions.includes("WEBGL_compressed_texture_etc")) {
           return "aarch64";
