@@ -108,7 +108,7 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const availableArchitectures = Object.keys(architectures);
-  const [, forceUpdate] = useState({});
+  const [urlKey, setUrlKey] = useState(0);
   const isInitialLoad = useRef(true);
 
   const archFromUrl = searchParams.get("arch");
