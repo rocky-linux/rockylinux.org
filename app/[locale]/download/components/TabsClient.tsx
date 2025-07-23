@@ -152,14 +152,14 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
 
       if (isStillOnDownloadsPage) {
         // Still on downloads page, just architecture changed
-        forceUpdate({});
+        setUrlKey((prevKey) => prevKey + 1);
       }
       // If not on downloads page, let the browser handle it naturally
     };
 
     window.addEventListener("popstate", handlePopState);
     return () => window.removeEventListener("popstate", handlePopState);
-  }, [pathname, forceUpdate]);
+  }, [pathname, urlKey]);
 
   return (
     <Tabs
