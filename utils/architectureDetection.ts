@@ -58,14 +58,15 @@ export const detectArchitecture = (): string => {
     }
 
     // Fallback: Try to detect Apple Silicon based on system characteristics
-    // Apple Silicon Macs typically have 8+ cores and run newer macOS versions
-    if (navigator.hardwareConcurrency >= 8) {
+    // Apple Silicon Macs typically have high core counts and run newer macOS versions.
+    const APPLE_SILICON_MIN_CORES = 8; // Heuristic: Apple Silicon devices generally have 8+ cores.
+    if (navigator.hardwareConcurrency >= APPLE_SILICON_MIN_CORES) {
       const osVersionMatch = userAgent.match(/Mac OS X (\d+)_(\d+)_(\d+)/);
       if (osVersionMatch) {
         const majorVersion = parseInt(osVersionMatch[1]);
-        // macOS 11+ (Big Sur) is when Apple Silicon was introduced
+        // macOS 11+ (Big Sur) is when Apple Silicon was introduced.
         if (majorVersion >= 11) {
-          // Additional check: if it's a Mac with many cores and newer macOS, likely Apple Silicon
+          // Additional check: if it's a Mac with many cores and newer macOS, likely Apple Silicon.
           return "aarch64";
         }
       }
