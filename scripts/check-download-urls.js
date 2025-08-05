@@ -164,6 +164,21 @@ async function main() {
       }
     });
 
+    // Create GitHub issue comment if running in GitHub Actions
+    if (process.env.GITHUB_ACTIONS) {
+      const summary =
+        `## 🚨 URL Check Failed\n\n` +
+        `Found ${failed.length} broken URL(s) in downloads.json:\n\n` +
+        failed
+          .map(
+            (r) =>
+              `- **${r.path}**: ${r.url} (${r.status}${r.statusCode ? " - " + r.statusCode : ""})`
+          )
+          .join("\n");
+
+      fs.writeFileSync("url-check-summary.md", summary);
+    }
+
     console.log(
       "\n" + colors.red + "Some URLs are not accessible!" + colors.reset
     );
