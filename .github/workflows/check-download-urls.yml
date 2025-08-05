@@ -134,7 +134,7 @@ jobs:
             owner: context.repo.owner,
             repo: context.repo.repo,
             state: 'open',
-            labels: 'downloads,url-check-failed'
+            labels: ['downloads', 'url-check-failed']
           });
           
           const existingIssue = issues.data.find(issue => 
