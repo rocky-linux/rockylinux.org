@@ -46,7 +46,7 @@ chmod +x scripts/check-download-urls.js
 - URLs returning 2xx or 3xx status codes are considered successful
 - 4xx or 5xx status codes are reported as failures
 - Network errors and timeouts are also reported
-- Docker Hub URLs are expected to return 200 (they don't support HEAD requests)
+- All URLs, including Docker Hub, are checked using HTTP HEAD requests. Some services (like Docker Hub) may not support HEAD requests, which can result in false negatives.
 
 ### Other Workflows
 
