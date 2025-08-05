@@ -40,6 +40,11 @@ chmod +x scripts/check-download-urls.js
 - **Progress indicator**: Shows real-time progress when run locally
 - **Detailed reporting**: Shows the JSON path and error details for each failed URL
 - **GitHub integration**: Automatically comments on PRs and creates issues for scheduled runs
+- **Smart notifications**:
+  - Updates existing PR comments instead of creating duplicates
+  - Updates existing issues instead of creating new ones daily
+  - Automatically closes issues when all URLs are fixed
+- **Prevents spam**: Only one issue and one PR comment per problem
 
 #### Expected behavior:
 

@@ -29,28 +29,54 @@ jobs:
         node-version: '20'
     
     - name: Extract and check URLs
+      id: url-check
       run: node scripts/check-download-urls.js
       env:
         GITHUB_ACTIONS: true
+      continue-on-error: true
     
     - name: Comment PR on failure
-      if: failure() && github.event_name == 'pull_request'
+      if: steps.url-check.outcome == 'failure' && github.event_name == 'pull_request'
       uses: actions/github-script@v7
       with:
         script: |
           const fs = require('fs');
           if (fs.existsSync('url-check-summary.md')) {
             const summary = fs.readFileSync('url-check-summary.md', 'utf8');
-            github.rest.issues.createComment({
+            
+            // Check for existing comments from this workflow
+            const comments = await github.rest.issues.listComments({
               issue_number: context.issue.number,
               owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: summary
+              repo: context.repo.repo
             });
+            
+            const botComment = comments.data.find(comment => 
+              comment.user.type === 'Bot' && 
+              comment.body.includes('🚨 URL Check Failed')
+            );
+            
+            if (botComment) {
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                comment_id: botComment.id,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: summary + '\n\n*Updated: ' + new Date().toISOString() + '*'
+              });
+            } else {
+              // Create new comment
+              await github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: summary
+              });
+            }
           }
     
-    - name: Create issue on scheduled run failure
-      if: failure() && github.event_name == 'schedule'
+    - name: Create or update issue on scheduled run failure
+      if: steps.url-check.outcome == 'failure' && github.event_name == 'schedule'
       uses: actions/github-script@v7
       with:
         script: |
@@ -63,12 +89,85 @@ jobs:
             body += 'The URL checker found broken links in downloads.json. Please check the workflow logs for details.';
           }
           
-          body += '\n\n[View workflow run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})';
+          body += '\n\n[View latest workflow run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})';
           
-          github.rest.issues.create({
+          // Check for existing open issues
+          const issues = await github.rest.issues.listForRepo({
             owner: context.repo.owner,
             repo: context.repo.repo,
-            title: 'Broken download URLs detected',
-            body: body,
-            labels: ['bug', 'downloads']
+            state: 'open',
+            labels: 'downloads,url-check-failed'
           });
+          
+          const existingIssue = issues.data.find(issue => 
+            issue.title === 'Broken download URLs detected'
+          );
+          
+          if (existingIssue) {
+            // Add comment to existing issue
+            await github.rest.issues.createComment({
+              issue_number: existingIssue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body + '\n\n*Check performed at: ' + new Date().toISOString() + '*'
+            });
+            console.log(`Updated existing issue #${existingIssue.number}`);
+          } else {
+            // Create new issue
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: 'Broken download URLs detected',
+              body: body + '\n\n*First detected: ' + new Date().toISOString() + '*\n\nThis issue will be automatically updated with new checks until resolved.',
+              labels: ['bug', 'downloads', 'url-check-failed']
+            });
+            console.log('Created new issue for broken URLs');
+          }
+    
+    - name: Close issue if URLs are fixed
+      if: steps.url-check.outcome == 'success' && github.event_name == 'schedule'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          // Check for existing open issues
+          const issues = await github.rest.issues.listForRepo({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            state: 'open',
+            labels: 'downloads,url-check-failed'
+          });
+          
+          const existingIssue = issues.data.find(issue => 
+            issue.title === 'Broken download URLs detected'
+          );
+          
+          if (existingIssue) {
+            // Close the issue
+            await github.rest.issues.update({
+              issue_number: existingIssue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'closed'
+            });
+            
+            // Add closing comment
+            await github.rest.issues.createComment({
+              issue_number: existingIssue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '✅ All URLs are now accessible! Closing this issue.\n\n*Verified at: ' + new Date().toISOString() + '*'
+            });
+            
+            console.log(`Closed issue #${existingIssue.number} - all URLs are fixed`);
+          }
+    
+    - name: Set workflow status
+      if: always()
+      run: |
+        if [ "${{ steps.url-check.outcome }}" == "failure" ]; then
+          echo "URL check failed - marking workflow as failed"
+          exit 1
+        else
+          echo "URL check passed"
+          exit 0
+        fi
