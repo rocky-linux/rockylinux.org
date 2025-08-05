@@ -182,7 +182,7 @@
           },
           "links": {
             "defaultImages": {
-              "torrent": "https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.0-aarch64-dvd.torrent",
+              "torrent": "https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.0-aarch64-dvd1.torrent",
               "checksum": "https://download.rockylinux.org/pub/rocky/10/isos/aarch64/CHECKSUM",
               "baseOs": "https://download.rockylinux.org/pub/rocky/10/BaseOS/aarch64/",
               "archived": "https://dl.rockylinux.org/vault/rocky"
@@ -332,7 +332,7 @@
           },
           "links": {
             "defaultImages": {
-              "torrent": "https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.0-ppc64le-dvd.torrent",
+              "torrent": "https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.0-ppc64le-dvd1.torrent",
               "checksum": "https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/CHECKSUM",
               "baseOs": "https://download.rockylinux.org/pub/rocky/10/BaseOS/ppc64le/",
               "archived": "https://dl.rockylinux.org/vault/rocky"
@@ -398,7 +398,7 @@
           },
           "links": {
             "defaultImages": {
-              "torrent": "https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.0-s390x-dvd.torrent",
+              "torrent": "https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.0-s390x-dvd1.torrent",
               "checksum": "https://download.rockylinux.org/pub/rocky/10/isos/s390x/CHECKSUM",
               "baseOs": "https://download.rockylinux.org/pub/rocky/10/BaseOS/s390x/",
               "archived": "https://dl.rockylinux.org/vault/rocky"
@@ -466,7 +466,7 @@
           },
           "links": {
             "defaultImages": {
-              "torrent": "https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.0-riscv64-dvd.torrent",
+              "torrent": "https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.0-riscv64-dvd1.torrent",
               "checksum": "https://download.rockylinux.org/pub/rocky/10/isos/riscv64/CHECKSUM",
               "baseOs": "https://download.rockylinux.org/pub/rocky/10/BaseOS/riscv64/",
               "archived": "https://dl.rockylinux.org/vault/rocky"
