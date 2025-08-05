@@ -1,0 +1,200 @@
+name: Check Download URLs
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'data/downloads.json'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'data/downloads.json'
+  schedule:
+    # Run daily at 2 AM UTC to catch broken links
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    # Allow manual triggering
+
+jobs:
+  check-urls:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+    
+    - name: Extract and check URLs
+      run: |
+        node -e "
+        const fs = require('fs');
+        const https = require('https');
+        const http = require('http');
+        const { URL } = require('url');
+        
+        // Read downloads.json
+        const downloadsData = JSON.parse(fs.readFileSync('data/downloads.json', 'utf8'));
+        
+        // Extract all URLs from the nested structure
+        function extractUrls(obj, path = '') {
+          const urls = [];
+          
+          for (const [key, value] of Object.entries(obj)) {
+            const currentPath = path ? \`\${path}.\${key}\` : key;
+            
+            if (typeof value === 'string' && (value.startsWith('http://') || value.startsWith('https://'))) {
+              urls.push({ url: value, path: currentPath });
+            } else if (typeof value === 'object' && value !== null) {
+              urls.push(...extractUrls(value, currentPath));
+            }
+          }
+          
+          return urls;
+        }
+        
+        // Check if URL is accessible
+        function checkUrl(urlInfo) {
+          return new Promise((resolve) => {
+            const url = new URL(urlInfo.url);
+            const protocol = url.protocol === 'https:' ? https : http;
+            
+            const options = {
+              method: 'HEAD',
+              timeout: 10000,
+              headers: {
+                'User-Agent': 'Mozilla/5.0 (compatible; Rocky Linux URL Checker)'
+              }
+            };
+            
+            const req = protocol.request(url, options, (res) => {
+              // Accept 2xx and 3xx status codes
+              if (res.statusCode >= 200 && res.statusCode < 400) {
+                resolve({ ...urlInfo, status: 'OK', statusCode: res.statusCode });
+              } else {
+                resolve({ ...urlInfo, status: 'FAILED', statusCode: res.statusCode });
+              }
+            });
+            
+            req.on('error', (err) => {
+              resolve({ ...urlInfo, status: 'ERROR', error: err.message });
+            });
+            
+            req.on('timeout', () => {
+              req.destroy();
+              resolve({ ...urlInfo, status: 'TIMEOUT' });
+            });
+            
+            req.end();
+          });
+        }
+        
+        // Main execution
+        async function main() {
+          const urls = extractUrls(downloadsData);
+          console.log(\`Found \${urls.length} URLs to check\\n\`);
+          
+          const results = [];
+          const batchSize = 10;
+          
+          // Process in batches to avoid overwhelming servers
+          for (let i = 0; i < urls.length; i += batchSize) {
+            const batch = urls.slice(i, i + batchSize);
+            const batchResults = await Promise.all(batch.map(checkUrl));
+            results.push(...batchResults);
+            
+            // Small delay between batches
+            if (i + batchSize < urls.length) {
+              await new Promise(resolve => setTimeout(resolve, 1000));
+            }
+          }
+          
+          // Report results
+          const failed = results.filter(r => r.status !== 'OK');
+          
+          console.log('URL Check Results:');
+          console.log('==================');
+          console.log(\`Total URLs checked: \${results.length}\`);
+          console.log(\`Successful: \${results.filter(r => r.status === 'OK').length}\`);
+          console.log(\`Failed: \${failed.length}\\n\`);
+          
+          if (failed.length > 0) {
+            console.log('Failed URLs:');
+            console.log('------------');
+            failed.forEach(result => {
+              console.log(\`\\nPath: \${result.path}\`);
+              console.log(\`URL: \${result.url}\`);
+              if (result.statusCode) {
+                console.log(\`Status Code: \${result.statusCode}\`);
+              }
+              if (result.error) {
+                console.log(\`Error: \${result.error}\`);
+              }
+              if (result.status === 'TIMEOUT') {
+                console.log('Error: Request timeout');
+              }
+            });
+            
+            // Create GitHub issue comment if running in GitHub Actions
+            if (process.env.GITHUB_ACTIONS) {
+              const summary = \`## 🚨 URL Check Failed\\n\\n\` +
+                \`Found \${failed.length} broken URL(s) in downloads.json:\\n\\n\` +
+                failed.map(r => \`- **\${r.path}**: \${r.url} (\${r.status}\${r.statusCode ? ' - ' + r.statusCode : ''})\`).join('\\n');
+              
+              fs.writeFileSync('url-check-summary.md', summary);
+            }
+            
+            process.exit(1);
+          } else {
+            console.log('✅ All URLs are accessible!');
+          }
+        }
+        
+        main().catch(err => {
+          console.error('Error running URL checker:', err);
+          process.exit(1);
+        });
+        "
+    
+    - name: Comment PR on failure
+      if: failure() && github.event_name == 'pull_request'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          if (fs.existsSync('url-check-summary.md')) {
+            const summary = fs.readFileSync('url-check-summary.md', 'utf8');
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: summary
+            });
+          }
+    
+    - name: Create issue on scheduled run failure
+      if: failure() && github.event_name == 'schedule'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          let body = '## 🚨 Daily URL Check Failed\n\n';
+          
+          if (fs.existsSync('url-check-summary.md')) {
+            body += fs.readFileSync('url-check-summary.md', 'utf8');
+          } else {
+            body += 'The URL checker found broken links in downloads.json. Please check the workflow logs for details.';
+          }
+          
+          body += '\n\n[View workflow run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})';
+          
+          github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: 'Broken download URLs detected',
+            body: body,
+            labels: ['bug', 'downloads']
+          });
