@@ -1,0 +1,74 @@
+name: Check Download URLs
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'data/downloads.json'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'data/downloads.json'
+  schedule:
+    # Run daily at 2 AM UTC to catch broken links
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    # Allow manual triggering
+
+jobs:
+  check-urls:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+    
+    - name: Extract and check URLs
+      run: node scripts/check-download-urls.js
+      env:
+        GITHUB_ACTIONS: true
+    
+    - name: Comment PR on failure
+      if: failure() && github.event_name == 'pull_request'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          if (fs.existsSync('url-check-summary.md')) {
+            const summary = fs.readFileSync('url-check-summary.md', 'utf8');
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: summary
+            });
+          }
+    
+    - name: Create issue on scheduled run failure
+      if: failure() && github.event_name == 'schedule'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          let body = '## 🚨 Daily URL Check Failed\n\n';
+          
+          if (fs.existsSync('url-check-summary.md')) {
+            body += fs.readFileSync('url-check-summary.md', 'utf8');
+          } else {
+            body += 'The URL checker found broken links in downloads.json. Please check the workflow logs for details.';
+          }
+          
+          body += '\n\n[View workflow run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})';
+          
+          github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: 'Broken download URLs detected',
+            body: body,
+            labels: ['bug', 'downloads']
+          });
