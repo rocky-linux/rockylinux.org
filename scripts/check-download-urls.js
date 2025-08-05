@@ -50,7 +50,7 @@ function checkUrl(urlInfo) {
       method: "HEAD",
       timeout: 10000,
       headers: {
-        "User-Agent": "Mozilla/5.0 (compatible; Rocky Linux URL Checker)",
+        "User-Agent": "Rocky Linux URL Checker/1.0 (+https://rockylinux.org)",
       },
     };
 
