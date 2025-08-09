@@ -19,7 +19,7 @@ const DownloadPage = () => {
   return (
     <>
       <div className="py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-2 lg:px-0">
           <div className="text-center">
             <h2 className="text-3xl font-bold font-display tracking-tight sm:text-4xl">
               {t("title")}
