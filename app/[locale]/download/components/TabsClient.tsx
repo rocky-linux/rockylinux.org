@@ -119,7 +119,18 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
   const isInitialLoad = useRef(true);
 
   const archFromUrl = searchParams.get("arch");
-  const detectedArch = detectArchitecture();
+
+  // Use a stable default for initial render to avoid hydration mismatch
+  const [detectedArch, setDetectedArch] = useState("x86_64");
+
+  // Detect architecture only on client after hydration
+  useEffect(() => {
+    const detected = detectArchitecture();
+    if (availableArchitectures.includes(detected)) {
+      setDetectedArch(detected);
+    }
+  }, [availableArchitectures]);
+
   const defaultArch = availableArchitectures.includes(detectedArch)
     ? detectedArch
     : "x86_64";
