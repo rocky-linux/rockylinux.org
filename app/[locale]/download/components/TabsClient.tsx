@@ -8,6 +8,13 @@ import DefaultImageCard from "./DefaultImage/Card";
 import CloudImageCard from "./CloudImage/Card";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface ProcessedVersion {
   versionName: string;
@@ -176,16 +183,27 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
           </TabsTrigger>
         ))}
       </TabsList>
-      <TabsList className="flex justify-center gap-4 sm:hidden">
-        {Object.keys(architectures).map((arch) => (
-          <TabsTrigger
-            key={arch}
-            value={arch}
-          >
-            {translations.tabsShortened[arch]}
-          </TabsTrigger>
-        ))}
-      </TabsList>
+      {/* Mobile dropdown for architecture selection */}
+      <div className="sm:hidden w-full mb-4">
+        <Select
+          value={currentArch}
+          onValueChange={updateArchitecture}
+        >
+          <SelectTrigger className="w-full">
+            <SelectValue>{translations.tabs[currentArch]}</SelectValue>
+          </SelectTrigger>
+          <SelectContent>
+            {Object.keys(architectures).map((arch) => (
+              <SelectItem
+                key={arch}
+                value={arch}
+              >
+                {translations.tabs[arch]}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
       {Object.entries(architectures).map(([arch, data]) => (
         <TabsContent
           key={arch}
