@@ -166,6 +166,7 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
       value={currentArch}
       onValueChange={updateArchitecture}
     >
+      {/* Desktop tabs - horizontal */}
       <TabsList className="sm:flex justify-center gap-4 hidden">
         {Object.keys(architectures).map((arch) => (
           <TabsTrigger
@@ -176,18 +177,22 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
           </TabsTrigger>
         ))}
       </TabsList>
-      <div className="flex justify-center sm:hidden">
-        <TabsList className="flex justify-start gap-4 overflow-x-auto px-2">
-          {Object.keys(architectures).map((arch) => (
-            <TabsTrigger
-              key={arch}
-              value={arch}
-              className="flex-shrink-0"
-            >
-              {translations.tabsShortened[arch]}
-            </TabsTrigger>
-          ))}
-        </TabsList>
+
+      {/* Mobile tabs - vertical stack */}
+      <div className="sm:hidden space-y-2">
+        {Object.keys(architectures).map((arch) => (
+          <button
+            key={arch}
+            onClick={() => updateArchitecture(arch)}
+            className={`w-full text-left py-3 px-4 rounded-md border transition-colors ${
+              currentArch === arch
+                ? "bg-primary text-primary-foreground border-primary"
+                : "bg-background border-border hover:bg-muted"
+            }`}
+          >
+            {translations.tabsShortened[arch]}
+          </button>
+        ))}
       </div>
       {Object.entries(architectures).map(([arch, data]) => (
         <TabsContent
