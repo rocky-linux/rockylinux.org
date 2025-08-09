@@ -173,7 +173,7 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
       value={currentArch}
       onValueChange={updateArchitecture}
     >
-      <TabsList className="sm:flex justify-center gap-4 hidden">
+      <TabsList className="sm:flex justify-center hidden">
         {Object.keys(architectures).map((arch) => (
           <TabsTrigger
             key={arch}
