@@ -128,12 +128,12 @@ const VersionPicker: React.FC<DownloadCardProps> = ({ versions }) => {
             ))}
           </div>
           {/* Links */}
-          <div className="mt-4 flex flex-col sm:flex-row gap-2 sm:gap-4">
+          <div className="mt-4 flex flex-col sm:flex-row gap-2 sm:gap-4 text-center sm:text-left">
             {version.links?.map((link, index) => (
               <a
                 key={index}
                 href={link.link}
-                className="underline"
+                className="underline hover:no-underline"
               >
                 {link.name}
               </a>
