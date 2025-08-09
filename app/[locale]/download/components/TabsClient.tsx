@@ -176,16 +176,19 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
           </TabsTrigger>
         ))}
       </TabsList>
-      <TabsList className="flex justify-center gap-4 sm:hidden">
-        {Object.keys(architectures).map((arch) => (
-          <TabsTrigger
-            key={arch}
-            value={arch}
-          >
-            {translations.tabsShortened[arch]}
-          </TabsTrigger>
-        ))}
-      </TabsList>
+      <div className="flex justify-center sm:hidden">
+        <TabsList className="flex justify-start gap-4 overflow-x-auto px-2">
+          {Object.keys(architectures).map((arch) => (
+            <TabsTrigger
+              key={arch}
+              value={arch}
+              className="flex-shrink-0"
+            >
+              {translations.tabsShortened[arch]}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+      </div>
       {Object.entries(architectures).map(([arch, data]) => (
         <TabsContent
           key={arch}
