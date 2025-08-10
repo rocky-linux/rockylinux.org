@@ -49,13 +49,13 @@ const VersionContent: React.FC<VersionContentProps> = ({
           </div>
           <TooltipContent className="max-w-[300px]">
             <p className="text-sm">
-              {t("plannedEol")}: {plannedEol}
+              {t("plannedEol")} {plannedEol}
             </p>
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
       <span className="sm:hidden text-sm text-muted-foreground">
-        {t("plannedEol")}: {plannedEol}
+        {t("plannedEol")} {plannedEol}
       </span>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
         {downloadOptions.map((option, optIndex) => (
