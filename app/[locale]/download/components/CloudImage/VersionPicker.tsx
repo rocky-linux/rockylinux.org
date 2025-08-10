@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Select,
   SelectContent,
@@ -8,15 +7,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { InfoCircledIcon } from "@radix-ui/react-icons";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
+import { cn } from "@/lib/utils";
+import VersionContent from "./VersionContent";
 
 interface DownloadOption {
   label: string;
@@ -49,10 +42,10 @@ const VersionPicker: React.FC<DownloadCardProps> = ({ versions }) => {
 
   return (
     <>
-      <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-4">
-        <span className="text-sm">{t("selectVersion")}</span>
-        {/* Mobile dropdown */}
-        <div className="sm:hidden w-full">
+      {/* Mobile Version Selector and Content */}
+      <div className="sm:hidden">
+        <div className="flex flex-col gap-2 mb-4">
+          <span className="text-sm">{t("selectVersion")}</span>
           <Select
             value={selectedVersion}
             onValueChange={setSelectedVersion}
@@ -75,72 +68,58 @@ const VersionPicker: React.FC<DownloadCardProps> = ({ versions }) => {
             </SelectContent>
           </Select>
         </div>
-        {/* Desktop tabs */}
-        <TabsList className="hidden sm:inline-flex">
-          {versions.map((version, index) => (
-            <TabsTrigger
-              key={index}
-              value={version.versionId}
-              onClick={() => setSelectedVersion(version.versionId)}
-            >
-              {version.versionName}
-            </TabsTrigger>
-          ))}
-        </TabsList>
+        {/* Mobile content - show only selected version */}
+        {versions.map((version, index) => (
+          <div
+            key={index}
+            className={cn(
+              selectedVersion === version.versionId ? "block" : "hidden"
+            )}
+          >
+            <VersionContent
+              currentVersion={version.currentVersion}
+              plannedEol={version.plannedEol}
+              downloadOptions={version.downloadOptions}
+              links={version.links}
+            />
+          </div>
+        ))}
       </div>
-      {/* Show only selected version content on mobile */}
-      {versions.map((version, index) => (
-        <TabsContent
-          value={version.versionId}
-          key={index}
-          className={`sm:block ${selectedVersion === version.versionId ? "block" : "hidden"}`}
+
+      {/* Desktop Version Tabs */}
+      <div className="hidden sm:block">
+        <div className="flex items-center gap-2 mb-4">
+          <span className="text-sm">{t("selectVersion")}</span>
+        </div>
+        <Tabs
+          value={selectedVersion}
+          onValueChange={setSelectedVersion}
         >
-          <TooltipProvider>
-            <Tooltip>
-              <div className="flex items-center gap-2">
-                <h2 className="font-display font-bold text-2xl sm:text-4xl">
-                  {version.currentVersion}
-                </h2>
-                <TooltipTrigger>
-                  <InfoCircledIcon className="text-muted-foreground h-5 w-5" />
-                </TooltipTrigger>
-              </div>
-              <TooltipContent>
-                <b>{t("plannedEol")} </b>
-                {version.plannedEol}
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          <div className="mt-4 flex flex-col sm:flex-row gap-2 sm:gap-0">
-            {version.downloadOptions.map((option, index) => (
-              <Link
-                href={option.link}
+          <TabsList>
+            {versions.map((version, index) => (
+              <TabsTrigger
                 key={index}
-                className="w-full sm:w-auto"
+                value={version.versionId}
               >
-                <Button
-                  key={index}
-                  className={`w-full sm:w-auto ${index !== 0 ? "sm:ml-4" : ""}`}
-                >
-                  {option.label}
-                </Button>
-              </Link>
+                {version.versionName}
+              </TabsTrigger>
             ))}
-          </div>
-          {/* Links */}
-          <div className="mt-4 flex flex-col sm:flex-row gap-2 sm:gap-4 text-center sm:text-left">
-            {version.links.map((link, index) => (
-              <a
-                key={index}
-                href={link.link}
-                className="underline hover:no-underline"
-              >
-                {link.name}
-              </a>
-            ))}
-          </div>
-        </TabsContent>
-      ))}
+          </TabsList>
+          {versions.map((version, index) => (
+            <TabsContent
+              value={version.versionId}
+              key={index}
+            >
+              <VersionContent
+                currentVersion={version.currentVersion}
+                plannedEol={version.plannedEol}
+                downloadOptions={version.downloadOptions}
+                links={version.links}
+              />
+            </TabsContent>
+          ))}
+        </Tabs>
+      </div>
     </>
   );
 };
