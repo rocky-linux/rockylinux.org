@@ -83,7 +83,9 @@ const CloudImageCard: React.FC<CloudImageCardProps> = ({
           {titleTooltip ? (
             <HoverCard>
               <div className="flex gap-2 items-center">
-                <h2 className="text-2xl font-display font-bold">{title}</h2>
+                <span className="text-xl sm:text-2xl font-display font-bold">
+                  {title}
+                </span>
                 <HoverCardTrigger className="text-muted-foreground">
                   <QuestionMarkCircledIcon />
                 </HoverCardTrigger>
@@ -104,7 +106,9 @@ const CloudImageCard: React.FC<CloudImageCardProps> = ({
             </HoverCard>
           ) : (
             <div className="flex gap-2 items-center">
-              <h2 className="text-2xl font-display font-bold">{title}</h2>
+              <span className="text-xl sm:text-2xl font-display font-bold">
+                {title}
+              </span>
             </div>
           )}
         </CardTitle>
@@ -122,11 +126,13 @@ const CloudImageCard: React.FC<CloudImageCardProps> = ({
             {t("cards.cloudImages.cloudProviders.title")}
           </h3>
 
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
             <Drawer>
-              <DrawerTrigger>
+              <DrawerTrigger className="w-full sm:w-auto">
                 <span
-                  className={buttonVariants({ variant: "default" }) + " mb-6"}
+                  className={
+                    buttonVariants({ variant: "default" }) + " w-full sm:w-auto"
+                  }
                 >
                   {t("cards.cloudImages.cloudProviders.aws.name")}
                 </span>
@@ -149,16 +155,20 @@ const CloudImageCard: React.FC<CloudImageCardProps> = ({
             <Link
               href="https://console.cloud.google.com/marketplace/browse?filter=partner:Rocky%20Linux"
               target="_blank"
+              className="w-full sm:w-auto"
             >
-              <Button>
+              <Button className="w-full sm:w-auto">
                 {t("cards.cloudImages.cloudProviders.googleCloud")}
               </Button>
             </Link>
             <Link
               href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/resf.rockylinux-x86_64"
               target="_blank"
+              className="w-full sm:w-auto"
             >
-              <Button>{t("cards.cloudImages.cloudProviders.azure")}</Button>
+              <Button className="w-full sm:w-auto">
+                {t("cards.cloudImages.cloudProviders.azure")}
+              </Button>
             </Link>
           </div>
         </div>

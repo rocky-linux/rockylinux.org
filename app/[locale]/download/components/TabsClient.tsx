@@ -8,6 +8,13 @@ import DefaultImageCard from "./DefaultImage/Card";
 import CloudImageCard from "./CloudImage/Card";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface ProcessedVersion {
   versionName: string;
@@ -112,7 +119,18 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
   const isInitialLoad = useRef(true);
 
   const archFromUrl = searchParams.get("arch");
-  const detectedArch = detectArchitecture();
+
+  // Use a stable default for initial render to avoid hydration mismatch
+  const [detectedArch, setDetectedArch] = useState("x86_64");
+
+  // Detect architecture only on client after hydration
+  useEffect(() => {
+    const detected = detectArchitecture();
+    if (availableArchitectures.includes(detected)) {
+      setDetectedArch(detected);
+    }
+  }, [availableArchitectures]);
+
   const defaultArch = availableArchitectures.includes(detectedArch)
     ? detectedArch
     : "x86_64";
@@ -166,7 +184,7 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
       value={currentArch}
       onValueChange={updateArchitecture}
     >
-      <TabsList className="sm:flex justify-center gap-4 hidden">
+      <TabsList className="sm:flex justify-center lg:gap-4 hidden">
         {Object.keys(architectures).map((arch) => (
           <TabsTrigger
             key={arch}
@@ -176,22 +194,33 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
           </TabsTrigger>
         ))}
       </TabsList>
-      <TabsList className="flex justify-center gap-4 sm:hidden">
-        {Object.keys(architectures).map((arch) => (
-          <TabsTrigger
-            key={arch}
-            value={arch}
-          >
-            {translations.tabsShortened[arch]}
-          </TabsTrigger>
-        ))}
-      </TabsList>
+      {/* Mobile dropdown for architecture selection */}
+      <div className="sm:hidden w-full mb-4">
+        <Select
+          value={currentArch}
+          onValueChange={updateArchitecture}
+        >
+          <SelectTrigger className="w-full">
+            <SelectValue>{translations.tabs[currentArch]}</SelectValue>
+          </SelectTrigger>
+          <SelectContent>
+            {Object.keys(architectures).map((arch) => (
+              <SelectItem
+                key={arch}
+                value={arch}
+              >
+                {translations.tabs[arch]}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
       {Object.entries(architectures).map(([arch, data]) => (
         <TabsContent
           key={arch}
           value={arch}
         >
-          <div className="grid gap-6 mt-4">
+          <div className="grid gap-4 sm:gap-6 mt-4 overflow-x-hidden">
             <DefaultImageCard
               title={translations.cards.defaultImages.title}
               titleTooltip={true}

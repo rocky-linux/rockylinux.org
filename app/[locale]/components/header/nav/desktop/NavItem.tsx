@@ -14,15 +14,14 @@ export interface NavItemProps {
 const NavItem = ({ title, href }: NavItemProps) => {
   return (
     <NavigationMenuItem>
-      <Link
-        href={href}
-        legacyBehavior
-        passHref
-      >
-        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+      <NavigationMenuLink asChild>
+        <Link
+          href={href}
+          className={navigationMenuTriggerStyle()}
+        >
           {title}
-        </NavigationMenuLink>
-      </Link>
+        </Link>
+      </NavigationMenuLink>
     </NavigationMenuItem>
   );
 };
