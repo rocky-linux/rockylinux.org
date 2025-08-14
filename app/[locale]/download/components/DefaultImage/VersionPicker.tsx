@@ -1,15 +1,15 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
-import { TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import React, { useState } from "react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { InfoCircledIcon } from "@radix-ui/react-icons";
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
+import { cn } from "@/lib/utils";
+import VersionContent from "./VersionContent";
 
 interface DownloadOption {
   label: string;
@@ -36,70 +36,90 @@ interface DownloadCardProps {
 
 const VersionPicker: React.FC<DownloadCardProps> = ({ versions }) => {
   const t = useTranslations("download");
+  const [selectedVersion, setSelectedVersion] = useState(
+    versions[0]?.versionId || "rocky-10"
+  );
 
   return (
     <>
-      <span className="mr-2">{t("selectVersion")}</span>
-      <TabsList>
-        {versions.map((version, index) => (
-          <TabsTrigger
-            key={index}
-            value={version.versionId}
+      {/* Mobile Version Selector and Content */}
+      <div className="sm:hidden">
+        <div className="flex flex-col gap-2 mb-4">
+          <span className="text-sm">{t("selectVersion")}</span>
+          <Select
+            value={selectedVersion}
+            onValueChange={setSelectedVersion}
           >
-            {version.versionName}
-          </TabsTrigger>
-        ))}
-      </TabsList>
-      {versions.map((version, index) => (
-        <TabsContent
-          value={version.versionId}
-          key={index}
-        >
-          <TooltipProvider>
-            <Tooltip>
-              <div className="flex items-center gap-2">
-                <h2 className="font-display font-bold text-4xl">
-                  {version.currentVersion}
-                </h2>
-                <TooltipTrigger>
-                  <InfoCircledIcon className="text-muted-foreground h-5 w-5" />
-                </TooltipTrigger>
-              </div>
-              <TooltipContent>
-                <b>{t("plannedEol")} </b>
-                {version.plannedEol}
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          <div className="mt-4">
-            {version.downloadOptions.map((option, index) => (
-              <Link
-                href={option.link}
-                key={index}
-              >
-                <Button
+            <SelectTrigger className="w-full">
+              <SelectValue>
+                {versions.find((v) => v.versionId === selectedVersion)
+                  ?.versionName || versions[0]?.versionName}
+              </SelectValue>
+            </SelectTrigger>
+            <SelectContent>
+              {versions.map((version, index) => (
+                <SelectItem
                   key={index}
-                  className={`mt-2 ${index !== 0 ? "ml-4" : ""}`}
+                  value={version.versionId}
                 >
-                  {option.label}
-                </Button>
-              </Link>
-            ))}
+                  {version.versionName}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+        {/* Mobile content - show only selected version */}
+        {versions.map((version, index) => (
+          <div
+            key={index}
+            className={cn(
+              selectedVersion === version.versionId ? "block" : "hidden"
+            )}
+          >
+            <VersionContent
+              currentVersion={version.currentVersion}
+              plannedEol={version.plannedEol}
+              downloadOptions={version.downloadOptions}
+              links={version.links}
+            />
           </div>
-          {/* Links */}
-          <div className="mt-4 sm:flex grid grid-cols-2 sm:gap-4">
-            {version.links?.map((link, index) => (
-              <a
+        ))}
+      </div>
+
+      {/* Desktop Version Tabs */}
+      <div className="hidden sm:block">
+        <div className="flex items-center gap-2 mb-4">
+          <span className="text-sm">{t("selectVersion")}</span>
+        </div>
+        <Tabs
+          value={selectedVersion}
+          onValueChange={setSelectedVersion}
+        >
+          <TabsList>
+            {versions.map((version, index) => (
+              <TabsTrigger
                 key={index}
-                href={link.link}
-                className="underline"
+                value={version.versionId}
               >
-                {link.name}
-              </a>
+                {version.versionName}
+              </TabsTrigger>
             ))}
-          </div>
-        </TabsContent>
-      ))}
+          </TabsList>
+          {versions.map((version, index) => (
+            <TabsContent
+              value={version.versionId}
+              key={index}
+            >
+              <VersionContent
+                currentVersion={version.currentVersion}
+                plannedEol={version.plannedEol}
+                downloadOptions={version.downloadOptions}
+                links={version.links}
+              />
+            </TabsContent>
+          ))}
+        </Tabs>
+      </div>
     </>
   );
 };

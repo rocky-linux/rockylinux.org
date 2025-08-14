@@ -10,7 +10,7 @@ jest.mock("next-intl/plugin", () => {
   });
 });
 
-import nextConfig from "../next.config";
+import nextConfig from "../next.config.mjs";
 
 describe("next.config", () => {
   describe("images", () => {

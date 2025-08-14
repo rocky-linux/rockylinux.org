@@ -59,7 +59,9 @@ const DefaultImageCard: React.FC<DefaultImageCardProps> = ({
         {titleTooltip ? (
           <HoverCard>
             <div className="flex gap-2 items-center">
-              <h2 className="text-2xl font-display font-bold">{title}</h2>
+              <span className="text-xl sm:text-2xl font-display font-bold">
+                {title}
+              </span>
               <HoverCardTrigger className="text-muted-foreground">
                 <QuestionMarkCircledIcon />
               </HoverCardTrigger>
@@ -79,7 +81,9 @@ const DefaultImageCard: React.FC<DefaultImageCardProps> = ({
             </HoverCardContent>
           </HoverCard>
         ) : (
-          <h2 className="text-2xl font-display font-bold">{title}</h2>
+          <span className="text-xl sm:text-2xl font-display font-bold">
+            {title}
+          </span>
         )}
       </CardTitle>
     </CardHeader>

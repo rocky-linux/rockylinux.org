@@ -172,7 +172,7 @@
               {
                 "name": "Raspberry Pi",
                 "download": "https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz",
-                "checksum": "https://dl.rockylinux.org/pub/sig/10/altarch/aarch64/images/RockyLinuxRpi_10-latest.img.xz.sha256sum",
+                "checksum": "https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz.CHECKSUM",
                 "readMe": "https://dl.rockylinux.org/pub/sig/10/altarch/aarch64/images/README.txt"
               }
             ],
@@ -182,7 +182,7 @@
           },
           "links": {
             "defaultImages": {
-              "torrent": "https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.0-aarch64-dvd.torrent",
+              "torrent": "https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.0-aarch64-dvd1.torrent",
               "checksum": "https://download.rockylinux.org/pub/rocky/10/isos/aarch64/CHECKSUM",
               "baseOs": "https://download.rockylinux.org/pub/rocky/10/BaseOS/aarch64/",
               "archived": "https://dl.rockylinux.org/vault/rocky"
@@ -332,7 +332,7 @@
           },
           "links": {
             "defaultImages": {
-              "torrent": "https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.0-ppc64le-dvd.torrent",
+              "torrent": "https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.0-ppc64le-dvd1.torrent",
               "checksum": "https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/CHECKSUM",
               "baseOs": "https://download.rockylinux.org/pub/rocky/10/BaseOS/ppc64le/",
               "archived": "https://dl.rockylinux.org/vault/rocky"
@@ -349,7 +349,7 @@
           "plannedEol": "May 31, 2032",
           "downloadOptions": {
             "defaultImages": {
-              "dvd": "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.6-ppc64le-dvd1.iso",
+              "dvd": "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.6-ppc64le-dvd.iso",
               "boot": "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.6-ppc64le-boot.iso",
               "minimal": "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.6-ppc64le-minimal.iso"
             },
@@ -398,7 +398,7 @@
           },
           "links": {
             "defaultImages": {
-              "torrent": "https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.0-s390x-dvd.torrent",
+              "torrent": "https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.0-s390x-dvd1.torrent",
               "checksum": "https://download.rockylinux.org/pub/rocky/10/isos/s390x/CHECKSUM",
               "baseOs": "https://download.rockylinux.org/pub/rocky/10/BaseOS/s390x/",
               "archived": "https://dl.rockylinux.org/vault/rocky"
@@ -453,9 +453,6 @@
               "dvd": "https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.0-riscv64-dvd1.iso",
               "boot": "https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.0-riscv64-boot.iso"
             },
-            "cloudImages": {
-              "qcow2": "https://dl.rockylinux.org/pub/rocky/10/images/riscv64/Rocky-10-GenericCloud-Base.latest.riscv64.qcow2"
-            },
             "container": {
               "fullImage": "https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.0",
               "minimalImage": "https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.0-minimal"
@@ -466,7 +463,7 @@
           },
           "links": {
             "defaultImages": {
-              "torrent": "https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.0-riscv64-dvd.torrent",
+              "torrent": "https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.0-riscv64-dvd1.torrent",
               "checksum": "https://download.rockylinux.org/pub/rocky/10/isos/riscv64/CHECKSUM",
               "baseOs": "https://download.rockylinux.org/pub/rocky/10/BaseOS/riscv64/",
               "archived": "https://dl.rockylinux.org/vault/rocky"
