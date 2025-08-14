@@ -69,21 +69,23 @@ const VersionPicker: React.FC<DownloadCardProps> = ({ versions }) => {
           </Select>
         </div>
         {/* Mobile content - show only selected version */}
-        {versions.map((version, index) => (
-          <div
-            key={index}
-            className={cn(
-              selectedVersion === version.versionId ? "block" : "hidden"
-            )}
-          >
-            <VersionContent
-              currentVersion={version.currentVersion}
-              plannedEol={version.plannedEol}
-              downloadOptions={version.downloadOptions}
-              links={version.links}
-            />
-          </div>
-        ))}
+        {versions
+          .filter((v) => v.downloadOptions.length > 0 && v.links.length > 0)
+          .map((version, index) => (
+            <div
+              key={index}
+              className={cn(
+                selectedVersion === version.versionId ? "block" : "hidden"
+              )}
+            >
+              <VersionContent
+                currentVersion={version.currentVersion}
+                plannedEol={version.plannedEol}
+                downloadOptions={version.downloadOptions}
+                links={version.links}
+              />
+            </div>
+          ))}
       </div>
 
       {/* Desktop Version Tabs */}
@@ -105,19 +107,21 @@ const VersionPicker: React.FC<DownloadCardProps> = ({ versions }) => {
               </TabsTrigger>
             ))}
           </TabsList>
-          {versions.map((version, index) => (
-            <TabsContent
-              value={version.versionId}
-              key={index}
-            >
-              <VersionContent
-                currentVersion={version.currentVersion}
-                plannedEol={version.plannedEol}
-                downloadOptions={version.downloadOptions}
-                links={version.links}
-              />
-            </TabsContent>
-          ))}
+          {versions
+            .filter((v) => v.downloadOptions.length > 0 && v.links.length > 0)
+            .map((version, index) => (
+              <TabsContent
+                value={version.versionId}
+                key={index}
+              >
+                <VersionContent
+                  currentVersion={version.currentVersion}
+                  plannedEol={version.plannedEol}
+                  downloadOptions={version.downloadOptions}
+                  links={version.links}
+                />
+              </TabsContent>
+            ))}
         </Tabs>
       </div>
     </>

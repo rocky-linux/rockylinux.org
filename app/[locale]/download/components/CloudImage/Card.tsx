@@ -26,6 +26,7 @@ import { Url } from "next/dist/shared/lib/router/router";
 import { CloudImage, Columns } from "./Table/Columns";
 import { DataTable } from "./Table/DataTable";
 import cloudImages from "@/data/cloud-images.json";
+import { cn } from "@/lib/utils";
 
 interface DownloadOption {
   label: string;
@@ -76,6 +77,11 @@ const CloudImageCard: React.FC<CloudImageCardProps> = ({
   const t = useTranslations("download");
   const tGlobal = useTranslations("global");
 
+  const hasCloudImages =
+    versions.length > 0 &&
+    versions[0].downloadOptions.length > 0 &&
+    versions[0].links.length > 0;
+
   return (
     <Card>
       <CardHeader>
@@ -113,15 +119,19 @@ const CloudImageCard: React.FC<CloudImageCardProps> = ({
           )}
         </CardTitle>
       </CardHeader>
-      <CardContent>
-        <h3 className="text-lg font-display font-bold">
-          {t("cards.cloudImages.genericCloud")}
-        </h3>
-        <Tabs defaultValue="rocky-10">
-          <VersionPicker versions={versions} />
-        </Tabs>
-        <hr className="my-8" />
-        <div className="mt-8">
+      <CardContent className={cn(!hasCloudImages ? "sm:!pt-0" : "")}>
+        {hasCloudImages && (
+          <>
+            <h3 className="text-lg font-display font-bold">
+              {t("cards.cloudImages.genericCloud")}
+            </h3>
+            <Tabs defaultValue="rocky-10">
+              <VersionPicker versions={versions} />
+            </Tabs>
+            <hr className="my-8" />
+          </>
+        )}
+        <div className={cn(hasCloudImages ? "mt-8" : "")}>
           <h3 className="text-lg font-display font-bold mb-4">
             {t("cards.cloudImages.cloudProviders.title")}
           </h3>
