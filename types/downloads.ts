@@ -30,7 +30,7 @@ export interface DownloadOptions {
     boot: string;
     minimal?: string;
   };
-  cloudImages: {
+  cloudImages?: {
     qcow2: string;
   };
   container: {
@@ -67,7 +67,7 @@ export interface Links {
     baseOs: string;
     archived: string;
   };
-  cloudImages: {
+  cloudImages?: {
     checksum: string;
   };
   liveImages?: {

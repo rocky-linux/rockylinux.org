@@ -34,9 +34,7 @@ describe("News Library", () => {
       return index >= 0 ? Promise.resolve() : Promise.reject();
     });
 
-    jest
-      .spyOn(fs.promises, "readdir")
-      .mockResolvedValue(mockFileNames as unknown as Dirent[]);
+    jest.spyOn(fs.promises, "readdir").mockResolvedValue(mockFileNames as any);
 
     jest.spyOn(fs.promises, "readFile").mockImplementation((filePath) => {
       const index = mockFileNames.indexOf(path.basename(filePath.toString()));

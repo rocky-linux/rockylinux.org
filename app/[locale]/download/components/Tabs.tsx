@@ -137,18 +137,25 @@ const DownloadTabs = ({ downloadData }: DownloadTabsProps) => {
           };
 
           const cloudImages = {
-            downloadOptions: [
-              {
-                label: translations.cards.cloudImages.downloadOptions.qcow2,
-                link: version.downloadOptions.cloudImages.qcow2,
-              },
-            ],
-            links: [
-              {
-                name: translations.cards.defaultImages.checksum,
-                link: version.links.cloudImages.checksum,
-              },
-            ],
+            downloadOptions:
+              version.downloadOptions.cloudImages && version.links.cloudImages
+                ? [
+                    {
+                      label:
+                        translations.cards.cloudImages.downloadOptions.qcow2,
+                      link: version.downloadOptions.cloudImages.qcow2,
+                    },
+                  ]
+                : [],
+            links:
+              version.downloadOptions.cloudImages && version.links.cloudImages
+                ? [
+                    {
+                      name: translations.cards.defaultImages.checksum,
+                      link: version.links.cloudImages.checksum,
+                    },
+                  ]
+                : [],
           };
 
           const containerImages = {
