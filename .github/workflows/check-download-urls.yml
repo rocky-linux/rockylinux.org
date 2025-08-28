@@ -125,7 +125,7 @@ jobs:
             }
 
       - name: Close issue if URLs are fixed
-        if: steps.url-check.outcome == 'success'
+        if: steps.url-check.outcome == 'success' && github.event_name != 'pull_request'
         uses: actions/github-script@v7
         with:
           script: |
