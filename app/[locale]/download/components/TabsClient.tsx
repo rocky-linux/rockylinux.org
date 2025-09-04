@@ -15,6 +15,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Route } from "next";
 
 interface ProcessedVersion {
   versionName: string;
@@ -146,7 +147,7 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
     params.set("arch", newArch);
 
     // Use push to maintain history for user-initiated changes
-    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+    router.push(`${pathname}?${params.toString()}` as Route, { scroll: false });
   };
 
   // Set default architecture on initial load (only if no arch in URL)

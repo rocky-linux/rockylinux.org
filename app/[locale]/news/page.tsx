@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { NextPage, Route } from "next";
 
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
@@ -40,7 +40,7 @@ const NewsPage: NextPage = async () => {
           {posts.map((post) => (
             <Link
               key={post.slug}
-              href={`/news/${post.slug}`}
+              href={`/news/${post.slug}` as Route}
             >
               <Card key={post.slug}>
                 <CardHeader>

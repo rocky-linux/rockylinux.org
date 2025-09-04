@@ -1,6 +1,5 @@
 import React, { JSX } from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 type SponsorProps = {
   href: string;
@@ -11,7 +10,7 @@ type SponsorProps = {
 
 const PartnerSponsor: React.FC<SponsorProps> = ({ href, logo, src, alt }) => {
   return (
-    <Link
+    <a
       className="mx-auto flex w-full items-center justify-center p-4 sm:p-8 rounded-lg border focus-visible:outline-hidden focus-visible:ring-1"
       href={href}
       target="_blank"
@@ -33,7 +32,7 @@ const PartnerSponsor: React.FC<SponsorProps> = ({ href, logo, src, alt }) => {
         />
       ) : null}
       <p className="sr-only">{alt}</p>
-    </Link>
+    </a>
   );
 };
 

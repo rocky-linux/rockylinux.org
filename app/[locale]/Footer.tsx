@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { JSX, SVGProps, Suspense } from "react";
 import LanguagePickerWrapper from "@/components/LanguagePickerWrapper";
+import type { Route } from "next";
 
 export default function Footer() {
   const tFooter = useTranslations("footer");
@@ -180,7 +181,7 @@ export default function Footer() {
                 className="pb-6"
               >
                 <Link
-                  href={item.href}
+                  href={item.href as Route}
                   className="text-sm leading-6"
                 >
                   {item.name}
@@ -191,14 +192,14 @@ export default function Footer() {
         </nav>
         <div className="mt-6 flex flex-wrap justify-center items-center gap-y-6 gap-x-6">
           {navigation.social.map((item) => (
-            <Link
+            <a
               key={item.name}
               href={item.href}
               target="_blank"
             >
               <span className="sr-only">{item.name}</span>
               <item.icon aria-hidden="true" />
-            </Link>
+            </a>
           ))}
         </div>
         <div className="mt-12 flex justify-center items-center">

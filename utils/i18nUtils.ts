@@ -1,7 +1,7 @@
 import { availableLanguages } from "@/config/i18nProperties";
-import type { AvailableLanguagesType } from "@/types/i18nTypes";
+import type { Locale } from "@/types/i18nTypes";
 
-export const checkLanguage = (language: string): AvailableLanguagesType => {
+export const checkLanguage = (language: string): Locale => {
   if (typeof language === "string") {
     if (
       !availableLanguages.includes(
@@ -11,12 +11,12 @@ export const checkLanguage = (language: string): AvailableLanguagesType => {
       return "en";
     }
 
-    return language as AvailableLanguagesType;
+    return language as Locale;
   } else {
     return "en";
   }
 };
 
-export const getMessages = async (locale: AvailableLanguagesType) => {
+export const getMessages = async (locale: Locale) => {
   return (await import(`@/messages/${locale}.json`)).default;
 };
