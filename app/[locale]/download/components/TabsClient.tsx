@@ -189,6 +189,7 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
           <TabsTrigger
             key={arch}
             value={arch}
+            className="cursor-pointer"
           >
             {translations.tabs[arch]}
           </TabsTrigger>
@@ -200,7 +201,7 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
           value={currentArch}
           onValueChange={updateArchitecture}
         >
-          <SelectTrigger className="w-full">
+          <SelectTrigger className="w-full cursor-pointer">
             <SelectValue>{translations.tabs[currentArch]}</SelectValue>
           </SelectTrigger>
           <SelectContent>
@@ -208,6 +209,7 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
               <SelectItem
                 key={arch}
                 value={arch}
+                className="cursor-pointer"
               >
                 {translations.tabs[arch]}
               </SelectItem>
