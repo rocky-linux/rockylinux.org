@@ -6,17 +6,19 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
-export interface NavItemProps {
+import type { Route } from "next";
+
+export interface NavItemProps<T extends string> {
   title: string;
-  href: string;
+  href: Route<T> | URL;
 }
 
-const NavItem = ({ title, href }: NavItemProps) => {
+const NavItem = <T extends string>({ title, href }: NavItemProps<T>) => {
   return (
     <NavigationMenuItem>
       <NavigationMenuLink asChild>
         <Link
-          href={href}
+          href={href as Route<T>}
           className={navigationMenuTriggerStyle()}
         >
           {title}

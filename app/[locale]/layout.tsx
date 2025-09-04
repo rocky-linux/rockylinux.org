@@ -16,14 +16,9 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
 
 import PlausibleProvider from "next-plausible";
-
-type RootLayoutProps = {
-  children: ReactNode;
-  params: Promise<{ locale: (typeof availableLanguages)[number] }>;
-};
+import type { Locale } from "@/types/i18nTypes";
 
 export const metadata: Metadata = {
   title: "Rocky Linux",
@@ -45,10 +40,10 @@ const fontDisplay = FontDisplay({
 export default async function RootLayout({
   children,
   params,
-}: RootLayoutProps) {
+}: LayoutProps<"/[locale]">) {
   const { locale } = await params;
 
-  if (!availableLanguages.includes(locale)) notFound();
+  if (!availableLanguages.includes(locale as Locale)) notFound();
 
   const messages = await getMessages();
 

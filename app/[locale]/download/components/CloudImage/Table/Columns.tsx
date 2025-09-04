@@ -4,7 +4,6 @@
 import { Button } from "@/components/ui/button";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown } from "lucide-react";
-import Link from "next/link";
 
 export type CloudImage = {
   version: string;
@@ -63,7 +62,7 @@ export const Columns: ColumnDef<CloudImage>[] = [
     header: "Deploy",
     cell: ({ cell }) => {
       return (
-        <Link
+        <a
           target="_blank"
           href={cell.getValue() as string}
           rel="noopener noreferrer"
@@ -74,7 +73,7 @@ export const Columns: ColumnDef<CloudImage>[] = [
           >
             Deploy
           </Button>
-        </Link>
+        </a>
       );
     },
   },
