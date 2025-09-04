@@ -3,7 +3,11 @@ import type { AvailableLanguagesType } from "@/types/i18nTypes";
 
 export const checkLanguage = (language: string): AvailableLanguagesType => {
   if (typeof language === "string") {
-    if (!availableLanguages.includes(language as any)) {
+    if (
+      !availableLanguages.includes(
+        language as (typeof availableLanguages)[number]
+      )
+    ) {
       return "en";
     }
 

@@ -20,6 +20,15 @@ const compat = new FlatCompat({
 const eslintConfig = [
   {
     ignores: [
+      "node_modules/**",
+      ".next/**",
+      "out/**",
+      "build/**",
+      "next-env.d.ts",
+    ],
+  },
+  {
+    ignores: [
       "**/typings/",
       "**/public/",
       "scripts/**",
@@ -27,6 +36,8 @@ const eslintConfig = [
       "**/__tests__/**",
       ".lintstagedrc.js",
       "next.config.mjs",
+      "global.d.ts",
+      "jest.setup.js",
     ],
   },
   ...compat.config({
