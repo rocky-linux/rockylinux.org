@@ -250,12 +250,12 @@
         }
       },
       "rpiImages": {
-        "title": "Raspberry Pi Images",
+        "title": "Imágenes de Raspberry Pi",
         "download": "Download",
         "readMe": "README"
       },
       "wslImages": {
-        "title": "Windows Subsystem for Linux (WSL) Images",
+        "title": "Subsistema de Windows para imágenes Linux (WSL)",
         "download": "Download",
         "readMe": "README"
       },
