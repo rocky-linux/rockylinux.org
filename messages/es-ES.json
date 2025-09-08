@@ -4,7 +4,7 @@
     "download": "Download",
     "notFound": {
       "title": "Not Found",
-      "description": "The page you are looking for does not exist. Please check the URL and try again."
+      "description": "La página que buscas no existe. Por favor, comprueba la URL e inténtalo de nuevo."
     },
     "close": "Close"
   },
@@ -113,7 +113,7 @@
     "mastodon": {
       "name": "Mastodon",
       "url-valid": "Please enter a valid Mastodon instance URL (without https://).",
-      "url": "Mastodon Instance URL"
+      "url": "URL de la instancia de Mastodon"
     },
     "facebook": "Facebook",
     "linkedin": "LinkedIn",
@@ -176,7 +176,7 @@
       },
       "riscv64": "RISC-V (riscv64)"
     },
-    "selectVersion": "Select a version:",
+    "selectVersion": "Selecciona una versión:",
     "plannedEol": "Planned EOL:",
     "cards": {
       "defaultImages": {
@@ -250,12 +250,12 @@
         }
       },
       "rpiImages": {
-        "title": "Raspberry Pi Images",
+        "title": "Imágenes de Raspberry Pi",
         "download": "Download",
         "readMe": "README"
       },
       "wslImages": {
-        "title": "Windows Subsystem for Linux (WSL) Images",
+        "title": "Subsistema de Windows para imágenes Linux (WSL)",
         "download": "Download",
         "readMe": "README"
       },
