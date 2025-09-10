@@ -12,48 +12,48 @@
     "toggleTheme": "Temayı Değiştir",
     "nav": {
       "newsName": "Haberler",
-      "aboutName": "About",
-      "resourcesName": "Resources",
-      "communityName": "Community",
+      "aboutName": "Hakkında",
+      "resourcesName": "Kaynaklar",
+      "communityName": "Topluluk",
       "supportName": "Yardım",
-      "contributeName": "Contribute",
-      "openMainMenu": "Open Main Menu",
+      "contributeName": "Katkıda Bulun",
+      "openMainMenu": "Ana Menüyü Aç",
       "about": {
-        "about": "About Rocky Linux",
-        "charter": "Community Charter",
-        "wiki": "Project Wiki",
-        "sponsors": "Sponsors",
-        "partners": "Partners"
+        "about": "Rocky Linux Hakkında",
+        "charter": "Topluluk Sözleşmesi",
+        "wiki": "Proje Wiki",
+        "sponsors": "Sponsorlar",
+        "partners": "Ortaklar"
       },
       "resources": {
-        "gpgKeyInfo": "GPG Key Info"
+        "gpgKeyInfo": "GPG Anahtar Kimliği:"
       },
       "community": {
-        "coc": "Code of Conduct",
+        "coc": "Davranış Kuralları",
         "forums": "Forumlar",
         "mailing": "E-posta Listeleri",
         "mattermost": "Mattermost",
         "irc": "IRC",
-        "calendar": "Calendar"
+        "calendar": "Takvim"
       },
       "support": {
         "docs": "Dökümantasyon",
-        "submitBug": "Submit Bug",
-        "supportProviders": "Commercial Support"
+        "submitBug": "Hata Bildir",
+        "supportProviders": "Ticari Destek"
       },
       "contribute": {
-        "contribute": "Contributing Guide",
-        "shop": "Shop",
-        "donate": "Donate"
+        "contribute": "Katkıda Bulunma Rehberi",
+        "shop": "Mağaza",
+        "donate": "Bağış Yap"
       }
     }
   },
   "footer": {
-    "footer": "Footer",
+    "footer": "Alt Bilgi",
     "nav": {
-      "licensingName": "Licensing",
-      "privacyPolicyName": "Privacy Policy",
-      "TrademarksName": "Trademarks"
+      "licensingName": "Lisanslama",
+      "privacyPolicyName": "Gizlilik Politikası",
+      "TrademarksName": "Ticari Markalar"
     },
     "socialNav": {
       "bluesky": "Bluesky",
@@ -70,7 +70,7 @@
   "home": {
     "hero": {
       "title": "Kurumsal Linux, <span>topluluk ile.</span>",
-      "description": "Rocky Linux is an open-source enterprise operating system designed to be 100% bug-for-bug compatible with Red Hat Enterprise Linux®. Rocky Linux is under intensive development by the community.",
+      "description": "Rocky Linux is an open-source enterprise operating system designed to be 100% bug-for-bug compatible with Red Hat Enterprise Linux®. It is under intensive development by the community.",
       "migrate": "Geçiş",
       "dpg": "Tescilli Bir Dijital Kamu Yararı"
     },
@@ -120,7 +120,7 @@
     "threads": "Threads"
   },
   "about": {
-    "title": "About",
+    "title": "Hakkında",
     "headings": {
       "title": "Her şey bir blog yorumuyla başladı.",
       "subTitle": "Geçmiş"
@@ -138,18 +138,18 @@
     }
   },
   "sponsors": {
-    "title": "Sponsors",
+    "title": "Sponsorlar",
     "description": "The Rocky Linux project is made possible by the generous support of our sponsors. We are grateful for their contributions to the project.",
     "learnMore": "Daha Fazla Bilgi",
     "foundingSponsor": "Kurucu Sponsor"
   },
   "partners": {
-    "title": "Partners",
+    "title": "Ortaklar",
     "description": "The Rocky Linux project is proud to partner with the following organizations. We are grateful for their support and contributions to the project.",
     "foundingPartner": "Kurucu Ortak"
   },
   "supportProviders": {
-    "title": "Commercial Support",
+    "title": "Ticari Destek",
     "description": "Aşağıdaki sponsorlar Rocky Linux için ticari destek sağlamaktadır.",
     "foundingSponsor": "Kurucu Sponsor"
   },
@@ -228,13 +228,13 @@
           "azure": "Microsoft Azure"
         },
         "downloadOptions": {
-          "qcow2": "QCOW2 Image"
+          "qcow2": "QCOW2 İmajı"
         }
       },
       "container": {
-        "title": "Docker (OCI) Images",
+        "title": "Docker (OCI) İmajları",
         "downloadOptions": {
-          "fullImage": "Full Image",
+          "fullImage": "Tam İmaj",
           "minimalImage": "Minimal Image"
         }
       },
