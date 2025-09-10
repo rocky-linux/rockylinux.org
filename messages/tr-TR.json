@@ -195,33 +195,33 @@
         "torrent": "Torrent (DVD ISO)",
         "checksum": "CHECKSUM",
         "checksums": "CHECKSUMS",
-        "baseOs": "BaseOS Packages",
-        "archived": "Archived Releases",
+        "baseOs": "BaseOS Paketleri",
+        "archived": "Arşivlenmiş Sürümler",
         "x86_64": {
           "r9": {
             "versionName": "Rocky Linux 9",
-            "plannedEol": "May 31 2032"
+            "plannedEol": "2032-05-31"
           },
           "r8": {
             "versionName": "Rocky Linux 8",
-            "plannedEol": "May 31 2029"
+            "plannedEol": "2029-05-31"
           }
         }
       },
       "cloudImages": {
-        "title": "Cloud Images",
-        "genericCloud": "Generic Cloud",
+        "title": "Bulut İmajları",
+        "genericCloud": "Jenerik Bulut",
         "cloudProviders": {
-          "title": "Cloud Providers",
+          "title": "Bulut Hizmet Sağlayıcıları",
           "aws": {
             "name": "AWS AMI",
-            "drawerTitle": "AWS AMI Images",
+            "drawerTitle": "AWS AMI İmajları",
             "table": {
-              "version": "Version",
-              "region": "Region",
-              "architecture": "Architecture",
-              "imageId": "Image ID",
-              "deploy": "Deploy"
+              "version": "Sürüm",
+              "region": "Bölge",
+              "architecture": "Mimari",
+              "imageId": "İmaj Kimliği",
+              "deploy": "Dağıtım"
             }
           },
           "googleCloud": "Google Cloud",
@@ -235,11 +235,11 @@
         "title": "Docker (OCI) İmajları",
         "downloadOptions": {
           "fullImage": "Tam İmaj",
-          "minimalImage": "Minimal Image"
+          "minimalImage": "Minimal İmaj"
         }
       },
       "liveImages": {
-        "title": "Desktop/Workstation Live Images",
+        "title": "Masaüstü/İş İstasyonu Canlı Görüntüleri",
         "downloadOptions": {
           "gnome": "GNOME",
           "gnomeLite": "GNOME (Lite)",
@@ -250,54 +250,54 @@
         }
       },
       "rpiImages": {
-        "title": "Raspberry Pi Images",
+        "title": "Raspberry Pi İmajları",
         "download": "İndir",
-        "readMe": "README"
+        "readMe": "BENİOKU"
       },
       "wslImages": {
-        "title": "Windows Subsystem for Linux (WSL) Images",
+        "title": "Linux için Windows Alt Sistemi (WSL) İmajları",
         "download": "İndir",
-        "readMe": "README"
+        "readMe": "BENİOKU"
       },
       "visionfive2Images": {
-        "title": "VisionFive 2 Images",
+        "title": "VisionFive 2 İmajları",
         "download": "İndir",
-        "readMe": "README"
+        "readMe": "BENİOKU"
       },
       "specializedDevices": {
-        "title": "Specialized Devices",
+        "title": "Özel Cihazlar",
         "download": "İndir",
-        "readMe": "README"
+        "readMe": "BENİOKU"
       }
     },
     "getInvolved": {
-      "title": "Get Involved",
+      "title": "Katkıda Bulun",
       "text": "As you download and use Rocky Linux, the Rocky Enterprise Software Foundation invites you to be a part of the community as a contributor. There are many ways to contribute to the project, from documentation, QA, and testing to coding changes for SIGs, providing mirroring or hosting, and helping other users."
     },
     "exportCompliance": {
-      "title": "Export Compliance/Customs Information",
-      "text1": "By downloading Rocky Linux software, you acknowledge that you understand all of the following:",
+      "title": "Dışa Aktarma Uygunluk/Gümrük Bilgileri",
+      "text1": "Rocky Linux yazılımını indirerek, aşağıdakilerin tümünü anladığınızı kabul etmiş olursunuz:",
       "text2": "Rocky Linux software and technical information may be subject to the U.S. Export Administration Regulations (the \"EAR\") and other U.S. and foreign laws and may not be exported, re-exported or transferred (a) to a prohibited destination country under the EAR or U.S. sanctions regulations (currently Cuba, Iran, North Korea, Sudan, Syria, and the Crimea Region of Ukraine, subject to change as posted by the United States government); (b) to any prohibited destination or to any end user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government; or (c) for use in connection with the design, development or production of nuclear, chemical or biological weapons, or rocket systems, space launch vehicles, or sounding rockets, or unmanned air vehicle systems.",
       "narrative": "Rocky Linux in source code and binary code form is publicly available and is not subject to the EAR in accordance with §740.17(b)(1).",
-      "product_title": "Product",
-      "product_text": "Rocky Linux. Includes Rocky Linux Project \"Special Interest Group\" repositories.",
+      "product_title": "Ürün",
+      "product_text": "Rocky Linux. Rocky Linux Projesi \"Özel İlgi Grubu\" depolarını içerir.",
       "eccn_title": "ECCN",
       "eccn_text": "5D992.c",
-      "exception_title": "License Exception",
-      "exception_text": "Mass Market §740.17(b)(1)",
+      "exception_title": "Lisans İstisnası",
+      "exception_text": "Kitlesel Pazar §740.17(b)(1)",
       "ccats_title": "CCATS",
-      "ccats_text": "N/A",
+      "ccats_text": "Yok",
       "ern_title": "ERN",
-      "ern_text": "N/A"
+      "ern_text": "Yok"
     }
   },
   "community": {
-    "title": "Welcome to the community!",
-    "description": "Select your area of interest, and we'll guide you to the right place.",
-    "noSelection": "Select an option to see more details.",
+    "title": "Topluluğa hoş geldiniz!",
+    "description": "İlgi alanınızı seçin, sizi doğru yere yönlendirelim.",
+    "noSelection": "Daha fazla ayrıntı görmek için bir seçenek seçin.",
     "interests": {
       "chatting": {
-        "title": "Just chatting",
+        "title": "Sadece sohbet",
         "description": "You can join the conversation on our <link>Mattermost</link> chat to connect with others in the community. Have fun!"
       },
       "bugs": {
