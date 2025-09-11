@@ -30,14 +30,14 @@
       },
       "community": {
         "coc": "Code of Conduct",
-        "forums": "Forums",
+        "forums": "Φόρουμ",
         "mailing": "Mailing Lists",
         "mattermost": "Mattermost",
         "irc": "IRC",
         "calendar": "Calendar"
       },
       "support": {
-        "docs": "Documentation",
+        "docs": "Τεκμηρίωση",
         "submitBug": "Υποβολή σφάλματος",
         "supportProviders": "Commercial Support"
       },
@@ -321,7 +321,7 @@
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in one of our many SIG channels. Let us know what you're interested in working on, and we'll find something you can help out with! If you're interested in proposing a new SIG, please see our <link2>wiki page</link2> on the topic."
       },
       "docs": {
-        "title": "Documentation",
+        "title": "Τεκμηρίωση",
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Documentation</link2> channel. Make sure to review the contributing guide available on our <link3>README</link3>."
       }
     }
