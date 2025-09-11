@@ -9,17 +9,17 @@
     "close": "Κλείσιμο"
   },
   "header": {
-    "toggleTheme": "Toggle Theme",
+    "toggleTheme": "Εναλλαγή θέματος",
     "nav": {
       "newsName": "Νέα",
-      "aboutName": "About",
+      "aboutName": "Πληροφορίες",
       "resourcesName": "Resources",
       "communityName": "Κοινότητα",
       "supportName": "Βοήθεια",
       "contributeName": "Contribute",
-      "openMainMenu": "Open Main Menu",
+      "openMainMenu": "Άνοιγμα κύριου μενού",
       "about": {
-        "about": "About Rocky Linux",
+        "about": "Πληροφορίες για το Rocky Linux",
         "charter": "Community Charter",
         "wiki": "Project Wiki",
         "sponsors": "Sponsors",
@@ -38,7 +38,7 @@
       },
       "support": {
         "docs": "Documentation",
-        "submitBug": "Submit Bug",
+        "submitBug": "Υποβολή σφάλματος",
         "supportProviders": "Commercial Support"
       },
       "contribute": {
@@ -120,7 +120,7 @@
     "threads": "Threads"
   },
   "about": {
-    "title": "About",
+    "title": "Πληροφορίες",
     "headings": {
       "title": "It all started with a blog comment.",
       "subTitle": "History"
@@ -140,7 +140,7 @@
   "sponsors": {
     "title": "Sponsors",
     "description": "The Rocky Linux project is made possible by the generous support of our sponsors. We are grateful for their contributions to the project.",
-    "learnMore": "Learn More",
+    "learnMore": "Μάθετε περισσότερα",
     "foundingSponsor": "Founding Sponsor"
   },
   "partners": {
