@@ -6,16 +6,16 @@
       "title": "Not Found",
       "description": "La página que buscas no existe. Por favor, comprueba la URL e inténtalo de nuevo."
     },
-    "close": "Close"
+    "close": "Cerrar"
   },
   "header": {
     "toggleTheme": "Tema",
     "nav": {
-      "newsName": "News",
-      "aboutName": "About",
+      "newsName": "Noticias",
+      "aboutName": "Acerca",
       "resourcesName": "Resources",
       "communityName": "Community",
-      "supportName": "Help",
+      "supportName": "Ayudar",
       "contributeName": "Contribute",
       "openMainMenu": "Abrir Menú Principal",
       "about": {
@@ -43,7 +43,7 @@
       },
       "contribute": {
         "contribute": "Como contribuir al proyecto",
-        "shop": "Shop",
+        "shop": "Tienda",
         "donate": "Donar"
       }
     }
@@ -100,7 +100,7 @@
     }
   },
   "news": {
-    "title": "News",
+    "title": "Noticias",
     "description": "Stay up to date with the latest news and updates from the Rocky Linux community.",
     "notFound": {
       "title": "Not Found",
@@ -108,7 +108,7 @@
     }
   },
   "share": {
-    "shareName": "Share",
+    "shareName": "Compartir",
     "bluesky": "Bluesky",
     "mastodon": {
       "name": "Mastodon",
@@ -120,7 +120,7 @@
     "threads": "Threads"
   },
   "about": {
-    "title": "About",
+    "title": "Acerca",
     "headings": {
       "title": "It all started with a blog comment.",
       "subTitle": "History"
@@ -286,9 +286,9 @@
       "exception_title": "License Exception",
       "exception_text": "Mass Market §740.17(b)(1)",
       "ccats_title": "CCATS",
-      "ccats_text": "N/A",
+      "ccats_text": "N/D",
       "ern_title": "ERN",
-      "ern_text": "N/A"
+      "ern_text": "N/D"
     }
   },
   "community": {
