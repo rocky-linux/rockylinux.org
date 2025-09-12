@@ -3,7 +3,7 @@
     "name": "Rocky Linux",
     "download": "下載",
     "notFound": {
-      "title": "您訪問的頁面不存在",
+      "title": "您造訪的頁面不存在",
       "description": "您查詢的頁面不存在，請檢查網址後重試。"
     },
     "close": "關閉"
@@ -16,28 +16,28 @@
       "resourcesName": "相關資源",
       "communityName": "社群",
       "supportName": " 幫助",
-      "contributeName": "參與我們",
+      "contributeName": "貢獻",
       "openMainMenu": "開啟主選單",
       "about": {
         "about": "關於 Rocky Linux",
         "charter": "社群章程",
-        "wiki": "Wiki 項目",
+        "wiki": "Wiki 專案",
         "sponsors": "贊助商",
         "partners": "合作夥伴"
       },
       "resources": {
-        "gpgKeyInfo": "GPG Key Info"
+        "gpgKeyInfo": "GPG 金鑰資訊"
       },
       "community": {
         "coc": "社群行為規範",
         "forums": "論壇",
-        "mailing": "Mailing Lists",
+        "mailing": "郵遞論壇",
         "mattermost": "Mattermost",
         "irc": "IRC 伺服器",
         "calendar": "行事曆"
       },
       "support": {
-        "docs": "Documentation",
+        "docs": "文件",
         "submitBug": "回報錯誤",
         "supportProviders": "商業支持"
       },
@@ -49,10 +49,10 @@
     }
   },
   "footer": {
-    "footer": "Footer",
+    "footer": "頁尾",
     "nav": {
       "licensingName": "授權條款",
-      "privacyPolicyName": "隱私政策",
+      "privacyPolicyName": "隱私權政策",
       "TrademarksName": "商標"
     },
     "socialNav": {
@@ -69,17 +69,17 @@
   },
   "home": {
     "hero": {
-      "title": "Enterprise Linux, the <span>community way.</span>",
-      "description": "Rocky Linux is an open-source enterprise operating system designed to be 100% bug-for-bug compatible with Red Hat Enterprise Linux®. Rocky Linux is under intensive development by the community.",
-      "migrate": "Migrate",
-      "dpg": "A Registered Digital Public Good"
+      "title": "以<span>社群力量</span>驅動的企業級 Linux",
+      "description": "Rocky Linux 是一套開放原始碼的企業級作業系統，其設計與 Red Hat Enterprise Linux® 達到 100% 的 bug 對 bug 相容。Rocky Linux 目前正由社群積極開發中。",
+      "migrate": "轉移",
+      "dpg": "已註冊的數位公益"
     },
     "features": {
       "title": "無論何時，堅如磐石！",
-      "subText": "STABLE, PRODUCTION READY LINUX",
-      "description": "Rocky Linux rebuilds sources directly from RHEL®, so you can bet your best dollar that you'll have a super stable experience, no matter the use-case.",
+      "subText": "穩定、生產就緒的 Linux",
+      "description": "Rocky Linux 繼承 RHEL® 的血統，不論用於何處都能讓你無後顧之憂、充滿信心地享有超高穩定性的使用體驗。",
       "productionReady": {
-        "name": "Production Ready",
+        "name": "適用於生產力環境",
         "description": "Rocky Linux 適合企業級環境使用，提供堅實的穩定性、定期更新及10年維護期，全免費。"
       },
       "communitySupported": {
@@ -87,8 +87,8 @@
         "description": "社群、贊助商和合作夥伴已作出長期承諾，確保項目能夠長期留在社群中。"
       },
       "easyMigration": {
-        "name": "Easy Migration",
-        "description": "Migrate from other Enterprise Linux distributions without sweating it. We provide an easy-to-use migration script, free of charge."
+        "name": "輕鬆轉移",
+        "description": "從其他企業級 Linux 散佈版轉移十分輕鬆。我們提供了免費好用的轉移命令稿。"
       }
     },
     "news": {
@@ -112,8 +112,8 @@
     "bluesky": "Bluesky",
     "mastodon": {
       "name": "Mastodon",
-      "url-valid": "Please enter a valid Mastodon instance URL (without https://).",
-      "url": "Mastodon Instance URL"
+      "url-valid": "請輸入有效的 Mastodon 站台 URL（不需輸入 https://）。",
+      "url": "Mastodon 站台 URL"
     },
     "facebook": "Facebook",
     "linkedin": "LinkedIn",
@@ -125,27 +125,27 @@
       "title": "一切起始於一則部落格留言。",
       "subTitle": "歷史"
     },
-    "intro": "On December 8, 2020, Red Hat announced that they would discontinue development of CentOS, which has been a production-ready downstream version of Red Hat Enterprise Linux, in favor of a newer upstream development variant of that operating system known as \"CentOS Stream\". In response, the original founder of CentOS, Gregory Kurtzer, announced <link>via a comment on the CentOS website</link> that he would again start a project to achieve the original goals of CentOS. Its name was chosen as a tribute to early CentOS co-founder Rocky McGaugh. By December 12, the code repository of Rocky Linux had become the top-trending repository on GitHub.",
-    "releaseInfo": "On December 22, 2020, Rocky Linux announced that the target for an initial release was anywhere between March and May of 2021. On January 20, 2021, it was announced that a test repository would be made available to the public by the end of February, and a release candidate was on target for the end of March 2021. However, that date was slightly pushed back, and on April 30, 2021, the first release candidate was officially released. The second release candidate, of version 8.4, the last before the stable release, was released on June 4, 2021. On June 21, 2021, the stable release of Rocky Linux 8.4 was released, with the code name \"Green Obsidian\".",
+    "intro": "2020年12月8日，Red Hat 公司宣佈他們將終止 CentOS 的開發，而 CentOS 一直是 Red Hat Enterprise Linux 的生產就緒下游版本，轉而採用該作業系統較新的上游開發變體，稱為「CentOS Stream」。作為回應，CentOS 的原始創辦人 Gregory Kurtzer <link>透過 CentOS 網站上的一篇留言</link>宣布，他將再次啟動一個專案以實現 CentOS 的原始目標。其名稱是為了向 CentOS 早期的共同創辦人 Rocky McGaugh 致敬。到12月12日，Rocky Linux 的程式碼倉庫已經成為 GitHub 上最熱門的倉庫。",
+    "releaseInfo": "2020年12月22日，Rocky Linux 宣佈初始版本的目標是2021年3月到5月之間。2021年1月20日，Rocky Linux 宣佈測試軟體庫將於2月底公開，候選版本的目標是在2021年3月底發行。然而，這個日期稍微往後推了一點，在2021年4月30日，第一個候選發行版本正式發行。2021年6月4日發佈了第二個版本 8.4 的候選版本，也就是穩定版前的最後一個版本。2021年6月21日，Rocky Linux 8.4 穩定版正式發行，代號為「Green Obsidian」。",
     "organizationInfo": {
       "title": "團體",
       "info": "Rocky Linux 項目由 Rocky Enterprise Software Foundation (RESF) 托管。請參閱<0>頁面了解更多組織結構的相關資訊。"
     },
     "quote": {
-      "quote": "回想起早期的CentOS時光，我的聯合創辦人Rocky McGaugh，他如今已不在人世，未能見證CentOS的成功，因此作為對他的致敬，我向大家介紹Rocky Linux。",
+      "quote": "回想起早期的 CentOS 時光，我的聯合創辦人Rocky McGaugh，他如今已不在人世，未能見證 CentOS 的成功，因此作為對他的致敬，我向大家介紹 Rocky Linux。",
       "author": "Gregory Kurtzer",
-      "role": "Co-Founder @ CentOS / Founder @ Rocky Linux"
+      "role": "共同創辦人 @ CentOS / 創辦人 @ Rocky Linux"
     }
   },
   "sponsors": {
     "title": "贊助商",
-    "description": "由衷感謝贊助商的慷慨支持，才能有Rocky Linux。",
+    "description": "由衷感謝贊助商的慷慨支持，才能有 Rocky Linux。",
     "learnMore": "更多資訊",
     "foundingSponsor": "創始贊助商"
   },
   "partners": {
     "title": "合作夥伴",
-    "description": "Rocky Linux非常榮幸能與以下組織合作，由衷感謝他們的慷慨支持，才能有Rocky Linux。",
+    "description": "Rocky Linux 非常榮幸能與以下組織合作，由衷感謝他們的慷慨支持，才能有 Rocky Linux。",
     "foundingPartner": "創世合作夥伴"
   },
   "supportProviders": {
@@ -154,7 +154,7 @@
     "foundingSponsor": "創始贊助商"
   },
   "shop": {
-    "title": "Official Merchandise",
+    "title": "官方紀念品",
     "description": "點擊此處購買周邊商品！所有供應商均提供全球配送。"
   },
   "download": {
@@ -177,15 +177,15 @@
       "riscv64": "RISC-V (riscv64)"
     },
     "selectVersion": "選擇版本：",
-    "plannedEol": "Planned EOL:",
+    "plannedEol": "計畫中的 EOL 時間：",
     "cards": {
       "defaultImages": {
         "title": "預設影像",
         "tooltips": {
-          "dvd": "DVD: Seamless installation, everything you need is included.",
-          "boot": "Boot: Minimal image for a custom, internet-based installation.",
-          "minimal": "Minimal: Minimal, self-contained image for offline system setup.",
-          "buttonLabel": "View Installation Guide"
+          "dvd": "DVD：無縫安裝，包含您所需要的一切。",
+          "boot": "Boot：用來自訂、以網際網路為基礎安裝的最小映像檔。",
+          "minimal": "Minimal：最小化、自給自足的映像檔，用於離線系統安裝。",
+          "buttonLabel": "檢視安裝指南"
         },
         "downloadOptions": {
           "dvd": "DVD ISO",
@@ -194,9 +194,9 @@
         },
         "torrent": "Torrent (DVD ISO)",
         "checksum": "檢核碼",
-        "checksums": "CHECKSUMS",
-        "baseOs": "BaseOS Packages",
-        "archived": "Archived Releases",
+        "checksums": "檢核碼",
+        "baseOs": "BaseOS 軟體包",
+        "archived": "已封存的版本",
         "x86_64": {
           "r9": {
             "versionName": "Rocky Linux 9",
@@ -209,37 +209,37 @@
         }
       },
       "cloudImages": {
-        "title": "Cloud Images",
+        "title": "雲端映像檔",
         "genericCloud": "Generic Cloud",
         "cloudProviders": {
-          "title": "Cloud Providers",
+          "title": "雲端供應商",
           "aws": {
             "name": "AWS AMI",
-            "drawerTitle": "AWS AMI Images",
+            "drawerTitle": "AWS AMI 映像檔",
             "table": {
-              "version": "Version",
-              "region": "Region",
-              "architecture": "Architecture",
-              "imageId": "Image ID",
-              "deploy": "Deploy"
+              "version": "版本",
+              "region": "區域",
+              "architecture": "架構",
+              "imageId": "映像檔 ID",
+              "deploy": "部署"
             }
           },
           "googleCloud": "Google Cloud",
           "azure": "Microsoft Azure"
         },
         "downloadOptions": {
-          "qcow2": "QCOW2 Image"
+          "qcow2": "QCOW2 映像檔"
         }
       },
       "container": {
-        "title": "Docker (OCI) Images",
+        "title": "Docker (OCI) 映像檔",
         "downloadOptions": {
-          "fullImage": "Full Image",
-          "minimalImage": "Minimal Image"
+          "fullImage": "完整映像檔",
+          "minimalImage": "最小化映像檔"
         }
       },
       "liveImages": {
-        "title": "Desktop/Workstation Live Images",
+        "title": "桌面/工作站 Live 映像檔",
         "downloadOptions": {
           "gnome": "GNOME",
           "gnomeLite": "GNOME (Lite)",
@@ -250,40 +250,40 @@
         }
       },
       "rpiImages": {
-        "title": "Raspberry Pi Images",
+        "title": "樹莓派映像檔",
         "download": "下載",
         "readMe": "README"
       },
       "wslImages": {
-        "title": "Windows Subsystem for Linux (WSL) Images",
+        "title": "適用於 Linux 的 Windows 子系統 (WSL) 映像檔",
         "download": "下載",
         "readMe": "README"
       },
       "visionfive2Images": {
-        "title": "VisionFive 2 Images",
+        "title": "VisionFive 2 映像檔",
         "download": "下載",
         "readMe": "README"
       },
       "specializedDevices": {
-        "title": "Specialized Devices",
+        "title": "特殊裝置",
         "download": "下載",
         "readMe": "README"
       }
     },
     "getInvolved": {
       "title": "加入我們",
-      "text": "當您下載使用Rocky Linux時，Rocky Enterprise Software Foundation邀請您成為社群的貢獻者。您可以透過多種方式做出貢獻，從編寫文檔、QA、測試，為SIGs進行程式碼更改、提供鏡像或託管以及協助其他用戶。"
+      "text": "當您下載使用 Rocky Linux 時，Rocky Enterprise Software Foundation 邀請您成為社群的貢獻者。您可以透過多種方式做出貢獻，從編寫文檔、QA、測試，為SIGs進行程式碼更改、提供鏡像或託管以及協助其他使用者。"
     },
     "exportCompliance": {
-      "title": "Export Compliance/Customs Information",
+      "title": "全球貿易合規/海關資訊",
       "text1": "下載 Rocky Linux 軟體即表示您已了解以下所有內容：",
-      "text2": "Rocky Linux software and technical information may be subject to the U.S. Export Administration Regulations (the \"EAR\") and other U.S. and foreign laws and may not be exported, re-exported or transferred (a) to a prohibited destination country under the EAR or U.S. sanctions regulations (currently Cuba, Iran, North Korea, Sudan, Syria, and the Crimea Region of Ukraine, subject to change as posted by the United States government); (b) to any prohibited destination or to any end user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government; or (c) for use in connection with the design, development or production of nuclear, chemical or biological weapons, or rocket systems, space launch vehicles, or sounding rockets, or unmanned air vehicle systems.",
-      "narrative": "Rocky Linux in source code and binary code form is publicly available and is not subject to the EAR in accordance with §740.17(b)(1).",
+      "text2": "Rocky Linux 軟體與技術資訊可能受到美國出口管理條例 (EAR) 及其他美國與外國法律的限制，不得出口、再出口或轉讓 (a) 至 EAR 或美國制裁條例所禁止的目的地國家（目前為古巴、伊朗、北韓、蘇丹、敘利亞與烏克蘭克里米亞地區，美國政府可能會公佈變更）；(b) 至任何被禁止的目的地或任何被美國政府任何聯邦機構禁止參與美國出口交易的最終使用者；或 (c) 用於設計、開發或生產核子、化學或生物武器，或火箭系統、太空發射載具或探空火箭。",
+      "narrative": "根據 §740.17(b)(1)，Rocky Linux 的原始碼與二進位碼都是公開的，不受 EAR 限制。",
       "product_title": "產品",
-      "product_text": "Rocky Linux. Includes Rocky Linux Project \"Special Interest Group\" repositories.",
+      "product_text": "Rocky Linux。包含 Rocky Linux 專案的「特別興趣小組」軟體庫。",
       "eccn_title": "ECCN",
       "eccn_text": "5D992.c",
-      "exception_title": "License Exception",
+      "exception_title": "授權條款例外",
       "exception_text": "Mass Market §740.17(b)(1)",
       "ccats_title": "CCATS",
       "ccats_text": "不適用",
@@ -294,35 +294,35 @@
   "community": {
     "title": "歡迎加入我們！",
     "description": "選擇您有興趣的領域，我們會引導您找到合適的資源。",
-    "noSelection": "Select an option to see more details.",
+    "noSelection": "選取選項以檢視更多詳細資訊。",
     "interests": {
       "chatting": {
-        "title": "Just chatting",
-        "description": "You can join the conversation on our <link>Mattermost</link> chat to connect with others in the community. Have fun!"
+        "title": "只是聊聊",
+        "description": "您可以加入我們 <link>Mattermost</link> 聊天室的對話，與社群中的其他人交流。好好玩吧！"
       },
       "bugs": {
         "title": "回報問題",
-        "description": "Join our <link1>Mattermost chat</link1> to talk over your potential bug with the team and other community members. Search our <link2>bug tracker</link2> to see if there's an existing report for your issue."
+        "description": "加入我們的 <link1>Mattermost 聊天室</link1>，與團隊及其他社群成員討論您的潛在臭蟲。搜尋我們的<link2>臭蟲追蹤器</link2>，看看是否有您的問題的現有回報。"
       },
       "webdev": {
         "title": "網頁開發",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Web</link2> channel. Search our <link3>website repository</link3> to see if there are issues/enhancements that need to be made. Make them!"
+        "description": "加入我們的 <link1>Mattermost 聊天室</link1>，並在 <link2>~Web</link2> 頻道中自我介紹。搜尋我們的 <link3>website 倉庫</link3>，看看是否有需要提出的問題/強化。一起動手做！"
       },
       "graphics": {
-        "title": "Graphic design",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Design</link2> channel. Let us know what you're interested in working on, and we'll find something you can help out with!"
+        "title": "平面設計",
+        "description": "加入我們的 <link1>Mattermost 聊天室</link1>，並在 <link2>~Design</link2> 頻道中自我介紹。讓我們知道您對什麼工作有興趣，我們會找到您可以幫忙的工作！"
       },
       "release": {
-        "title": "Release engineering",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Development</link2> channel. Let us know what you're interested in working on, and we'll find something you can help out with!"
+        "title": "釋出工程",
+        "description": "加入我們的 <link1>Mattermost 聊天室</link1>，並在 <link2>~Development</link2> 頻道中自我介紹。讓我們知道您有興趣做什麼，我們會找到您可以幫忙的事情！"
       },
       "sig": {
-        "title": "Special Interest Group (SIG)",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in one of our many SIG channels. Let us know what you're interested in working on, and we'll find something you can help out with! If you're interested in proposing a new SIG, please see our <link2>wiki page</link2> on the topic."
+        "title": "特別興趣小組 (SIG)",
+        "description": "加入我們的 <link1>Mattermost 聊天室</link1>，並在我們眾多的 SIG 頻道中自我介紹。讓我們知道您有興趣做什麼，我們會找到您可以幫忙的事情！如果您有興趣提出一個新的 SIG，請參閱我們關於此主題的 <link2>wiki 頁面</link2>。"
       },
       "docs": {
-        "title": "Documentation",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Documentation</link2> channel. Make sure to review the contributing guide available on our <link3>README</link3>."
+        "title": "文件",
+        "description": "加入我們的 <link1>Mattermost 聊天室</link1>，並在 <link2>~Documentation</link2> 頻道中自我介紹。請務必參閱我們的 <link3>README</link3> 中的貢獻指南。"
       }
     }
   }
