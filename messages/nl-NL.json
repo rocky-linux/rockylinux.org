@@ -3,57 +3,57 @@
     "name": "Rocky Linux",
     "download": "Download",
     "notFound": {
-      "title": "Not Found",
+      "title": "Niet Gevonden",
       "description": "The page you are looking for does not exist. Please check the URL and try again."
     },
-    "close": "Close"
+    "close": "Sluiten"
   },
   "header": {
-    "toggleTheme": "Toggle Theme",
+    "toggleTheme": "Thema veranderen",
     "nav": {
-      "newsName": "News",
-      "aboutName": "About",
+      "newsName": "Nieuws",
+      "aboutName": "Over ons",
       "resourcesName": "Resources",
-      "communityName": "Community",
-      "supportName": "Help",
-      "contributeName": "Contribute",
-      "openMainMenu": "Open Main Menu",
+      "communityName": "Gemeenschap",
+      "supportName": "Hulp",
+      "contributeName": "Meehelpen",
+      "openMainMenu": "Open Hoofdmenu",
       "about": {
         "about": "Over Rocky Linux",
         "charter": "Community Charter",
         "wiki": "Project Wiki",
-        "sponsors": "Sponsors",
+        "sponsors": "Sponsoren",
         "partners": "Partners"
       },
       "resources": {
-        "gpgKeyInfo": "GPG Key Info"
+        "gpgKeyInfo": "GPG-sleutel Info"
       },
       "community": {
-        "coc": "Code of Conduct",
+        "coc": "Gedragscode",
         "forums": "Forums",
-        "mailing": "Mailing Lists",
+        "mailing": "Mailinglijsten",
         "mattermost": "Mattermost",
         "irc": "IRC",
-        "calendar": "Calendar"
+        "calendar": "Kalender"
       },
       "support": {
-        "docs": "Documentation",
-        "submitBug": "Submit Bug",
-        "supportProviders": "Commercial Support"
+        "docs": "Documentatie",
+        "submitBug": "Bug Verzenden",
+        "supportProviders": "Commerciële Ondersteuning"
       },
       "contribute": {
         "contribute": "Contributing Guide",
-        "shop": "Shop",
-        "donate": "Donate"
+        "shop": "Webshop",
+        "donate": "Doneren"
       }
     }
   },
   "footer": {
-    "footer": "Footer",
+    "footer": "Voettekst",
     "nav": {
-      "licensingName": "Licensing",
+      "licensingName": "Licensering",
       "privacyPolicyName": "Privacy Policy",
-      "TrademarksName": "Trademarks"
+      "TrademarksName": "Handelsmerken"
     },
     "socialNav": {
       "bluesky": "Bluesky",
@@ -87,7 +87,7 @@
         "description": "The community, sponsors, and partners have invested with long-term commitments to ensure the project stays with the community."
       },
       "easyMigration": {
-        "name": "Easy Migration",
+        "name": "Makkelijke Migratie",
         "description": "Migrate from other Enterprise Linux distributions without sweating it. We provide an easy-to-use migration script, free of charge."
       }
     },
@@ -100,10 +100,10 @@
     }
   },
   "news": {
-    "title": "News",
+    "title": "Nieuws",
     "description": "Stay up to date with the latest news and updates from the Rocky Linux community.",
     "notFound": {
-      "title": "Not Found",
+      "title": "Niet Gevonden",
       "description": "The news post you are looking for does not exist. You can find all our news posts on the <newsLink>news page</newsLink>."
     }
   },
@@ -120,7 +120,7 @@
     "threads": "Threads"
   },
   "about": {
-    "title": "About",
+    "title": "Over ons",
     "headings": {
       "title": "It all started with a blog comment.",
       "subTitle": "History"
@@ -138,7 +138,7 @@
     }
   },
   "sponsors": {
-    "title": "Sponsors",
+    "title": "Sponsoren",
     "description": "The Rocky Linux project is made possible by the generous support of our sponsors. We are grateful for their contributions to the project.",
     "learnMore": "Learn More",
     "foundingSponsor": "Founding Sponsor"
@@ -149,7 +149,7 @@
     "foundingPartner": "Founding Partner"
   },
   "supportProviders": {
-    "title": "Commercial Support",
+    "title": "Commerciële Ondersteuning",
     "description": "The following sponsors provide commercial support for Rocky Linux.",
     "foundingSponsor": "Founding Sponsor"
   },
@@ -200,17 +200,17 @@
         "x86_64": {
           "r9": {
             "versionName": "Rocky Linux 9",
-            "plannedEol": "May 31 2032"
+            "plannedEol": "2032-05-31"
           },
           "r8": {
             "versionName": "Rocky Linux 8",
-            "plannedEol": "May 31 2029"
+            "plannedEol": "2029-05-31"
           }
         }
       },
       "cloudImages": {
         "title": "Cloud Images",
-        "genericCloud": "Generic Cloud",
+        "genericCloud": "Generieke Cloud",
         "cloudProviders": {
           "title": "Cloud Providers",
           "aws": {
@@ -235,7 +235,7 @@
         "title": "Docker (OCI) Images",
         "downloadOptions": {
           "fullImage": "Full Image",
-          "minimalImage": "Minimal Image"
+          "minimalImage": "Minimaal Image"
         }
       },
       "liveImages": {
@@ -258,6 +258,16 @@
         "title": "Windows Subsystem for Linux (WSL) Images",
         "download": "Download",
         "readMe": "README"
+      },
+      "visionfive2Images": {
+        "title": "VisionFive 2 Images",
+        "download": "Download",
+        "readMe": "README"
+      },
+      "specializedDevices": {
+        "title": "Specialized Devices",
+        "download": "Download",
+        "readMe": "README"
       }
     },
     "getInvolved": {
@@ -267,7 +277,7 @@
     "exportCompliance": {
       "title": "Export Compliance/Customs Information",
       "text1": "By downloading Rocky Linux software, you acknowledge that you understand all of the following:",
-      "text2": "Rocky Linux software and technical information may be subject to the U.S. Export Administration Regulations (the “EAR”) and other U.S. and foreign laws and may not be exported, re-exported or transferred (a) to a prohibited destination country under the EAR or U.S. sanctions regulations (currently Cuba, Iran, North Korea, Sudan, Syria, and the Crimea Region of Ukraine, subject to change as posted by the United States government); (b) to any prohibited destination or to any end user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government; or (c) for use in connection with the design, development or production of nuclear, chemical or biological weapons, or rocket systems, space launch vehicles, or sounding rockets, or unmanned air vehicle systems.",
+      "text2": "Rocky Linux software and technical information may be subject to the U.S. Export Administration Regulations (the \"EAR\") and other U.S. and foreign laws and may not be exported, re-exported or transferred (a) to a prohibited destination country under the EAR or U.S. sanctions regulations (currently Cuba, Iran, North Korea, Sudan, Syria, and the Crimea Region of Ukraine, subject to change as posted by the United States government); (b) to any prohibited destination or to any end user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government; or (c) for use in connection with the design, development or production of nuclear, chemical or biological weapons, or rocket systems, space launch vehicles, or sounding rockets, or unmanned air vehicle systems.",
       "narrative": "Rocky Linux in source code and binary code form is publicly available and is not subject to the EAR in accordance with §740.17(b)(1).",
       "product_title": "Product",
       "product_text": "Rocky Linux. Includes Rocky Linux Project \"Special Interest Group\" repositories.",
@@ -276,9 +286,9 @@
       "exception_title": "License Exception",
       "exception_text": "Mass Market §740.17(b)(1)",
       "ccats_title": "CCATS",
-      "ccats_text": "N/A",
+      "ccats_text": "N/B",
       "ern_title": "ERN",
-      "ern_text": "N/A"
+      "ern_text": "N/B"
     }
   },
   "community": {
@@ -311,7 +321,7 @@
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in one of our many SIG channels. Let us know what you're interested in working on, and we'll find something you can help out with! If you're interested in proposing a new SIG, please see our <link2>wiki page</link2> on the topic."
       },
       "docs": {
-        "title": "Documentation",
+        "title": "Documentatie",
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Documentation</link2> channel. Make sure to review the contributing guide available on our <link3>README</link3>."
       }
     }
