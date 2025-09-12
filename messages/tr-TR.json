@@ -65,7 +65,7 @@
       "threads": "Threads",
       "youtube": "YouTube"
     },
-    "disclaimer": "Rocky Linux® is the registered trademark of the Rocky Enterprise Software Foundation in the U.S. and other countries. Linux® is the registered trademark of Linus Torvalds in the U.S. and other countries. Red Hat Enterprise Linux, RHEL and CentOS are trademarks or registered trademarks of Red Hat, Inc. or its subsidiaries in the US and other countries. We are not affiliated with, endorsed by or sponsored by Red Hat, Inc."
+    "disclaimer": "Rocky Linux®, Rocky Enterprise Software Foundation'ın ABD ve diğer ülkelerdeki tescilli ticari markasıdır. Linux®, Linus Torvalds'ın ABD ve diğer ülkelerdeki tescilli ticari markasıdır. Red Hat Enterprise Linux, RHEL ve CentOS, Red Hat, Inc. veya iştiraklerinin ABD ve diğer ülkelerdeki ticari markaları veya tescilli ticari markalarıdır. Red Hat, Inc. şirketine bağlı değiliz, onun tarafından desteklenmiyoruz veya sponsorluğunu üstlenmiyoruz."
   },
   "home": {
     "hero": {
@@ -104,7 +104,7 @@
     "description": "Rocky Linux topluluğundan en son haberleri ve güncellemeleri takip edin.",
     "notFound": {
       "title": "Bulunamadı",
-      "description": "The news post you are looking for does not exist. You can find all our news posts on the <newsLink>news page</newsLink>."
+      "description": "Aradığınız haber gönderisi mevcut değil. Tüm haber yayınlarımızı <newsLink>haberler sayfasında</newsLink> bulabilirsiniz."
     }
   },
   "share": {
@@ -125,11 +125,11 @@
       "title": "Her şey bir blog yorumuyla başladı.",
       "subTitle": "Geçmiş"
     },
-    "intro": "On December 8, 2020, Red Hat announced that they would discontinue development of CentOS, which has been a production-ready downstream version of Red Hat Enterprise Linux, in favor of a newer upstream development variant of that operating system known as \"CentOS Stream\". In response, the original founder of CentOS, Gregory Kurtzer, announced <link>via a comment on the CentOS website</link> that he would again start a project to achieve the original goals of CentOS. Its name was chosen as a tribute to early CentOS co-founder Rocky McGaugh. By December 12, the code repository of Rocky Linux had become the top-trending repository on GitHub.",
-    "releaseInfo": "On December 22, 2020, Rocky Linux announced that the target for an initial release was anywhere between March and May of 2021. On January 20, 2021, it was announced that a test repository would be made available to the public by the end of February, and a release candidate was on target for the end of March 2021. However, that date was slightly pushed back, and on April 30, 2021, the first release candidate was officially released. The second release candidate, of version 8.4, the last before the stable release, was released on June 4, 2021. On June 21, 2021, the stable release of Rocky Linux 8.4 was released, with the code name \"Green Obsidian\".",
+    "intro": "8 Aralık 2020 tarihinde Red Hat, CentOS işletim sisteminin \"CentOS Stream\" adını verdikleri yeni geliştirme varyantını çıkarmaları dolayısıyla Red Hat Enterprise Linux'un üretime hazır alt sürümü olan CentOS'u geliştirmeyi durduracaklarını açıkladı. Bu açıklamaya yanıt olarak CentOS'un kurucusu Gregory Kurtzer, <link>CentOS sitesindeki bir yorumla</link> CentOS'un orijinal amaçlarına dönük bir projeye yeniden başlayacağını duyurdu. Projenin adı CentOS'un kurucu ortaklarından McGaugh'a teşekkür olarak seçildi.  12 Aralık'a kadar, Rocky Linux'un kod deposu, GitHub üzerindeki en popüler depo haline gelmişti.",
+    "releaseInfo": "22 Aralık 2020'de Rocky Linux, ilk sürümünü 2021'in Mart ve Mayıs ayları arasında yayınlamayı hedeflediğini duyurdu. 20 Ocak 2021'de, Şubat ayı sonuna kadar bir deneme deposunun halka açılacağı ve Mart 2021'in sonu için bir ön sürümün hedeflendiğini açıklandı. Ancak bu tarih biraz ertelendi ve 30 Nisan 2021 tarihinde ön sürüm resmi olarak yayınladı. Kararlı sürümden önceki son ön sürüm, versiyon 8.4 olarak yayınlanan ikinci ön sürüm, 4 Haziran 2021'de yayınlandı. 21 Haziran 2021'de Rock Linux 8.4'ün kararlı sürümü \"Green Obisidan\" kod adıyla yayınlandı.",
     "organizationInfo": {
       "title": "Organizasyon",
-      "info": "The Rocky Linux project is hosted by the Rocky Enterprise Software Foundation (RESF). To learn more about the organizational structure, please check out the <link>page</link> on the topic."
+      "info": "Rocky Linux projesi, Rocky Enterprise Software Foundation (RESF) tarafından barındırılmaktadır. Organizasyon yapısı hakkında daha fazla bilgi edinmek için lütfen konuyla ilgili <link>sayfaya</link> göz atın."
     },
     "quote": {
       "quote": "“Eski CentOS günlerine bakarsak... Kurucu ortağım Rocky McGaugh idi. O artık bizimle değil bu yüzden CentOS'un elde ettiği başarıyı göremeyen onun anısı için, karşınıza... Rocky Linux.”",
@@ -139,13 +139,13 @@
   },
   "sponsors": {
     "title": "Sponsorlar",
-    "description": "The Rocky Linux project is made possible by the generous support of our sponsors. We are grateful for their contributions to the project.",
+    "description": "Rocky Linux projesi sponsorlarımızın cömert desteği ile mümkün olmaktadır. Projeye katkılarından dolayı kendilerine minnettarız.",
     "learnMore": "Daha Fazla Bilgi",
     "foundingSponsor": "Kurucu Sponsor"
   },
   "partners": {
     "title": "Ortaklar",
-    "description": "The Rocky Linux project is proud to partner with the following organizations. We are grateful for their support and contributions to the project.",
+    "description": "Rocky Linux projesi aşağıdaki kuruluşlarla ortaklık yapmaktan gurur duymaktadır. Projeye verdikleri destek ve katkıları için kendilerine minnettarız.",
     "foundingPartner": "Kurucu Ortak"
   },
   "supportProviders": {
@@ -278,7 +278,7 @@
       "title": "Dışa Aktarma Uygunluk/Gümrük Bilgileri",
       "text1": "Rocky Linux yazılımını indirerek, aşağıdakilerin tümünü anladığınızı kabul etmiş olursunuz:",
       "text2": "Rocky Linux software and technical information may be subject to the U.S. Export Administration Regulations (the \"EAR\") and other U.S. and foreign laws and may not be exported, re-exported or transferred (a) to a prohibited destination country under the EAR or U.S. sanctions regulations (currently Cuba, Iran, North Korea, Sudan, Syria, and the Crimea Region of Ukraine, subject to change as posted by the United States government); (b) to any prohibited destination or to any end user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government; or (c) for use in connection with the design, development or production of nuclear, chemical or biological weapons, or rocket systems, space launch vehicles, or sounding rockets, or unmanned air vehicle systems.",
-      "narrative": "Rocky Linux in source code and binary code form is publicly available and is not subject to the EAR in accordance with §740.17(b)(1).",
+      "narrative": "Kaynak kodu ve ikili kod biçimindeki Rocky Linux kamuya açıktır ve §740.17(b)(1) uyarınca EAR'a tabi değildir.",
       "product_title": "Ürün",
       "product_text": "Rocky Linux. Rocky Linux Projesi \"Özel İlgi Grubu\" depolarını içerir.",
       "eccn_title": "ECCN",
@@ -298,7 +298,7 @@
     "interests": {
       "chatting": {
         "title": "Sadece sohbet",
-        "description": "You can join the conversation on our <link>Mattermost</link> chat to connect with others in the community. Have fun!"
+        "description": "Topluluktaki diğer kişilerle bağlantı kurmak için <link>Mattermost</link> sohbetimizdeki sohbete katılabilirsiniz. İyi eğlenceler!"
       },
       "bugs": {
         "title": "Hataları raporlama",
