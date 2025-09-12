@@ -65,30 +65,30 @@
       "threads": "Threads",
       "youtube": "YouTube"
     },
-    "disclaimer": "Rocky Linux® is the registered trademark of the Rocky Enterprise Software Foundation in the U.S. and other countries. Linux® is the registered trademark of Linus Torvalds in the U.S. and other countries. Red Hat Enterprise Linux, RHEL and CentOS are trademarks or registered trademarks of Red Hat, Inc. or its subsidiaries in the US and other countries. We are not affiliated with, endorsed by or sponsored by Red Hat, Inc."
+    "disclaimer": "Rocky Linux® adalah merek dagang terdaftar dari Rocky Enterprise Software Foundation di A.S. dan negara lain. Linux® adalah merek dagang terdaftar dari Linus Torvalds di A.S. dan negara lain. Red Hat Enterprise Linux, RHEL, dan CentOS adalah merek dagang atau merek dagang terdaftar dari Red Hat, Inc. atau anak perusahaannya di AS dan negara lain. Kami tidak berafiliasi dengan, didukung oleh, atau disponsori oleh Red Hat, Inc."
   },
   "home": {
     "hero": {
-      "title": "Enterprise Linux, the <span>community way.</span>",
+      "title": "Linux untuk Perusahaan, <span>bergaya komunitas.</span>",
       "description": "Rocky Linux is an open-source enterprise operating system designed to be 100% bug-for-bug compatible with Red Hat Enterprise Linux®. Rocky Linux is under intensive development by the community.",
-      "migrate": "Migrate",
-      "dpg": "A Registered Digital Public Good"
+      "migrate": "Migrasi",
+      "dpg": "Produk Publik Digital yang Terdaftar"
     },
     "features": {
-      "title": "Rock solid, no matter the use-case.",
-      "subText": "STABLE, PRODUCTION READY LINUX",
-      "description": "Rocky Linux rebuilds sources directly from RHEL®, so you can bet your best dollar that you'll have a super stable experience, no matter the use-case.",
+      "title": "Kokoh, bagaimanapun bentuk penggunaannya.",
+      "subText": "LINUX YANG STABIL DAN SIAP UNTUK PRODUKSI",
+      "description": "Rocky Linux membangun ulang sumber-sumber langsung dari RHEL®, sehingga dapat dipastikan Anda akan mendapatkan pengalaman yang sangat stabil, bagaimanapun bentuk penggunaannya.",
       "productionReady": {
-        "name": "Production Ready",
-        "description": "Rocky Linux is enterprise-ready, providing solid stability with regular updates and a 10-year support lifecycle, all at no cost."
+        "name": "Siap Produksi",
+        "description": "Rocky Linux siap untuk perusahaan, menghadirkan kestabilan yang solid dengan pembaruan rutin dan siklus dukungan 10 tahun, semuanya gratis."
       },
       "communitySupported": {
-        "name": "Community Supported",
-        "description": "The community, sponsors, and partners have invested with long-term commitments to ensure the project stays with the community."
+        "name": "Didukung oleh Komunitas",
+        "description": "Komunitas, sponsor, dan mitra telah berinvestasi dengan komitmen jangka panjang untuk memastikan proyek ini tetap bersama komunitas."
       },
       "easyMigration": {
-        "name": "Easy Migration",
-        "description": "Migrate from other Enterprise Linux distributions without sweating it. We provide an easy-to-use migration script, free of charge."
+        "name": "Migrasi dengan Mudah",
+        "description": "Migrasi dari distribusi Linux untuk Perusahaan lainnya tanpa perlu bersusah payah. Kami menyediakan skrip migrasi yang mudah digunakan, gratis."
       }
     },
     "news": {
@@ -195,16 +195,16 @@
         "torrent": "Torrent (DVD ISO)",
         "checksum": "CHECKSUM",
         "checksums": "CHECKSUMS",
-        "baseOs": "BaseOS Packages",
-        "archived": "Archived Releases",
+        "baseOs": "Paket BaseOS",
+        "archived": "Arsip Rilisan",
         "x86_64": {
           "r9": {
             "versionName": "Rocky Linux 9",
-            "plannedEol": "May 31 2032"
+            "plannedEol": "2032-05-31"
           },
           "r8": {
             "versionName": "Rocky Linux 8",
-            "plannedEol": "May 31 2029"
+            "plannedEol": "2029-05-31"
           }
         }
       },
