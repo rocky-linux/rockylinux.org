@@ -65,19 +65,19 @@
       "threads": "Threads",
       "youtube": "YouTube"
     },
-    "disclaimer": "Rocky Linux® is the registered trademark of the Rocky Enterprise Software Foundation in the U.S. and other countries. Linux® is the registered trademark of Linus Torvalds in the U.S. and other countries. Red Hat Enterprise Linux, RHEL and CentOS are trademarks or registered trademarks of Red Hat, Inc. or its subsidiaries in the US and other countries. We are not affiliated with, endorsed by or sponsored by Red Hat, Inc."
+    "disclaimer": "Rocky Linux® — це зареєстрований товарний знак Rocky Enterprise Software Foundation у США та інших країнах. Linux® — це зареєстрований товарний знак Лінуса Торвальдса в США та інших країнах. Red Hat Enterprise Linux, RHEL та CentOS — це товарні знаки або зареєстровані товарні знаки компанії Red Hat, Inc. або її дочірніх підприємств у США та інших країнах. Ми не є афілійованими, не підтримуємо та не спонсоруємо Red Hat, Inc."
   },
   "home": {
     "hero": {
       "title": "Enterprise Linux, the <span>community way.</span>",
-      "description": "Rocky Linux is an open-source enterprise operating system designed to be 100% bug-for-bug compatible with Red Hat Enterprise Linux®. Rocky Linux is under intensive development by the community.",
+      "description": "Rocky Linux — це операційна система корпоративного рівня з відкритим кодом, розроблена для повної (на 100%) сумісності з Red Hat Enterprise Linux® на рівні виправлень (bug-for-bug). Rocky Linux активно розробляється спільнотою.",
       "migrate": "Migrate",
       "dpg": "A Registered Digital Public Good"
     },
     "features": {
       "title": "Rock solid, no matter the use-case.",
       "subText": "STABLE, PRODUCTION READY LINUX",
-      "description": "Rocky Linux rebuilds sources directly from RHEL®, so you can bet your best dollar that you'll have a super stable experience, no matter the use-case.",
+      "description": "Rocky Linux безпосередньо відновлює вихідний код з RHEL®, тому можете бути впевнені, що отримаєте надзвичайно стабільний досвід, незалежно від використання.",
       "productionReady": {
         "name": "Production Ready",
         "description": "Rocky Linux is enterprise-ready, providing solid stability with regular updates and a 10-year support lifecycle, all at no cost."
@@ -125,11 +125,11 @@
       "title": "It all started with a blog comment.",
       "subTitle": "History"
     },
-    "intro": "On December 8, 2020, Red Hat announced that they would discontinue development of CentOS, which has been a production-ready downstream version of Red Hat Enterprise Linux, in favor of a newer upstream development variant of that operating system known as \"CentOS Stream\". In response, the original founder of CentOS, Gregory Kurtzer, announced <link>via a comment on the CentOS website</link> that he would again start a project to achieve the original goals of CentOS. Its name was chosen as a tribute to early CentOS co-founder Rocky McGaugh. By December 12, the code repository of Rocky Linux had become the top-trending repository on GitHub.",
-    "releaseInfo": "On December 22, 2020, Rocky Linux announced that the target for an initial release was anywhere between March and May of 2021. On January 20, 2021, it was announced that a test repository would be made available to the public by the end of February, and a release candidate was on target for the end of March 2021. However, that date was slightly pushed back, and on April 30, 2021, the first release candidate was officially released. The second release candidate, of version 8.4, the last before the stable release, was released on June 4, 2021. On June 21, 2021, the stable release of Rocky Linux 8.4 was released, with the code name \"Green Obsidian\".",
+    "intro": "8 грудня 2020 року Red Hat оголосила, що припиняє розробку CentOS, який був готовою до використання версією Red Hat Enterprise Linux, на користь нової версії цієї операційної системи, відомої як \"CentOS Stream\". У відповідь засновник CentOS, Грегорі Куртцер, оголосив <link>через коментар на вебсайті CentOS</link>, що він знову почне проект, спрямований на досягнення початкових цілей CentOS. Назву було обрано на честь раннього співавтора CentOS, Рокі Маґо. До 12 грудня репозиторій коду Rocky Linux став найбільш трендовим репозиторієм на GitHub.",
+    "releaseInfo": "22 грудня 2020 року Rocky Linux оголосив, що цільова дата початкового випуску — з березня по травень 2021 року. 20 січня 2021 року було оголошено, що тестовий репозиторій буде доступний для публіки до кінця лютого, а кандидат на випуск очікується наприкінці березня 2021 року. Однак ця дата була трохи відкладена, і 30 квітня 2021 року був офіційно випущений перший кандидат на випуск. Другий кандидат на випуск версії 8.4, останній перед стабільним релізом, був випущений 4 червня 2021 року. 21 червня 2021 року був випущений стабільний реліз Rocky Linux 8.4 з кодовою назвою \"Green Obsidian\".",
     "organizationInfo": {
       "title": "Organization",
-      "info": "The Rocky Linux project is hosted by the Rocky Enterprise Software Foundation (RESF). To learn more about the organizational structure, please check out the <link>page</link> on the topic."
+      "info": "Проект Rocky Linux розміщується в рамках Rocky Enterprise Software Foundation (RESF). Для того, щоб дізнатися більше про організаційну структуру, будь ласка, перегляньте <link>сторінку</link> з цієї теми."
     },
     "quote": {
       "quote": "“Thinking back to early CentOS days... My cofounder was Rocky McGaugh. He is no longer with us, so as a H/T to him, who never got to see the success that CentOS came to be, I introduce to you...Rocky Linux.”",
@@ -145,7 +145,7 @@
   },
   "partners": {
     "title": "Partners",
-    "description": "The Rocky Linux project is proud to partner with the following organizations. We are grateful for their support and contributions to the project.",
+    "description": "Проект Rocky Linux пишається партнерством з наступними організаціями. Ми вдячні за їхню підтримку та внески в розвиток проекту.",
     "foundingPartner": "Founding Partner"
   },
   "supportProviders": {
@@ -272,12 +272,12 @@
     },
     "getInvolved": {
       "title": "Get Involved",
-      "text": "As you download and use Rocky Linux, the Rocky Enterprise Software Foundation invites you to be a part of the community as a contributor. There are many ways to contribute to the project, from documentation, QA, and testing to coding changes for SIGs, providing mirroring or hosting, and helping other users."
+      "text": "Під час завантаження та використання Rocky Linux, Фонд програмного забезпечення Rocky Enterprise запрошує вас стати частиною спільноти як учасника. Є багато способів зробити свій внесок у проект, починаючи від документації, QA та тестування до змін у коді для SIG, надання дзеркал або хостингу та допомоги іншим користувачам."
     },
     "exportCompliance": {
       "title": "Export Compliance/Customs Information",
       "text1": "By downloading Rocky Linux software, you acknowledge that you understand all of the following:",
-      "text2": "Rocky Linux software and technical information may be subject to the U.S. Export Administration Regulations (the \"EAR\") and other U.S. and foreign laws and may not be exported, re-exported or transferred (a) to a prohibited destination country under the EAR or U.S. sanctions regulations (currently Cuba, Iran, North Korea, Sudan, Syria, and the Crimea Region of Ukraine, subject to change as posted by the United States government); (b) to any prohibited destination or to any end user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government; or (c) for use in connection with the design, development or production of nuclear, chemical or biological weapons, or rocket systems, space launch vehicles, or sounding rockets, or unmanned air vehicle systems.",
+      "text2": "Програмне забезпечення Rocky Linux та технічна інформація можуть підпадати під управління експорту США («EAR») та інше U. . та закордонні закони і, можливо, не експортуються, реекспортуються чи перевозять (а) до забороненої країни призначення в рамках EAR чи США. санкційні регламенти (зараз Куба, Іран, Північна Корея, Судан, Сирія та Кримський регіон України, які підлягають змінам, як розміщений урядом США); (b) будь-якому забороненому призначенню або будь-якому кінцевому користувачеві, якому було заборонено брати участь в США. . експортні операції з будь-якого федерального агентства США. уряд; або (с) для використання у зв'язку з дизайном, розвитком чи виробництвом ядерної зброї, хімічної або біологічної зброї, або ракетні системи, космічні засоби або ракети звуку, або неманерні авіаперевезені.",
       "narrative": "Rocky Linux in source code and binary code form is publicly available and is not subject to the EAR in accordance with §740.17(b)(1).",
       "product_title": "Product",
       "product_text": "Rocky Linux. Includes Rocky Linux Project \"Special Interest Group\" repositories.",
@@ -302,27 +302,27 @@
       },
       "bugs": {
         "title": "Reporting bugs",
-        "description": "Join our <link1>Mattermost chat</link1> to talk over your potential bug with the team and other community members. Search our <link2>bug tracker</link2> to see if there's an existing report for your issue."
+        "description": "Приєднуйтесь до нашого <link1>чату Mattermost</link1>, щоб обговорити потенційну помилку з командою та іншими членами спільноти. Перевірте наш <link2>трекер помилок</link2>, щоб дізнатися, чи вже існує звіт про вашу проблему."
       },
       "webdev": {
         "title": "Web development",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Web</link2> channel. Search our <link3>website repository</link3> to see if there are issues/enhancements that need to be made. Make them!"
+        "description": "Приєднуйтесь до нашого <link1>чату Mattermost</link1> і представтесь у каналі <link2>~Web</link2>. Перевірте наш <link3>репозиторій вебсайту</link3>, щоб дізнатися, чи є проблеми чи покращення, які потрібно зробити. Робіть їх!"
       },
       "graphics": {
         "title": "Graphic design",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Design</link2> channel. Let us know what you're interested in working on, and we'll find something you can help out with!"
+        "description": "Приєднуйтесь до нашого <link1>чату Mattermost</link1> і представтесь у каналі <link2>~Design</link2>. Розкажіть, чим вам цікаво займатись — і ми знайдемо, у чому ви зможете допомогти!"
       },
       "release": {
         "title": "Release engineering",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Development</link2> channel. Let us know what you're interested in working on, and we'll find something you can help out with!"
+        "description": "Приєднуйтесь до нашого <link1>чату Mattermost</link1> і представтесь у каналі <link2>~Development</link2>. Розкажіть, чим вам цікаво займатись — і ми знайдемо, у чому ви зможете допомогти!"
       },
       "sig": {
         "title": "Special Interest Group (SIG)",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in one of our many SIG channels. Let us know what you're interested in working on, and we'll find something you can help out with! If you're interested in proposing a new SIG, please see our <link2>wiki page</link2> on the topic."
+        "description": "Приєднуйтесь до нашого <link1>чату Mattermost</link1> і представтесь в одному з наших численних каналів SIG. Розкажіть, чим вам цікаво займатись — і ми знайдемо, у чому ви зможете допомогти! Якщо ви зацікавлені в створенні нового SIG, перегляньте нашу <link2>вікі-сторінку</link2> на цю тему."
       },
       "docs": {
         "title": "Documentation",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Documentation</link2> channel. Make sure to review the contributing guide available on our <link3>README</link3>."
+        "description": "Приєднуйтесь до нашого <link1>чату Mattermost</link1> і представтеся в каналі <link2>~Documentation</link2>. Обов’язково перегляньте посібник зі сприяння, доступний у нашому <link3>README</link3>."
       }
     }
   }
