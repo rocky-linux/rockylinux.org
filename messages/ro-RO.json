@@ -108,12 +108,12 @@
     }
   },
   "share": {
-    "shareName": "Share",
+    "shareName": "Distribuie",
     "bluesky": "Bluesky",
     "mastodon": {
       "name": "Mastodon",
       "url-valid": "Te rog introdu un URL valid de instanță Mastodon (fără https://).",
-      "url": "Mastodon Instance URL"
+      "url": "Instanță URL Mastodon"
     },
     "facebook": "Facebook",
     "linkedin": "LinkedIn",
@@ -123,12 +123,12 @@
     "title": "Despre",
     "headings": {
       "title": "Totul a început cu un comentariu de pe un blog.",
-      "subTitle": "History"
+      "subTitle": "Istoric"
     },
     "intro": "La 8 decembrie 2020, Red Hat a anunţat că va întrerupe dezvoltarea CentOS, care a fost o versiune \"downstream\", gata de producție, a Red Hat Enterprise Linux, în favoarea unei noi variante de dezvoltare în \"upstream\" a sistemului de operare, cunoscut sub numele de „CentOS Stream”. Ca răspuns, fondatorul original al CentOS, Gregory Kurtzer, a anunțat <link>printr-un comentariu pe site-ul CentOS</link> că va începe din nou un proiect pentru a atinge obiectivele originale ale CentOS. Numele a fost ales drept omagiu adus cofondatorului CentOS timpuriu Rocky McGaugh. Până la 12 decembrie, repository-ul Rocky Linux a devenit de top pe GitHub.",
     "releaseInfo": "La 22 decembrie 2020, Rocky Linux a anunțat că obiectivul unei lansări inițiale era în perioada martie-mai 2021. La 20 ianuarie 2021, s-a anunțat că până la sfârșitul lunii februarie va fi pus la dispoziția publicului un repository de test și un release era pe punctul de a fi vizat la sfârșitul lunii martie 2021. Cu toate acestea, data a fost uşor amânată, iar pe 30 aprilie 2021 primul release a fost eliberat în mod oficial. Cel de-al doilea release, versiunea 8.4 , ultimul înainte de eliberarea stabilă, a fost făcut public la 4 iunie, 2021. La 21 iunie 2021 a fost lansat release-ul stabil Rocky Linux 8.4, cu numele de cod \"Green Obsidian\".",
     "organizationInfo": {
-      "title": "Organization",
+      "title": "Organizație",
       "info": "Proiectul Rocky Linux este găzduit de Fundația Rocky Enterprise Software Foundation (RESF). Pentru a afla mai multe despre structura organizației, vă rugăm să verificați <link>pagina </link> subiectului."
     },
     "quote": {
@@ -140,21 +140,21 @@
   "sponsors": {
     "title": "Sponsori",
     "description": "Proiectul Rocky Linux este posibil datorită sprijinului generos al sponsorilor noștri. Suntem recunoscători pentru contribuțiile lor către proiect.",
-    "learnMore": "Learn More",
-    "foundingSponsor": "Founding Sponsor"
+    "learnMore": "Află mai mult",
+    "foundingSponsor": "Sponsor fondator"
   },
   "partners": {
     "title": "Parteneri",
     "description": "Proiectul Rocky Linux este mândru de parteneriatul cu următoarele organizații. Suntem recunoscători pentru sprijinul și contribuțiile lor la proiect.",
-    "foundingPartner": "Founding Partner"
+    "foundingPartner": "Partener fondator"
   },
   "supportProviders": {
     "title": "Suport comercial",
     "description": "Următorii sponsori oferă sprijin comercial pentru Rocky Linux.",
-    "foundingSponsor": "Founding Sponsor"
+    "foundingSponsor": "Sponsor fondator"
   },
   "shop": {
-    "title": "Official Merchandise",
+    "title": "Merch Oficial",
     "description": "Cumpără niște swag! Toți vânzătorii noștri livrează la nivel global."
   },
   "download": {
@@ -162,7 +162,7 @@
     "description": "Descarcă ultimele versiuni Rocky Linux de aici.",
     "tabs": {
       "x86_64": "AMD/Intel (x86_64)",
-      "aarch64": "ARM (aarch64)",
+      "aarch64": "ARM64 (aarch64)",
       "ppc64le": "PowerPC (ppc64le)",
       "s390x": "IBM Z (s390x)",
       "container": "Docker (OCI)",
@@ -176,11 +176,11 @@
       },
       "riscv64": "RISC-V (riscv64)"
     },
-    "selectVersion": "Select a version:",
-    "plannedEol": "Planned EOL:",
+    "selectVersion": "Selectează o versiune:",
+    "plannedEol": "EOL planificat:",
     "cards": {
       "defaultImages": {
-        "title": "Default Images",
+        "title": "Imagini Implicite",
         "tooltips": {
           "dvd": "DVD: Instalare fără întreruperi, tot ce ai nevoie este inclus.",
           "boot": "Boot: Imagine minimala pentru o instalare personalizată, bazată pe internet.",
@@ -195,16 +195,16 @@
         "torrent": "Torrent (DVD ISO)",
         "checksum": "CHECKSUM",
         "checksums": "CHECKSUMS",
-        "baseOs": "BaseOS Packages",
-        "archived": "Archived Releases",
+        "baseOs": "Pachete BaseOS",
+        "archived": "Lansări arhivate",
         "x86_64": {
           "r9": {
             "versionName": "Rocky Linux 9",
-            "plannedEol": "May 31 2032"
+            "plannedEol": "2032-05-31"
           },
           "r8": {
             "versionName": "Rocky Linux 8",
-            "plannedEol": "May 31 2029"
+            "plannedEol": "2029-05-31"
           }
         }
       },
@@ -255,12 +255,12 @@
         "readMe": "README"
       },
       "wslImages": {
-        "title": "Windows Subsystem for Linux (WSL) Images",
+        "title": "Windows Subsystem pentru Linux (WSL) Imagini",
         "download": "Descărcare",
         "readMe": "README"
       },
       "visionfive2Images": {
-        "title": "VisionFive 2 Images",
+        "title": "VisionFive 2 Imagini",
         "download": "Descărcare",
         "readMe": "README"
       },
