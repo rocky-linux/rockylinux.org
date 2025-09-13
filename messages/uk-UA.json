@@ -4,7 +4,7 @@
     "download": "Звантажити",
     "notFound": {
       "title": "Не знайдено",
-      "description": "The page you are looking for does not exist. Please check the URL and try again."
+      "description": "\"Сторінки, яку ви шукаєте, не існує. Будь ласка, перевірте URL і спробуйте ще раз.\""
     },
     "close": "Закрити"
   },
@@ -69,7 +69,7 @@
   },
   "home": {
     "hero": {
-      "title": "Enterprise Linux, the <span>community way.</span>",
+      "title": "Enterprise Linux, шлях <span>спільноти</span>.",
       "description": "Rocky Linux — це операційна система корпоративного рівня з відкритим кодом, розроблена для повної (на 100%) сумісності з Red Hat Enterprise Linux® на рівні виправлень (bug-for-bug). Rocky Linux активно розробляється спільнотою.",
       "migrate": "Migrate",
       "dpg": "A Registered Digital Public Good"
@@ -80,20 +80,20 @@
       "description": "Rocky Linux безпосередньо відновлює вихідний код з RHEL®, тому можете бути впевнені, що отримаєте надзвичайно стабільний досвід, незалежно від використання.",
       "productionReady": {
         "name": "Production Ready",
-        "description": "Rocky Linux is enterprise-ready, providing solid stability with regular updates and a 10-year support lifecycle, all at no cost."
+        "description": "Rocky Linux готовий до використання в підприємствах, забезпечуючи надійну стабільність з регулярними оновленнями та 10-річним циклом підтримки, все безкоштовно."
       },
       "communitySupported": {
         "name": "Community Supported",
-        "description": "The community, sponsors, and partners have invested with long-term commitments to ensure the project stays with the community."
+        "description": "Спільнота, спонсори та партнери здійснили довгострокові інвестиції, щоб забезпечити, що проєкт залишиться в руках спільноти."
       },
       "easyMigration": {
         "name": "Easy Migration",
-        "description": "Migrate from other Enterprise Linux distributions without sweating it. We provide an easy-to-use migration script, free of charge."
+        "description": "Міграція з інших дистрибутивів Enterprise Linux без зайвих труднощів. Ми надаємо простий у використанні скрипт для міграції безкоштовно."
       }
     },
     "news": {
       "title": "Latest News",
-      "description": "We regularly share updates with the community about what's happening. Here's the latest."
+      "description": "Ми регулярно ділимося оновленнями з громадою про те, що відбувається. Ось останні новини."
     },
     "logoCloud": {
       "title": "Backed By"
@@ -101,10 +101,10 @@
   },
   "news": {
     "title": "News",
-    "description": "Stay up to date with the latest news and updates from the Rocky Linux community.",
+    "description": "Будьте в курсі останніх новин та оновлень від спільноти Rocky Linux.",
     "notFound": {
       "title": "Не знайдено",
-      "description": "The news post you are looking for does not exist. You can find all our news posts on the <newsLink>news page</newsLink>."
+      "description": "Допис новин, який ви шукаєте, не існує. Ви можете знайти всі наші дописи на <newsLink>сторінці новин</newsLink>.\""
     }
   },
   "share": {
@@ -112,7 +112,7 @@
     "bluesky": "Bluesky",
     "mastodon": {
       "name": "Mastodon",
-      "url-valid": "Please enter a valid Mastodon instance URL (without https://).",
+      "url-valid": "Введіть припустимий URL екземпляра Mastodon (без https://).",
       "url": "Mastodon Instance URL"
     },
     "facebook": "Facebook",
@@ -132,14 +132,14 @@
       "info": "Проект Rocky Linux розміщується в рамках Rocky Enterprise Software Foundation (RESF). Для того, щоб дізнатися більше про організаційну структуру, будь ласка, перегляньте <link>сторінку</link> з цієї теми."
     },
     "quote": {
-      "quote": "“Thinking back to early CentOS days... My cofounder was Rocky McGaugh. He is no longer with us, so as a H/T to him, who never got to see the success that CentOS came to be, I introduce to you...Rocky Linux.”",
+      "quote": "\"Згадуючи ранні дні CentOS... Мій співзасновник був Рокі МакГафф. Його вже немає з нами, тому як данину йому, який не побачив успіху, якого досяг CentOS, я представляю вам... Rocky Linux.\"",
       "author": "Gregory Kurtzer",
       "role": "Co-Founder @ CentOS / Founder @ Rocky Linux"
     }
   },
   "sponsors": {
     "title": "Sponsors",
-    "description": "The Rocky Linux project is made possible by the generous support of our sponsors. We are grateful for their contributions to the project.",
+    "description": "Проект Rocky Linux став можливим завдяки щедрій підтримці наших спонсорів. Ми вдячні за їхні внески в розвиток проекту.",
     "learnMore": "Learn More",
     "foundingSponsor": "Founding Sponsor"
   },
@@ -150,12 +150,12 @@
   },
   "supportProviders": {
     "title": "Commercial Support",
-    "description": "The following sponsors provide commercial support for Rocky Linux.",
+    "description": "Наступні спонсори надають комерційну підтримку для Rocky Linux.",
     "foundingSponsor": "Founding Sponsor"
   },
   "shop": {
     "title": "Official Merchandise",
-    "description": "Purchase some swag! All of our vendors ship globally."
+    "description": "Придбайте наш мерч! Усі наші продавці здійснюють доставку по всьому світу."
   },
   "download": {
     "title": "Звантажити",
@@ -182,9 +182,9 @@
       "defaultImages": {
         "title": "Default Images",
         "tooltips": {
-          "dvd": "DVD: Seamless installation, everything you need is included.",
-          "boot": "Boot: Minimal image for a custom, internet-based installation.",
-          "minimal": "Minimal: Minimal, self-contained image for offline system setup.",
+          "dvd": "DVD: Безшовна установка, все, що вам потрібно, включається.",
+          "boot": "Завантаження: Мінімальне зображення для встановити на основі інтернету.",
+          "minimal": "Мінімально: Мінімальне, самодостатнє зображення для налаштування автономної системи.",
           "buttonLabel": "View Installation Guide"
         },
         "downloadOptions": {
@@ -276,11 +276,11 @@
     },
     "exportCompliance": {
       "title": "Export Compliance/Customs Information",
-      "text1": "By downloading Rocky Linux software, you acknowledge that you understand all of the following:",
+      "text1": "Завантажуючи програмне забезпечення Rocky Linux, ви підтверджуєте, що розумієте наступне:",
       "text2": "Програмне забезпечення Rocky Linux та технічна інформація можуть підпадати під управління експорту США («EAR») та інше U. . та закордонні закони і, можливо, не експортуються, реекспортуються чи перевозять (а) до забороненої країни призначення в рамках EAR чи США. санкційні регламенти (зараз Куба, Іран, Північна Корея, Судан, Сирія та Кримський регіон України, які підлягають змінам, як розміщений урядом США); (b) будь-якому забороненому призначенню або будь-якому кінцевому користувачеві, якому було заборонено брати участь в США. . експортні операції з будь-якого федерального агентства США. уряд; або (с) для використання у зв'язку з дизайном, розвитком чи виробництвом ядерної зброї, хімічної або біологічної зброї, або ракетні системи, космічні засоби або ракети звуку, або неманерні авіаперевезені.",
-      "narrative": "Rocky Linux in source code and binary code form is publicly available and is not subject to the EAR in accordance with §740.17(b)(1).",
+      "narrative": "Rocky Linux у формі вихідного коду та бінарного коду є публічно доступним і не підлягає регулюванню за експортними правилами США (EAR) відповідно до §740.17(b)(1).",
       "product_title": "Product",
-      "product_text": "Rocky Linux. Includes Rocky Linux Project \"Special Interest Group\" repositories.",
+      "product_text": "\"Rocky Linux. Включає репозиторії \"Special Interest Group\" проекту Rocky Linux.\"",
       "eccn_title": "ECCN",
       "eccn_text": "5D992.c",
       "exception_title": "License Exception",
@@ -293,12 +293,12 @@
   },
   "community": {
     "title": "Welcome to the community!",
-    "description": "Select your area of interest, and we'll guide you to the right place.",
+    "description": "Оберіть свою сферу інтересів, і ми допоможемо вам знайти потрібне місце. Яка сфера вас цікавить?",
     "noSelection": "Select an option to see more details.",
     "interests": {
       "chatting": {
         "title": "Just chatting",
-        "description": "You can join the conversation on our <link>Mattermost</link> chat to connect with others in the community. Have fun!"
+        "description": "Ви можете приєднатися до розмови в нашому чаті <link>Mattermost</link>, щоб спілкуватися з іншими членами спільноти. Гарного спілкування!"
       },
       "bugs": {
         "title": "Reporting bugs",
