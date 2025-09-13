@@ -112,7 +112,7 @@
     "bluesky": "Bluesky",
     "mastodon": {
       "name": "Mastodon",
-      "url-valid": "Please enter a valid Mastodon instance URL (without https://).",
+      "url-valid": "Te rog introdu un URL valid de instanță Mastodon (fără https://).",
       "url": "Mastodon Instance URL"
     },
     "facebook": "Facebook",
@@ -122,44 +122,44 @@
   "about": {
     "title": "Despre",
     "headings": {
-      "title": "It all started with a blog comment.",
+      "title": "Totul a început cu un comentariu de pe un blog.",
       "subTitle": "History"
     },
-    "intro": "On December 8, 2020, Red Hat announced that they would discontinue development of CentOS, which has been a production-ready downstream version of Red Hat Enterprise Linux, in favor of a newer upstream development variant of that operating system known as \"CentOS Stream\". In response, the original founder of CentOS, Gregory Kurtzer, announced <link>via a comment on the CentOS website</link> that he would again start a project to achieve the original goals of CentOS. Its name was chosen as a tribute to early CentOS co-founder Rocky McGaugh. By December 12, the code repository of Rocky Linux had become the top-trending repository on GitHub.",
-    "releaseInfo": "On December 22, 2020, Rocky Linux announced that the target for an initial release was anywhere between March and May of 2021. On January 20, 2021, it was announced that a test repository would be made available to the public by the end of February, and a release candidate was on target for the end of March 2021. However, that date was slightly pushed back, and on April 30, 2021, the first release candidate was officially released. The second release candidate, of version 8.4, the last before the stable release, was released on June 4, 2021. On June 21, 2021, the stable release of Rocky Linux 8.4 was released, with the code name \"Green Obsidian\".",
+    "intro": "La 8 decembrie 2020, Red Hat a anunţat că va întrerupe dezvoltarea CentOS, care a fost o versiune \"downstream\", gata de producție, a Red Hat Enterprise Linux, în favoarea unei noi variante de dezvoltare în \"upstream\" a sistemului de operare, cunoscut sub numele de „CentOS Stream”. Ca răspuns, fondatorul original al CentOS, Gregory Kurtzer, a anunțat <link>printr-un comentariu pe site-ul CentOS</link> că va începe din nou un proiect pentru a atinge obiectivele originale ale CentOS. Numele a fost ales drept omagiu adus cofondatorului CentOS timpuriu Rocky McGaugh. Până la 12 decembrie, repository-ul Rocky Linux a devenit de top pe GitHub.",
+    "releaseInfo": "La 22 decembrie 2020, Rocky Linux a anunțat că obiectivul unei lansări inițiale era în perioada martie-mai 2021. La 20 ianuarie 2021, s-a anunțat că până la sfârșitul lunii februarie va fi pus la dispoziția publicului un repository de test și un release era pe punctul de a fi vizat la sfârșitul lunii martie 2021. Cu toate acestea, data a fost uşor amânată, iar pe 30 aprilie 2021 primul release a fost eliberat în mod oficial. Cel de-al doilea release, versiunea 8.4 , ultimul înainte de eliberarea stabilă, a fost făcut public la 4 iunie, 2021. La 21 iunie 2021 a fost lansat release-ul stabil Rocky Linux 8.4, cu numele de cod \"Green Obsidian\".",
     "organizationInfo": {
       "title": "Organization",
-      "info": "The Rocky Linux project is hosted by the Rocky Enterprise Software Foundation (RESF). To learn more about the organizational structure, please check out the <link>page</link> on the topic."
+      "info": "Proiectul Rocky Linux este găzduit de Fundația Rocky Enterprise Software Foundation (RESF). Pentru a afla mai multe despre structura organizației, vă rugăm să verificați <link>pagina </link> subiectului."
     },
     "quote": {
-      "quote": "“Thinking back to early CentOS days... My cofounder was Rocky McGaugh. He is no longer with us, so as a H/T to him, who never got to see the success that CentOS came to be, I introduce to you...Rocky Linux.”",
+      "quote": "„Gândindu-mă la primele zile ale CentOS-ului... Cofondatorul meu era Rocky McGaugh. El nu mai este alături de noi, așa că ridicând pălăria în semn de respect pentru el, care nu a apucat să vadă succesul pe care CentOS a ajuns să îl aibă, vă prezint... Rocky Linux.”",
       "author": "Gregory Kurtzer",
-      "role": "Co-Founder @ CentOS / Founder @ Rocky Linux"
+      "role": "Co-fondator @ CentOS / Fondator @ Rocky Linux"
     }
   },
   "sponsors": {
     "title": "Sponsori",
-    "description": "The Rocky Linux project is made possible by the generous support of our sponsors. We are grateful for their contributions to the project.",
+    "description": "Proiectul Rocky Linux este posibil datorită sprijinului generos al sponsorilor noștri. Suntem recunoscători pentru contribuțiile lor către proiect.",
     "learnMore": "Learn More",
     "foundingSponsor": "Founding Sponsor"
   },
   "partners": {
     "title": "Parteneri",
-    "description": "The Rocky Linux project is proud to partner with the following organizations. We are grateful for their support and contributions to the project.",
+    "description": "Proiectul Rocky Linux este mândru de parteneriatul cu următoarele organizații. Suntem recunoscători pentru sprijinul și contribuțiile lor la proiect.",
     "foundingPartner": "Founding Partner"
   },
   "supportProviders": {
     "title": "Suport comercial",
-    "description": "The following sponsors provide commercial support for Rocky Linux.",
+    "description": "Următorii sponsori oferă sprijin comercial pentru Rocky Linux.",
     "foundingSponsor": "Founding Sponsor"
   },
   "shop": {
     "title": "Official Merchandise",
-    "description": "Purchase some swag! All of our vendors ship globally."
+    "description": "Cumpără niște swag! Toți vânzătorii noștri livrează la nivel global."
   },
   "download": {
     "title": "Descărcare",
-    "description": "Download the latest Rocky Linux versions here.",
+    "description": "Descarcă ultimele versiuni Rocky Linux de aici.",
     "tabs": {
       "x86_64": "AMD/Intel (x86_64)",
       "aarch64": "ARM (aarch64)",
@@ -182,10 +182,10 @@
       "defaultImages": {
         "title": "Default Images",
         "tooltips": {
-          "dvd": "DVD: Seamless installation, everything you need is included.",
-          "boot": "Boot: Minimal image for a custom, internet-based installation.",
-          "minimal": "Minimal: Minimal, self-contained image for offline system setup.",
-          "buttonLabel": "View Installation Guide"
+          "dvd": "DVD: Instalare fără întreruperi, tot ce ai nevoie este inclus.",
+          "boot": "Boot: Imagine minimala pentru o instalare personalizată, bazată pe internet.",
+          "minimal": "Minimal: Minimală, autonomă pentru configurarea sistemului offline.",
+          "buttonLabel": "Vezi ghidul de instalare"
         },
         "downloadOptions": {
           "dvd": "DVD ISO",
@@ -314,15 +314,15 @@
       },
       "release": {
         "title": "Release engineering",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Development</link2> channel. Let us know what you're interested in working on, and we'll find something you can help out with!"
+        "description": "Alăturați-vă <link1>chat-ului nostru Mattermost</link1> și prezentați-vă în canalul <link2>~Development</link2>. Spune-ne la ce te interesează să lucrezi și vom găsi ceva cu care poți să ne ajuți!"
       },
       "sig": {
-        "title": "Special Interest Group (SIG)",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in one of our many SIG channels. Let us know what you're interested in working on, and we'll find something you can help out with! If you're interested in proposing a new SIG, please see our <link2>wiki page</link2> on the topic."
+        "title": "Grupul de interese speciale (SIG)",
+        "description": "Alăturaţi-vă <link1> chat-ului Mattermost</link1> şi prezentaţi-vă într-unul dintre multele noastre canale SIG. Spune-ne la ce te interesează să lucrezi și vom găsi ceva cu care poți să ne ajuți! Dacă sunteți interesat să propuneți un nou SIG, vă rugăm să consultați <link2>pagina noastră wiki</link2> pe acest subiect."
       },
       "docs": {
         "title": "Documentație",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Documentation</link2> channel. Make sure to review the contributing guide available on our <link3>README</link3>."
+        "description": "Alăturați-vă chat-ului nostru <link1>Mattermost</link1> și prezentați-vă în canalul <link2>~Documentation</link2>. Asigură-te că revizuiești ghidul de contribuție disponibil la <link3>README</link3>."
       }
     }
   }
