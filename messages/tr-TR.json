@@ -37,7 +37,7 @@
         "calendar": "Takvim"
       },
       "support": {
-        "docs": "Dökümantasyon",
+        "docs": "Dokümantasyon",
         "submitBug": "Hata Bildir",
         "supportProviders": "Ticari Destek"
       },
@@ -321,7 +321,7 @@
         "description": "<link1>Mattermost sohbetimize</link1> katılın ve birçok SIG kanalımızdan birinde kendinizi tanıtın. Ne üzerinde çalışmak istediğinizi bize bildirin, size yardımcı olabileceğiniz bir şey bulalım! Yeni bir SIG önermek istiyorsanız, lütfen konuyla ilgili <link2>wiki sayfamızı</link2> inceleyin."
       },
       "docs": {
-        "title": "Dökümantasyon",
+        "title": "Dokümantasyon",
         "description": "<link1>Mattermost sohbetimize</link1> katılın ve <link2>~Dokümantasyon (Documentation)</link2> kanalında kendinizi tanıtın. <link3>README (BENİOKU)</link3> sayfasında bulunan katkı kılavuzunu mutlaka inceleyin."
       }
     }
