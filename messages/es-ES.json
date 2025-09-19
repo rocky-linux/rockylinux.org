@@ -6,24 +6,24 @@
       "title": "Not Found",
       "description": "La página que buscas no existe. Por favor, comprueba la URL e inténtalo de nuevo."
     },
-    "close": "Close"
+    "close": "Cerrar"
   },
   "header": {
-    "toggleTheme": "Toggle Theme",
+    "toggleTheme": "Tema",
     "nav": {
-      "newsName": "News",
-      "aboutName": "About",
+      "newsName": "Noticias",
+      "aboutName": "Acerca",
       "resourcesName": "Resources",
       "communityName": "Community",
-      "supportName": "Help",
+      "supportName": "Ayudar",
       "contributeName": "Contribute",
-      "openMainMenu": "Open Main Menu",
+      "openMainMenu": "Abrir Menú Principal",
       "about": {
         "about": "Acerca de Rocky Linux",
-        "charter": "Community Charter",
+        "charter": "Carta Comunitaria",
         "wiki": "Wiki del Proyecto",
         "sponsors": "Sponsors",
-        "partners": "Partners"
+        "partners": "Socios"
       },
       "resources": {
         "gpgKeyInfo": "Información de llave GPG"
@@ -31,7 +31,7 @@
       "community": {
         "coc": "Código de Conducta",
         "forums": "Forums",
-        "mailing": "Mailing Lists",
+        "mailing": "Listas de Correo",
         "mattermost": "Mattermost",
         "irc": "IRC",
         "calendar": "Calendar"
@@ -39,12 +39,12 @@
       "support": {
         "docs": "Documentation",
         "submitBug": "Submit Bug",
-        "supportProviders": "Commercial Support"
+        "supportProviders": "Soporte Comercial"
       },
       "contribute": {
-        "contribute": "Contributing Guide",
-        "shop": "Shop",
-        "donate": "Donate"
+        "contribute": "Como contribuir al proyecto",
+        "shop": "Tienda",
+        "donate": "Donar"
       }
     }
   },
@@ -52,7 +52,7 @@
     "footer": "Footer",
     "nav": {
       "licensingName": "Licensing",
-      "privacyPolicyName": "Privacy Policy",
+      "privacyPolicyName": "Política de Privacidad",
       "TrademarksName": "Trademarks"
     },
     "socialNav": {
@@ -71,7 +71,7 @@
     "hero": {
       "title": "Enterprise Linux, the <span>community way.</span>",
       "description": "Rocky Linux is an open-source enterprise operating system designed to be 100% bug-for-bug compatible with Red Hat Enterprise Linux®. Rocky Linux is under intensive development by the community.",
-      "migrate": "Migrate",
+      "migrate": "Migrar",
       "dpg": "A Registered Digital Public Good"
     },
     "features": {
@@ -79,7 +79,7 @@
       "subText": "STABLE, PRODUCTION READY LINUX",
       "description": "Rocky Linux rebuilds sources directly from RHEL®, so you can bet your best dollar that you'll have a super stable experience, no matter the use-case.",
       "productionReady": {
-        "name": "Production Ready",
+        "name": "Listo para producción",
         "description": "Rocky Linux is enterprise-ready, providing solid stability with regular updates and a 10-year support lifecycle, all at no cost."
       },
       "communitySupported": {
@@ -87,7 +87,7 @@
         "description": "The community, sponsors, and partners have invested with long-term commitments to ensure the project stays with the community."
       },
       "easyMigration": {
-        "name": "Easy Migration",
+        "name": "Migración Fácil",
         "description": "Migrate from other Enterprise Linux distributions without sweating it. We provide an easy-to-use migration script, free of charge."
       }
     },
@@ -100,7 +100,7 @@
     }
   },
   "news": {
-    "title": "News",
+    "title": "Noticias",
     "description": "Stay up to date with the latest news and updates from the Rocky Linux community.",
     "notFound": {
       "title": "Not Found",
@@ -108,7 +108,7 @@
     }
   },
   "share": {
-    "shareName": "Share",
+    "shareName": "Compartir",
     "bluesky": "Bluesky",
     "mastodon": {
       "name": "Mastodon",
@@ -120,7 +120,7 @@
     "threads": "Threads"
   },
   "about": {
-    "title": "About",
+    "title": "Acerca",
     "headings": {
       "title": "It all started with a blog comment.",
       "subTitle": "History"
@@ -144,12 +144,12 @@
     "foundingSponsor": "Founding Sponsor"
   },
   "partners": {
-    "title": "Partners",
+    "title": "Socios",
     "description": "The Rocky Linux project is proud to partner with the following organizations. We are grateful for their support and contributions to the project.",
     "foundingPartner": "Founding Partner"
   },
   "supportProviders": {
-    "title": "Commercial Support",
+    "title": "Soporte Comercial",
     "description": "The following sponsors provide commercial support for Rocky Linux.",
     "foundingSponsor": "Founding Sponsor"
   },
@@ -286,9 +286,9 @@
       "exception_title": "License Exception",
       "exception_text": "Mass Market §740.17(b)(1)",
       "ccats_title": "CCATS",
-      "ccats_text": "N/A",
+      "ccats_text": "N/D",
       "ern_title": "ERN",
-      "ern_text": "N/A"
+      "ern_text": "N/D"
     }
   },
   "community": {
