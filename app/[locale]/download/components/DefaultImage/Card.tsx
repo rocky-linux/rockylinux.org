@@ -8,8 +8,7 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import { QuestionMarkCircledIcon } from "@radix-ui/react-icons";
-import { Tabs } from "@/components/ui/tabs";
-import VersionPicker from "./VersionPicker";
+import VersionContent from "./VersionContent";
 
 interface DownloadOption {
   label: string;
@@ -50,47 +49,59 @@ const DefaultImageCard: React.FC<DefaultImageCardProps> = ({
   titleTooltipButtonLabel,
   titleTooltipButtonLink,
   versions,
-}) => (
-  <Card>
-    <CardHeader>
-      <CardTitle>
-        {titleTooltip ? (
-          <HoverCard>
-            <div className="flex gap-2 items-center">
-              <span className="text-xl sm:text-2xl font-display font-bold">
-                {title}
-              </span>
-              <HoverCardTrigger className="text-muted-foreground">
-                <QuestionMarkCircledIcon />
-              </HoverCardTrigger>
-            </div>
-            <HoverCardContent>
-              {titleTooltipText?.map((line, index) => (
-                <p
-                  key={index}
-                  className="font-normal font-sans py-2"
-                >
-                  {line.text}
-                </p>
-              ))}
-              <a href={titleTooltipButtonLink}>
-                <Button className="mt-2">{titleTooltipButtonLabel}</Button>
-              </a>
-            </HoverCardContent>
-          </HoverCard>
-        ) : (
-          <span className="text-xl sm:text-2xl font-display font-bold">
-            {title}
-          </span>
-        )}
-      </CardTitle>
-    </CardHeader>
-    <CardContent>
-      <Tabs defaultValue="rocky-10">
-        <VersionPicker versions={versions} />
-      </Tabs>
-    </CardContent>
-  </Card>
-);
+}) => {
+  // Since we now filter to only one version in TabsClient, we can directly use the first (and only) version
+  const version = versions[0];
+
+  if (!version) {
+    return null; // Don't render if no version is available
+  }
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>
+          {titleTooltip ? (
+            <HoverCard>
+              <div className="flex gap-2 items-center">
+                <span className="text-xl sm:text-2xl font-display font-bold">
+                  {title}
+                </span>
+                <HoverCardTrigger className="text-muted-foreground">
+                  <QuestionMarkCircledIcon />
+                </HoverCardTrigger>
+              </div>
+              <HoverCardContent>
+                {titleTooltipText?.map((line, index) => (
+                  <p
+                    key={index}
+                    className="font-normal font-sans py-2"
+                  >
+                    {line.text}
+                  </p>
+                ))}
+                <a href={titleTooltipButtonLink}>
+                  <Button className="mt-2">{titleTooltipButtonLabel}</Button>
+                </a>
+              </HoverCardContent>
+            </HoverCard>
+          ) : (
+            <span className="text-xl sm:text-2xl font-display font-bold">
+              {title}
+            </span>
+          )}
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <VersionContent
+          currentVersion={version.currentVersion}
+          plannedEol={version.plannedEol}
+          downloadOptions={version.downloadOptions}
+          links={version.links}
+        />
+      </CardContent>
+    </Card>
+  );
+};
 
 export default DefaultImageCard;

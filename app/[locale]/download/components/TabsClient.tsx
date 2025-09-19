@@ -6,6 +6,7 @@ import { detectArchitecture } from "@/utils/architectureDetection";
 
 import DefaultImageCard from "./DefaultImage/Card";
 import CloudImageCard from "./CloudImage/Card";
+import GlobalVersionPicker from "./GlobalVersionPicker";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -120,9 +121,15 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
   const isInitialLoad = useRef(true);
 
   const archFromUrl = searchParams.get("arch");
+  const versionFromUrl = searchParams.get("version");
 
   // Use a stable default for initial render to avoid hydration mismatch
   const [detectedArch, setDetectedArch] = useState("x86_64");
+
+  // Global version state management
+  const [globalVersion, setGlobalVersion] = useState(
+    versionFromUrl || "rocky-10"
+  );
 
   // Detect architecture only on client after hydration
   useEffect(() => {
@@ -131,6 +138,13 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
       setDetectedArch(detected);
     }
   }, [availableArchitectures]);
+
+  // Update global version when URL changes
+  useEffect(() => {
+    if (versionFromUrl && versionFromUrl !== globalVersion) {
+      setGlobalVersion(versionFromUrl);
+    }
+  }, [versionFromUrl, globalVersion]);
 
   const defaultArch = availableArchitectures.includes(detectedArch)
     ? detectedArch
@@ -147,6 +161,18 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
     params.set("arch", newArch);
 
     // Use push to maintain history for user-initiated changes
+    router.push(`${pathname}?${params.toString()}` as Route, { scroll: false });
+  };
+
+  const updateGlobalVersion = (newVersion: string) => {
+    setGlobalVersion(newVersion);
+
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("version", newVersion);
+    if (archFromUrl) {
+      params.set("arch", archFromUrl);
+    }
+
     router.push(`${pathname}?${params.toString()}` as Route, { scroll: false });
   };
 
@@ -218,6 +244,21 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
           </SelectContent>
         </Select>
       </div>
+
+      {/* Global Version Picker */}
+      {architectures[currentArch] && (
+        <GlobalVersionPicker
+          versions={architectures[currentArch].versions.map((version) => ({
+            versionName: version.versionName,
+            versionId: version.versionId,
+            currentVersion: version.currentVersion,
+            plannedEol: version.plannedEol,
+          }))}
+          selectedVersion={globalVersion}
+          onVersionChange={updateGlobalVersion}
+        />
+      )}
+
       {Object.entries(architectures).map(([arch, data]) => (
         <TabsContent
           key={arch}
@@ -242,42 +283,48 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
               titleTooltipButtonLabel={
                 translations.cards.defaultImages.tooltips.buttonLabel
               }
-              versions={data.versions.map((version) => ({
-                versionName: version.versionName,
-                versionId: version.versionId,
-                currentVersion: version.currentVersion,
-                plannedEol: version.plannedEol,
-                downloadOptions: version.defaultImages.downloadOptions,
-                links: version.defaultImages.links,
-              }))}
+              versions={data.versions
+                .filter((version) => version.versionId === globalVersion)
+                .map((version) => ({
+                  versionName: version.versionName,
+                  versionId: version.versionId,
+                  currentVersion: version.currentVersion,
+                  plannedEol: version.plannedEol,
+                  downloadOptions: version.defaultImages.downloadOptions,
+                  links: version.defaultImages.links,
+                }))}
             />
             <CloudImageCard
               title={translations.cards.cloudImages.title}
               titleTooltip={false}
               titleTooltipButtonLink=""
               titleTooltipButtonLabel=""
-              versions={data.versions.map((version) => ({
-                versionName: version.versionName,
-                versionId: version.versionId,
-                currentVersion: version.currentVersion,
-                plannedEol: version.plannedEol,
-                downloadOptions: version.cloudImages.downloadOptions,
-                links: version.cloudImages.links,
-              }))}
+              versions={data.versions
+                .filter((version) => version.versionId === globalVersion)
+                .map((version) => ({
+                  versionName: version.versionName,
+                  versionId: version.versionId,
+                  currentVersion: version.currentVersion,
+                  plannedEol: version.plannedEol,
+                  downloadOptions: version.cloudImages.downloadOptions,
+                  links: version.cloudImages.links,
+                }))}
             />
             <DefaultImageCard
               title={translations.cards.container.title}
               titleTooltip={false}
               titleTooltipButtonLink=""
               titleTooltipButtonLabel=""
-              versions={data.versions.map((version) => ({
-                versionName: version.versionName,
-                versionId: version.versionId,
-                currentVersion: version.currentVersion,
-                plannedEol: version.plannedEol,
-                downloadOptions: version.containerImages.downloadOptions,
-                links: version.containerImages.links,
-              }))}
+              versions={data.versions
+                .filter((version) => version.versionId === globalVersion)
+                .map((version) => ({
+                  versionName: version.versionName,
+                  versionId: version.versionId,
+                  currentVersion: version.currentVersion,
+                  plannedEol: version.plannedEol,
+                  downloadOptions: version.containerImages.downloadOptions,
+                  links: version.containerImages.links,
+                }))}
             />
             {arch === "x86_64" || arch === "aarch64" ? (
               <DefaultImageCard
@@ -285,14 +332,16 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
                 titleTooltip={false}
                 titleTooltipButtonLink=""
                 titleTooltipButtonLabel=""
-                versions={data.versions.map((version) => ({
-                  versionName: version.versionName,
-                  versionId: version.versionId,
-                  currentVersion: version.currentVersion,
-                  plannedEol: version.plannedEol,
-                  downloadOptions: version.liveImages.downloadOptions,
-                  links: version.liveImages.links,
-                }))}
+                versions={data.versions
+                  .filter((version) => version.versionId === globalVersion)
+                  .map((version) => ({
+                    versionName: version.versionName,
+                    versionId: version.versionId,
+                    currentVersion: version.currentVersion,
+                    plannedEol: version.plannedEol,
+                    downloadOptions: version.liveImages.downloadOptions,
+                    links: version.liveImages.links,
+                  }))}
               />
             ) : null}
             {arch === "aarch64" ? (
@@ -301,14 +350,16 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
                 titleTooltip={false}
                 titleTooltipButtonLink=""
                 titleTooltipButtonLabel=""
-                versions={data.versions.map((version) => ({
-                  versionName: version.versionName,
-                  versionId: version.versionId,
-                  currentVersion: version.currentVersion,
-                  plannedEol: version.plannedEol,
-                  downloadOptions: version.rpiImages.downloadOptions,
-                  links: version.rpiImages.links,
-                }))}
+                versions={data.versions
+                  .filter((version) => version.versionId === globalVersion)
+                  .map((version) => ({
+                    versionName: version.versionName,
+                    versionId: version.versionId,
+                    currentVersion: version.currentVersion,
+                    plannedEol: version.plannedEol,
+                    downloadOptions: version.rpiImages.downloadOptions,
+                    links: version.rpiImages.links,
+                  }))}
               />
             ) : null}
             {arch === "riscv64" ? (
@@ -317,14 +368,16 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
                 titleTooltip={false}
                 titleTooltipButtonLink=""
                 titleTooltipButtonLabel=""
-                versions={data.versions.map((version) => ({
-                  versionName: version.versionName,
-                  versionId: version.versionId,
-                  currentVersion: version.currentVersion,
-                  plannedEol: version.plannedEol,
-                  downloadOptions: version.visionFive2Images.downloadOptions,
-                  links: version.visionFive2Images.links,
-                }))}
+                versions={data.versions
+                  .filter((version) => version.versionId === globalVersion)
+                  .map((version) => ({
+                    versionName: version.versionName,
+                    versionId: version.versionId,
+                    currentVersion: version.currentVersion,
+                    plannedEol: version.plannedEol,
+                    downloadOptions: version.visionFive2Images.downloadOptions,
+                    links: version.visionFive2Images.links,
+                  }))}
               />
             ) : null}
             {arch === "x86_64" || arch === "aarch64" ? (
@@ -333,14 +386,16 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
                 titleTooltip={false}
                 titleTooltipButtonLink=""
                 titleTooltipButtonLabel=""
-                versions={data.versions.map((version) => ({
-                  versionName: version.versionName,
-                  versionId: version.versionId,
-                  currentVersion: version.currentVersion,
-                  plannedEol: version.plannedEol,
-                  downloadOptions: version.wslImages.downloadOptions,
-                  links: version.wslImages.links,
-                }))}
+                versions={data.versions
+                  .filter((version) => version.versionId === globalVersion)
+                  .map((version) => ({
+                    versionName: version.versionName,
+                    versionId: version.versionId,
+                    currentVersion: version.currentVersion,
+                    plannedEol: version.plannedEol,
+                    downloadOptions: version.wslImages.downloadOptions,
+                    links: version.wslImages.links,
+                  }))}
               />
             ) : null}
           </div>

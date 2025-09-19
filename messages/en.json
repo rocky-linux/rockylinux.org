@@ -177,6 +177,7 @@
       "riscv64": "RISC-V (riscv64)"
     },
     "selectVersion": "Select a version:",
+    "globalVersionDescription": "Choose a version that will apply to all download categories below",
     "plannedEol": "Planned EOL:",
     "cards": {
       "defaultImages": {

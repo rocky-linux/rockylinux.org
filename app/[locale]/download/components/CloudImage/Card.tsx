@@ -18,8 +18,7 @@ import {
 } from "@/components/ui/drawer";
 
 import { QuestionMarkCircledIcon } from "@radix-ui/react-icons";
-import { Tabs } from "@/components/ui/tabs";
-import VersionPicker from "./VersionPicker";
+import VersionContent from "./VersionContent";
 import Link from "next/link";
 
 import { CloudImage, Columns } from "./Table/Columns";
@@ -76,10 +75,11 @@ const CloudImageCard: React.FC<CloudImageCardProps> = ({
   const t = useTranslations("download");
   const tGlobal = useTranslations("global");
 
+  // Since we now filter to only one version in TabsClient, we can directly use the first (and only) version
+  const version = versions[0];
+
   const hasCloudImages =
-    versions.length > 0 &&
-    versions[0].downloadOptions.length > 0 &&
-    versions[0].links.length > 0;
+    version && version.downloadOptions.length > 0 && version.links.length > 0;
 
   return (
     <Card>
@@ -124,9 +124,12 @@ const CloudImageCard: React.FC<CloudImageCardProps> = ({
             <h3 className="text-lg font-display font-bold">
               {t("cards.cloudImages.genericCloud")}
             </h3>
-            <Tabs defaultValue="rocky-10">
-              <VersionPicker versions={versions} />
-            </Tabs>
+            <VersionContent
+              currentVersion={version.currentVersion}
+              plannedEol={version.plannedEol}
+              downloadOptions={version.downloadOptions}
+              links={version.links}
+            />
             <hr className="my-8" />
           </>
         )}
