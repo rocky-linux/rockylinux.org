@@ -163,31 +163,11 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
     window.history.pushState(null, "", newUrl);
   };
 
-  // Handle browser back/forward navigation
+  // Sync client state with URL changes (including browser navigation)
   useEffect(() => {
-    const handlePopState = () => {
-      // Check if we're trying to go back to a different page
-      const currentUrl = window.location.pathname + window.location.search;
-      const isStillOnDownloadsPage = currentUrl.startsWith(pathname);
-
-      if (isStillOnDownloadsPage) {
-        // Extract architecture from URL and update client state
-        const urlParams = new URLSearchParams(window.location.search);
-        const urlArchParam = urlParams.get("arch");
-        const newArch = availableArchitectures.includes(urlArchParam ?? "")
-          ? urlArchParam
-          : null;
-
-        startTransition(() => {
-          setClientArch(newArch);
-        });
-      }
-      // If not on downloads page, let the browser handle it naturally
-    };
-
-    window.addEventListener("popstate", handlePopState);
-    return () => window.removeEventListener("popstate", handlePopState);
-  }, [pathname, availableArchitectures]);
+    // Clear client state when URL changes to let URL take precedence
+    setClientArch(null);
+  }, [searchParams]);
 
   return (
     <Tabs
