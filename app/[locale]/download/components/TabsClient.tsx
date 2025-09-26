@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
-import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { useEffect, useState, startTransition } from "react";
+import { useSearchParams, usePathname } from "next/navigation";
 import { detectArchitecture } from "@/utils/architectureDetection";
 
 import DefaultImageCard from "./DefaultImage/Card";
@@ -15,7 +15,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Route } from "next";
 
 interface ProcessedVersion {
   versionName: string;
@@ -112,17 +111,21 @@ interface TabsClientProps {
 }
 
 const TabsClient = ({ architectures, translations }: TabsClientProps) => {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const availableArchitectures = Object.keys(architectures);
-  const [urlKey, setUrlKey] = useState(0);
-  const isInitialLoad = useRef(true);
 
   const archFromUrl = searchParams.get("arch");
 
   // Use a stable default for initial render to avoid hydration mismatch
   const [detectedArch, setDetectedArch] = useState("x86_64");
+
+  // Client-side state for current architecture (for instant switching)
+  const [clientArch, setClientArch] = useState<string | null>(() => {
+    return archFromUrl && availableArchitectures.includes(archFromUrl)
+      ? archFromUrl
+      : null;
+  });
 
   // Detect architecture only on client after hydration
   useEffect(() => {
@@ -136,31 +139,29 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
     ? detectedArch
     : "x86_64";
 
-  const currentArch = availableArchitectures.includes(archFromUrl ?? "")
+  const urlArch = availableArchitectures.includes(archFromUrl ?? "")
     ? (archFromUrl ?? defaultArch)
     : defaultArch;
+
+  // Use client-side state for current architecture, fallback to URL or default
+  const currentArch = clientArch ?? urlArch;
 
   const updateArchitecture = (newArch: string) => {
     if (!availableArchitectures.includes(newArch)) return;
 
+    // Immediately update client state for instant UI response
+    startTransition(() => {
+      setClientArch(newArch);
+    });
+
+    // Update URL without triggering server navigation (shallow update)
     const params = new URLSearchParams(searchParams.toString());
     params.set("arch", newArch);
+    const newUrl = `${pathname}?${params.toString()}`;
 
-    // Use push to maintain history for user-initiated changes
-    router.push(`${pathname}?${params.toString()}` as Route, { scroll: false });
+    // Use window.history.pushState for shallow update without server round-trip
+    window.history.pushState(null, "", newUrl);
   };
-
-  // Set default architecture on initial load (only if no arch in URL)
-  useEffect(() => {
-    if (
-      isInitialLoad.current &&
-      !archFromUrl &&
-      availableArchitectures.length > 0
-    ) {
-      // Don't redirect - just set the internal state
-      isInitialLoad.current = false;
-    }
-  }, [archFromUrl, availableArchitectures, isInitialLoad]);
 
   // Handle browser back/forward navigation
   useEffect(() => {
@@ -170,15 +171,23 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
       const isStillOnDownloadsPage = currentUrl.startsWith(pathname);
 
       if (isStillOnDownloadsPage) {
-        // Still on downloads page, just architecture changed
-        setUrlKey((prevKey) => prevKey + 1);
+        // Extract architecture from URL and update client state
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlArchParam = urlParams.get("arch");
+        const newArch = availableArchitectures.includes(urlArchParam ?? "")
+          ? urlArchParam
+          : null;
+
+        startTransition(() => {
+          setClientArch(newArch);
+        });
       }
       // If not on downloads page, let the browser handle it naturally
     };
 
     window.addEventListener("popstate", handlePopState);
     return () => window.removeEventListener("popstate", handlePopState);
-  }, [pathname, urlKey]);
+  }, [pathname, availableArchitectures]);
 
   return (
     <Tabs
