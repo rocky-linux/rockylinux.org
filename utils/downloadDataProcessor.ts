@@ -264,7 +264,7 @@ export function processArchitecturesData(
                     link: version.links.wslImages.checksum,
                   },
                   {
-                    name: translations.cards.rpiImages.readMe,
+                    name: translations.cards.wslImages.readMe,
                     link: version.links.wslImages.readMe,
                   },
                 ]
