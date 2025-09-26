@@ -72,6 +72,8 @@ const DownloadTabs = ({ downloadData }: DownloadTabsProps) => {
       },
       wslImages: {
         title: t("cards.wslImages.title"),
+        download: t("cards.wslImages.download"),
+        readMe: t("cards.wslImages.readMe"),
       },
       visionfive2Images: {
         title: t("cards.visionfive2Images.title"),

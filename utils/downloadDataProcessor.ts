@@ -87,6 +87,8 @@ interface DownloadTranslations {
     };
     wslImages: {
       title: string;
+      download: string;
+      readMe: string;
     };
     visionfive2Images: {
       title: string;
