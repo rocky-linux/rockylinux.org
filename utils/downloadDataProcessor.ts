@@ -252,7 +252,7 @@ export function processArchitecturesData(
             downloadOptions: version.downloadOptions.wslImages
               ? [
                   {
-                    label: translations.cards.rpiImages.download,
+                    label: translations.cards.wslImages.download,
                     link: version.downloadOptions.wslImages.download,
                   },
                 ]
