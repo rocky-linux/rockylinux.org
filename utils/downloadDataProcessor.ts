@@ -212,7 +212,8 @@ export function processArchitecturesData(
               ? Object.entries(version.downloadOptions.liveImages).map(
                   ([key, link]) => ({
                     label:
-                      translations.cards.liveImages.downloadOptions[key] || key,
+                      translations.cards.liveImages.downloadOptions[key] ||
+                      `Live Image (${key.toUpperCase()})`,
                     link: link as string,
                   })
                 )
