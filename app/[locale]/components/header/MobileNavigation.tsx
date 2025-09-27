@@ -20,6 +20,7 @@ import NavListItem from "./nav/mobile/NavListItem";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 
 import type { NavigationMenuItems } from "./NavigationTypes";
+import type { Route } from "next";
 
 export interface MobileNavigationProps {
   darkModeSRText: string;
@@ -56,7 +57,7 @@ const MobileNavigation = ({
           side="right"
           className="w-full"
         >
-          <Link href="/">
+          <Link href={"/" as Route}>
             <Logo />
             <span className="sr-only">{rockyLinuxSRText}</span>
           </Link>
@@ -75,7 +76,7 @@ const MobileNavigation = ({
               />
               <NavListItem
                 title={t.about.charter}
-                href="/about/charter"
+                href={"/about/charter" as Route}
               />
               <NavListItem
                 title={t.about.wiki}
@@ -83,11 +84,11 @@ const MobileNavigation = ({
               />
               <NavListItem
                 title={t.about.sponsors}
-                href="/about/sponsors"
+                href={"/about/sponsors" as Route}
               />
               <NavListItem
                 title={t.about.partners}
-                href="/about/partners"
+                href={"/about/partners" as Route}
               />
             </NavList>
             <NavList name={t.communityName}>
@@ -123,7 +124,7 @@ const MobileNavigation = ({
               />
               <NavListItem
                 title={t.support.supportProviders}
-                href="/support/support-providers"
+                href={"/support/support-providers" as Route}
               />
             </NavList>
             <NavList name={t.contributeName}>
@@ -133,7 +134,7 @@ const MobileNavigation = ({
               />
               <NavListItem
                 title={t.contribute.shop}
-                href="/contribute/shop"
+                href={"/contribute/shop" as Route}
               />
               <NavListItem
                 title={t.contribute.donate}

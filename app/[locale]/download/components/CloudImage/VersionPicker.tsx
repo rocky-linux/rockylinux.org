@@ -50,7 +50,7 @@ const VersionPicker: React.FC<DownloadCardProps> = ({ versions }) => {
             value={selectedVersion}
             onValueChange={setSelectedVersion}
           >
-            <SelectTrigger className="w-full">
+            <SelectTrigger className="w-full cursor-pointer">
               <SelectValue>
                 {versions.find((v) => v.versionId === selectedVersion)
                   ?.versionName || versions[0]?.versionName}
@@ -61,6 +61,7 @@ const VersionPicker: React.FC<DownloadCardProps> = ({ versions }) => {
                 <SelectItem
                   key={index}
                   value={version.versionId}
+                  className="cursor-pointer"
                 >
                   {version.versionName}
                 </SelectItem>
@@ -102,6 +103,7 @@ const VersionPicker: React.FC<DownloadCardProps> = ({ versions }) => {
               <TabsTrigger
                 key={index}
                 value={version.versionId}
+                className="cursor-pointer"
               >
                 {version.versionName}
               </TabsTrigger>

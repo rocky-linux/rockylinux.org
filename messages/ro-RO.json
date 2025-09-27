@@ -1,59 +1,59 @@
 {
   "global": {
     "name": "Rocky Linux",
-    "download": "Download",
+    "download": "Descărcare",
     "notFound": {
-      "title": "Not Found",
-      "description": "The page you are looking for does not exist. Please check the URL and try again."
+      "title": "Nu a fost găsit",
+      "description": "Pagina pe care o căutați nu există. Vă rugăm să verificați adresa URL și să încercați din nou."
     },
-    "close": "Close"
+    "close": "Închide"
   },
   "header": {
-    "toggleTheme": "Toggle Theme",
+    "toggleTheme": "Schimbă Tema",
     "nav": {
-      "newsName": "News",
-      "aboutName": "About",
-      "resourcesName": "Resources",
-      "communityName": "Community",
-      "supportName": "Help",
-      "contributeName": "Contribute",
-      "openMainMenu": "Open Main Menu",
+      "newsName": "Știri",
+      "aboutName": "Despre",
+      "resourcesName": "Resurse",
+      "communityName": "Comunitate",
+      "supportName": "Ajutor",
+      "contributeName": "Contribuție",
+      "openMainMenu": "Deschide Meniul Principal",
       "about": {
-        "about": "About Rocky Linux",
-        "charter": "Community Charter",
-        "wiki": "Project Wiki",
-        "sponsors": "Sponsors",
-        "partners": "Partners"
+        "about": "Despre Rocky Linux",
+        "charter": "Harta Comunității",
+        "wiki": "Proiectul Wiki",
+        "sponsors": "Sponsori",
+        "partners": "Parteneri"
       },
       "resources": {
-        "gpgKeyInfo": "GPG Key Info"
+        "gpgKeyInfo": "Informații cheie GPG"
       },
       "community": {
-        "coc": "Code of Conduct",
-        "forums": "Forums",
-        "mailing": "Mailing Lists",
+        "coc": "Cod de conduită",
+        "forums": "Forum-uri",
+        "mailing": "Lista mailuri",
         "mattermost": "Mattermost",
         "irc": "IRC",
         "calendar": "Calendar"
       },
       "support": {
-        "docs": "Documentation",
-        "submitBug": "Submit Bug",
-        "supportProviders": "Commercial Support"
+        "docs": "Documentație",
+        "submitBug": "Raportează Bug-uri",
+        "supportProviders": "Suport comercial"
       },
       "contribute": {
-        "contribute": "Contributing Guide",
-        "shop": "Shop",
-        "donate": "Donate"
+        "contribute": "Ghid pentru contribuitori",
+        "shop": "Magazin",
+        "donate": "Donează"
       }
     }
   },
   "footer": {
     "footer": "Footer",
     "nav": {
-      "licensingName": "Licensing",
-      "privacyPolicyName": "Privacy Policy",
-      "TrademarksName": "Trademarks"
+      "licensingName": "Licență",
+      "privacyPolicyName": "Politică de Confidenţialitate",
+      "TrademarksName": "Mărci înregistrate"
     },
     "socialNav": {
       "bluesky": "Bluesky",
@@ -65,104 +65,104 @@
       "threads": "Threads",
       "youtube": "YouTube"
     },
-    "disclaimer": "Rocky Linux® is the registered trademark of the Rocky Enterprise Software Foundation in the U.S. and other countries. Linux® is the registered trademark of Linus Torvalds in the U.S. and other countries. Red Hat Enterprise Linux, RHEL and CentOS are trademarks or registered trademarks of Red Hat, Inc. or its subsidiaries in the US and other countries. We are not affiliated with, endorsed by or sponsored by Red Hat, Inc."
+    "disclaimer": "Rocky Linux®️ este marca înregistrată a Fundației Rocky Enterprise Software în SUA. și alte țări. Linux®️ este marca înregistrată a Linus Torvalds în SUA și în alte țări. Red Hat Enterprise Linux, RHEL și CentOS sunt mărci comerciale sau mărci înregistrate ale Red Hat, Inc. sau filialele sale din SUA şi din alte ţări. Nu suntem afiliaţi, aprobaţi sau sponsorizaţi de Red Hat, Inc."
   },
   "home": {
     "hero": {
-      "title": "Enterprise Linux, the <span>community way.</span>",
-      "description": "Rocky Linux is an open-source enterprise operating system designed to be 100% bug-for-bug compatible with Red Hat Enterprise Linux®. Rocky Linux is under intensive development by the community.",
-      "migrate": "Migrate",
-      "dpg": "A Registered Digital Public Good"
+      "title": "Enterprise Linux,  <span>calea comunității.</span>",
+      "description": "Rocky Linux este un sistem de operare open-source conceput pentru a fi 100% bug-for-bug compatibil cu Red Hat Enterprise Linux®️. Rocky Linux este în dezvoltare intensivă de către comunitate.",
+      "migrate": "Migrați",
+      "dpg": "Un bun public digital înregistrat"
     },
     "features": {
-      "title": "Rock solid, no matter the use-case.",
-      "subText": "STABLE, PRODUCTION READY LINUX",
-      "description": "Rocky Linux rebuilds sources directly from RHEL®, so you can bet your best dollar that you'll have a super stable experience, no matter the use-case.",
+      "title": "Solid, indiferent de utilizare.",
+      "subText": "LINUX STABIL, GATA DE PRODUCȚIE",
+      "description": "Rocky Linux reconstruiește surse direct din RHEL®️, ca să poți paria că vei avea o experiență super stabilă, indiferent de cazul de utilizare.",
       "productionReady": {
-        "name": "Production Ready",
-        "description": "Rocky Linux is enterprise-ready, providing solid stability with regular updates and a 10-year support lifecycle, all at no cost."
+        "name": "Gata de producție",
+        "description": "Rocky Linux este gata de utilizare în medii enterpise, oferă stabilitate solidă, cu actualizări regulate și suport cu ciclu de viață de 10 ani, toate fără niciun cost."
       },
       "communitySupported": {
-        "name": "Community Supported",
-        "description": "The community, sponsors, and partners have invested with long-term commitments to ensure the project stays with the community."
+        "name": "Menținut de către comunitate",
+        "description": "Comunitatea, sponsorii și partenerii au investit cu angajamente pe termen lung pentru a se asigura că proiectul rămâne în mâinile comunității."
       },
       "easyMigration": {
-        "name": "Easy Migration",
-        "description": "Migrate from other Enterprise Linux distributions without sweating it. We provide an easy-to-use migration script, free of charge."
+        "name": "Migrare ușoară",
+        "description": "Migrați de la alte distribuții Enterprise Linux fără efort. Oferim un script de migrare ușor de utilizat, gratuit."
       }
     },
     "news": {
-      "title": "Latest News",
-      "description": "We regularly share updates with the community about what's happening. Here's the latest."
+      "title": "Ultimele Noutăți",
+      "description": "Împărtășim în mod regulat actualizări cu comunitatea despre ce se întâmplă. Aici sunt ultimele actualizări."
     },
     "logoCloud": {
-      "title": "Backed By"
+      "title": "Susținut de către"
     }
   },
   "news": {
-    "title": "News",
-    "description": "Stay up to date with the latest news and updates from the Rocky Linux community.",
+    "title": "Știri",
+    "description": "Rămâneți la curent cu ultimele știri și actualizări de la comunitatea Rocky Linux.",
     "notFound": {
-      "title": "Not Found",
-      "description": "The news post you are looking for does not exist. You can find all our news posts on the <newsLink>news page</newsLink>."
+      "title": "Nu a fost găsit",
+      "description": "Știrea pe care o căutați nu există. Puteți găsi toate postările noastre de știri pe <newsLink>pagina de știri</newsLink>."
     }
   },
   "share": {
-    "shareName": "Share",
+    "shareName": "Distribuie",
     "bluesky": "Bluesky",
     "mastodon": {
       "name": "Mastodon",
-      "url-valid": "Please enter a valid Mastodon instance URL (without https://).",
-      "url": "Mastodon Instance URL"
+      "url-valid": "Te rog introdu un URL valid de instanță Mastodon (fără https://).",
+      "url": "Instanță URL Mastodon"
     },
     "facebook": "Facebook",
     "linkedin": "LinkedIn",
     "threads": "Threads"
   },
   "about": {
-    "title": "About",
+    "title": "Despre",
     "headings": {
-      "title": "It all started with a blog comment.",
-      "subTitle": "History"
+      "title": "Totul a început cu un comentariu de pe un blog.",
+      "subTitle": "Istoric"
     },
-    "intro": "On December 8, 2020, Red Hat announced that they would discontinue development of CentOS, which has been a production-ready downstream version of Red Hat Enterprise Linux, in favor of a newer upstream development variant of that operating system known as \"CentOS Stream\". In response, the original founder of CentOS, Gregory Kurtzer, announced <link>via a comment on the CentOS website</link> that he would again start a project to achieve the original goals of CentOS. Its name was chosen as a tribute to early CentOS co-founder Rocky McGaugh. By December 12, the code repository of Rocky Linux had become the top-trending repository on GitHub.",
-    "releaseInfo": "On December 22, 2020, Rocky Linux announced that the target for an initial release was anywhere between March and May of 2021. On January 20, 2021, it was announced that a test repository would be made available to the public by the end of February, and a release candidate was on target for the end of March 2021. However, that date was slightly pushed back, and on April 30, 2021, the first release candidate was officially released. The second release candidate, of version 8.4, the last before the stable release, was released on June 4, 2021. On June 21, 2021, the stable release of Rocky Linux 8.4 was released, with the code name \"Green Obsidian\".",
+    "intro": "La 8 decembrie 2020, Red Hat a anunţat că va întrerupe dezvoltarea CentOS, care a fost o versiune \"downstream\", gata de producție, a Red Hat Enterprise Linux, în favoarea unei noi variante de dezvoltare în \"upstream\" a sistemului de operare, cunoscut sub numele de „CentOS Stream”. Ca răspuns, fondatorul original al CentOS, Gregory Kurtzer, a anunțat <link>printr-un comentariu pe site-ul CentOS</link> că va începe din nou un proiect pentru a atinge obiectivele originale ale CentOS. Numele a fost ales drept omagiu adus cofondatorului CentOS timpuriu Rocky McGaugh. Până la 12 decembrie, repository-ul Rocky Linux a devenit de top pe GitHub.",
+    "releaseInfo": "La 22 decembrie 2020, Rocky Linux a anunțat că obiectivul unei lansări inițiale era în perioada martie-mai 2021. La 20 ianuarie 2021, s-a anunțat că până la sfârșitul lunii februarie va fi pus la dispoziția publicului un repository de test și un release era pe punctul de a fi vizat la sfârșitul lunii martie 2021. Cu toate acestea, data a fost uşor amânată, iar pe 30 aprilie 2021 primul release a fost eliberat în mod oficial. Cel de-al doilea release, versiunea 8.4 , ultimul înainte de eliberarea stabilă, a fost făcut public la 4 iunie, 2021. La 21 iunie 2021 a fost lansat release-ul stabil Rocky Linux 8.4, cu numele de cod \"Green Obsidian\".",
     "organizationInfo": {
-      "title": "Organization",
-      "info": "The Rocky Linux project is hosted by the Rocky Enterprise Software Foundation (RESF). To learn more about the organizational structure, please check out the <link>page</link> on the topic."
+      "title": "Organizație",
+      "info": "Proiectul Rocky Linux este găzduit de Fundația Rocky Enterprise Software Foundation (RESF). Pentru a afla mai multe despre structura organizației, vă rugăm să verificați <link>pagina </link> subiectului."
     },
     "quote": {
-      "quote": "“Thinking back to early CentOS days... My cofounder was Rocky McGaugh. He is no longer with us, so as a H/T to him, who never got to see the success that CentOS came to be, I introduce to you...Rocky Linux.”",
+      "quote": "„Gândindu-mă la primele zile ale CentOS-ului... Cofondatorul meu era Rocky McGaugh. El nu mai este alături de noi, așa că ridicând pălăria în semn de respect pentru el, care nu a apucat să vadă succesul pe care CentOS a ajuns să îl aibă, vă prezint... Rocky Linux.”",
       "author": "Gregory Kurtzer",
-      "role": "Co-Founder @ CentOS / Founder @ Rocky Linux"
+      "role": "Co-fondator @ CentOS / Fondator @ Rocky Linux"
     }
   },
   "sponsors": {
-    "title": "Sponsors",
-    "description": "The Rocky Linux project is made possible by the generous support of our sponsors. We are grateful for their contributions to the project.",
-    "learnMore": "Learn More",
-    "foundingSponsor": "Founding Sponsor"
+    "title": "Sponsori",
+    "description": "Proiectul Rocky Linux este posibil datorită sprijinului generos al sponsorilor noștri. Suntem recunoscători pentru contribuțiile lor către proiect.",
+    "learnMore": "Află mai mult",
+    "foundingSponsor": "Sponsor fondator"
   },
   "partners": {
-    "title": "Partners",
-    "description": "The Rocky Linux project is proud to partner with the following organizations. We are grateful for their support and contributions to the project.",
-    "foundingPartner": "Founding Partner"
+    "title": "Parteneri",
+    "description": "Proiectul Rocky Linux este mândru de parteneriatul cu următoarele organizații. Suntem recunoscători pentru sprijinul și contribuțiile lor la proiect.",
+    "foundingPartner": "Partener fondator"
   },
   "supportProviders": {
-    "title": "Commercial Support",
-    "description": "The following sponsors provide commercial support for Rocky Linux.",
-    "foundingSponsor": "Founding Sponsor"
+    "title": "Suport comercial",
+    "description": "Următorii sponsori oferă sprijin comercial pentru Rocky Linux.",
+    "foundingSponsor": "Sponsor fondator"
   },
   "shop": {
-    "title": "Official Merchandise",
-    "description": "Purchase some swag! All of our vendors ship globally."
+    "title": "Merch Oficial",
+    "description": "Cumpără niște swag! Toți vânzătorii noștri livrează la nivel global."
   },
   "download": {
-    "title": "Download",
-    "description": "Download the latest Rocky Linux versions here.",
+    "title": "Descărcare",
+    "description": "Descarcă ultimele versiuni Rocky Linux de aici.",
     "tabs": {
       "x86_64": "AMD/Intel (x86_64)",
-      "aarch64": "ARM (aarch64)",
+      "aarch64": "ARM64 (aarch64)",
       "ppc64le": "PowerPC (ppc64le)",
       "s390x": "IBM Z (s390x)",
       "container": "Docker (OCI)",
@@ -176,16 +176,16 @@
       },
       "riscv64": "RISC-V (riscv64)"
     },
-    "selectVersion": "Select a version:",
-    "plannedEol": "Planned EOL:",
+    "selectVersion": "Selectează o versiune:",
+    "plannedEol": "EOL planificat:",
     "cards": {
       "defaultImages": {
-        "title": "Default Images",
+        "title": "Imagini Implicite",
         "tooltips": {
-          "dvd": "DVD: Seamless installation, everything you need is included.",
-          "boot": "Boot: Minimal image for a custom, internet-based installation.",
-          "minimal": "Minimal: Minimal, self-contained image for offline system setup.",
-          "buttonLabel": "View Installation Guide"
+          "dvd": "DVD: Instalare fără întreruperi, tot ce ai nevoie este inclus.",
+          "boot": "Boot: Imagine minimala pentru o instalare personalizată, bazată pe internet.",
+          "minimal": "Minimal: Minimală, autonomă pentru configurarea sistemului offline.",
+          "buttonLabel": "Vezi ghidul de instalare"
         },
         "downloadOptions": {
           "dvd": "DVD ISO",
@@ -195,51 +195,51 @@
         "torrent": "Torrent (DVD ISO)",
         "checksum": "CHECKSUM",
         "checksums": "CHECKSUMS",
-        "baseOs": "BaseOS Packages",
-        "archived": "Archived Releases",
+        "baseOs": "Pachete BaseOS",
+        "archived": "Lansări arhivate",
         "x86_64": {
           "r9": {
             "versionName": "Rocky Linux 9",
-            "plannedEol": "May 31 2032"
+            "plannedEol": "2032-05-31"
           },
           "r8": {
             "versionName": "Rocky Linux 8",
-            "plannedEol": "May 31 2029"
+            "plannedEol": "2029-05-31"
           }
         }
       },
       "cloudImages": {
-        "title": "Cloud Images",
-        "genericCloud": "Generic Cloud",
+        "title": "Imagini Cloud",
+        "genericCloud": "Cloud generic",
         "cloudProviders": {
-          "title": "Cloud Providers",
+          "title": "Furnizori de cloud",
           "aws": {
             "name": "AWS AMI",
-            "drawerTitle": "AWS AMI Images",
+            "drawerTitle": "Imagini AWS AMI",
             "table": {
-              "version": "Version",
-              "region": "Region",
-              "architecture": "Architecture",
-              "imageId": "Image ID",
-              "deploy": "Deploy"
+              "version": "Versiune",
+              "region": "Regiune",
+              "architecture": "Arhitectură",
+              "imageId": "ID imagine",
+              "deploy": "Lansează"
             }
           },
           "googleCloud": "Google Cloud",
           "azure": "Microsoft Azure"
         },
         "downloadOptions": {
-          "qcow2": "QCOW2 Image"
+          "qcow2": "QCOW2 Imagine"
         }
       },
       "container": {
-        "title": "Docker (OCI) Images",
+        "title": "Imagini Docker (OCI)",
         "downloadOptions": {
-          "fullImage": "Full Image",
-          "minimalImage": "Minimal Image"
+          "fullImage": "Imagine Full",
+          "minimalImage": "Imagine Minimală"
         }
       },
       "liveImages": {
-        "title": "Desktop/Workstation Live Images",
+        "title": "Imagini Live Desktop/Workstation",
         "downloadOptions": {
           "gnome": "GNOME",
           "gnomeLite": "GNOME (Lite)",
@@ -250,69 +250,79 @@
         }
       },
       "rpiImages": {
-        "title": "Raspberry Pi Images",
-        "download": "Download",
+        "title": "Imagini Raspberry Pi",
+        "download": "Descărcare",
         "readMe": "README"
       },
       "wslImages": {
-        "title": "Windows Subsystem for Linux (WSL) Images",
-        "download": "Download",
+        "title": "Windows Subsystem pentru Linux (WSL) Imagini",
+        "download": "Descărcare",
+        "readMe": "README"
+      },
+      "visionfive2Images": {
+        "title": "VisionFive 2 Imagini",
+        "download": "Descărcare",
+        "readMe": "README"
+      },
+      "specializedDevices": {
+        "title": "Dispozitive Specializate",
+        "download": "Descărcare",
         "readMe": "README"
       }
     },
     "getInvolved": {
-      "title": "Get Involved",
-      "text": "As you download and use Rocky Linux, the Rocky Enterprise Software Foundation invites you to be a part of the community as a contributor. There are many ways to contribute to the project, from documentation, QA, and testing to coding changes for SIGs, providing mirroring or hosting, and helping other users."
+      "title": "Implică-te",
+      "text": "Pe măsură ce descărcați si folosiți Rocky Linux, Fundaţia de Software Rocky Enterprise vă invită să faceţi parte din comunitate în calitate de contribuabil. Există multe modalităţi de a contribui la proiect, de la documentaţie, QA, și testarea modificărilor de cod pentru SIG, furnizând mirroring sau găzduire și ajutând alți utilizatori."
     },
     "exportCompliance": {
-      "title": "Export Compliance/Customs Information",
-      "text1": "By downloading Rocky Linux software, you acknowledge that you understand all of the following:",
-      "text2": "Rocky Linux software and technical information may be subject to the U.S. Export Administration Regulations (the “EAR”) and other U.S. and foreign laws and may not be exported, re-exported or transferred (a) to a prohibited destination country under the EAR or U.S. sanctions regulations (currently Cuba, Iran, North Korea, Sudan, Syria, and the Crimea Region of Ukraine, subject to change as posted by the United States government); (b) to any prohibited destination or to any end user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government; or (c) for use in connection with the design, development or production of nuclear, chemical or biological weapons, or rocket systems, space launch vehicles, or sounding rockets, or unmanned air vehicle systems.",
-      "narrative": "Rocky Linux in source code and binary code form is publicly available and is not subject to the EAR in accordance with §740.17(b)(1).",
-      "product_title": "Product",
-      "product_text": "Rocky Linux. Includes Rocky Linux Project \"Special Interest Group\" repositories.",
+      "title": "Conformitatea exportului/Informații personalizate",
+      "text1": "Descărcând software-ul Rocky Linux, recunoașteți că înțelegeți următoarele:",
+      "text2": "Rocky Linux software and technical information may be subject to the U.S. Export Administration Regulations (the \"EAR\") and other U.S. and foreign laws and may not be exported, re-exported or transferred (a) to a prohibited destination country under the EAR or U.S. sanctions regulations (currently Cuba, Iran, North Korea, Sudan, Syria, and the Crimea Region of Ukraine, subject to change as posted by the United States government); (b) to any prohibited destination or to any end user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government; or (c) for use in connection with the design, development or production of nuclear, chemical or biological weapons, or rocket systems, space launch vehicles, or sounding rockets, or unmanned air vehicle systems.",
+      "narrative": "Rocky Linux sub formă de cod sursă și cod binar este disponibil public și nu este supus EAR în conformitate cu §740.17(b)(1).",
+      "product_title": "Produs",
+      "product_text": "Rocky Linux. Include repository-urile „Grup de interes special” Rocky Linux Project.",
       "eccn_title": "ECCN",
       "eccn_text": "5D992.c",
-      "exception_title": "License Exception",
-      "exception_text": "Mass Market §740.17(b)(1)",
+      "exception_title": "Excepție licență",
+      "exception_text": "Market de masă §740.17(b)(1)",
       "ccats_title": "CCATS",
-      "ccats_text": "N/A",
+      "ccats_text": "Indisponibil",
       "ern_title": "ERN",
-      "ern_text": "N/A"
+      "ern_text": "Indisponibil"
     }
   },
   "community": {
-    "title": "Welcome to the community!",
-    "description": "Select your area of interest, and we'll guide you to the right place.",
-    "noSelection": "Select an option to see more details.",
+    "title": "Bine ai venit în comunitate!",
+    "description": "Selectează zona ta de interes și te vom ghida către locul potrivit.",
+    "noSelection": "Selectați o opțiune pentru a vedea mai multe detalii.",
     "interests": {
       "chatting": {
-        "title": "Just chatting",
-        "description": "You can join the conversation on our <link>Mattermost</link> chat to connect with others in the community. Have fun!"
+        "title": "Doar conversații",
+        "description": "Te poți alătura conversației noastre de pe <link>Mattermost</link> pentru a te conecta cu alte persoane din comunitate. Distracție plăcută!"
       },
       "bugs": {
-        "title": "Reporting bugs",
-        "description": "Join our <link1>Mattermost chat</link1> to talk over your potential bug with the team and other community members. Search our <link2>bug tracker</link2> to see if there's an existing report for your issue."
+        "title": "Raportează erori",
+        "description": "Alăturaţi-vă <link1>chat-ului Matterest</link1> pentru a vorbi despre potenţiala ta eroare cu echipa şi alţi membri ai comunităţii. Caută în <link2>trackerul de erori</link2> pentru a vedea dacă există un raport existent pentru problema ta."
       },
       "webdev": {
-        "title": "Web development",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Web</link2> channel. Search our <link3>website repository</link3> to see if there are issues/enhancements that need to be made. Make them!"
+        "title": "Dezvoltare web",
+        "description": "Alăturați-vă chat-ului nostru <link1>Mattermost</link1> și prezentați-vă în canalul <link2>~Web</link2> . Căutați repository-ul nostru <link3>de website-uri</link3> pentru a vedea dacă există probleme/îmbunătățiri care trebuiesc făcute. Make them!"
       },
       "graphics": {
-        "title": "Graphic design",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Design</link2> channel. Let us know what you're interested in working on, and we'll find something you can help out with!"
+        "title": "Design grafic",
+        "description": "Alăturați-vă chat-ului nostru <link1>Mattermost</link1> și prezentați-vă în canalul <link2>~Design</link2>. Spune-ne ce te interesează să lucrezi și vom găsi ceva cu care poți să ne ajuți!"
       },
       "release": {
         "title": "Release engineering",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Development</link2> channel. Let us know what you're interested in working on, and we'll find something you can help out with!"
+        "description": "Alăturați-vă <link1>chat-ului nostru Mattermost</link1> și prezentați-vă în canalul <link2>~Development</link2>. Spune-ne la ce te interesează să lucrezi și vom găsi ceva cu care poți să ne ajuți!"
       },
       "sig": {
-        "title": "Special Interest Group (SIG)",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in one of our many SIG channels. Let us know what you're interested in working on, and we'll find something you can help out with! If you're interested in proposing a new SIG, please see our <link2>wiki page</link2> on the topic."
+        "title": "Grupul de interese speciale (SIG)",
+        "description": "Alăturaţi-vă <link1> chat-ului Mattermost</link1> şi prezentaţi-vă într-unul dintre multele noastre canale SIG. Spune-ne la ce te interesează să lucrezi și vom găsi ceva cu care poți să ne ajuți! Dacă sunteți interesat să propuneți un nou SIG, vă rugăm să consultați <link2>pagina noastră wiki</link2> pe acest subiect."
       },
       "docs": {
-        "title": "Documentation",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Documentation</link2> channel. Make sure to review the contributing guide available on our <link3>README</link3>."
+        "title": "Documentație",
+        "description": "Alăturați-vă chat-ului nostru <link1>Mattermost</link1> și prezentați-vă în canalul <link2>~Documentation</link2>. Asigură-te că revizuiești ghidul de contribuție disponibil la <link3>README</link3>."
       }
     }
   }

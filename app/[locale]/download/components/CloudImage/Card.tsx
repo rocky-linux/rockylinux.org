@@ -21,7 +21,6 @@ import { QuestionMarkCircledIcon } from "@radix-ui/react-icons";
 import { Tabs } from "@/components/ui/tabs";
 import VersionPicker from "./VersionPicker";
 import Link from "next/link";
-import { Url } from "next/dist/shared/lib/router/router";
 
 import { CloudImage, Columns } from "./Table/Columns";
 import { DataTable } from "./Table/DataTable";
@@ -56,7 +55,7 @@ interface CloudImageCardProps {
   titleTooltip: boolean;
   titleTooltipText?: TooltipText[];
   titleTooltipButtonLabel: string;
-  titleTooltipButtonLink: Url;
+  titleTooltipButtonLink: string;
   versions: VersionItem[];
 }
 
@@ -105,9 +104,9 @@ const CloudImageCard: React.FC<CloudImageCardProps> = ({
                     {line.text}
                   </p>
                 ))}
-                <Link href={titleTooltipButtonLink}>
+                <a href={titleTooltipButtonLink}>
                   <Button className="mt-2">{titleTooltipButtonLabel}</Button>
-                </Link>
+                </a>
               </HoverCardContent>
             </HoverCard>
           ) : (

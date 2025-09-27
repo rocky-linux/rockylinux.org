@@ -17,10 +17,6 @@ describe("detectArchitecture", () => {
       value: originalNavigator,
       writable: true,
     });
-    Object.defineProperty(global, "window", {
-      value: originalWindow,
-      writable: true,
-    });
   });
 
   describe("SSR/Server-side rendering", () => {

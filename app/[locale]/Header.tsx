@@ -9,6 +9,7 @@ import DesktopNavigation from "./components/header/DesktopNavigation";
 import MobileNavigation from "./components/header/MobileNavigation";
 
 import type { NavigationMenuItems } from "./components/header/NavigationTypes";
+import type { Route } from "next";
 
 export default function Header() {
   const tGlobal = useTranslations("global");
@@ -56,7 +57,7 @@ export default function Header() {
       >
         <div className="flex lg:flex-1">
           <Link
-            href="/"
+            href={"/" as Route}
             className="-m-1.5 p-1.5"
           >
             <span className="sr-only">{tGlobal("name")}</span>

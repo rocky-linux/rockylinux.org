@@ -2,7 +2,6 @@ import React from "react";
 import partnerSponsorData from "@/data/partnersSponsors";
 import { useTranslations } from "next-intl";
 import type { Metadata } from "next";
-import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -38,7 +37,7 @@ const SponsorsPage = () => {
           </div>
           <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-8 border-t pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             {sortedTierOneSponsors.map((sponsor) => (
-              <Link
+              <a
                 href={sponsor.href}
                 target="_blank"
                 rel="noreferrer"
@@ -74,10 +73,10 @@ const SponsorsPage = () => {
                     </p>
                   </div>
                 </div>
-              </Link>
+              </a>
             ))}
             {sortedTierFourSponsors.map((sponsor) => (
-              <Link
+              <a
                 key={sponsor.name}
                 href={sponsor.href}
                 target="_blank"
@@ -92,7 +91,7 @@ const SponsorsPage = () => {
                     </span>
                   </div>
                 </div>
-              </Link>
+              </a>
             ))}
           </div>
         </div>

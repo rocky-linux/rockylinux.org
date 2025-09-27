@@ -8,7 +8,6 @@ import {
 } from "@/components/ui/tooltip";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 
 interface DownloadOption {
   label: string;
@@ -65,7 +64,7 @@ const VersionContent: React.FC<VersionContentProps> = ({
             size="lg"
             asChild
           >
-            <Link href={option.link}>{option.label}</Link>
+            <a href={option.link}>{option.label}</a>
           </Button>
         ))}
       </div>

@@ -11,6 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Route } from "next";
 
 const NewsSnippet = async () => {
   const posts = await getSortedPostsData(6);
@@ -29,7 +30,7 @@ const NewsSnippet = async () => {
           {posts.map((post) => (
             <Link
               key={post.slug}
-              href={`/news/${post.slug}`}
+              href={`/news/${post.slug}` as Route}
             >
               <Card>
                 <CardHeader>

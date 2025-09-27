@@ -1,7 +1,6 @@
 import React from "react";
 import { useTranslations } from "next-intl";
 import type { Metadata } from "next";
-import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
@@ -55,7 +54,7 @@ const ShopPage = () => {
             >
               {vendors.map((vendor) => (
                 <li key={vendor.name}>
-                  <Link
+                  <a
                     href={vendor.link}
                     target="_blank"
                   >
@@ -70,7 +69,7 @@ const ShopPage = () => {
                       {vendor.name}
                     </h3>
                     <p className="text-base leading-7">{vendor.role}</p>
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
