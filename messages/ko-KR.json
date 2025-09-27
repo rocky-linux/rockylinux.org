@@ -70,7 +70,7 @@
   "home": {
     "hero": {
       "title": "엔터프라이즈 리눅스, 커뮤니티 방식으로.",
-      "description": "Rocky Linux is an open-source enterprise operating system designed to be 100% bug-for-bug compatible with Red Hat Enterprise Linux®. Rocky Linux is under intensive development by the community.",
+      "description": "Rocky Linux는 Red Hat Enterprise Linux®와 버그 대 버그까지 100% 호환되도록 설계된 오픈소스 엔터프라이즈 운영 체제입니다. 커뮤니티에서 집중적으로 개발 중입니다.",
       "migrate": "마이그레이션하기",
       "dpg": "등록된 디지털 공공재"
     },
@@ -146,7 +146,7 @@
   "partners": {
     "title": "파트너",
     "description": "Rocky Linux 프로젝트는 다음 조직과 협력하게 되어 자랑스럽습니다. 우리는 그들의 지원과 프로젝트에 대한 기여에 감사드립니다.",
-    "foundingPartner": "Founding Partner"
+    "foundingPartner": "설립 파트너"
   },
   "supportProviders": {
     "title": "유료 지원",
@@ -182,17 +182,17 @@
       "defaultImages": {
         "title": "기본 이미지",
         "tooltips": {
-          "dvd": "DVD: Seamless installation, everything you need is included.",
-          "boot": "Boot: Minimal image for a custom, internet-based installation.",
-          "minimal": "Minimal: Minimal, self-contained image for offline system setup.",
-          "buttonLabel": "View Installation Guide"
+          "dvd": "DVD: 끊김없는 설치를 위하여 필요한 모든 것이 포함되어 있습니다.",
+          "boot": "Boot: 사용자 맞춤형 최소 이미지입니다. 단, 설치에 인터넷 연결이 필요합니다.",
+          "minimal": "Minimal: 경량 이미지, 오프라인이라도 시스템 설치 가능합니다.",
+          "buttonLabel": "설치 가이드 보기"
         },
         "downloadOptions": {
           "dvd": "DVD ISO",
           "boot": "부팅 ISO",
           "minimal": "최소 기능 ISO"
         },
-        "torrent": "Torrent (DVD ISO)",
+        "torrent": "토렌트(DVD ISO) 설치",
         "checksum": "CHECKSUM",
         "checksums": "CHECKSUMS",
         "baseOs": "기본 운영체제 패키지",
@@ -210,7 +210,7 @@
       },
       "cloudImages": {
         "title": "클라우드 이미지",
-        "genericCloud": "Generic Cloud",
+        "genericCloud": "클라우드 제공자",
         "cloudProviders": {
           "title": "클라우드 제공자",
           "aws": {
@@ -219,16 +219,16 @@
             "table": {
               "version": "버전",
               "region": "지역",
-              "architecture": "Architecture",
-              "imageId": "Image ID",
-              "deploy": "Deploy"
+              "architecture": "아키텍처",
+              "imageId": "이미지 ID",
+              "deploy": "배포"
             }
           },
           "googleCloud": "Google Cloud",
           "azure": "Microsoft Azure"
         },
         "downloadOptions": {
-          "qcow2": "QCOW2 Image"
+          "qcow2": "QCOW2 이미지"
         }
       },
       "container": {
@@ -239,7 +239,7 @@
         }
       },
       "liveImages": {
-        "title": "Desktop/Workstation Live Images",
+        "title": "데스크탑/워크스테이션 라이브 이미지",
         "downloadOptions": {
           "gnome": "GNOME",
           "gnomeLite": "GNOME (Lite)",
@@ -272,18 +272,18 @@
     },
     "getInvolved": {
       "title": "관련 있는",
-      "text": "As you download and use Rocky Linux, the Rocky Enterprise Software Foundation invites you to be a part of the community as a contributor. There are many ways to contribute to the project, from documentation, QA, and testing to coding changes for SIGs, providing mirroring or hosting, and helping other users."
+      "text": "Rocky Linux를 다운로드하고 사용하면서 Rocky Enterprise Software Foundation은 기여자로서 커뮤니티의 일원이 되도록 초대합니다. 문서화, QA, 테스트부터 SIG의 코딩 변경, 미러링 또는 호스팅 제공, 다른 사용자 돕기까지 프로젝트에 기여할 수 있는 방법은 다양합니다."
     },
     "exportCompliance": {
-      "title": "Export Compliance/Customs Information",
-      "text1": "By downloading Rocky Linux software, you acknowledge that you understand all of the following:",
+      "title": "수출 준수/세관 정보",
+      "text1": "Rocky Linux 소프트웨어를 다운로드함으로써 귀하는 다음 내용을 모두 이해하였음을 확인합니다.",
       "text2": "Rocky Linux software and technical information may be subject to the U.S. Export Administration Regulations (the \"EAR\") and other U.S. and foreign laws and may not be exported, re-exported or transferred (a) to a prohibited destination country under the EAR or U.S. sanctions regulations (currently Cuba, Iran, North Korea, Sudan, Syria, and the Crimea Region of Ukraine, subject to change as posted by the United States government); (b) to any prohibited destination or to any end user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government; or (c) for use in connection with the design, development or production of nuclear, chemical or biological weapons, or rocket systems, space launch vehicles, or sounding rockets, or unmanned air vehicle systems.",
-      "narrative": "Rocky Linux in source code and binary code form is publicly available and is not subject to the EAR in accordance with §740.17(b)(1).",
+      "narrative": "소스 코드 및 바이너리 코드 형태의 Rocky Linux는 공개적으로 사용 가능하며 §740.17(b)(1)에 따라 EAR의 적용을 받지 않습니다.",
       "product_title": "상품",
-      "product_text": "Rocky Linux. Includes Rocky Linux Project \"Special Interest Group\" repositories.",
+      "product_text": "로키 리눅스. Rocky Linux 프로젝트의 SIG(특별 관심 그룹) 저장소들이 포함되어 있습니다.",
       "eccn_title": "ECCN",
       "eccn_text": "5D992.c",
-      "exception_title": "License Exception",
+      "exception_title": "라이선스 예외",
       "exception_text": "Mass Market §740.17(b)(1)",
       "ccats_title": "CCATS",
       "ccats_text": "N/A",
@@ -293,36 +293,36 @@
   },
   "community": {
     "title": "커뮤니티에 오신것을 환영합니다!",
-    "description": "Select your area of interest, and we'll guide you to the right place.",
-    "noSelection": "Select an option to see more details.",
+    "description": "관심 있는 분야를 선택하시면 해당 장소로 안내해 드리겠습니다.",
+    "noSelection": "자세한 내용을 보려면 옵션을 선택하세요.",
     "interests": {
       "chatting": {
         "title": "채팅방",
-        "description": "You can join the conversation on our <link>Mattermost</link> chat to connect with others in the community. Have fun!"
+        "description": "커뮤니티의 다른 사람들과 소통하려면 저희 Mattermost 채팅방에 참여하세요. 즐거운 시간 되세요!"
       },
       "bugs": {
         "title": "버그 제보",
-        "description": "Join our <link1>Mattermost chat</link1> to talk over your potential bug with the team and other community members. Search our <link2>bug tracker</link2> to see if there's an existing report for your issue."
+        "description": "잠재적인 버그에 대해 팀원 및 다른 커뮤니티 구성원들과 논의하려면 Mattermost 채팅에 참여하세요. 해당 문제에 대한 기존 보고서가 있는지  버그 트래커를 검색해 보세요."
       },
       "webdev": {
         "title": "웹 개발",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Web</link2> channel. Search our <link3>website repository</link3> to see if there are issues/enhancements that need to be made. Make them!"
+        "description": "Mattermost 채팅에 참여하고 ~Web채널에서 자신을 소개하세요. 개선이 필요한 이슈나 기능이 있는지 웹사이트 저장소를 살펴보고, 직접 기여해 보세요!"
       },
       "graphics": {
         "title": "그래픽 디자인",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Design</link2> channel. Let us know what you're interested in working on, and we'll find something you can help out with!"
+        "description": "Mattermost 채팅에 참여하고 ~Design 채널에서 자신을 소개하세요. 어떤 일에 관심이 있는지 알려주시면, 도움을 줄 수 있는 일을 찾아드리겠습니다!"
       },
       "release": {
         "title": "릴리즈 엔지니어링",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Development</link2> channel. Let us know what you're interested in working on, and we'll find something you can help out with!"
+        "description": "Mattermost 채팅에 참여하고 ~Development 채널에서 자신을 소개하세요. 어떤 일에 관심이 있는지 알려주시면, 도움을 줄 수 있는 일을 찾아드리겠습니다!"
       },
       "sig": {
-        "title": "Special Interest Group (SIG)",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in one of our many SIG channels. Let us know what you're interested in working on, and we'll find something you can help out with! If you're interested in proposing a new SIG, please see our <link2>wiki page</link2> on the topic."
+        "title": "특별 관심 그룹 (SIG)",
+        "description": "Mattermost 채팅에 참여하고 여러 SIG 채널 중 하나에서 자신을 소개하세요. 어떤 일에 관심이 있는지 알려주시면, 도움을 줄 수 있는 일을 찾아드리겠습니다! 새로운 SIG를 제안하고 싶다면, 이 주제에 대한 위키 페이지를 참고하세요."
       },
       "docs": {
         "title": "문서",
-        "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Documentation</link2> channel. Make sure to review the contributing guide available on our <link3>README</link3>."
+        "description": "Mattermost 채팅에 참여하고 <link2>~문서</link2> 채널에서 자신을 소개하세요. <link3>README</link3>에서 제공되는 기여 가이드를 검토하세요."
       }
     }
   }
