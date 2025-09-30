@@ -12,12 +12,12 @@
     "toggleTheme": "Перемкнути тему",
     "nav": {
       "newsName": "Новини",
-      "aboutName": "About",
-      "resourcesName": "Resources",
-      "communityName": "Community",
-      "supportName": "Help",
+      "aboutName": "Про нас",
+      "resourcesName": "Ресурси",
+      "communityName": "Спільнота",
+      "supportName": "Допомога",
       "contributeName": "Contribute",
-      "openMainMenu": "Open Main Menu",
+      "openMainMenu": "Відкрити головне меню",
       "about": {
         "about": "Про Rocky Linux",
         "charter": "Community Charter",
@@ -120,7 +120,7 @@
     "threads": "Threads"
   },
   "about": {
-    "title": "About",
+    "title": "Про нас",
     "headings": {
       "title": "Все почалося з коментаря в блозі.",
       "subTitle": "History"
