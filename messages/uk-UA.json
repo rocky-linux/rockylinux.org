@@ -11,7 +11,7 @@
   "header": {
     "toggleTheme": "Перемкнути тему",
     "nav": {
-      "newsName": "News",
+      "newsName": "Новини",
       "aboutName": "About",
       "resourcesName": "Resources",
       "communityName": "Community",
@@ -100,7 +100,7 @@
     }
   },
   "news": {
-    "title": "News",
+    "title": "Новини",
     "description": "Будьте в курсі останніх новин та оновлень від спільноти Rocky Linux.",
     "notFound": {
       "title": "Не знайдено",
