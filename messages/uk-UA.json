@@ -11,49 +11,49 @@
   "header": {
     "toggleTheme": "Перемкнути тему",
     "nav": {
-      "newsName": "News",
-      "aboutName": "About",
-      "resourcesName": "Resources",
-      "communityName": "Community",
-      "supportName": "Help",
-      "contributeName": "Contribute",
-      "openMainMenu": "Open Main Menu",
+      "newsName": "Новини",
+      "aboutName": "Про нас",
+      "resourcesName": "Ресурси",
+      "communityName": "Спільнота",
+      "supportName": "Допомога",
+      "contributeName": "Зробити внесок",
+      "openMainMenu": "Відкрити головне меню",
       "about": {
         "about": "Про Rocky Linux",
-        "charter": "Community Charter",
-        "wiki": "Project Wiki",
-        "sponsors": "Sponsors",
-        "partners": "Partners"
+        "charter": "Хартія громади",
+        "wiki": "Вікі проєкту",
+        "sponsors": "Спонсори",
+        "partners": "Партнери"
       },
       "resources": {
-        "gpgKeyInfo": "GPG Key Info"
+        "gpgKeyInfo": "Інформація про ключ GPG"
       },
       "community": {
-        "coc": "Code of Conduct",
-        "forums": "Forums",
-        "mailing": "Mailing Lists",
+        "coc": "Правила поведінки",
+        "forums": "Форуми",
+        "mailing": "Списки листування",
         "mattermost": "Mattermost",
         "irc": "IRC",
-        "calendar": "Calendar"
+        "calendar": "Календар"
       },
       "support": {
-        "docs": "Documentation",
-        "submitBug": "Submit Bug",
+        "docs": "Документація",
+        "submitBug": "Повідомити про помилку",
         "supportProviders": "Комерційна підтримка"
       },
       "contribute": {
         "contribute": "Посібник з участі",
-        "shop": "Shop",
-        "donate": "Donate"
+        "shop": "Магазин",
+        "donate": "Пожертвувати"
       }
     }
   },
   "footer": {
-    "footer": "Footer",
+    "footer": "Нижня панель",
     "nav": {
-      "licensingName": "Licensing",
-      "privacyPolicyName": "Privacy Policy",
-      "TrademarksName": "Trademarks"
+      "licensingName": "Ліцензування",
+      "privacyPolicyName": "Політика конфіденційності",
+      "TrademarksName": "Торгові марки"
     },
     "socialNav": {
       "bluesky": "Bluesky",
@@ -71,7 +71,7 @@
     "hero": {
       "title": "Enterprise Linux, шлях <span>спільноти</span>.",
       "description": "Rocky Linux — це операційна система корпоративного рівня з відкритим кодом, розроблена для повної (на 100%) сумісності з Red Hat Enterprise Linux® на рівні виправлень (bug-for-bug). Rocky Linux активно розробляється спільнотою.",
-      "migrate": "Migrate",
+      "migrate": "Міграція",
       "dpg": "Зареєстрована цифровий суспільний благ"
     },
     "features": {
@@ -79,7 +79,7 @@
       "subText": "СТАБІЛЬНИЙ, ГОТОВИЙ ДО ВИРОБНИЧОГО ВИКОРИСТАННЯ LINUX",
       "description": "Rocky Linux безпосередньо відновлює вихідний код з RHEL®, тому можете бути впевнені, що отримаєте надзвичайно стабільний досвід, незалежно від використання.",
       "productionReady": {
-        "name": "Production Ready",
+        "name": "Готовий до виробництва",
         "description": "Rocky Linux готовий до використання в підприємствах, забезпечуючи надійну стабільність з регулярними оновленнями та 10-річним циклом підтримки, все безкоштовно."
       },
       "communitySupported": {
@@ -87,20 +87,20 @@
         "description": "Спільнота, спонсори та партнери здійснили довгострокові інвестиції, щоб забезпечити, що проєкт залишиться в руках спільноти."
       },
       "easyMigration": {
-        "name": "Easy Migration",
+        "name": "Легка міграція",
         "description": "Міграція з інших дистрибутивів Enterprise Linux без зайвих труднощів. Ми надаємо простий у використанні скрипт для міграції безкоштовно."
       }
     },
     "news": {
-      "title": "Latest News",
+      "title": "Останні новини",
       "description": "Ми регулярно ділимося оновленнями з громадою про те, що відбувається. Ось останні новини."
     },
     "logoCloud": {
-      "title": "Backed By"
+      "title": "Підтримується"
     }
   },
   "news": {
-    "title": "News",
+    "title": "Новини",
     "description": "Будьте в курсі останніх новин та оновлень від спільноти Rocky Linux.",
     "notFound": {
       "title": "Не знайдено",
@@ -108,7 +108,7 @@
     }
   },
   "share": {
-    "shareName": "Share",
+    "shareName": "Поділитись",
     "bluesky": "Bluesky",
     "mastodon": {
       "name": "Mastodon",
@@ -120,15 +120,15 @@
     "threads": "Threads"
   },
   "about": {
-    "title": "About",
+    "title": "Про нас",
     "headings": {
       "title": "Все почалося з коментаря в блозі.",
-      "subTitle": "History"
+      "subTitle": "Історія"
     },
     "intro": "8 грудня 2020 року Red Hat оголосила, що припиняє розробку CentOS, який був готовою до використання версією Red Hat Enterprise Linux, на користь нової версії цієї операційної системи, відомої як \"CentOS Stream\". У відповідь засновник CentOS, Грегорі Куртцер, оголосив <link>через коментар на вебсайті CentOS</link>, що він знову почне проект, спрямований на досягнення початкових цілей CentOS. Назву було обрано на честь раннього співавтора CentOS, Рокі Маґо. До 12 грудня репозиторій коду Rocky Linux став найбільш трендовим репозиторієм на GitHub.",
     "releaseInfo": "22 грудня 2020 року Rocky Linux оголосив, що цільова дата початкового випуску — з березня по травень 2021 року. 20 січня 2021 року було оголошено, що тестовий репозиторій буде доступний для публіки до кінця лютого, а кандидат на випуск очікується наприкінці березня 2021 року. Однак ця дата була трохи відкладена, і 30 квітня 2021 року був офіційно випущений перший кандидат на випуск. Другий кандидат на випуск версії 8.4, останній перед стабільним релізом, був випущений 4 червня 2021 року. 21 червня 2021 року був випущений стабільний реліз Rocky Linux 8.4 з кодовою назвою \"Green Obsidian\".",
     "organizationInfo": {
-      "title": "Organization",
+      "title": "Організація",
       "info": "Проект Rocky Linux розміщується в рамках Rocky Enterprise Software Foundation (RESF). Для того, щоб дізнатися більше про організаційну структуру, будь ласка, перегляньте <link>сторінку</link> з цієї теми."
     },
     "quote": {
@@ -138,20 +138,20 @@
     }
   },
   "sponsors": {
-    "title": "Sponsors",
+    "title": "Спонсори",
     "description": "Проект Rocky Linux став можливим завдяки щедрій підтримці наших спонсорів. Ми вдячні за їхні внески в розвиток проекту.",
-    "learnMore": "Learn More",
-    "foundingSponsor": "Founding Sponsor"
+    "learnMore": "Докладніше",
+    "foundingSponsor": "Спонсори засновники"
   },
   "partners": {
-    "title": "Partners",
+    "title": "Партнери",
     "description": "Проект Rocky Linux пишається партнерством з наступними організаціями. Ми вдячні за їхню підтримку та внески в розвиток проекту.",
-    "foundingPartner": "Founding Partner"
+    "foundingPartner": "Партнери-засновники"
   },
   "supportProviders": {
     "title": "Комерційна підтримка",
     "description": "Наступні спонсори надають комерційну підтримку для Rocky Linux.",
-    "foundingSponsor": "Founding Sponsor"
+    "foundingSponsor": "Спонсори засновники"
   },
   "shop": {
     "title": "Офіційна продукція",
@@ -177,10 +177,10 @@
       "riscv64": "RISC-V (riscv64)"
     },
     "selectVersion": "Оберіть версію:",
-    "plannedEol": "Planned EOL:",
+    "plannedEol": "Запланований еОЛ:",
     "cards": {
       "defaultImages": {
-        "title": "Default Images",
+        "title": "Типові образи",
         "tooltips": {
           "dvd": "DVD: Безшовна установка, все, що вам потрібно, включається.",
           "boot": "Завантаження: Мінімальне зображення для встановити на основі інтернету.",
@@ -190,12 +190,12 @@
         "downloadOptions": {
           "dvd": "DVD ISO",
           "boot": "Boot ISO",
-          "minimal": "Minimal ISO"
+          "minimal": "Мінімальний ISO"
         },
         "torrent": "Torrent (DVD ISO)",
-        "checksum": "CHECKSUM",
-        "checksums": "CHECKSUMS",
-        "baseOs": "BaseOS Packages",
+        "checksum": "КОНТРОЛЬНА_СУМА",
+        "checksums": "КОНТРОЛЬНА_СУМА",
+        "baseOs": "Пакунки BaseOS",
         "archived": "Архівовані релізи",
         "x86_64": {
           "r9": {
@@ -209,33 +209,33 @@
         }
       },
       "cloudImages": {
-        "title": "Cloud Images",
-        "genericCloud": "Generic Cloud",
+        "title": "Хмарні образи",
+        "genericCloud": "Загальна Хмара",
         "cloudProviders": {
-          "title": "Cloud Providers",
+          "title": "Хмарні провайдери",
           "aws": {
             "name": "AWS AMI",
             "drawerTitle": "AWS AMI Images",
             "table": {
               "version": "Версія",
-              "region": "Region",
-              "architecture": "Architecture",
-              "imageId": "Image ID",
-              "deploy": "Deploy"
+              "region": "Регіон",
+              "architecture": "Архітектура",
+              "imageId": "ІД образу",
+              "deploy": "Розгорнути"
             }
           },
-          "googleCloud": "Google Cloud",
+          "googleCloud": "Хмара Google",
           "azure": "Microsoft Azure"
         },
         "downloadOptions": {
-          "qcow2": "QCOW2 Image"
+          "qcow2": "Зображення QCOW2"
         }
       },
       "container": {
         "title": "Docker (OCI) зображень",
         "downloadOptions": {
-          "fullImage": "Full Image",
-          "minimalImage": "Minimal Image"
+          "fullImage": "Повне зображення",
+          "minimalImage": "Мінімальне Зображення"
         }
       },
       "liveImages": {
@@ -252,26 +252,26 @@
       "rpiImages": {
         "title": "Образи Raspberry Pi",
         "download": "Звантажити",
-        "readMe": "README"
+        "readMe": "ІНСТРУКЦІЯ"
       },
       "wslImages": {
         "title": "Windows Subsystem для Linux (WSL) зображень",
         "download": "Звантажити",
-        "readMe": "README"
+        "readMe": "ІНСТРУКЦІЯ"
       },
       "visionfive2Images": {
         "title": "Карта VisionFive 2",
         "download": "Звантажити",
-        "readMe": "README"
+        "readMe": "ІНСТРУКЦІЯ"
       },
       "specializedDevices": {
         "title": "Спеціалізовані пристрої",
         "download": "Звантажити",
-        "readMe": "README"
+        "readMe": "ІНСТРУКЦІЯ"
       }
     },
     "getInvolved": {
-      "title": "Get Involved",
+      "title": "Приєднуйтесь до нас",
       "text": "Під час завантаження та використання Rocky Linux, Фонд програмного забезпечення Rocky Enterprise запрошує вас стати частиною спільноти як учасника. Є багато способів зробити свій внесок у проект, починаючи від документації, QA та тестування до змін у коді для SIG, надання дзеркал або хостингу та допомоги іншим користувачам."
     },
     "exportCompliance": {
@@ -279,16 +279,16 @@
       "text1": "Завантажуючи програмне забезпечення Rocky Linux, ви підтверджуєте, що розумієте наступне:",
       "text2": "Програмне забезпечення Rocky Linux та технічна інформація можуть підпадати під управління експорту США («EAR») та інше U. . та закордонні закони і, можливо, не експортуються, реекспортуються чи перевозять (а) до забороненої країни призначення в рамках EAR чи США. санкційні регламенти (зараз Куба, Іран, Північна Корея, Судан, Сирія та Кримський регіон України, які підлягають змінам, як розміщений урядом США); (b) будь-якому забороненому призначенню або будь-якому кінцевому користувачеві, якому було заборонено брати участь в США. . експортні операції з будь-якого федерального агентства США. уряд; або (с) для використання у зв'язку з дизайном, розвитком чи виробництвом ядерної зброї, хімічної або біологічної зброї, або ракетні системи, космічні засоби або ракети звуку, або неманерні авіаперевезені.",
       "narrative": "Rocky Linux у формі вихідного коду та бінарного коду є публічно доступним і не підлягає регулюванню за експортними правилами США (EAR) відповідно до §740.17(b)(1).",
-      "product_title": "Product",
+      "product_title": "Продукт",
       "product_text": "\"Rocky Linux. Включає репозиторії \"Special Interest Group\" проекту Rocky Linux.\"",
       "eccn_title": "ECCN",
       "eccn_text": "5D992.c",
       "exception_title": "Виключення з ліцензії",
       "exception_text": "Масовий ринок §740.17(b)(1)",
       "ccats_title": "CCATS",
-      "ccats_text": "N/A",
+      "ccats_text": "Н/Д",
       "ern_title": "ERN",
-      "ern_text": "N/A"
+      "ern_text": "Н/Д"
     }
   },
   "community": {
@@ -297,19 +297,19 @@
     "noSelection": "Оберіть опцію, щоб побачити більше деталей.",
     "interests": {
       "chatting": {
-        "title": "Just chatting",
+        "title": "Просто спілкування",
         "description": "Ви можете приєднатися до розмови в нашому чаті <link>Mattermost</link>, щоб спілкуватися з іншими членами спільноти. Гарного спілкування!"
       },
       "bugs": {
-        "title": "Reporting bugs",
+        "title": "Повідомлення про помилки",
         "description": "Приєднуйтесь до нашого <link1>чату Mattermost</link1>, щоб обговорити потенційну помилку з командою та іншими членами спільноти. Перевірте наш <link2>трекер помилок</link2>, щоб дізнатися, чи вже існує звіт про вашу проблему."
       },
       "webdev": {
-        "title": "Web development",
+        "title": "Веб-розробка",
         "description": "Приєднуйтесь до нашого <link1>чату Mattermost</link1> і представтесь у каналі <link2>~Web</link2>. Перевірте наш <link3>репозиторій вебсайту</link3>, щоб дізнатися, чи є проблеми чи покращення, які потрібно зробити. Робіть їх!"
       },
       "graphics": {
-        "title": "Graphic design",
+        "title": "Графічний дизайн",
         "description": "Приєднуйтесь до нашого <link1>чату Mattermost</link1> і представтесь у каналі <link2>~Design</link2>. Розкажіть, чим вам цікаво займатись — і ми знайдемо, у чому ви зможете допомогти!"
       },
       "release": {
@@ -321,7 +321,7 @@
         "description": "Приєднуйтесь до нашого <link1>чату Mattermost</link1> і представтесь в одному з наших численних каналів SIG. Розкажіть, чим вам цікаво займатись — і ми знайдемо, у чому ви зможете допомогти! Якщо ви зацікавлені в створенні нового SIG, перегляньте нашу <link2>вікі-сторінку</link2> на цю тему."
       },
       "docs": {
-        "title": "Documentation",
+        "title": "Документація",
         "description": "Приєднуйтесь до нашого <link1>чату Mattermost</link1> і представтеся в каналі <link2>~Documentation</link2>. Обов’язково перегляньте посібник зі сприяння, доступний у нашому <link3>README</link3>."
       }
     }
