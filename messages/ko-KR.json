@@ -255,12 +255,12 @@
         "readMe": "README"
       },
       "wslImages": {
-        "title": "Windows Subsystem for Linux (WSL) Images",
+        "title": "Windows Subsystem for Linux (WSL) 이미지",
         "download": "다운로드",
         "readMe": "README"
       },
       "visionfive2Images": {
-        "title": "VisionFive 2 Images",
+        "title": "VisionFive 2 이미지",
         "download": "다운로드",
         "readMe": "README"
       },
