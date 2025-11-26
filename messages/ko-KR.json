@@ -69,7 +69,7 @@
   },
   "home": {
     "hero": {
-      "title": "엔터프라이즈 리눅스, 커뮤니티 방식으로.",
+      "title": "커뮤니티 방식의 엔터프라이즈 리눅스.",
       "description": "Rocky Linux는 Red Hat Enterprise Linux®와 버그 대 버그까지 100% 호환되도록 설계된 오픈소스 엔터프라이즈 운영 체제입니다. 커뮤니티에서 집중적으로 개발 중입니다.",
       "migrate": "마이그레이션하기",
       "dpg": "등록된 디지털 공공재"
@@ -255,12 +255,12 @@
         "readMe": "README"
       },
       "wslImages": {
-        "title": "Windows Subsystem for Linux (WSL) Images",
+        "title": "Windows Subsystem for Linux (WSL) 이미지",
         "download": "다운로드",
         "readMe": "README"
       },
       "visionfive2Images": {
-        "title": "VisionFive 2 Images",
+        "title": "VisionFive 2 이미지",
         "download": "다운로드",
         "readMe": "README"
       },
