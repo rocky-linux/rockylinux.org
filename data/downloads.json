@@ -458,7 +458,7 @@
               "minimalImage": "https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.1-minimal"
             },
             "visionfive2Images": {
-              "download": "https://dl.rockylinux.org/pub/rocky/10/images/riscv64/Rocky-10-VisionFive2-latest.riscv64.tar.xz"
+              "download": "https://dl.rockylinux.org/vault/rocky/10.0/images/riscv64/Rocky-10-VisionFive2-latest.riscv64.tar.xz"
             }
           },
           "links": {
@@ -472,7 +472,7 @@
               "checksum": "https://dl.rockylinux.org/pub/rocky/10/images/riscv64/CHECKSUM"
             },
             "visionfive2Images": {
-              "checksum": "https://dl.rockylinux.org/pub/rocky/10/images/riscv64/Rocky-10-VisionFive2-latest.riscv64.tar.xz.CHECKSUM"
+              "checksum": "https://dl.rockylinux.org/vault/rocky/10.0/images/riscv64/Rocky-10-VisionFive2-latest.riscv64.tar.xz.CHECKSUM"
             }
           }
         }
