@@ -255,7 +255,17 @@
         "readMe": "README"
       },
       "wslImages": {
-        "title": "Windows Subsystem for Linux (WSL) Images",
+        "title": "Immagini di Windows Subsystem for Linux (WSL)",
+        "download": "Download",
+        "readMe": "README"
+      },
+      "visionfive2Images": {
+        "title": "VisionFive 2 Images (Archived)",
+        "download": "Download",
+        "readMe": "README"
+      },
+      "specializedDevices": {
+        "title": "Dispositivi specializzati",
         "download": "Download",
         "readMe": "README"
       }
@@ -267,7 +277,7 @@
     "exportCompliance": {
       "title": "Conformità alle Esportazioni/Informazioni Doganali",
       "text1": "Scaricando il software Rocky Linux, l'utente dichiara di aver compreso quanto segue:",
-      "text2": "Il software e le informazioni tecniche di Rocky Linux possono essere soggetti alle normative statunitensi sull'amministrazione delle esportazioni (“EAR”) e ad altre leggi statunitensi e straniere e non possono essere esportati, riesportati o trasferiti (a) in un paese di destinazione proibito ai sensi dell'EAR o delle normative statunitensi sulle sanzioni (attualmente Cuba, Iran, Corea del Nord, Sudan, Siria e la regione della Crimea dell'Ucraina, soggette a modifiche in base a quanto pubblicato dal governo degli Stati Uniti); (b) a qualsiasi destinazione proibita o a qualsiasi utente finale a cui sia stato vietato di partecipare a transazioni di esportazione negli Stati Uniti da qualsiasi agenzia federale del governo degli Stati Uniti; o (c) per l'uso in relazione alla progettazione, allo sviluppo o alla produzione di armi nucleari, chimiche o biologiche, o di sistemi missilistici, veicoli di lancio spaziali o veicoli sonori. (c) per l'uso in relazione alla progettazione, allo sviluppo o alla produzione di armi nucleari, chimiche o biologiche, o di sistemi di razzi, veicoli di lancio spaziali, razzi sonda o sistemi di veicoli aerei senza equipaggio.",
+      "text2": "Il software e le informazioni tecniche di Rocky Linux possono essere soggetti alle normative statunitensi sull'amministrazione delle esportazioni (l'\"EAR\") e ad altre leggi statunitensi e straniere e non possono essere esportati, riesportati o trasferiti (a) in un paese di destinazione proibito ai sensi dell'EAR o delle normative statunitensi sulle sanzioni (attualmente Cuba, Iran, Corea del Nord, Sudan, Siria e la regione della Crimea dell'Ucraina, soggette a modifiche in base a quanto pubblicato dal governo degli Stati Uniti); (b) a qualsiasi destinazione proibita o a qualsiasi utente finale a cui sia stato vietato di partecipare a transazioni di esportazione negli Stati Uniti da qualsiasi agenzia federale del governo degli Stati Uniti; o (c) per l'uso in relazione alla progettazione, allo sviluppo o alla produzione di armi nucleari, chimiche o biologiche, o di sistemi missilistici, veicoli di lancio spaziali o veicoli sonori.(c) per l'uso in relazione alla progettazione, allo sviluppo o alla produzione di armi nucleari, chimiche o biologiche, o di sistemi a razzo, veicoli di lancio spaziale, razzi sonda o sistemi di veicoli aerei senza equipaggio.",
       "narrative": "Rocky Linux in forma di codice sorgente e codice binario è pubblicamente disponibile e non è soggetto all'AER in conformità al §740.17(b)(1).",
       "product_title": "Prodotto",
       "product_text": "Rocky Linux. Include i repository del Progetto Rocky Linux “ Special Interest Group”.",
