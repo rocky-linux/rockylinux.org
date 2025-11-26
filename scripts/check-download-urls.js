@@ -76,11 +76,6 @@ function checkUrlOnce(urlInfo) {
   });
 }
 
-// Check URL with retry logic for timeouts only
-async function checkUrl(urlInfo) {
-  return checkUrlOnce(urlInfo);
-}
-
 // Retry timed out URLs with exponential backoff
 async function retryTimeouts(timedOutResults) {
   if (timedOutResults.length === 0) return [];
@@ -163,7 +158,7 @@ async function main() {
   // Process in batches to avoid overwhelming servers
   for (let i = 0; i < urls.length; i += batchSize) {
     const batch = urls.slice(i, i + batchSize);
-    const batchResults = await Promise.all(batch.map(checkUrl));
+    const batchResults = await Promise.all(batch.map(checkUrlOnce));
     results.push(...batchResults);
 
     processed += batch.length;
