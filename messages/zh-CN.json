@@ -255,7 +255,17 @@
         "readMe": "自述文件"
       },
       "wslImages": {
-        "title": "Windows Subsystem for Linux (WSL) Images",
+        "title": "Windows Subsystem for Linux（WSL） 镜像",
+        "download": "下载",
+        "readMe": "自述文件"
+      },
+      "visionfive2Images": {
+        "title": "VisionFive 2 Images (Archived)",
+        "download": "下载",
+        "readMe": "自述文件"
+      },
+      "specializedDevices": {
+        "title": "专用设备",
         "download": "下载",
         "readMe": "自述文件"
       }
