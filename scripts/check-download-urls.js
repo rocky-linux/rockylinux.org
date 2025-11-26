@@ -40,8 +40,8 @@ function extractUrls(obj, path = "") {
   return urls;
 }
 
-// Check if URL is accessible
-function checkUrl(urlInfo) {
+// Check if URL is accessible (single attempt)
+function checkUrlOnce(urlInfo) {
   return new Promise((resolve) => {
     const url = new URL(urlInfo.url);
     const protocol = url.protocol === "https:" ? https : http;
@@ -74,6 +74,63 @@ function checkUrl(urlInfo) {
 
     req.end();
   });
+}
+
+// Check URL with retry logic for timeouts only
+async function checkUrl(urlInfo) {
+  return checkUrlOnce(urlInfo);
+}
+
+// Retry timed out URLs with exponential backoff
+async function retryTimeouts(timedOutResults) {
+  if (timedOutResults.length === 0) return [];
+
+  const maxRetries = 10;
+  const baseDelay = 1000; // Start with 1 second
+  let remaining = [...timedOutResults];
+  const successful = [];
+
+  for (
+    let attempt = 1;
+    attempt <= maxRetries && remaining.length > 0;
+    attempt++
+  ) {
+    // Exponential backoff: 1s, 2s, 4s, 8s, 16s, 32s, 60s (capped), 60s, 60s, 60s
+    const delay = Math.min(baseDelay * Math.pow(2, attempt - 1), 60000);
+
+    console.log(
+      `\n${colors.yellow}Retry attempt ${attempt}/${maxRetries} for ${remaining.length} timed out URL(s) (waiting ${delay / 1000}s)...${colors.reset}`
+    );
+
+    await new Promise((resolve) => setTimeout(resolve, delay));
+
+    const retryResults = await Promise.all(
+      remaining.map((r) => checkUrlOnce({ url: r.url, path: r.path }))
+    );
+
+    const stillTimedOut = [];
+    for (const result of retryResults) {
+      if (result.status === "TIMEOUT") {
+        stillTimedOut.push(result);
+      } else {
+        successful.push(result);
+        console.log(
+          `  ${colors.green}✓${colors.reset} ${result.url} - ${result.status === "OK" ? "OK" : result.status}`
+        );
+      }
+    }
+
+    remaining = stillTimedOut;
+
+    if (remaining.length === 0) {
+      console.log(
+        `${colors.green}All timed out URLs recovered after ${attempt} retry attempt(s)!${colors.reset}`
+      );
+    }
+  }
+
+  // Return both successful retries and still-failed ones
+  return [...successful, ...remaining];
 }
 
 // Progress bar
@@ -121,16 +178,30 @@ async function main() {
   // Clear progress bar
   process.stdout.write("\r" + " ".repeat(80) + "\r");
 
+  // Separate timeouts from other failures for retry logic
+  const timedOut = results.filter((r) => r.status === "TIMEOUT");
+  const otherResults = results.filter((r) => r.status !== "TIMEOUT");
+
+  // Retry timed out URLs with exponential backoff
+  let finalResults = [...otherResults];
+  if (timedOut.length > 0) {
+    console.log(
+      `\n${colors.yellow}${timedOut.length} URL(s) timed out. Retrying with exponential backoff...${colors.reset}`
+    );
+    const retryResults = await retryTimeouts(timedOut);
+    finalResults = [...finalResults, ...retryResults];
+  }
+
   // Report results
-  const failed = results.filter((r) => r.status !== "OK");
-  const successful = results.filter((r) => r.status === "OK");
+  const failed = finalResults.filter((r) => r.status !== "OK");
+  const successful = finalResults.filter((r) => r.status === "OK");
 
   console.log("\n" + colors.blue + "=" + "=".repeat(50) + colors.reset);
   console.log(`${colors.blue}URL Check Results${colors.reset}`);
   console.log(colors.blue + "=" + "=".repeat(50) + colors.reset + "\n");
 
   console.log(
-    `Total URLs checked: ${colors.yellow}${results.length}${colors.reset}`
+    `Total URLs checked: ${colors.yellow}${finalResults.length}${colors.reset}`
   );
   console.log(`Successful: ${colors.green}${successful.length}${colors.reset}`);
   console.log(`Failed: ${colors.red}${failed.length}${colors.reset}\n`);
