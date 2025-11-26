@@ -71,7 +71,8 @@ Special recognition to these contributors for their work on this release:
 - Alan Marshall (@alangm)
 - Alexey Melezhik (@melezhik)
 - Alexia Stein (@alexia)
-- Bob Robison
+- Bob Robison (@grayeul)
+- Boris Reisig (@boris)
 - Brian Clemens (@brian)
 - Bryan (@codedude)
 - Chris Short (@chrisshort)
@@ -88,6 +89,7 @@ Special recognition to these contributors for their work on this release:
 - Neil Hanlon (@neil)
 - Ondřej Nedomlel (@p4nda)
 - Pablo Greco (@pgreco)
+- Robert Wolfe (@zenaku)
 - Sam Thornton (@sthornton)
 - Seongeun Hwang (@hw5e)
 - Sherif Nagy (@sherif)
