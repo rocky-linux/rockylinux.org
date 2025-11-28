@@ -15,7 +15,7 @@
       "aboutName": "關於我們",
       "resourcesName": "相關資源",
       "communityName": "社群",
-      "supportName": " 幫助",
+      "supportName": "說明",
       "contributeName": "貢獻",
       "openMainMenu": "開啟主選單",
       "about": {
@@ -260,7 +260,7 @@
         "readMe": "README"
       },
       "visionfive2Images": {
-        "title": "VisionFive 2 Images (Archived)",
+        "title": "VisionFive 2 映像檔（已封存）",
         "download": "下載",
         "readMe": "README"
       },
