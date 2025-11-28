@@ -17,7 +17,7 @@ npm install
 ```bash
 npm run dev
 ```
-
+bug fixed bruh!!!
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 Please review the [Contributing Guide](https://github.com/rocky-linux/rockylinux.org/blob/develop/CONTRIBUTING.md) before opening a Pull Request.
