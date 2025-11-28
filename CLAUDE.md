@@ -1,6 +1,6 @@
-# Rocky Linux Website - AI Assistant Instructions
+# CLAUDE.md
 
-This document provides instructions for AI assistants working with the Rocky Linux website codebase.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
 
@@ -20,17 +20,6 @@ npm run dev
 - `npm run format` - Format code with Prettier
 - `npm run test` - Run unit tests
 - `npm run e2e` - Run Playwright E2E tests
-
-## Documentation Structure
-
-Detailed documentation is organized in the `/docs` folder:
-
-- **[Architecture Overview](./docs/architecture/overview.md)** - System design and structure
-- **[Tech Stack](./docs/architecture/tech-stack.md)** - Technologies and dependencies
-- **[Project Structure](./docs/architecture/project-structure.md)** - File organization
-- **[Development Guide](./docs/development/getting-started.md)** - Setup and development workflow
-- **[Component Guide](./docs/components/overview.md)** - UI component documentation
-- **[Deployment Guide](./docs/deployment/overview.md)** - Build and deployment processes
 
 ## Important Conventions
 
@@ -76,6 +65,9 @@ Detailed documentation is organized in the `/docs` folder:
 - Keep components small and focused
 - Document complex logic
 
-## Need More Details?
+## Technical Documentation
 
-Refer to the specific documentation files in the `/docs` folder for in-depth information about any aspect of the project.
+Detailed technical documentation is available in the `/docs` folder:
+
+- [Documentation Index](./docs/README.md)
+- [i18n Caching and Locale Detection](./docs/i18n/caching-and-locale-detection.md) - Critical information about Vercel caching behavior with next-intl
