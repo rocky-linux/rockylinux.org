@@ -223,7 +223,7 @@ export const config = {
 
 ```typescript
 // app/[locale]/layout.tsx
-import { setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from "next-intl/server";
 
 export default async function RootLayout({
   children,
