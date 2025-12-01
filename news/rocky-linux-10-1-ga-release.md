@@ -52,9 +52,9 @@ To participate in this testing process for future releases, join the [~Testing c
 
 You may upgrade from Rocky Linux 10.0 to Rocky Linux 10.1 on the CLI by running `sudo dnf -y upgrade` or via desktop tools like GNOME Software or KDE Discover.
 
-Rocky Linux does not support upgrades between major releases. To move from 8.x or 9.x to Rocky Linux 10.1, a fresh install of the operating system is recommended.
+Rocky Linux does not support upgrades between major releases. To upgrade from Rocky Linux 8 or 9 to Rocky Linux 10, a fresh install of the operating system is recommended.
 
-Users from other Enterprise Linux 10 based distributions may convert their installations to Rocky Linux 10 using the [migrate2rocky](https://docs.rockylinux.org/guides/migrate2rocky/) utilities.
+Users of other Enterprise Linux 10 based distributions may convert their installations to Rocky Linux 10 using the [migrate2rocky](https://docs.rockylinux.org/guides/migrate2rocky/) utilities.
 
 ## Known Issues
 

@@ -54,11 +54,11 @@ To participate in this testing process for future releases, join the [~Testing c
 
 ## Upgrade and Conversion Process
 
-You may upgrade from Rocky Linux 9.x to Rocky Linux 9.7 on the CLI by running `sudo dnf -y upgrade`, or via desktop tools like GNOME Software or KDE Discover.
+You may upgrade from previous versions of Rocky Linux 9 to Rocky Linux 9.7 on the CLI by running `sudo dnf -y upgrade`, or via desktop tools like GNOME Software or KDE Discover.
 
-Users from other Enterprise Linux 9-based distributions may convert their installations to Rocky Linux 9.7 using the [migrate2rocky](https://docs.rockylinux.org/guides/migrate2rocky/) utilities.
+Rocky Linux does not support upgrades between major releases. To upgrade from Rocky Linux 8 to Rocky Linux 9, a fresh install of the operating system is recommended.
 
-Rocky Linux 9 does not offer an official upgrade path from any version of Rocky Linux 8. We recommend users of Rocky Linux 8 who wish to upgrade to Rocky Linux 9 do so via a fresh install.
+Users of other Enterprise Linux 9-based distributions may convert their installations to Rocky Linux 9.7 using the [migrate2rocky](https://docs.rockylinux.org/guides/migrate2rocky/) utilities.
 
 ## Acknowledgements
 
@@ -66,24 +66,36 @@ We extend our deepest thanks to the Rocky Linux project volunteers and leaders f
 
 Special recognition to these contributors for their work on this release:
 
-- Alan Marshall
-- Alexey Melezhik
-- Alexia Stein
-- Bob Robinson
+- Alan Marshall (@alangm)
+- Alexey Melezhik (@melezhik)
+- Alexia Stein (@alexia)
+- Bob Robison (@grayeul)
+- Boris Reisig (@boris)
+- Brian Clemens (@brian)
 - Bryan (@codedude)
-- Chris Stackpole
-- Gabriel Graves
-- Louis Abel
-- Lukas Magauer
-- Michael Kinder
-- Michael Young
-- Mustafa Gezen
-- Neil Hanlon
-- Sam Thornton
-- Sherif Nagy
-- Skip Grube
-- Steven Spencer
-- Taylor Goodwill
-- Trevor Cooper
+- Chris Short (@chrisshort)
+- Chris Stackpole (@stack)
+- David Gomez (@dgomez)
+- Fredrik Nystrom (@nscfreny)
+- Joey Brinkman (@j0ey)
+- Gabriel Graves (@nebraskacoder)
+- Louis Abel (@label)
+- Lukas Magauer (lumarel)
+- Michael Young (@elguero)
+- Mustafa Gezen (@mustafa)
+- Nathan B (@kemotaha)
+- Neil Hanlon (@neil)
+- Ondřej Nedomlel (@p4nda)
+- Pablo Greco (@pgreco)
+- Robert Wolfe (@zenaku)
+- Sam Thornton (@sthornton)
+- Seongeun Hwang (@hw5e)
+- Sherif Nagy (@sherif)
+- Skip Grube (@skip77)
+- Stephen Simpson (@ssimpson)
+- Steven Spencer (@sspencerwire)
+- Taylor Goodwill (@tgo)
+- Trevor Cooper (@tcooper)
+- Wale Soyinka (@wale)
 
 Finally, we appreciate our Enterprise Linux ecosystem—especially the upstream development work of Fedora Linux, and the curation work in CentOS Stream—and the many, many additional developers and projects that contribute to all the Enterprise Linux distributions.
