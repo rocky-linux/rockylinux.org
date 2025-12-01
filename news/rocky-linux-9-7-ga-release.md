@@ -69,6 +69,7 @@ Special recognition to these contributors for their work on this release:
 - Alan Marshall
 - Alexey Melezhik
 - Alexia Stein
+- Bob Robinson
 - Bryan (@codedude)
 - Chris Stackpole
 - Gabriel Graves
