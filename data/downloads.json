@@ -51,13 +51,13 @@
         {
           "versionName": "Rocky Linux 9",
           "versionId": "rocky-9",
-          "currentVersion": "v9.6",
+          "currentVersion": "v9.7",
           "plannedEol": "May 31, 2032",
           "downloadOptions": {
             "defaultImages": {
-              "dvd": "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.6-x86_64-dvd.iso",
-              "boot": "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.6-x86_64-boot.iso",
-              "minimal": "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.6-x86_64-minimal.iso"
+              "dvd": "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.7-x86_64-dvd.iso",
+              "boot": "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.7-x86_64-boot.iso",
+              "minimal": "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.7-x86_64-minimal.iso"
             },
             "cloudImages": {
               "qcow2": "https://dl.rockylinux.org/pub/rocky/9/images/x86_64/Rocky-9-GenericCloud-Base.latest.x86_64.qcow2"
@@ -80,7 +80,7 @@
           },
           "links": {
             "defaultImages": {
-              "torrent": "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.6-x86_64-dvd.torrent",
+              "torrent": "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.7-x86_64-dvd.torrent",
               "checksum": "https://download.rockylinux.org/pub/rocky/9/isos/x86_64/CHECKSUM",
               "baseOs": "https://download.rockylinux.org/pub/rocky/9/BaseOS/x86_64/",
               "archived": "https://dl.rockylinux.org/vault/rocky"
@@ -206,13 +206,13 @@
         {
           "versionName": "Rocky Linux 9",
           "versionId": "rocky-9",
-          "currentVersion": "v9.6",
+          "currentVersion": "v9.7",
           "plannedEol": "May 31, 2032",
           "downloadOptions": {
             "defaultImages": {
-              "dvd": "https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.6-aarch64-dvd.iso",
-              "boot": "https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.6-aarch64-boot.iso",
-              "minimal": "https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.6-aarch64-minimal.iso"
+              "dvd": "https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.7-aarch64-dvd.iso",
+              "boot": "https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.7-aarch64-boot.iso",
+              "minimal": "https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.7-aarch64-minimal.iso"
             },
             "cloudImages": {
               "qcow2": "https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-GenericCloud-Base.latest.aarch64.qcow2"
@@ -247,7 +247,7 @@
           },
           "links": {
             "defaultImages": {
-              "torrent": "https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.6-aarch64-dvd.torrent",
+              "torrent": "https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.7-aarch64-dvd.torrent",
               "checksum": "https://download.rockylinux.org/pub/rocky/9/isos/aarch64/CHECKSUM",
               "baseOs": "https://download.rockylinux.org/pub/rocky/9/BaseOS/aarch64/",
               "archived": "https://dl.rockylinux.org/vault/rocky"
@@ -345,13 +345,13 @@
         {
           "versionName": "Rocky Linux 9",
           "versionId": "rocky-9",
-          "currentVersion": "v9.6",
+          "currentVersion": "v9.7",
           "plannedEol": "May 31, 2032",
           "downloadOptions": {
             "defaultImages": {
-              "dvd": "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.6-ppc64le-dvd.iso",
-              "boot": "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.6-ppc64le-boot.iso",
-              "minimal": "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.6-ppc64le-minimal.iso"
+              "dvd": "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.7-ppc64le-dvd.iso",
+              "boot": "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.7-ppc64le-boot.iso",
+              "minimal": "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.7-ppc64le-minimal.iso"
             },
             "cloudImages": {
               "qcow2": "https://dl.rockylinux.org/pub/rocky/9/images/ppc64le/Rocky-9-GenericCloud-Base.latest.ppc64le.qcow2"
@@ -363,7 +363,7 @@
           },
           "links": {
             "defaultImages": {
-              "torrent": "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.6-ppc64le-dvd.torrent",
+              "torrent": "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.7-ppc64le-dvd.torrent",
               "checksum": "https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/CHECKSUM",
               "baseOs": "https://download.rockylinux.org/pub/rocky/9/BaseOS/ppc64le/",
               "archived": "https://dl.rockylinux.org/vault/rocky"
@@ -411,13 +411,13 @@
         {
           "versionName": "Rocky Linux 9",
           "versionId": "rocky-9",
-          "currentVersion": "v9.6",
+          "currentVersion": "v9.7",
           "plannedEol": "May 31, 2032",
           "downloadOptions": {
             "defaultImages": {
-              "dvd": "https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.6-s390x-dvd.iso",
-              "boot": "https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.6-s390x-boot.iso",
-              "minimal": "https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.6-s390x-minimal.iso"
+              "dvd": "https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.7-s390x-dvd.iso",
+              "boot": "https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.7-s390x-boot.iso",
+              "minimal": "https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.7-s390x-minimal.iso"
             },
             "cloudImages": {
               "qcow2": "https://dl.rockylinux.org/pub/rocky/9/images/s390x/Rocky-9-GenericCloud-Base.latest.s390x.qcow2"
@@ -429,7 +429,7 @@
           },
           "links": {
             "defaultImages": {
-              "torrent": "https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.6-s390x-dvd.torrent",
+              "torrent": "https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.7-s390x-dvd.torrent",
               "checksum": "https://download.rockylinux.org/pub/rocky/9/isos/s390x/CHECKSUM",
               "baseOs": "https://download.rockylinux.org/pub/rocky/9/BaseOS/s390x/",
               "archived": "https://dl.rockylinux.org/vault/rocky"
