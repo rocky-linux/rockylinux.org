@@ -131,6 +131,7 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
   useEffect(() => {
     const detected = detectArchitecture();
     if (availableArchitectures.includes(detected)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- Legitimate: client-side detection after hydration
       setDetectedArch(detected);
     }
   }, [availableArchitectures]);
@@ -166,6 +167,7 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
   // Sync client state with URL changes (including browser navigation)
   useEffect(() => {
     // Clear client state when URL changes to let URL take precedence
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- Legitimate: syncing with external URL state
     setClientArch(null);
   }, [searchParams]);
 
