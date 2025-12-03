@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import type { Metadata } from "next";
 import Quiz from "./components/Quiz";
@@ -10,8 +10,15 @@ export const metadata: Metadata = {
     "Welcome! Find out how to get started in the Rocky Linux community.",
 };
 
-const AboutPage = () => {
-  const t = useTranslations("community");
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+const CommunityPage = async ({ params }: Props) => {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  const t = await getTranslations("community");
 
   const quizTranslations: QuizInterests = {
     chatting: t("interests.chatting.title"),
@@ -222,4 +229,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default CommunityPage;

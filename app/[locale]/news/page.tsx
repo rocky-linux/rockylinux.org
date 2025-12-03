@@ -1,6 +1,6 @@
-import type { NextPage, Route } from "next";
+import type { Route } from "next";
 
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import { format } from "date-fns";
 
@@ -23,7 +23,14 @@ export async function generateMetadata() {
   };
 }
 
-const NewsPage: NextPage = async () => {
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+const NewsPage = async ({ params }: Props) => {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const posts = await getSortedPostsData();
   const t = await getTranslations("news");
 
