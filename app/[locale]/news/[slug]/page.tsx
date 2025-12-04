@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import Date from "@/components/Date";
 import ShareButtons from "@/components/shareButtons/ShareButtons";
 
@@ -17,9 +19,10 @@ export type PostData = {
   date: string;
   author?: string;
   contentHtml: string;
+  excerpt: string;
 };
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
 
   if (!(await checkIfSlugIsValid(slug))) {
@@ -29,9 +32,22 @@ export async function generateMetadata({ params }: Props) {
   }
 
   const postData: PostData = await getPostData(slug);
+  const url = `https://rockylinux.org/news/${slug}`;
+  const author = postData.author || "Rocky Linux Team";
 
   return {
     title: `${postData.title} - Rocky Linux`,
+    description: postData.excerpt,
+    openGraph: {
+      title: postData.title,
+      description: postData.excerpt,
+      url,
+      siteName: "Rocky Linux",
+      locale: "en_US",
+      type: "article",
+      publishedTime: postData.date,
+      authors: [author],
+    },
   };
 }
 
