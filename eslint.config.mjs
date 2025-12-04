@@ -1,9 +1,18 @@
 import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals";
+import { FlatCompat } from "@eslint/eslintrc";
 import globals from "globals";
 import js from "@eslint/js";
 import typescriptParser from "@typescript-eslint/parser";
 import typescriptPlugin from "@typescript-eslint/eslint-plugin";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+});
 
 const eslintConfig = defineConfig([
   globalIgnores([
@@ -22,7 +31,7 @@ const eslintConfig = defineConfig([
     "global.d.ts",
     "jest.setup.js",
   ]),
-  ...nextVitals,
+  ...compat.extends("next/core-web-vitals"),
   {
     files: ["**/*.{ts,tsx}"],
     languageOptions: {

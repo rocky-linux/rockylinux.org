@@ -55,7 +55,6 @@ export function DataTable<TData, TValue>({
   );
   const [globalFilter, setGlobalFilter] = React.useState("");
 
-  // eslint-disable-next-line react-hooks/incompatible-library -- Known TanStack Table + React Compiler issue: https://github.com/facebook/react/issues/33057
   const table = useReactTable({
     data,
     columns,
