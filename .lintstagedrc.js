@@ -10,9 +10,9 @@ const buildEslintCommand = (filenames) => {
 
   if (filesToLint.length === 0) return "echo 'No files to lint'";
 
-  return `next lint --file ${filesToLint
+  return `eslint ${filesToLint
     .map((f) => path.relative(process.cwd(), f))
-    .join(" --file ")}`;
+    .join(" ")}`;
 };
 
 const config = {
