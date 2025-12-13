@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { useTranslations } from "next-intl";
 
 import TabsClient from "./TabsClient";
@@ -90,10 +91,14 @@ const DownloadTabs = ({ downloadData }: DownloadTabsProps) => {
   );
 
   return (
-    <TabsClient
-      architectures={processedArchitectures}
-      translations={translations}
-    />
+    <Suspense
+      fallback={<div className="animate-pulse h-96 bg-muted rounded-lg" />}
+    >
+      <TabsClient
+        architectures={processedArchitectures}
+        translations={translations}
+      />
+    </Suspense>
   );
 };
 

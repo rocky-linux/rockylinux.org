@@ -1,7 +1,9 @@
 import { checkIfSlugIsValid, getContentData } from "@/lib/aboutPages";
 import { notFound } from "next/navigation";
+import { setRequestLocale } from "next-intl/server";
 
 export type Params = {
+  locale: string;
   slug: string;
 };
 
@@ -32,7 +34,8 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function Page({ params }: Props) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
 
   if (!(await checkIfSlugIsValid(slug))) {
     notFound();

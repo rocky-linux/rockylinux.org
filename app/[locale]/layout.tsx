@@ -13,7 +13,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import Header from "./Header";
 import Footer from "./Footer";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
 
 import type { Metadata } from "next";
 
@@ -37,11 +37,18 @@ const fontDisplay = FontDisplay({
   variable: "--font-display",
 });
 
+export function generateStaticParams() {
+  return availableLanguages.map((locale) => ({ locale }));
+}
+
 export default async function RootLayout({
   children,
   params,
 }: LayoutProps<"/[locale]">) {
   const { locale } = await params;
+
+  // Enable static rendering for this locale
+  setRequestLocale(locale);
 
   if (!availableLanguages.includes(locale as Locale)) notFound();
 

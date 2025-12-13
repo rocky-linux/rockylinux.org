@@ -6,7 +6,9 @@ export default createMiddleware({
   locales: [...availableLanguages],
   localePrefix: "as-needed",
   defaultLocale: "en",
-  localeDetection: true,
+  // Disable Accept-Language header detection to enable static rendering
+  // See: docs/i18n/caching-and-locale-detection.md
+  localeDetection: false,
 });
 
 export const config = {

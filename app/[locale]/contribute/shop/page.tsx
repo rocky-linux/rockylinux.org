@@ -1,5 +1,5 @@
 import React from "react";
-import { useTranslations } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import Image from "next/image";
 
@@ -30,8 +30,15 @@ const vendors = [
   },
 ];
 
-const ShopPage = () => {
-  const t = useTranslations("shop");
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+const ShopPage = async ({ params }: Props) => {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  const t = await getTranslations("shop");
 
   return (
     <>

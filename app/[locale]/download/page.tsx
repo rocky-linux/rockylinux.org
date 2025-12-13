@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import downloadData from "@/data/downloads.json";
 
 import DownloadTabs from "./components/Tabs";
@@ -13,8 +13,15 @@ export const metadata: Metadata = {
   description: "Get started and download Rocky Linux today!",
 };
 
-const DownloadPage = () => {
-  const t = useTranslations("download");
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+const DownloadPage = async ({ params }: Props) => {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  const t = await getTranslations("download");
   const typedDownloadData = downloadData as DownloadData;
   return (
     <>
