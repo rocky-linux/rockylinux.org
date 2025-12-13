@@ -22,9 +22,7 @@ export async function checkIfSlugIsValid(slug: string) {
   }
 }
 
-export async function getSortedPostsData(
-  numPosts?: number
-): Promise<
+export async function getSortedPostsData(numPosts?: number): Promise<
   {
     slug: string;
     excerpt: string;
@@ -46,7 +44,7 @@ export async function getSortedPostsData(
 
       const contentHtml = await processMarkdownAsHTML(matterResult.content);
       const plainText = contentHtml.replace(/<[^>]*>/g, "");
-      const excerpt = plainText.substring(0, 200) + "...";
+      const excerpt = plainText.substring(0, 150) + "...";
 
       return {
         slug,
@@ -94,7 +92,7 @@ export async function getPostData(slug: string) {
   const contentHtml = await processMarkdownAsHTML(matterResult.content);
 
   const plainText = contentHtml.replace(/<[^>]*>/g, "");
-  const excerpt = plainText.substring(0, 200) + "...";
+  const excerpt = plainText.substring(0, 150) + "...";
 
   return {
     slug,

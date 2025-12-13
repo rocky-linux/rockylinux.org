@@ -1,4 +1,4 @@
-import type { NextPage, Route } from "next";
+import type { Metadata, NextPage, Route } from "next";
 
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
@@ -14,12 +14,22 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-export async function generateMetadata() {
+export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("news");
+  const title = t("title");
+  const description = t("description");
 
   return {
-    title: `${t("title")} - Rocky Linux`,
-    description: `${t("description")}`,
+    title: `${title} - Rocky Linux`,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: "https://rockylinux.org/news",
+      siteName: "Rocky Linux",
+      locale: "en_US",
+      type: "website",
+    },
   };
 }
 
