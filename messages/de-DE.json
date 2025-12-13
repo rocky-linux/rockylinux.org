@@ -65,7 +65,7 @@
       "threads": "Themen",
       "youtube": "YouTube"
     },
-    "disclaimer": "Linux® ist die eingetragene Marke von Linus Torvalds in den USA und anderen Ländern. Red Hat Enterprise Linux, RHEL und CentOS sind Warenzeichen oder eingetragene Warenzeichen von Red Hat, Inc. oder Red Hat Tochtergesellschaften in den USA und anderen Ländern. Wir sind weder mit Red Hat, Inc. verbunden, noch werden wir von Red Hat, Inc. unterstützt oder gesponsert."
+    "disclaimer": "Rocky Linux® is the registered trademark of the Rocky Enterprise Software Foundation in the U.S. and other countries. Linux® is the registered trademark of Linus Torvalds in the U.S. and other countries. Red Hat Enterprise Linux, RHEL and CentOS are trademarks or registered trademarks of Red Hat, Inc. or its subsidiaries in the US and other countries. We are not affiliated with, endorsed by or sponsored by Red Hat, Inc."
   },
   "home": {
     "hero": {
