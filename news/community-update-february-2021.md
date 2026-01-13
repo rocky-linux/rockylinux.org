@@ -119,7 +119,7 @@ Finally, we have the option of forming partnerships with organizations. These ar
 
 We believe in ensuring that all perspectives are heard and taken into consideration while maintaining a strong commitment to our vision, mission, goals, integrity, and values with the highest degree of transparency possible. We count on the community, contributors, donors, sponsors, and partners all to hold us accountable to our pledge.
 
-The organization of RESF is composed of a tiered structure of teams, each including three primary roles: leads, deputies, and members. This ensures that all members have visibility and say into governance and decision making, ensuring equal representation across the organization. You can learn more about how we’ve structured ourselves [here](https://forums.rockylinux.org/t/organizational-structure).
+The organization of RESF is composed of a tiered structure of teams, each including three primary roles: leads, deputies, and members. This ensures that all members have visibility and say into governance and decision making, ensuring equal representation across the organization. You can learn more about how we’ve structured ourselves [here](/about/charter).
 
 As always, if you have any questions, comments, concerns, suggestions, or if you would like to help out, feel free to discuss below or send a note to [hello@rockylinux.org](mailto:hello@rockylinux.org).
 
