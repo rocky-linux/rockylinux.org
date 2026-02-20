@@ -39,7 +39,7 @@
       "support": {
         "docs": "Documentation",
         "submitBug": "Submit Bug",
-        "supportProviders": "Commercial Support"
+        "supportProviders": "پشتیبانی تجاری"
       },
       "contribute": {
         "contribute": "Contributing Guide",
@@ -149,7 +149,7 @@
     "foundingPartner": "Founding Partner"
   },
   "supportProviders": {
-    "title": "Commercial Support",
+    "title": "پشتیبانی تجاری",
     "description": "The following sponsors provide commercial support for Rocky Linux.",
     "foundingSponsor": "Founding Sponsor"
   },
