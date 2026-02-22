@@ -11,9 +11,9 @@
   "header": {
     "toggleTheme": "Toggle Theme",
     "nav": {
-      "newsName": "News",
+      "newsName": "செய்தி",
       "aboutName": "பற்றி",
-      "resourcesName": "Resources",
+      "resourcesName": "வளங்கள்",
       "communityName": "சமூகம்",
       "supportName": "உதவி",
       "contributeName": "பங்களி",
@@ -22,16 +22,16 @@
         "about": "ராக்கி லினக்ச் பற்றி",
         "charter": "சமூக விதிமுறை",
         "wiki": "Project Wiki",
-        "sponsors": "Sponsors",
-        "partners": "Partners"
+        "sponsors": "ஆதரவாளர்கள்",
+        "partners": "பங்காளிகள்"
       },
       "resources": {
-        "gpgKeyInfo": "GPG Key Info"
+        "gpgKeyInfo": "சிபிசி முக்கிய செய்தி"
       },
       "community": {
-        "coc": "Code of Conduct",
-        "forums": "Forums",
-        "mailing": "Mailing Lists",
+        "coc": "நடத்தை விதிமுறை",
+        "forums": "மன்றங்கள்",
+        "mailing": "அஞ்சல் பட்டியல்கள்",
         "mattermost": "முக்கியத்துவம்",
         "irc": "ஐஆர்சி",
         "calendar": "நாள்காட்டி"
@@ -100,7 +100,7 @@
     }
   },
   "news": {
-    "title": "News",
+    "title": "செய்தி",
     "description": "Stay up to date with the latest news and updates from the Rocky Linux community.",
     "notFound": {
       "title": "கிடைக்கவில்லை",
@@ -123,7 +123,7 @@
     "title": "பற்றி",
     "headings": {
       "title": "It all started with a blog comment.",
-      "subTitle": "History"
+      "subTitle": "வரலாறு"
     },
     "intro": "On December 8, 2020, Red Hat announced that they would discontinue development of CentOS, which has been a production-ready downstream version of Red Hat Enterprise Linux, in favor of a newer upstream development variant of that operating system known as \"CentOS Stream\". In response, the original founder of CentOS, Gregory Kurtzer, announced <link>via a comment on the CentOS website</link> that he would again start a project to achieve the original goals of CentOS. Its name was chosen as a tribute to early CentOS co-founder Rocky McGaugh. By December 12, the code repository of Rocky Linux had become the top-trending repository on GitHub.",
     "releaseInfo": "On December 22, 2020, Rocky Linux announced that the target for an initial release was anywhere between March and May of 2021. On January 20, 2021, it was announced that a test repository would be made available to the public by the end of February, and a release candidate was on target for the end of March 2021. However, that date was slightly pushed back, and on April 30, 2021, the first release candidate was officially released. The second release candidate, of version 8.4, the last before the stable release, was released on June 4, 2021. On June 21, 2021, the stable release of Rocky Linux 8.4 was released, with the code name \"Green Obsidian\".",
@@ -138,13 +138,13 @@
     }
   },
   "sponsors": {
-    "title": "Sponsors",
+    "title": "ஆதரவாளர்கள்",
     "description": "The Rocky Linux project is made possible by the generous support of our sponsors. We are grateful for their contributions to the project.",
     "learnMore": "Learn More",
     "foundingSponsor": "Founding Sponsor"
   },
   "partners": {
-    "title": "Partners",
+    "title": "பங்காளிகள்",
     "description": "The Rocky Linux project is proud to partner with the following organizations. We are grateful for their support and contributions to the project.",
     "foundingPartner": "Founding Partner"
   },
