@@ -37,7 +37,7 @@
         "calendar": "Calendario"
       },
       "support": {
-        "docs": "Documentation",
+        "docs": "Documentación",
         "submitBug": "Submit Bug",
         "supportProviders": "Soporte Comercial"
       },
@@ -65,7 +65,7 @@
       "threads": "Threads",
       "youtube": "YouTube"
     },
-    "disclaimer": "Rocky Linux® is the registered trademark of the Rocky Enterprise Software Foundation in the U.S. and other countries. Linux® is the registered trademark of Linus Torvalds in the U.S. and other countries. Red Hat Enterprise Linux, RHEL and CentOS are trademarks or registered trademarks of Red Hat, Inc. or its subsidiaries in the US and other countries. We are not affiliated with, endorsed by or sponsored by Red Hat, Inc."
+    "disclaimer": "Rocky Linux®️ es la marca registrada de la Rocky Enterprise Software Foundation en los Estados Unidos. Linux®️ es la marca registrada de Linus Torvalds en los Estados Unidos y en otros países. Red Hat Enterprise Linux, RHEL y CentOS son marcas registradas o marcas registradas de Red Hat, Inc. o sus filiales en Estados Unidos y otros países. No estamos afiliados, avalados por Red Hat, Inc."
   },
   "home": {
     "hero": {
@@ -217,9 +217,9 @@
             "name": "AWS AMI",
             "drawerTitle": "AWS AMI Images",
             "table": {
-              "version": "Version",
+              "version": "Versión",
               "region": "Región",
-              "architecture": "Architecture",
+              "architecture": "Arquitectura",
               "imageId": "Image ID",
               "deploy": "Deploy"
             }
@@ -279,7 +279,7 @@
       "text1": "By downloading Rocky Linux software, you acknowledge that you understand all of the following:",
       "text2": "Rocky Linux software and technical information may be subject to the U.S. Export Administration Regulations (the \"EAR\") and other U.S. and foreign laws and may not be exported, re-exported or transferred (a) to a prohibited destination country under the EAR or U.S. sanctions regulations (currently Cuba, Iran, North Korea, Sudan, Syria, and the Crimea Region of Ukraine, subject to change as posted by the United States government); (b) to any prohibited destination or to any end user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government; or (c) for use in connection with the design, development or production of nuclear, chemical or biological weapons, or rocket systems, space launch vehicles, or sounding rockets, or unmanned air vehicle systems.",
       "narrative": "Rocky Linux in source code and binary code form is publicly available and is not subject to the EAR in accordance with §740.17(b)(1).",
-      "product_title": "Product",
+      "product_title": "Producto",
       "product_text": "Rocky Linux. Includes Rocky Linux Project \"Special Interest Group\" repositories.",
       "eccn_title": "ECCN",
       "eccn_text": "5D992.c",
@@ -321,7 +321,7 @@
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in one of our many SIG channels. Let us know what you're interested in working on, and we'll find something you can help out with! If you're interested in proposing a new SIG, please see our <link2>wiki page</link2> on the topic."
       },
       "docs": {
-        "title": "Documentation",
+        "title": "Documentación",
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Documentation</link2> channel. Make sure to review the contributing guide available on our <link3>README</link3>."
       }
     }
