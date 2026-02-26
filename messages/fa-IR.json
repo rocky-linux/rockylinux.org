@@ -1,9 +1,9 @@
 {
   "global": {
     "name": "Rocky Linux",
-    "download": "Download",
+    "download": "دانلود",
     "notFound": {
-      "title": "Not Found",
+      "title": "یافت نشد",
       "description": "The page you are looking for does not exist. Please check the URL and try again."
     },
     "close": "Close"
@@ -11,12 +11,12 @@
   "header": {
     "toggleTheme": "Toggle Theme",
     "nav": {
-      "newsName": "News",
-      "aboutName": "About",
-      "resourcesName": "Resources",
-      "communityName": "Community",
-      "supportName": "Help",
-      "contributeName": "Contribute",
+      "newsName": "اخبار",
+      "aboutName": "درباره",
+      "resourcesName": "منابع",
+      "communityName": "جامعه",
+      "supportName": "راهنما",
+      "contributeName": "مشارکت",
       "openMainMenu": "Open Main Menu",
       "about": {
         "about": "About Rocky Linux",
@@ -34,12 +34,12 @@
         "mailing": "Mailing Lists",
         "mattermost": "Mattermost",
         "irc": "IRC",
-        "calendar": "Calendar"
+        "calendar": "گاه‌شماری"
       },
       "support": {
-        "docs": "Documentation",
-        "submitBug": "Submit Bug",
-        "supportProviders": "Commercial Support"
+        "docs": "مستندات",
+        "submitBug": "ارسال خطا",
+        "supportProviders": "پشتیبانی تجاری"
       },
       "contribute": {
         "contribute": "Contributing Guide",
@@ -100,10 +100,10 @@
     }
   },
   "news": {
-    "title": "News",
+    "title": "اخبار",
     "description": "Stay up to date with the latest news and updates from the Rocky Linux community.",
     "notFound": {
-      "title": "Not Found",
+      "title": "یافت نشد",
       "description": "The news post you are looking for does not exist. You can find all our news posts on the <newsLink>news page</newsLink>."
     }
   },
@@ -120,7 +120,7 @@
     "threads": "Threads"
   },
   "about": {
-    "title": "About",
+    "title": "درباره",
     "headings": {
       "title": "It all started with a blog comment.",
       "subTitle": "History"
@@ -149,7 +149,7 @@
     "foundingPartner": "Founding Partner"
   },
   "supportProviders": {
-    "title": "Commercial Support",
+    "title": "پشتیبانی تجاری",
     "description": "The following sponsors provide commercial support for Rocky Linux.",
     "foundingSponsor": "Founding Sponsor"
   },
@@ -158,7 +158,7 @@
     "description": "Purchase some swag! All of our vendors ship globally."
   },
   "download": {
-    "title": "Download",
+    "title": "دانلود",
     "description": "Download the latest Rocky Linux versions here.",
     "tabs": {
       "x86_64": "AMD/Intel (x86_64)",
@@ -200,11 +200,11 @@
         "x86_64": {
           "r9": {
             "versionName": "Rocky Linux 9",
-            "plannedEol": "May 31 2032"
+            "plannedEol": "2032-05-31"
           },
           "r8": {
             "versionName": "Rocky Linux 8",
-            "plannedEol": "May 31 2029"
+            "plannedEol": "2029-05-31"
           }
         }
       },
@@ -251,22 +251,22 @@
       },
       "rpiImages": {
         "title": "Raspberry Pi Images",
-        "download": "Download",
+        "download": "دانلود",
         "readMe": "README"
       },
       "wslImages": {
         "title": "Windows Subsystem for Linux (WSL) Images",
-        "download": "Download",
+        "download": "دانلود",
         "readMe": "README"
       },
       "visionfive2Images": {
         "title": "VisionFive 2 Images (Archived)",
-        "download": "Download",
+        "download": "دانلود",
         "readMe": "README"
       },
       "specializedDevices": {
         "title": "Specialized Devices",
-        "download": "Download",
+        "download": "دانلود",
         "readMe": "README"
       }
     },
@@ -321,7 +321,7 @@
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in one of our many SIG channels. Let us know what you're interested in working on, and we'll find something you can help out with! If you're interested in proposing a new SIG, please see our <link2>wiki page</link2> on the topic."
       },
       "docs": {
-        "title": "Documentation",
+        "title": "مستندات",
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Documentation</link2> channel. Make sure to review the contributing guide available on our <link3>README</link3>."
       }
     }
