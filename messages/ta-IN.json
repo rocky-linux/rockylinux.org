@@ -26,13 +26,13 @@
         "partners": "பங்காளிகள்"
       },
       "resources": {
-        "gpgKeyInfo": "சிபிசி முக்கிய செய்தி"
+        "gpgKeyInfo": "GPG Key Info"
       },
       "community": {
         "coc": "நடத்தை விதிமுறை",
         "forums": "மன்றங்கள்",
         "mailing": "அஞ்சல் பட்டியல்கள்",
-        "mattermost": "முக்கியத்துவம்",
+        "mattermost": "Mattermost",
         "irc": "ஐஆர்சி",
         "calendar": "நாள்காட்டி"
       },
