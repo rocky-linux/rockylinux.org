@@ -1,59 +1,59 @@
 {
   "global": {
     "name": "Rocky Linux",
-    "download": "Download",
+    "download": "பதிவிறக்கு",
     "notFound": {
-      "title": "Not Found",
+      "title": "கிடைக்கவில்லை",
       "description": "The page you are looking for does not exist. Please check the URL and try again."
     },
-    "close": "Close"
+    "close": "மூடு"
   },
   "header": {
     "toggleTheme": "Toggle Theme",
     "nav": {
-      "newsName": "News",
-      "aboutName": "About",
-      "resourcesName": "Resources",
-      "communityName": "Community",
-      "supportName": "Help",
-      "contributeName": "Contribute",
+      "newsName": "செய்தி",
+      "aboutName": "பற்றி",
+      "resourcesName": "வளங்கள்",
+      "communityName": "சமூகம்",
+      "supportName": "உதவி",
+      "contributeName": "பங்களி",
       "openMainMenu": "Open Main Menu",
       "about": {
-        "about": "About Rocky Linux",
-        "charter": "Community Charter",
+        "about": "ராக்கி லினக்ச் பற்றி",
+        "charter": "சமூக விதிமுறை",
         "wiki": "Project Wiki",
-        "sponsors": "Sponsors",
-        "partners": "Partners"
+        "sponsors": "ஆதரவாளர்கள்",
+        "partners": "பங்காளிகள்"
       },
       "resources": {
         "gpgKeyInfo": "GPG Key Info"
       },
       "community": {
-        "coc": "Code of Conduct",
-        "forums": "Forums",
-        "mailing": "Mailing Lists",
+        "coc": "நடத்தை விதிமுறை",
+        "forums": "மன்றங்கள்",
+        "mailing": "அஞ்சல் பட்டியல்கள்",
         "mattermost": "Mattermost",
-        "irc": "IRC",
-        "calendar": "Calendar"
+        "irc": "ஐஆர்சி",
+        "calendar": "நாள்காட்டி"
       },
       "support": {
-        "docs": "Documentation",
-        "submitBug": "Submit Bug",
-        "supportProviders": "Commercial Support"
+        "docs": "ஆவணப்படுத்தல்",
+        "submitBug": "பிழையைச் சமர்ப்பி",
+        "supportProviders": "வணிகரீதியான ஆதரவு"
       },
       "contribute": {
         "contribute": "Contributing Guide",
-        "shop": "Shop",
-        "donate": "Donate"
+        "shop": "கடை",
+        "donate": "நன்கொடை"
       }
     }
   },
   "footer": {
-    "footer": "Footer",
+    "footer": "அடிக்குறிப்பு",
     "nav": {
-      "licensingName": "Licensing",
-      "privacyPolicyName": "Privacy Policy",
-      "TrademarksName": "Trademarks"
+      "licensingName": "உரிமம்",
+      "privacyPolicyName": "தனியுரிமைக் கொள்கை",
+      "TrademarksName": "வர்த்தக முத்திரைகள்"
     },
     "socialNav": {
       "bluesky": "Bluesky",
@@ -100,15 +100,15 @@
     }
   },
   "news": {
-    "title": "News",
+    "title": "செய்தி",
     "description": "Stay up to date with the latest news and updates from the Rocky Linux community.",
     "notFound": {
-      "title": "Not Found",
+      "title": "கிடைக்கவில்லை",
       "description": "The news post you are looking for does not exist. You can find all our news posts on the <newsLink>news page</newsLink>."
     }
   },
   "share": {
-    "shareName": "Share",
+    "shareName": "பகிர்",
     "bluesky": "Bluesky",
     "mastodon": {
       "name": "Mastodon",
@@ -120,10 +120,10 @@
     "threads": "Threads"
   },
   "about": {
-    "title": "About",
+    "title": "பற்றி",
     "headings": {
       "title": "It all started with a blog comment.",
-      "subTitle": "History"
+      "subTitle": "வரலாறு"
     },
     "intro": "On December 8, 2020, Red Hat announced that they would discontinue development of CentOS, which has been a production-ready downstream version of Red Hat Enterprise Linux, in favor of a newer upstream development variant of that operating system known as \"CentOS Stream\". In response, the original founder of CentOS, Gregory Kurtzer, announced <link>via a comment on the CentOS website</link> that he would again start a project to achieve the original goals of CentOS. Its name was chosen as a tribute to early CentOS co-founder Rocky McGaugh. By December 12, the code repository of Rocky Linux had become the top-trending repository on GitHub.",
     "releaseInfo": "On December 22, 2020, Rocky Linux announced that the target for an initial release was anywhere between March and May of 2021. On January 20, 2021, it was announced that a test repository would be made available to the public by the end of February, and a release candidate was on target for the end of March 2021. However, that date was slightly pushed back, and on April 30, 2021, the first release candidate was officially released. The second release candidate, of version 8.4, the last before the stable release, was released on June 4, 2021. On June 21, 2021, the stable release of Rocky Linux 8.4 was released, with the code name \"Green Obsidian\".",
@@ -138,18 +138,18 @@
     }
   },
   "sponsors": {
-    "title": "Sponsors",
+    "title": "ஆதரவாளர்கள்",
     "description": "The Rocky Linux project is made possible by the generous support of our sponsors. We are grateful for their contributions to the project.",
     "learnMore": "Learn More",
     "foundingSponsor": "Founding Sponsor"
   },
   "partners": {
-    "title": "Partners",
+    "title": "பங்காளிகள்",
     "description": "The Rocky Linux project is proud to partner with the following organizations. We are grateful for their support and contributions to the project.",
     "foundingPartner": "Founding Partner"
   },
   "supportProviders": {
-    "title": "Commercial Support",
+    "title": "வணிகரீதியான ஆதரவு",
     "description": "The following sponsors provide commercial support for Rocky Linux.",
     "foundingSponsor": "Founding Sponsor"
   },
@@ -158,7 +158,7 @@
     "description": "Purchase some swag! All of our vendors ship globally."
   },
   "download": {
-    "title": "Download",
+    "title": "பதிவிறக்கு",
     "description": "Download the latest Rocky Linux versions here.",
     "tabs": {
       "x86_64": "AMD/Intel (x86_64)",
@@ -200,7 +200,7 @@
         "x86_64": {
           "r9": {
             "versionName": "Rocky Linux 9",
-            "plannedEol": "May 31 2032"
+            "plannedEol": "2032-05-31"
           },
           "r8": {
             "versionName": "Rocky Linux 8",
@@ -217,15 +217,15 @@
             "name": "AWS AMI",
             "drawerTitle": "AWS AMI Images",
             "table": {
-              "version": "Version",
-              "region": "Region",
-              "architecture": "Architecture",
-              "imageId": "Image ID",
-              "deploy": "Deploy"
+              "version": "பதிப்பு",
+              "region": "பகுதி",
+              "architecture": "கட்டமைப்பு",
+              "imageId": "பட ஐடி",
+              "deploy": "பணியமர்த்தப்பட்ட"
             }
           },
-          "googleCloud": "Google Cloud",
-          "azure": "Microsoft Azure"
+          "googleCloud": "கூகிள் முகில்",
+          "azure": "நுண்மென் அசூர்"
         },
         "downloadOptions": {
           "qcow2": "QCOW2 Image"
@@ -251,22 +251,22 @@
       },
       "rpiImages": {
         "title": "Raspberry Pi Images",
-        "download": "Download",
+        "download": "பதிவிறக்கு",
         "readMe": "README"
       },
       "wslImages": {
         "title": "Windows Subsystem for Linux (WSL) Images",
-        "download": "Download",
+        "download": "பதிவிறக்கு",
         "readMe": "README"
       },
       "visionfive2Images": {
         "title": "VisionFive 2 Images (Archived)",
-        "download": "Download",
+        "download": "பதிவிறக்கு",
         "readMe": "README"
       },
       "specializedDevices": {
         "title": "Specialized Devices",
-        "download": "Download",
+        "download": "பதிவிறக்கு",
         "readMe": "README"
       }
     },
@@ -279,7 +279,7 @@
       "text1": "By downloading Rocky Linux software, you acknowledge that you understand all of the following:",
       "text2": "Rocky Linux software and technical information may be subject to the U.S. Export Administration Regulations (the \"EAR\") and other U.S. and foreign laws and may not be exported, re-exported or transferred (a) to a prohibited destination country under the EAR or U.S. sanctions regulations (currently Cuba, Iran, North Korea, Sudan, Syria, and the Crimea Region of Ukraine, subject to change as posted by the United States government); (b) to any prohibited destination or to any end user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government; or (c) for use in connection with the design, development or production of nuclear, chemical or biological weapons, or rocket systems, space launch vehicles, or sounding rockets, or unmanned air vehicle systems.",
       "narrative": "Rocky Linux in source code and binary code form is publicly available and is not subject to the EAR in accordance with §740.17(b)(1).",
-      "product_title": "Product",
+      "product_title": "தயாரிப்பு",
       "product_text": "Rocky Linux. Includes Rocky Linux Project \"Special Interest Group\" repositories.",
       "eccn_title": "ECCN",
       "eccn_text": "5D992.c",
@@ -321,7 +321,7 @@
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in one of our many SIG channels. Let us know what you're interested in working on, and we'll find something you can help out with! If you're interested in proposing a new SIG, please see our <link2>wiki page</link2> on the topic."
       },
       "docs": {
-        "title": "Documentation",
+        "title": "ஆவணப்படுத்தல்",
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Documentation</link2> channel. Make sure to review the contributing guide available on our <link3>README</link3>."
       }
     }
