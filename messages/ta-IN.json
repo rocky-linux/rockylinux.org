@@ -4,12 +4,12 @@
     "download": "பதிவிறக்கு",
     "notFound": {
       "title": "கிடைக்கவில்லை",
-      "description": "The page you are looking for does not exist. Please check the URL and try again."
+      "description": "நீங்கள் தேடும் பக்கம் இல்லை. முகவரியைச் சரிபார்த்து மீண்டும் முயற்சி செய்."
     },
     "close": "மூடு"
   },
   "header": {
-    "toggleTheme": "Toggle Theme",
+    "toggleTheme": "கருப்பொருள் நிலைமாற்று",
     "nav": {
       "newsName": "செய்தி",
       "aboutName": "பற்றி",
@@ -21,7 +21,7 @@
       "about": {
         "about": "ராக்கி லினக்ச் பற்றி",
         "charter": "சமூக விதிமுறை",
-        "wiki": "Project Wiki",
+        "wiki": "விக்கி திட்டம்",
         "sponsors": "ஆதரவாளர்கள்",
         "partners": "பங்காளிகள்"
       },
