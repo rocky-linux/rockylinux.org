@@ -17,7 +17,7 @@
       "communityName": "சமூகம்",
       "supportName": "உதவி",
       "contributeName": "பங்களி",
-      "openMainMenu": "Open Main Menu",
+      "openMainMenu": "முதன்மை பட்டியலைத் திற",
       "about": {
         "about": "ராக்கி லினக்ச் பற்றி",
         "charter": "சமூக விதிமுறை",
@@ -42,7 +42,7 @@
         "supportProviders": "வணிகரீதியான ஆதரவு"
       },
       "contribute": {
-        "contribute": "Contributing Guide",
+        "contribute": "பங்களிப்பு வழிக்காட்டி",
         "shop": "கடை",
         "donate": "நன்கொடை"
       }
