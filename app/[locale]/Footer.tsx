@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { JSX, SVGProps, Suspense } from "react";
 import LanguagePickerWrapper from "@/components/LanguagePickerWrapper";
 import type { Route } from "next";

@@ -61,6 +61,18 @@ const eslintConfig = defineConfig([
       "@typescript-eslint/no-explicit-any": "error",
       "no-undef": "off", // TypeScript handles this
       "no-duplicate-imports": "error",
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              name: "next/link",
+              message:
+                "Use `import { Link } from '@/i18n/navigation'` instead to ensure locale-aware routing.",
+            },
+          ],
+        },
+      ],
       "react/no-unescaped-entities": ["error", { forbid: [">", "}"] }],
       "react/jsx-no-literals": ["warn", { noStrings: true, ignoreProps: true }],
     },
@@ -84,6 +96,18 @@ const eslintConfig = defineConfig([
       ],
       "no-undef": "error",
       "no-duplicate-imports": "error",
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              name: "next/link",
+              message:
+                "Use `import { Link } from '@/i18n/navigation'` instead to ensure locale-aware routing.",
+            },
+          ],
+        },
+      ],
       "react/no-unescaped-entities": ["error", { forbid: [">", "}"] }],
       "react/jsx-no-literals": ["warn", { noStrings: true, ignoreProps: true }],
     },

@@ -1,6 +1,6 @@
 import { SheetClose } from "@/components/ui/sheet";
 import { Route } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 export interface NavListItemProps<T extends string> {
   title: string;

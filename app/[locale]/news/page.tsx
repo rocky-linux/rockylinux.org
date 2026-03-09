@@ -1,7 +1,7 @@
 import type { Metadata, Route } from "next";
 
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { format } from "date-fns";
 
 import { getSortedPostsData } from "@/lib/news";

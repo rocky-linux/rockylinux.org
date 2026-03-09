@@ -1,7 +1,7 @@
 import LogoCloud from "@/components/logoCloud/LogoCloud";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

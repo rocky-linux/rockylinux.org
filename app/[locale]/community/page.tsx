@@ -1,5 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import type { Metadata } from "next";
 import Quiz from "./components/Quiz";
 import { QuizInterests } from "./components/QuizInterestTypes";
