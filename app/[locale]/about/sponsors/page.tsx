@@ -1,6 +1,6 @@
 import React from "react";
 import partnerSponsorData from "@/data/partnersSponsors";
-import { useTranslations } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
@@ -12,7 +12,14 @@ export const metadata: Metadata = {
     "Our sponsors provide us with financial backing. We wouldn't be here without their help!",
 };
 
-const SponsorsPage = () => {
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+const SponsorsPage = async ({ params }: Props) => {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const { sponsors } = partnerSponsorData[0];
 
   const sortedTierOneSponsors = sponsors.flatMap((sponsor) => sponsor.tierOne);
@@ -20,7 +27,7 @@ const SponsorsPage = () => {
     (sponsor) => sponsor.tierFour
   );
 
-  const t = useTranslations("sponsors");
+  const t = await getTranslations("sponsors");
 
   return (
     <>
