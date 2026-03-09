@@ -7,7 +7,7 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 import { Accordion } from "@/components/ui/accordion";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 import { Button } from "@/components/ui/button";
 import Logo from "@/components/Logo";

@@ -20,7 +20,7 @@ import {
 import { QuestionMarkCircledIcon } from "@radix-ui/react-icons";
 import { Tabs } from "@/components/ui/tabs";
 import VersionPicker from "./VersionPicker";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 import { CloudImage, Columns } from "./Table/Columns";
 import { DataTable } from "./Table/DataTable";
