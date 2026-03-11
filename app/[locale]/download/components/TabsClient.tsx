@@ -56,6 +56,7 @@ interface TabsClientProps {
   translations: {
     tabs: Record<string, string>;
     tabsShortened: Record<string, string>;
+    selectArchitecture: string;
     cards: {
       defaultImages: {
         title: string;
@@ -191,7 +192,10 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
           value={currentArch}
           onValueChange={updateArchitecture}
         >
-          <SelectTrigger className="w-full cursor-pointer">
+          <SelectTrigger
+            className="w-full cursor-pointer"
+            aria-label={translations.selectArchitecture}
+          >
             <SelectValue>{translations.tabs[currentArch]}</SelectValue>
           </SelectTrigger>
           <SelectContent>

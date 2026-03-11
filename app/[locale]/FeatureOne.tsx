@@ -11,10 +11,16 @@ const FeatureOne = () => {
   const t = useTranslations("home.features");
 
   return (
-    <div className="py-12 sm:py-24">
+    <section
+      aria-labelledby="features-title"
+      className="py-12 sm:py-24"
+    >
       <div className="mx-auto max-w-7xl px-2 lg:px-0">
         <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-primary font-display uppercase">
+          <h2
+            id="features-title"
+            className="text-base font-semibold leading-7 text-primary font-display uppercase"
+          >
             {t("subText")}
           </h2>
           <p className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl font-display">
@@ -48,7 +54,7 @@ const FeatureOne = () => {
           </FeaturesList>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

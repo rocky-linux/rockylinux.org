@@ -30,10 +30,16 @@ const LogoCloud = async () => {
   });
 
   return (
-    <div className="py-12 sm:py-24">
+    <section
+      aria-labelledby="sponsors-title"
+      className="py-12 sm:py-24"
+    >
       <div className="mx-auto max-w-7xl px-2 lg:px-0">
         <div className="lg:text-center">
-          <h2 className="text-3xl font-bold font-display tracking-tight sm:text-4xl">
+          <h2
+            id="sponsors-title"
+            className="text-3xl font-bold font-display tracking-tight sm:text-4xl"
+          >
             {t("title")}
           </h2>
         </div>
@@ -49,7 +55,7 @@ const LogoCloud = async () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

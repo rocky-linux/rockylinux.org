@@ -4,12 +4,21 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
+import { alternatesForPath } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Commercial Support - Rocky Linux",
-  description:
-    "The following sponsors provide commercial support for Rocky Linux.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: "Commercial Support - Rocky Linux",
+    description:
+      "The following sponsors provide commercial support for Rocky Linux.",
+    alternates: alternatesForPath(locale, "/support/support-providers"),
+  };
+}
 
 type Props = {
   params: Promise<{ locale: string }>;

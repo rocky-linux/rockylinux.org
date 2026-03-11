@@ -8,6 +8,10 @@ Technical documentation for the Rocky Linux website codebase.
 
 - [Caching and Locale Detection](./i18n/caching-and-locale-detection.md) - Deep dive into i18n caching issues with Vercel and next-intl, including root cause analysis and recommended solutions.
 
+### End-to-End Testing (E2E)
+
+- [Testing Patterns and Lessons Learned](./e2e/testing-patterns.md) - Playwright patterns for Radix UI components, accessible selectors, and portaled element handling.
+
 ## Quick Links
 
 - [Project README](../README.md)

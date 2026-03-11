@@ -5,6 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { format } from "date-fns";
 
 import { getSortedPostsData } from "@/lib/news";
+import { alternatesForPath } from "@/lib/seo";
 
 import {
   Card,
@@ -14,7 +15,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations("news");
   const title = t("title");
   const description = t("description");
@@ -30,6 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
       locale: "en_US",
       type: "website",
     },
+    alternates: alternatesForPath(locale, "/news"),
   };
 }
 

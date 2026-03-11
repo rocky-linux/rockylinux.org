@@ -1,4 +1,6 @@
 import { checkIfSlugIsValid, getContentData } from "@/lib/resourcesPages";
+import { alternatesForPath } from "@/lib/seo";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 
@@ -17,8 +19,8 @@ export type pageData = {
   contentHtml: string;
 };
 
-export async function generateMetadata({ params }: Props) {
-  const { slug } = await params;
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug } = await params;
 
   if (!(await checkIfSlugIsValid(slug))) {
     return {
@@ -30,6 +32,7 @@ export async function generateMetadata({ params }: Props) {
 
   return {
     title: `${pageData.title} - Rocky Linux`,
+    alternates: alternatesForPath(locale, `/resources/${slug}`),
   };
 }
 
