@@ -155,6 +155,44 @@ npx playwright open --viewport-size=375,812 http://localhost:3000/download
 
 Document any differences in the test file and use `test.skip(isMobile, ...)` or `test.skip(!isMobile, ...)` to scope tests to the correct viewport.
 
+## Accessible Names and Localization
+
+### aria-labels Must Be Localized
+
+All `aria-label` attributes must use translation keys via `useTranslations` (or translated strings passed as props to client components). Never hardcode English aria-labels — screen reader users in other languages should hear labels in their own language.
+
+**Pattern for client components with direct i18n access:**
+
+```typescript
+// components/LanguagePicker.tsx
+const t = useTranslations("global");
+<SelectTrigger aria-label={t("selectLanguage")}>
+```
+
+**Pattern for client components receiving translations as props:**
+
+```typescript
+// Server component (Tabs.tsx) passes translated string
+const translations = { selectArchitecture: t("selectArchitecture") };
+
+// Client component (TabsClient.tsx) uses the prop
+<SelectTrigger aria-label={translations.selectArchitecture}>
+```
+
+When adding a new `aria-label`, add the translation key to `messages/en.json` — Crowdin handles the other 33 locales automatically.
+
+### E2E Selectors and Localized Labels
+
+E2E tests always run against the default English locale (navigating to `/`, `/download`, etc.), so selectors using English accessible names work correctly:
+
+```typescript
+// This works because e2e tests always see the English translation
+page.getByRole("combobox", { name: "Select language" });
+page.getByRole("combobox", { name: "Select architecture" });
+```
+
+If tests ever need to run in non-English locales, the selector constants (e.g., `LANGUAGE_PICKER_LABEL` in `PageUtils.ts`) would need to become locale-aware. For now, English constants are correct.
+
 ### `getAttribute()` Does Not Auto-Scroll
 
 Playwright action methods like `click()` and `fill()` automatically scroll elements into view. However, `getAttribute()` does **not** — it only waits for the element to be attached to the DOM.

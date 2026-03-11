@@ -27,6 +27,7 @@ const DownloadTabs = ({ downloadData }: DownloadTabsProps) => {
         t(`tabs.shortened.${arch}`),
       ])
     ),
+    selectArchitecture: t("selectArchitecture"),
     cards: {
       defaultImages: {
         title: t("cards.defaultImages.title"),

@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import {
   Select,
@@ -63,6 +63,7 @@ export default function LanguagePicker({
   availableLanguages,
 }: LanguagePickerProps) {
   const locale = useLocale();
+  const t = useTranslations("global");
   const pathname = usePathname();
 
   const sortedLanguages = [...availableLanguages].sort((a, b) =>
@@ -97,7 +98,7 @@ export default function LanguagePicker({
     >
       <SelectTrigger
         className="w-[180px]"
-        aria-label="Select language"
+        aria-label={t("selectLanguage")}
       >
         <Globe className="mr-2 h-4 w-4" />
         <SelectValue placeholder="Select language" />
