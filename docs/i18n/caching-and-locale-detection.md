@@ -1,6 +1,6 @@
 # Internationalization Caching and Locale Detection
 
-This document details a critical caching issue affecting the Rocky Linux website's internationalization system, along with the research findings and recommended solutions.
+This document details a caching issue that affected the Rocky Linux website's internationalization system, the research findings, the solution that was implemented, and the current i18n architecture.
 
 ## Table of Contents
 
@@ -8,8 +8,9 @@ This document details a critical caching issue affecting the Rocky Linux website
 - [Symptoms](#symptoms)
 - [Root Cause Analysis](#root-cause-analysis)
 - [Technical Deep Dive](#technical-deep-dive)
-- [Solution Options](#solution-options)
-- [Recommended Implementation](#recommended-implementation)
+- [Solution Options Considered](#solution-options-considered)
+- [Implemented Solution](#implemented-solution)
+- [Current Architecture](#current-architecture)
 - [Testing Plan](#testing-plan)
 - [References](#references)
 
@@ -17,7 +18,7 @@ This document details a critical caching issue affecting the Rocky Linux website
 
 ## Problem Summary
 
-Users visiting the Rocky Linux website experience random language switching on page refresh. Despite having `Accept-Language: en-US,en;q=0.9` in their browser headers, pages occasionally render in other languages (e.g., Traditional Chinese, Hindi).
+Users visiting the Rocky Linux website experienced random language switching on page refresh. Despite having `Accept-Language: en-US,en;q=0.9` in their browser headers, pages occasionally rendered in other languages (e.g., Traditional Chinese, Hindi).
 
 **Affected Stack:**
 
@@ -54,19 +55,7 @@ This issue stems from the interaction between three systems:
 
 #### Layer 1: next-intl Middleware Configuration
 
-The current middleware configuration:
-
-```typescript
-// middleware.ts
-export default createMiddleware({
-  locales: [...availableLanguages],
-  localePrefix: "as-needed",
-  defaultLocale: "en",
-  localeDetection: true, // <-- This is the trigger
-});
-```
-
-With `localeDetection: true`, next-intl reads the `Accept-Language` header to determine the user's preferred locale.
+The previous middleware configuration had `localeDetection: true`, which caused next-intl to read the `Accept-Language` header to determine the user's preferred locale.
 
 #### Layer 2: Next.js Dynamic Rendering
 
@@ -113,7 +102,7 @@ The ability to set custom `Vary` headers in middleware was fixed in:
 3. **Server Components read this header** via `headers().get('x-next-intl-locale')`
 4. **This triggers dynamic rendering** - Page marked as private
 
-### Current Request Flow
+### Previous Request Flow (Before Fix)
 
 ```
 User Request (Accept-Language: en-US)
@@ -135,9 +124,9 @@ Response with Cache-Control: private, no-store
 Vercel: Cannot cache publicly
 ```
 
-### Why Random Languages Appear
+### Why Random Languages Appeared
 
-The randomness is likely caused by:
+The randomness was likely caused by:
 
 1. **Race conditions in edge functions** - Multiple concurrent requests may interfere
 2. **Stale closure data** - Edge function instances may retain old locale context
@@ -145,9 +134,9 @@ The randomness is likely caused by:
 
 ---
 
-## Solution Options
+## Solution Options Considered
 
-### Option A: Disable Locale Detection + Enable Static Rendering (Recommended)
+### Option A: Disable Locale Detection + Enable Static Rendering (Implemented)
 
 Disable automatic `Accept-Language` detection and use `setRequestLocale()` to enable static rendering.
 
@@ -196,22 +185,38 @@ Keep current setup and accept dynamic rendering on every request.
 
 ---
 
-## Recommended Implementation
+## Implemented Solution
 
-We recommend **Option A**: Disable locale detection and enable static rendering.
+**Option A** was implemented: locale detection is disabled and static rendering is enabled.
 
-### Step 1: Update Middleware
+### Centralized Routing Configuration
+
+Routing is defined in `i18n/routing.ts` using `defineRouting()`:
+
+```typescript
+// i18n/routing.ts
+import { defineRouting } from "next-intl/routing";
+import { availableLanguages, defaultLanguage } from "@/config/i18nProperties";
+
+export const routing = defineRouting({
+  locales: availableLanguages,
+  defaultLocale: defaultLanguage,
+  localePrefix: "as-needed",
+});
+```
+
+### Middleware
+
+The middleware spreads the shared routing config and disables locale detection:
 
 ```typescript
 // middleware.ts
 import createMiddleware from "next-intl/middleware";
-import { availableLanguages } from "./config/i18nProperties";
+import { routing } from "./i18n/routing";
 
 export default createMiddleware({
-  locales: [...availableLanguages],
-  localePrefix: "as-needed",
-  defaultLocale: "en",
-  localeDetection: false, // Disable Accept-Language detection
+  ...routing,
+  localeDetection: false,
 });
 
 export const config = {
@@ -219,7 +224,46 @@ export const config = {
 };
 ```
 
-### Step 2: Add setRequestLocale to Layout
+### Locale-Aware Navigation
+
+`i18n/navigation.ts` exports locale-aware navigation primitives created from the shared routing config:
+
+```typescript
+// i18n/navigation.ts
+import { createNavigation } from "next-intl/navigation";
+import { routing } from "./routing";
+
+export const { Link, redirect, usePathname, useRouter, getPathname } =
+  createNavigation(routing);
+```
+
+All components must use `Link` from `@/i18n/navigation` instead of `next/link` to ensure links respect the current locale.
+
+### ESLint Enforcement
+
+An ESLint `no-restricted-imports` rule prevents direct use of `next/link`:
+
+```typescript
+// eslint.config.mjs (excerpt)
+"no-restricted-imports": [
+  "error",
+  {
+    paths: [
+      {
+        name: "next/link",
+        message:
+          "Use `import { Link } from '@/i18n/navigation'` instead to ensure locale-aware routing.",
+      },
+    ],
+  },
+],
+```
+
+This rule is applied to both TypeScript and JavaScript files to prevent regressions.
+
+### setRequestLocale in Layout and Pages
+
+`setRequestLocale()` is called in the layout and all pages to enable static rendering:
 
 ```typescript
 // app/[locale]/layout.tsx
@@ -230,43 +274,14 @@ export default async function RootLayout({
   params,
 }: LayoutProps<"/[locale]">) {
   const { locale } = await params;
-
-  // Enable static rendering for this locale
   setRequestLocale(locale);
-
-  if (!availableLanguages.includes(locale as Locale)) notFound();
-
-  const messages = await getMessages();
-
-  return (
-    // ... rest of layout
-  );
+  // ...
 }
 ```
 
-### Step 3: Add setRequestLocale to All Pages
+### generateStaticParams
 
-Each page that uses translations needs to call `setRequestLocale`:
-
-```typescript
-// app/[locale]/download/page.tsx
-import { setRequestLocale } from "next-intl/server";
-
-interface PageProps {
-  params: Promise<{ locale: string }>;
-}
-
-const DownloadPage = async ({ params }: PageProps) => {
-  const { locale } = await params;
-  setRequestLocale(locale);
-
-  // ... rest of page
-};
-```
-
-### Step 4: Generate Static Params (Optional but Recommended)
-
-To pre-generate all locale variants at build time:
+All locale variants are pre-generated at build time:
 
 ```typescript
 // app/[locale]/layout.tsx
@@ -277,52 +292,87 @@ export function generateStaticParams() {
 
 ---
 
+## Current Architecture
+
+### Key Files
+
+| File                       | Purpose                                                                    |
+| -------------------------- | -------------------------------------------------------------------------- |
+| `i18n/routing.ts`          | Centralized routing config (`defineRouting()`)                             |
+| `i18n/navigation.ts`       | Locale-aware `Link`, `redirect`, `usePathname`, `useRouter`, `getPathname` |
+| `middleware.ts`            | Spreads routing config, disables `localeDetection`                         |
+| `config/i18nProperties.ts` | `availableLanguages` and `defaultLanguage` constants                       |
+| `eslint.config.mjs`        | `no-restricted-imports` rule enforcing `@/i18n/navigation` Link            |
+
+### Request Flow (Current)
+
+```
+User Request
+    ↓
+Vercel Edge (Check cache) → HIT if previously rendered
+    ↓
+Next.js Middleware (next-intl)
+    ↓
+Route based on URL locale prefix (no Accept-Language sniffing)
+    ↓
+Statically Rendered Page (setRequestLocale)
+    ↓
+Response with cacheable headers
+    ↓
+Vercel: Caches for future requests
+```
+
+### Adding a New Locale-Aware Link
+
+Always import `Link` from the i18n navigation module:
+
+```typescript
+import { Link } from "@/i18n/navigation";
+
+// Usage is identical to next/link
+<Link href="/download">Download</Link>
+```
+
+The ESLint rule will catch any accidental use of `next/link`.
+
+---
+
 ## Testing Plan
 
-### Pre-Implementation Testing
+### Verify Static Rendering
 
-1. **Document current behavior:**
-   - Record response headers for `/download` page
-   - Note `X-Vercel-Cache`, `Cache-Control`, `Vary` headers
-   - Test with multiple browser locales
+```bash
+# Build locally
+npm run build
 
-2. **Verify the bug:**
-   - Clear all cookies
-   - Set browser to English only
-   - Refresh page 10+ times, document language shown
+# Check for "Static" indicator in build output
+# Pages should show as static (○) not dynamic (λ)
+```
 
-### Post-Implementation Testing
+### Test Cache Headers
 
-1. **Verify static rendering:**
+- Deploy to Vercel preview
+- Check response headers:
+  - `Cache-Control` should NOT be `private, no-store`
+  - `X-Vercel-Cache` should show `HIT` on subsequent requests
 
-   ```bash
-   # Build locally
-   npm run build
+### Test Locale Paths
 
-   # Check for "Static" indicator in build output
-   # Pages should show as static (○) not dynamic (λ)
-   ```
+- `/download` → English content
+- `/zh-TW/download` → Traditional Chinese content
+- `/fr-FR/download` → French content
 
-2. **Test cache headers:**
-   - Deploy to Vercel preview
-   - Check response headers:
-     - `Cache-Control` should NOT be `private, no-store`
-     - `X-Vercel-Cache` should show `HIT` on subsequent requests
+### Test Language Picker
 
-3. **Test locale paths:**
-   - `/download` → English content
-   - `/zh-TW/download` → Traditional Chinese content
-   - `/fr-FR/download` → French content
+- Switch language using picker
+- Verify `NEXT_LOCALE` cookie is set
+- Verify subsequent visits respect cookie
 
-4. **Test language picker:**
-   - Switch language using picker
-   - Verify `NEXT_LOCALE` cookie is set
-   - Verify subsequent visits respect cookie
+### Test Edge Cases
 
-5. **Test edge cases:**
-   - Direct URL access to non-English locale
-   - Switching between locales rapidly
-   - Clearing cookies and revisiting
+- Direct URL access to non-English locale
+- Switching between locales rapidly
+- Clearing cookies and revisiting
 
 ### Performance Testing
 
@@ -396,4 +446,4 @@ Look for:
 ---
 
 _Document created: November 2025_
-_Last updated: November 2025_
+_Last updated: March 2026_
