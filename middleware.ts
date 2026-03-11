@@ -1,11 +1,8 @@
 import createMiddleware from "next-intl/middleware";
-import { availableLanguages } from "./config/i18nProperties";
+import { routing } from "./i18n/routing";
 
 export default createMiddleware({
-  // A list of all locales that are supported
-  locales: [...availableLanguages],
-  localePrefix: "as-needed",
-  defaultLocale: "en",
+  ...routing,
   // Disable Accept-Language header detection to enable static rendering
   // See: docs/i18n/caching-and-locale-detection.md
   localeDetection: false,
