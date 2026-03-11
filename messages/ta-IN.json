@@ -6,7 +6,8 @@
       "title": "கிடைக்கவில்லை",
       "description": "நீங்கள் தேடும் பக்கம் இல்லை. முகவரியைச் சரிபார்த்து மீண்டும் முயற்சி செய்."
     },
-    "close": "மூடு"
+    "close": "மூடு",
+    "selectLanguage": "Select language"
   },
   "header": {
     "toggleTheme": "கருப்பொருள் நிலைமாற்று",
@@ -160,6 +161,7 @@
   "download": {
     "title": "பதிவிறக்கு",
     "description": "Download the latest Rocky Linux versions here.",
+    "selectArchitecture": "Select architecture",
     "tabs": {
       "x86_64": "AMD/Intel (x86_64)",
       "aarch64": "ARM (aarch64)",

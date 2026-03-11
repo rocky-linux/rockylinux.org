@@ -6,7 +6,8 @@
       "title": "Introuvable",
       "description": "La page que vous recherchez n'existe pas. Veuillez vérifier l'URL et réessayer."
     },
-    "close": "Fermer"
+    "close": "Fermer",
+    "selectLanguage": "Select language"
   },
   "header": {
     "toggleTheme": "Changer de Thème",
@@ -160,6 +161,7 @@
   "download": {
     "title": "Téléchargement",
     "description": "Téléchargez les dernières versions de Rocky Linux ici.",
+    "selectArchitecture": "Select architecture",
     "tabs": {
       "x86_64": "AMD/Intel (x86_64)",
       "aarch64": "ARM (aarch64)",

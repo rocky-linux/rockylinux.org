@@ -6,7 +6,8 @@
       "title": "Bulunamadı",
       "description": "Aradığınız sayfa mevcut değil. Lütfen URL'yi kontrol edin ve tekrar deneyin."
     },
-    "close": "Kapat"
+    "close": "Kapat",
+    "selectLanguage": "Select language"
   },
   "header": {
     "toggleTheme": "Temayı Değiştir",
@@ -160,6 +161,7 @@
   "download": {
     "title": "İndir",
     "description": "En son Rocky Linux sürümlerini buradan indirin.",
+    "selectArchitecture": "Select architecture",
     "tabs": {
       "x86_64": "AMD/Intel (x86_64)",
       "aarch64": "ARM (aarch64)",
