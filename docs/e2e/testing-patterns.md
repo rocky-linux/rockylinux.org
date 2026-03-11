@@ -163,7 +163,7 @@ If the element is in the footer (off-screen), `getAttribute()` may timeout even 
 
 ## Documenting Utility Files with JSDoc
 
-Utility files in `e2e/utils/` are shared across multiple spec files and consumed by other developers. Every exported function **must** have a full JSDoc block including:
+Utility files in `e2e/utils/` are shared across multiple spec files and consumed by other developers. Every exported function **should** have a full JSDoc block including:
 
 - A summary sentence describing what the function does
 - A longer description paragraph when behavior isn't obvious from the name (e.g., explaining that a helper waits for a tabpanel transition)
