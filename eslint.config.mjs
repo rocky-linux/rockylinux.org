@@ -4,6 +4,7 @@ import globals from "globals";
 import js from "@eslint/js";
 import typescriptParser from "@typescript-eslint/parser";
 import typescriptPlugin from "@typescript-eslint/eslint-plugin";
+import jsdocPlugin from "eslint-plugin-jsdoc";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -110,6 +111,32 @@ const eslintConfig = defineConfig([
       ],
       "react/no-unescaped-entities": ["error", { forbid: [">", "}"] }],
       "react/jsx-no-literals": ["warn", { noStrings: true, ignoreProps: true }],
+    },
+  },
+  {
+    files: ["e2e/utils/**/*.ts"],
+    plugins: {
+      jsdoc: jsdocPlugin,
+    },
+    rules: {
+      "jsdoc/require-jsdoc": [
+        "error",
+        {
+          publicOnly: true,
+          require: {
+            ArrowFunctionExpression: true,
+            FunctionDeclaration: true,
+            FunctionExpression: true,
+          },
+        },
+      ],
+      "jsdoc/require-description": "error",
+      "jsdoc/require-param": "error",
+      "jsdoc/require-param-description": "error",
+      "jsdoc/require-param-type": "error",
+      "jsdoc/require-returns": "error",
+      "jsdoc/require-returns-description": "error",
+      "jsdoc/require-example": "warn",
     },
   },
 ]);

@@ -117,11 +117,87 @@ Benefits:
 - Tests read as high-level actions (`switchLanguage(page, "Français")`)
 - New test files can reuse the same helpers
 
+## Inspecting Pages Before Writing Tests
+
+Before writing selectors, use Playwright's built-in CLI tools to inspect the live DOM structure, ARIA roles, and accessible names. This avoids guessing at role names and catches desktop vs. mobile differences early.
+
+### `npx playwright open`
+
+Opens a browser with the Playwright inspector attached. You can hover over elements to see their roles, accessible names, and suggested locators:
+
+```bash
+npx playwright open http://localhost:3000/download
+```
+
+Use the **Pick locator** button in the inspector toolbar to click any element and get a recommended `getByRole(...)` selector.
+
+### Accessibility snapshots
+
+Playwright can dump the full accessibility tree of a page, which shows every element's role, name, and state. This is invaluable for understanding what `getByRole()` calls will match:
+
+```typescript
+// In a test or script
+const snapshot = await page.accessibility.snapshot();
+console.log(JSON.stringify(snapshot, null, 2));
+```
+
+### Desktop vs. mobile differences
+
+Many components render differently at mobile breakpoints (e.g., tabs become combobox selects). Always inspect at both viewport sizes:
+
+```bash
+# Desktop (default)
+npx playwright open http://localhost:3000/download
+
+# Mobile viewport
+npx playwright open --viewport-size=375,812 http://localhost:3000/download
+```
+
+Document any differences in the test file and use `test.skip(isMobile, ...)` or `test.skip(!isMobile, ...)` to scope tests to the correct viewport.
+
 ### `getAttribute()` Does Not Auto-Scroll
 
 Playwright action methods like `click()` and `fill()` automatically scroll elements into view. However, `getAttribute()` does **not** — it only waits for the element to be attached to the DOM.
 
 If the element is in the footer (off-screen), `getAttribute()` may timeout even though `click()` on the same locator would succeed. If you need to call `getAttribute()` on an off-screen element, use `scrollIntoViewIfNeeded()` first, or use a CSS attribute selector approach that doesn't depend on reading the attribute separately.
+
+## Documenting Utility Files with JSDoc
+
+Utility files in `e2e/utils/` are shared across multiple spec files and consumed by other developers. Every exported function **must** have a full JSDoc block including:
+
+- A summary sentence describing what the function does
+- A longer description paragraph when behavior isn't obvious from the name (e.g., explaining that a helper waits for a tabpanel transition)
+- `@param` tags with `{type}`, name, and description for every parameter
+- `@returns` tag with `{type}` and description
+- `@throws` tag if the function can throw (e.g., missing ARIA attribute)
+- `@example` block with a realistic usage snippet
+- `@see` links to related helpers or documentation when relevant
+
+This ensures IDE tooltips show complete documentation when hovering over helpers in spec files.
+
+**Example:**
+
+````typescript
+/**
+ * Clicks an architecture tab and waits for the corresponding tabpanel to
+ * appear (desktop only).
+ *
+ * After clicking the tab, this helper asserts that a `tabpanel` with a
+ * matching accessible name becomes visible, ensuring the UI has fully
+ * transitioned before the test continues.
+ *
+ * @param {Page} page - The Playwright page object.
+ * @param {string | RegExp} archName - The accessible name (or pattern) of the
+ *   architecture tab to activate, e.g. `"ARM (aarch64)"` or `/aarch64/`.
+ * @returns {Promise<void>}
+ *
+ * @example
+ * ```ts
+ * await switchArch(page, /aarch64/);
+ * expect(getArchFromUrl(page)).toBe("aarch64");
+ * ```
+ */
+````
 
 ---
 
