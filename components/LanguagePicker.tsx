@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/select";
 import Cookies from "js-cookie";
 import { Globe } from "lucide-react";
+import { availableLanguages as allLocales } from "@/config/i18nProperties";
 
 type LanguagePickerProps = {
   availableLanguages: string[];
@@ -35,6 +36,7 @@ const languageNames: Record<string, string> = {
   "id-ID": "Bahasa Indonesia",
   "it-IT": "Italiano",
   "ja-JP": "日本語",
+  "ka-GE": "ქართული",
   "ko-KR": "한국어",
   "nl-NL": "Nederlands",
   "no-NO": "Norsk",
@@ -53,22 +55,36 @@ const languageNames: Record<string, string> = {
   "zh-TW": "繁體中文",
 };
 
+function getDisplayName(locale: string): string {
+  return languageNames[locale] || locale;
+}
+
 export default function LanguagePicker({
   availableLanguages,
 }: LanguagePickerProps) {
   const locale = useLocale();
   const pathname = usePathname();
 
+  const sortedLanguages = [...availableLanguages].sort((a, b) =>
+    getDisplayName(a).localeCompare(getDisplayName(b))
+  );
+
   const handleLanguageChange = (newLocale: string) => {
     Cookies.set("NEXT_LOCALE", newLocale, { path: "/" });
 
+    // Strip existing locale prefix if present
     const segments = pathname.split("/").filter(Boolean);
-    const pathWithoutLocale =
-      segments.length > 1 ? `/${segments.slice(1).join("/")}` : "/";
+    const firstSegment = segments[0];
+    const hasLocalePrefix =
+      firstSegment &&
+      allLocales.includes(firstSegment as (typeof allLocales)[number]);
+    const pathWithoutLocale = hasLocalePrefix
+      ? `/${segments.slice(1).join("/") || ""}`
+      : pathname;
 
     const newPath =
       newLocale === "en"
-        ? pathWithoutLocale
+        ? pathWithoutLocale || "/"
         : `/${newLocale}${pathWithoutLocale}`;
 
     window.location.href = newPath;
@@ -79,17 +95,20 @@ export default function LanguagePicker({
       defaultValue={locale}
       onValueChange={handleLanguageChange}
     >
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger
+        className="w-[180px]"
+        aria-label="Select language"
+      >
         <Globe className="mr-2 h-4 w-4" />
         <SelectValue placeholder="Select language" />
       </SelectTrigger>
       <SelectContent>
-        {availableLanguages.map((lang) => (
+        {sortedLanguages.map((lang) => (
           <SelectItem
             key={lang}
             value={lang}
           >
-            {languageNames[lang] || lang}
+            {getDisplayName(lang)}
           </SelectItem>
         ))}
       </SelectContent>

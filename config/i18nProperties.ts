@@ -17,6 +17,7 @@ export const availableLanguages = [
   "id-ID",
   "it-IT",
   "ja-JP",
+  "ka-GE",
   "ko-KR",
   "nl-NL",
   "no-NO",
