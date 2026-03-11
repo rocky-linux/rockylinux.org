@@ -43,6 +43,41 @@ This approach:
 
 **Note:** Playwright has an open feature request ([#34348](https://github.com/microsoft/playwright/issues/34348)) to add `ariaChildren` support that would follow `aria-controls` automatically. When that ships, the code could simplify to `picker.getByRole('listbox', { ariaChildren: true })`.
 
+## What E2E Tests Should (and Shouldn't) Test
+
+E2E tests verify **user journeys**, not content. They answer: "Can a user accomplish this task?"
+
+**Do test:**
+
+- Navigation flows — clicking links and buttons reaches the right pages
+- Critical CTAs — download, migrate, language switch
+- Interactive elements — dropdowns, mobile menu, theme toggle
+- Page structure — landmarks exist (banner, main, contentinfo, regions)
+- Cross-page flows — homepage → download page → select architecture
+
+**Don't test:**
+
+- Exact static text — headings, descriptions, paragraph copy. These break on every copy edit and provide low confidence value. Use component tests or visual regression instead.
+- DOM structure or CSS — implementation details that don't affect users
+- Content that's better covered by unit tests — e.g., "does the feature card say 'Production Ready'"
+
+**Granularity:** Each test should cover one user journey or one structural concern. Avoid testing multiple unrelated flows in a single test — it makes failures harder to diagnose.
+
+### Scoping Selectors to Page Sections
+
+Use `<section aria-labelledby="...">` in components to create named regions. This lets tests scope queries precisely:
+
+```typescript
+// Good — scoped to a specific section
+const hero = page.getByRole("region", { name: /community way/i });
+await hero.getByRole("link", { name: "Download" }).click();
+
+// Bad — too broad, could match download links anywhere on the page
+await page.getByRole("main").getByRole("link", { name: "Download" }).click();
+```
+
+When a section doesn't have a semantic landmark, add `<section aria-labelledby="section-id">` with an `id` on its heading. This improves both accessibility and testability.
+
 ## Selector Best Practices
 
 ### Prefer Accessible Names Over Generic Roles
