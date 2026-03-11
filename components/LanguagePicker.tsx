@@ -66,8 +66,9 @@ export default function LanguagePicker({
   const t = useTranslations("global");
   const pathname = usePathname();
 
+  const collator = new Intl.Collator("en", { sensitivity: "base" });
   const sortedLanguages = [...availableLanguages].sort((a, b) =>
-    getDisplayName(a).localeCompare(getDisplayName(b))
+    collator.compare(getDisplayName(a), getDisplayName(b))
   );
 
   const handleLanguageChange = (newLocale: string) => {
@@ -101,7 +102,7 @@ export default function LanguagePicker({
         aria-label={t("selectLanguage")}
       >
         <Globe className="mr-2 h-4 w-4" />
-        <SelectValue placeholder="Select language" />
+        <SelectValue placeholder={t("selectLanguage")} />
       </SelectTrigger>
       <SelectContent>
         {sortedLanguages.map((lang) => (

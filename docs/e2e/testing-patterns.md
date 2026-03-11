@@ -183,15 +183,17 @@ When adding a new `aria-label`, add the translation key to `messages/en.json` â€
 
 ### E2E Selectors and Localized Labels
 
-E2E tests always run against the default English locale (navigating to `/`, `/download`, etc.), so selectors using English accessible names work correctly:
+Most e2e tests navigate to the default English locale (`/`, `/download`, etc.), so selectors using English accessible names work correctly:
 
 ```typescript
-// This works because e2e tests always see the English translation
+// This works because these tests start at the English locale
 page.getByRole("combobox", { name: "Select language" });
 page.getByRole("combobox", { name: "Select architecture" });
 ```
 
-If tests ever need to run in non-English locales, the selector constants (e.g., `LANGUAGE_PICKER_LABEL` in `PageUtils.ts`) would need to become locale-aware. For now, English constants are correct.
+**Exception:** Language switcher tests (`LanguageSwitcher.spec.ts`) navigate to non-English locales (`/fr-FR/`, `/de-DE/`, `/af-ZA/`) to verify locale switching and translated content. Once Crowdin populates translations for aria-label keys (e.g., `selectLanguage`), selectors using English accessible names will not match on non-English pages. If a language switcher test needs to interact with a localized component after navigating away from English, scope the selector by container or use a non-localized attribute instead of an accessible name.
+
+For tests that stay in the English locale, English constants (e.g., `LANGUAGE_PICKER_LABEL` in `PageUtils.ts`) remain correct.
 
 ### `getAttribute()` Does Not Auto-Scroll
 

@@ -51,7 +51,8 @@ test.describe("Language Switcher", () => {
         if (text) names.push(text);
       }
 
-      const sorted = [...names].sort((a, b) => a.localeCompare(b));
+      const collator = new Intl.Collator("en", { sensitivity: "base" });
+      const sorted = [...names].sort(collator.compare);
       expect(names).toEqual(sorted);
     });
   });
