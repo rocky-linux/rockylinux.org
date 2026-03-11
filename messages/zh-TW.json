@@ -6,7 +6,8 @@
       "title": "您造訪的頁面不存在",
       "description": "您查詢的頁面不存在，請檢查網址後重試。"
     },
-    "close": "關閉"
+    "close": "關閉",
+    "selectLanguage": "Select language"
   },
   "header": {
     "toggleTheme": "切換主題",
@@ -160,6 +161,7 @@
   "download": {
     "title": "下載",
     "description": "點擊此處下載最新版Rocky Linux 。",
+    "selectArchitecture": "Select architecture",
     "tabs": {
       "x86_64": "AMD/Intel (x86_64)",
       "aarch64": "ARM (aarch64)",
