@@ -63,6 +63,10 @@ npm run dev
 2. Use `useTranslations` hook in components
 3. Create the english translation in `/messages/en.json` (other locale translations are created automatically by Crowdin)
 
+## Shell Gotchas
+
+- **Quote paths with brackets** — This repo uses `app/[locale]/` extensively. Zsh interprets `[locale]` as a glob pattern, so always quote these paths in shell commands: `git add "app/[locale]/..."`, not `git add app/[locale]/...`.
+
 ## Code Quality Standards
 
 - Run `npm run lint` before committing
