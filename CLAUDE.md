@@ -21,6 +21,12 @@ npm run dev
 - `npm run test` - Run unit tests
 - `npm run e2e` - Run Playwright E2E tests
 
+## Common URLs
+
+- Local development: `http://localhost:3000`
+- Staging: `https://staging.rockylinux.org`
+- Production: `https://rockylinux.org`
+
 ## Important Conventions
 
 1. **TypeScript First** - All new code should be written in TypeScript
@@ -64,6 +70,10 @@ npm run dev
 - Write meaningful commit messages
 - Keep components small and focused
 - Document complex logic
+
+## E2E Tests (Playwright)
+
+E2E tests are located in the `e2e` folder. They use Playwright to test the application in a real browser environment. Docs for writing E2E tests can be found in `docs/e2e/testing-patterns.md`.
 
 ## Technical Documentation
 
