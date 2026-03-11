@@ -126,7 +126,7 @@ playwright-cli run-code "async page => {
     page.waitForEvent('download'),
     page.click('a.download-link')
   ]);
-  await download.saveAs('./downloaded-file.pdf');
+  await download.saveAs('.playwright-cli/downloaded-file.pdf');
   return download.suggestedFilename();
 }"
 ```
@@ -215,7 +215,7 @@ playwright-cli run-code "async page => {
   await page.fill('input[name=password]', 'secret');
   await page.click('button[type=submit]');
   await page.waitForURL('**/dashboard');
-  await page.context().storageState({ path: 'auth.json' });
+  await page.context().storageState({ path: '.playwright-cli/auth.json' });
   return 'Login successful';
 }"
 

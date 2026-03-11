@@ -43,7 +43,7 @@ playwright-cli upload ./document.pdf
 playwright-cli check e12
 playwright-cli uncheck e12
 playwright-cli snapshot
-playwright-cli snapshot --filename=after-click.yaml
+playwright-cli snapshot --filename=.playwright-cli/after-click.yaml
 playwright-cli eval "document.title"
 playwright-cli eval "el => el.textContent" e5
 playwright-cli dialog-accept
@@ -86,8 +86,8 @@ playwright-cli mousewheel 0 100
 ```bash
 playwright-cli screenshot
 playwright-cli screenshot e5
-playwright-cli screenshot --filename=page.png
-playwright-cli pdf --filename=page.pdf
+playwright-cli screenshot --filename=.playwright-cli/page.png
+playwright-cli pdf --filename=.playwright-cli/page.pdf
 ```
 
 ### Tabs
@@ -105,8 +105,8 @@ playwright-cli tab-select 0
 
 ```bash
 playwright-cli state-save
-playwright-cli state-save auth.json
-playwright-cli state-load auth.json
+playwright-cli state-save .playwright-cli/auth.json
+playwright-cli state-load .playwright-cli/auth.json
 
 # Cookies
 playwright-cli cookie-list
@@ -152,7 +152,7 @@ playwright-cli run-code "async page => await page.context().grantPermissions(['g
 playwright-cli tracing-start
 playwright-cli tracing-stop
 playwright-cli video-start
-playwright-cli video-stop video.webm
+playwright-cli video-stop .playwright-cli/video.webm
 ```
 
 ## Open parameters
@@ -179,6 +179,10 @@ playwright-cli close
 # Delete user data for the default session
 playwright-cli delete-data
 ```
+
+## File Output
+
+All files created by playwright-cli (snapshots, screenshots, PDFs, videos, traces, state files) should be saved under `.playwright-cli/` which is gitignored. Snapshots are automatically saved there. For other commands, use the `.playwright-cli/` prefix in filenames.
 
 ## Snapshots
 

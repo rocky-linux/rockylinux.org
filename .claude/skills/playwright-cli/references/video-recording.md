@@ -15,7 +15,7 @@ playwright-cli click e1
 playwright-cli fill e2 "test input"
 
 # Stop and save
-playwright-cli video-stop demo.webm
+playwright-cli video-stop .playwright-cli/demo.webm
 ```
 
 ## Best Practices
@@ -24,8 +24,8 @@ playwright-cli video-stop demo.webm
 
 ```bash
 # Include context in filename
-playwright-cli video-stop recordings/login-flow-2024-01-15.webm
-playwright-cli video-stop recordings/checkout-test-run-42.webm
+playwright-cli video-stop .playwright-cli/login-flow-2024-01-15.webm
+playwright-cli video-stop .playwright-cli/checkout-test-run-42.webm
 ```
 
 ## Tracing vs Video
