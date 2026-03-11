@@ -272,7 +272,7 @@
     },
     "getInvolved": {
       "title": "Mitwirken",
-      "text": "Während Sie Rocky Linux herunterladen und nutzen, lädt Sie die Rocky Enterprise Software Foundation ein, als Mitwirkender in der Community an dem RL-Projekt teil zunehmen. Es gibt viele Möglichkeiten, zum Projekt beizutragen, von der Dokumentation, der QA, und das Testen von Änderungen für SIGs, das Spiegeln oder Hosting-Bereitstellen sowie anderen Benutzern helfen."
+      "text": "Während Sie Rocky Linux herunterladen und nutzen, lädt Sie die Rocky Enterprise Software Foundation ein, als Mitwirkender in der Community an dem RL-Projekt teilzunehmen. Es gibt viele Möglichkeiten, zum Projekt beizutragen, von der Dokumentation, der QA, und das Testen von Änderungen für SIGs, das Spiegeln oder Hosting-Bereitstellen sowie anderen Benutzern helfen."
     },
     "exportCompliance": {
       "title": "Exportkonformität/Zollinformationen",
