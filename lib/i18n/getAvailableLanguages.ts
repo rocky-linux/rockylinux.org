@@ -6,9 +6,19 @@ export async function getAvailableLanguages(
 ): Promise<string[]> {
   try {
     if (!process.env.CROWDIN_PROJECT_ID || !process.env.CROWDIN_API_TOKEN) {
-      console.warn(
-        "CROWDIN_PROJECT_ID or CROWDIN_API_TOKEN not set, falling back to all languages"
-      );
+      if (!process.env.CROWDIN_PROJECT_ID && !process.env.CROWDIN_API_TOKEN) {
+        console.warn(
+          "CROWDIN_PROJECT_ID and CROWDIN_API_TOKEN are both not set, falling back to all languages"
+        );
+      } else if (!process.env.CROWDIN_PROJECT_ID) {
+        console.warn(
+          "CROWDIN_PROJECT_ID is not set, falling back to all languages"
+        );
+      } else {
+        console.warn(
+          "CROWDIN_API_TOKEN is not set, falling back to all languages"
+        );
+      }
       return [...availableLanguages];
     }
 
