@@ -21,12 +21,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: "20"
+          node-version: "24"
 
       - name: Extract and check URLs
         id: url-check
@@ -37,7 +37,7 @@ jobs:
 
       - name: Comment PR on failure
         if: steps.url-check.outcome == 'failure' && github.event_name == 'pull_request'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const fs = require('fs');
@@ -77,7 +77,7 @@ jobs:
 
       - name: Create or update issue on scheduled run failure
         if: steps.url-check.outcome == 'failure' && github.event_name == 'schedule'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const fs = require('fs');
@@ -126,7 +126,7 @@ jobs:
 
       - name: Close issue if URLs are fixed
         if: steps.url-check.outcome == 'success' && github.event_name != 'pull_request'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             // Check for existing open issues

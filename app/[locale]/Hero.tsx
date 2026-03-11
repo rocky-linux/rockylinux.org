@@ -11,11 +11,17 @@ const Hero = () => {
   const tGlobal = useTranslations("global");
 
   return (
-    <div className="relative isolate pt-12 sm:pt-24">
+    <section
+      aria-labelledby="hero-title"
+      className="relative isolate pt-12 sm:pt-24"
+    >
       <div className="pb-12 sm:pb-24">
         <div className="mx-auto max-w-7xl px-2 lg:px-0">
           <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl font-display">
+            <h1
+              id="hero-title"
+              className="text-4xl font-bold tracking-tight sm:text-6xl font-display"
+            >
               {t.rich("title", {
                 span: (chunks) => (
                   <span className="text-primary">{chunks}</span>
@@ -57,7 +63,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

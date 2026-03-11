@@ -19,7 +19,7 @@ playwright-cli tracing-stop
 
 ## Trace Output Files
 
-When you start tracing, Playwright creates a `traces/` directory with several files:
+When you start tracing, Playwright creates trace files under `.playwright-cli/traces/`:
 
 ### `trace-{timestamp}.trace`
 

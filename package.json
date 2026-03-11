@@ -88,6 +88,7 @@
     "@types/rss": "^0.0.32",
     "@typescript-eslint/eslint-plugin": "^8.48.0",
     "@typescript-eslint/parser": "^8.48.0",
+    "eslint-plugin-jsdoc": "^62.7.1",
     "globals": "^16.5.0",
     "husky": "^9.1.7",
     "jest": "^30.2.0",

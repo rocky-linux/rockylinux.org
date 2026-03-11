@@ -3,12 +3,21 @@ import { Link } from "@/i18n/navigation";
 import type { Metadata } from "next";
 import Quiz from "./components/Quiz";
 import { QuizInterests } from "./components/QuizInterestTypes";
+import { alternatesForPath } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Community Quick Start - Rocky Linux",
-  description:
-    "Welcome! Find out how to get started in the Rocky Linux community.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: "Community Quick Start - Rocky Linux",
+    description:
+      "Welcome! Find out how to get started in the Rocky Linux community.",
+    alternates: alternatesForPath(locale, "/community"),
+  };
+}
 
 type Props = {
   params: Promise<{ locale: string }>;

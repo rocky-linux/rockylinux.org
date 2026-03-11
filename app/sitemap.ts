@@ -2,6 +2,8 @@ import fs from "fs/promises";
 import path from "path";
 import { MetadataRoute } from "next";
 import { getSortedPostsData } from "@/lib/news";
+import { availableLanguages } from "@/config/i18nProperties";
+import { localeUrl } from "@/lib/seo";
 
 interface StaticPageData {
   route: string;
@@ -48,16 +50,39 @@ async function getStaticPagesData(
   return pages;
 }
 
+/**
+ * Builds hreflang alternate links for a given path across all locales.
+ */
+function alternateLanguages(pagePath: string): Record<string, string> {
+  const languages: Record<string, string> = {};
+  for (const lang of availableLanguages) {
+    languages[lang] = localeUrl(lang, pagePath);
+  }
+  return languages;
+}
+
+/**
+ * Creates a sitemap entry with alternate language links.
+ */
+function sitemapEntry(
+  pagePath: string,
+  lastModified: Date
+): MetadataRoute.Sitemap[number] {
+  return {
+    url: localeUrl("en", pagePath),
+    lastModified,
+    alternates: { languages: alternateLanguages(pagePath) },
+  };
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const now = new Date();
   const baseLinks = [
-    { url: "https://rockylinux.org", lastModified: new Date() },
-    { url: "https://rockylinux.org/legal/licensing", lastModified: new Date() },
-    { url: "https://rockylinux.org/legal/privacy", lastModified: new Date() },
-    {
-      url: "https://rockylinux.org/legal/trademarks",
-      lastModified: new Date(),
-    },
-    { url: "https://rockylinux.org/about/coc", lastModified: new Date() },
+    sitemapEntry("/", now),
+    sitemapEntry("/legal/licensing", now),
+    sitemapEntry("/legal/privacy", now),
+    sitemapEntry("/legal/trademarks", now),
+    sitemapEntry("/about/coc", now),
   ];
 
   const [posts, staticPages] = await Promise.all([
@@ -65,15 +90,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     getStaticPagesData("app/[locale]"),
   ]);
 
-  const postLinks = posts.map((post) => ({
-    url: `https://rockylinux.org/news/${post.slug}`,
-    lastModified: new Date(post.date),
-  }));
+  const postLinks = posts.map((post) =>
+    sitemapEntry(`/news/${post.slug}`, new Date(post.date))
+  );
 
-  const staticPageLinks = staticPages.map((page) => ({
-    url: `https://rockylinux.org${page.route}`,
-    lastModified: page.lastModified,
-  }));
+  const staticPageLinks = staticPages.map((page) =>
+    sitemapEntry(page.route, page.lastModified)
+  );
 
   return [...baseLinks, ...postLinks, ...staticPageLinks];
 }

@@ -18,10 +18,16 @@ const NewsSnippet = async () => {
   const t = await getTranslations("home.news");
 
   return (
-    <div className="py-12 sm:py-24">
+    <section
+      aria-labelledby="news-title"
+      className="py-12 sm:py-24"
+    >
       <div className="mx-auto max-w-7xl px-2 lg:px-0">
         <div className="lg:text-center">
-          <h2 className="text-3xl font-bold font-display tracking-tight sm:text-4xl">
+          <h2
+            id="news-title"
+            className="text-3xl font-bold font-display tracking-tight sm:text-4xl"
+          >
             {t("title")}
           </h2>
           <p className="mt-2 text-lg leading-8">{t("description")}</p>
@@ -53,7 +59,7 @@ const NewsSnippet = async () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
