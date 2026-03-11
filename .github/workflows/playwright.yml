@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       CI: true
+      CROWDIN_PROJECT_ID: ${{ vars.CROWDIN_PROJECT_ID }}
+      CROWDIN_API_TOKEN: ${{ secrets.CROWDIN_API_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
