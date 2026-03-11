@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { expectDownloadPage } from "./utils/PageUtils";
+import { expectDownloadPage } from "./utils/PageAssertions";
 
 test.describe("Core Rocky Brand", () => {
   test("has title", async ({ page }) => {
