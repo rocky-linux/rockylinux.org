@@ -7,11 +7,20 @@ import ExportCompliance from "./components/export-compliance";
 
 import type { Metadata } from "next";
 import type { DownloadData } from "@/types/downloads";
+import { alternatesForPath } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Download - Rocky Linux",
-  description: "Get started and download Rocky Linux today!",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: "Download - Rocky Linux",
+    description: "Get started and download Rocky Linux today!",
+    alternates: alternatesForPath(locale, "/download"),
+  };
+}
 
 type Props = {
   params: Promise<{ locale: string }>;

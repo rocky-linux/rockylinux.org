@@ -19,16 +19,24 @@ import type { Metadata } from "next";
 
 import PlausibleProvider from "next-plausible";
 import type { Locale } from "@/types/i18nTypes";
+import { alternatesForPath } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Rocky Linux",
-  icons: { icon: "/favicon.png" },
-  description:
-    "Rocky Linux is an open enterprise Operating System designed to be 100% bug-for-bug compatible with Enterprise Linux.",
-  alternates: {
-    types: { "application/rss+xml": "https://rockylinux.org/rss.xml" },
-  },
-};
+export async function generateMetadata({
+  params,
+}: LayoutProps<"/[locale]">): Promise<Metadata> {
+  const { locale } = await params;
+
+  return {
+    title: "Rocky Linux",
+    icons: { icon: "/favicon.png" },
+    description:
+      "Rocky Linux is an open enterprise Operating System designed to be 100% bug-for-bug compatible with Enterprise Linux.",
+    alternates: {
+      ...alternatesForPath(locale, "/"),
+      types: { "application/rss+xml": "https://rockylinux.org/rss.xml" },
+    },
+  };
+}
 
 const fontSans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 

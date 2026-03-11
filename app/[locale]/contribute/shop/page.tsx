@@ -2,12 +2,21 @@ import React from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import Image from "next/image";
+import { alternatesForPath } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Shop - Rocky Linux",
-  description:
-    "Purchase official Rocky Linux merchandise! All vendors ship globally.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: "Shop - Rocky Linux",
+    description:
+      "Purchase official Rocky Linux merchandise! All vendors ship globally.",
+    alternates: alternatesForPath(locale, "/contribute/shop"),
+  };
+}
 
 const vendors = [
   {

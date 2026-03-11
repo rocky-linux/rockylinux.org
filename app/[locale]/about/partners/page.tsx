@@ -4,12 +4,21 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
+import { alternatesForPath } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Partners - Rocky Linux",
-  description:
-    "Our partners provide us with the resources we need. We wouldn't be here without their help!",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: "Partners - Rocky Linux",
+    description:
+      "Our partners provide us with the resources we need. We wouldn't be here without their help!",
+    alternates: alternatesForPath(locale, "/about/partners"),
+  };
+}
 
 type Props = {
   params: Promise<{ locale: string }>;

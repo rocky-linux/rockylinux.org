@@ -136,7 +136,7 @@ const eslintConfig = defineConfig([
       "jsdoc/require-param-type": "error",
       "jsdoc/require-returns": "error",
       "jsdoc/require-returns-description": "error",
-      "jsdoc/require-example": "warn",
+      "jsdoc/require-example": "error",
     },
   },
 ]);

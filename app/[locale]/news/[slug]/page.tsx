@@ -4,6 +4,7 @@ import Date from "@/components/Date";
 import ShareButtons from "@/components/shareButtons/ShareButtons";
 
 import { checkIfSlugIsValid, getPostData } from "@/lib/news";
+import { alternatesForPath } from "@/lib/seo";
 import { safeJsonLdStringify } from "@/utils/jsonLd";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
@@ -26,7 +27,7 @@ export type PostData = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
 
   if (!(await checkIfSlugIsValid(slug))) {
     return {
@@ -51,6 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: postData.date,
       authors: [author],
     },
+    alternates: alternatesForPath(locale, `/news/${slug}`),
   };
 }
 

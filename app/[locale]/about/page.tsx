@@ -3,11 +3,20 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import type { Metadata } from "next";
+import { alternatesForPath } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "About - Rocky Linux",
-  description: "It all started with a blog comment.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return {
+    title: "About - Rocky Linux",
+    description: "It all started with a blog comment.",
+    alternates: alternatesForPath(locale, "/about"),
+  };
+}
 
 type Props = {
   params: Promise<{ locale: string }>;
