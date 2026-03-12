@@ -23,7 +23,7 @@ const vendors = [
     name: "Muckles' U!",
     role: "Ships worldwide, based in US",
     imageUrl: "/images/shop/muckles-u.png",
-    link: "https://www.mucklesu.com/collections/rocky-linux",
+    link: "https://rockylinuxmerch.com/",
   },
   {
     name: "HELLOTUX",
