@@ -22,13 +22,15 @@ export const getLanguagePicker = (page: Page): Locator => {
 /**
  * Opens the language picker dropdown and returns a locator for its listbox.
  *
- * Clicks the combobox trigger, then follows the {@link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls aria-controls}
- * attribute to locate the exact portaled listbox. This is necessary because
- * Radix UI renders the listbox outside the trigger's DOM tree.
+ * Reads the {@link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-controls aria-controls}
+ * attribute before clicking to locate the exact portaled listbox, then clicks
+ * to open the dropdown. Reading `aria-controls` pre-click avoids a re-query
+ * issue where Radix's portal overlay prevents Playwright from finding the
+ * trigger element after the dropdown opens.
  *
  * @param {Page} page - The Playwright page object.
  * @returns {Promise<Locator>} A locator targeting the opened listbox element.
- * @throws {Error} If the combobox has no `aria-controls` attribute after opening.
+ * @throws {Error} If the combobox has no `aria-controls` attribute.
  *
  * @see {@link https://github.com/radix-ui/primitives/issues/2288 Radix open-close race condition}
  * @see [Testing Patterns](../../docs/e2e/testing-patterns.md) for full context on Radix Select gotchas.

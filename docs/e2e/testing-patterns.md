@@ -24,20 +24,21 @@ Radix Select portals its dropdown listbox to `document.body`. This means:
 - `trigger.locator('[role="listbox"]')` will **not** work
 - `page.getByLabel('...').getByRole('listbox')` will **not** work (scopes to DOM children)
 
-**Solution:** Follow the `aria-controls` attribute from the combobox trigger to find its specific listbox by ID:
+**Solution:** Read the `aria-controls` attribute from the combobox trigger **before** clicking — Radix sets it even when the dropdown is closed. This avoids a re-query issue where Radix's portal overlay prevents Playwright from finding the trigger after the dropdown opens.
 
 ```typescript
-// After clicking to open the select — scope to the footer to avoid
-// hardcoding a translated aria-label
-const expandedPicker = page
-  .getByRole("contentinfo")
-  .locator('[role="combobox"][aria-expanded="true"]');
-const listboxId = await expandedPicker.getAttribute("aria-controls");
+// Read aria-controls before clicking — Radix sets it even when closed
+const picker = page.getByRole("contentinfo").getByRole("combobox");
+await picker.scrollIntoViewIfNeeded();
+const listboxId = await picker.getAttribute("aria-controls");
+
+await picker.click();
 const listbox = page.locator(`[id="${listboxId}"]`);
 ```
 
 This approach:
 
+- Reads `aria-controls` pre-click, avoiding post-click re-query issues
 - Uniquely identifies the listbox even if multiple selects exist on the page
 - Follows the actual ARIA relationship Radix establishes
 - Works regardless of where Radix portals the content
