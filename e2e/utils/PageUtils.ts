@@ -1,9 +1,10 @@
 import { expect, type Locator, type Page } from "@playwright/test";
 
-const LANGUAGE_PICKER_LABEL = "Select language";
-
 /**
  * Returns a locator for the language picker combobox in the footer.
+ *
+ * Scoped to the footer (`contentinfo` role) so the lookup works regardless
+ * of the translated `aria-label` value.
  *
  * @param {Page} page - The Playwright page object.
  * @returns {Locator} A locator targeting the language picker combobox.
@@ -15,7 +16,7 @@ const LANGUAGE_PICKER_LABEL = "Select language";
  * ```
  */
 export const getLanguagePicker = (page: Page): Locator => {
-  return page.getByRole("combobox", { name: LANGUAGE_PICKER_LABEL });
+  return page.getByRole("contentinfo").getByRole("combobox");
 };
 
 /**
@@ -40,17 +41,17 @@ export const getLanguagePicker = (page: Page): Locator => {
  */
 export const openLanguagePicker = async (page: Page): Promise<Locator> => {
   const picker = getLanguagePicker(page);
-  await picker.click();
 
-  // Follow aria-controls to find the exact portaled listbox belonging
-  // to this combobox (Radix portals it to the body, so DOM traversal won't work)
-  const expandedPicker = page.locator(
-    `[role="combobox"][aria-label="${LANGUAGE_PICKER_LABEL}"][aria-expanded="true"]`
-  );
-  const listboxId = await expandedPicker.getAttribute("aria-controls");
+  // Read aria-controls before clicking — Radix sets it even when closed,
+  // and after the click Playwright may not be able to re-query the element
+  // within the footer (Radix portal overlay can interfere).
+  await picker.scrollIntoViewIfNeeded();
+  const listboxId = await picker.getAttribute("aria-controls");
   if (!listboxId) {
-    throw new Error("Language picker has no aria-controls after opening");
+    throw new Error("Language picker has no aria-controls attribute");
   }
+
+  await picker.click();
 
   const listbox = page.locator(`[id="${listboxId}"]`);
   await expect(listbox).toBeVisible();
