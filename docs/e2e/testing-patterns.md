@@ -31,6 +31,9 @@ Radix Select portals its dropdown listbox to `document.body`. This means:
 const picker = page.getByRole("contentinfo").getByRole("combobox");
 await picker.scrollIntoViewIfNeeded();
 const listboxId = await picker.getAttribute("aria-controls");
+if (!listboxId) {
+  throw new Error("Combobox is missing required aria-controls attribute");
+}
 
 await picker.click();
 const listbox = page.locator(`[id="${listboxId}"]`);
