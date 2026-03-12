@@ -7,7 +7,7 @@
       "description": "Die gesuchte Seite existiert nicht. Bitte überprüfen Sie die URL und versuchen Sie es erneut."
     },
     "close": "Schließen",
-    "selectLanguage": "Select language"
+    "selectLanguage": "Sprache auswählen"
   },
   "header": {
     "toggleTheme": "Design wechseln",
@@ -66,7 +66,7 @@
       "threads": "Themen",
       "youtube": "YouTube"
     },
-    "disclaimer": "Rocky Linux®️ ist die eingetragene Marke der Rocky Enterprise Software Foundation in den USA. Linux®️ ist die eingetragene Marke von Linus Torvalds in den USA und anderen Ländern. Red Hat Enterprise Linux, RHEL und CentOS sind Warenzeichen oder eingetragene Warenzeichen von Red Hat, Inc. oder Tochtergesellschaften in den USA und anderen Ländern, mit denen wir nicht verbunden sind, unterstützt von Red Hat, Inc."
+    "disclaimer": "Rocky Linux®️ ist die eingetragene Marke der Rocky Enterprise Software Foundation in den USA. Linux®️ ist die eingetragene Marke von Linus Torvalds in den USA und anderen Ländern. Red Hat Enterprise Linux, RHEL und CentOS sind Warenzeichen oder eingetragene Warenzeichen von Red Hat, Inc. oder Tochtergesellschaften in den USA und anderen Ländern, mit denen wir weder verbunden sind, noch unterstützt von Red Hat, Inc."
   },
   "home": {
     "hero": {
@@ -161,7 +161,7 @@
   "download": {
     "title": "Download",
     "description": "Laden Sie hier die neuesten Rocky Linux Versionen herunter.",
-    "selectArchitecture": "Select architecture",
+    "selectArchitecture": "Architektur auswählen",
     "tabs": {
       "x86_64": "AMD/Intel (x86_64)",
       "aarch64": "ARM (aarch64)",
