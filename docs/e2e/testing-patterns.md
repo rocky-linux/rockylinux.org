@@ -24,19 +24,24 @@ Radix Select portals its dropdown listbox to `document.body`. This means:
 - `trigger.locator('[role="listbox"]')` will **not** work
 - `page.getByLabel('...').getByRole('listbox')` will **not** work (scopes to DOM children)
 
-**Solution:** Follow the `aria-controls` attribute from the combobox trigger to find its specific listbox by ID:
+**Solution:** Read the `aria-controls` attribute from the combobox trigger **before** clicking — Radix sets it even when the dropdown is closed. This avoids a re-query issue where Radix's portal overlay prevents Playwright from finding the trigger after the dropdown opens.
 
 ```typescript
-// After clicking to open the select
-const expandedPicker = page.locator(
-  '[role="combobox"][aria-label="Select language"][aria-expanded="true"]'
-);
-const listboxId = await expandedPicker.getAttribute("aria-controls");
+// Read aria-controls before clicking — Radix sets it even when closed
+const picker = page.getByRole("contentinfo").getByRole("combobox");
+await picker.scrollIntoViewIfNeeded();
+const listboxId = await picker.getAttribute("aria-controls");
+if (!listboxId) {
+  throw new Error("Combobox is missing required aria-controls attribute");
+}
+
+await picker.click();
 const listbox = page.locator(`[id="${listboxId}"]`);
 ```
 
 This approach:
 
+- Reads `aria-controls` pre-click, avoiding post-click re-query issues
 - Uniquely identifies the listbox even if multiple selects exist on the page
 - Follows the actual ARIA relationship Radix establishes
 - Works regardless of where Radix portals the content
@@ -102,9 +107,9 @@ This requires adding `aria-label` to components that don't have visible labels. 
 Put component interaction helpers in `e2e/utils/PageUtils.ts` when the component is global (appears on every page) or will be tested from multiple spec files:
 
 ```typescript
-// e2e/utils/PageUtils.ts
+// e2e/utils/PageUtils.ts — scoped to footer so it works on all locales
 export const getLanguagePicker = (page: Page): Locator => {
-  return page.getByRole("combobox", { name: LANGUAGE_PICKER_LABEL });
+  return page.getByRole("contentinfo").getByRole("combobox");
 };
 
 export const openLanguagePicker = async (page: Page): Promise<Locator> => { ... };
@@ -191,9 +196,7 @@ page.getByRole("combobox", { name: "Select language" });
 page.getByRole("combobox", { name: "Select architecture" });
 ```
 
-**Exception:** Language switcher tests (`LanguageSwitcher.spec.ts`) navigate to non-English locales (`/fr-FR/`, `/de-DE/`, `/af-ZA/`) to verify locale switching and translated content. Once Crowdin populates translations for aria-label keys (e.g., `selectLanguage`), selectors using English accessible names will not match on non-English pages. If a language switcher test needs to interact with a localized component after navigating away from English, scope the selector by container or use a non-localized attribute instead of an accessible name.
-
-For tests that stay in the English locale, English constants (e.g., `LANGUAGE_PICKER_LABEL` in `PageUtils.ts`) remain correct.
+**Language picker:** The `getLanguagePicker` helper in `PageUtils.ts` scopes the combobox lookup to the footer (`contentinfo` role) instead of matching by accessible name. This avoids breaking when Crowdin translates the `selectLanguage` key — the footer only has one combobox, so the scoped query is unambiguous across all locales.
 
 ### `getAttribute()` Does Not Auto-Scroll
 
