@@ -6,7 +6,8 @@
       "title": "Δεν Βρέθηκε",
       "description": "Η σελίδα που ψάχνετε δεν υπάρχει. Ελέγξτε τη διεύθυνση URL και προσπαθήστε ξανά."
     },
-    "close": "Κλείσιμο"
+    "close": "Κλείσιμο",
+    "selectLanguage": "Select language"
   },
   "header": {
     "toggleTheme": "Εναλλαγή θέματος",
@@ -160,6 +161,7 @@
   "download": {
     "title": "Λήψη",
     "description": "Download the latest Rocky Linux versions here.",
+    "selectArchitecture": "Select architecture",
     "tabs": {
       "x86_64": "AMD/Intel (x86_64)",
       "aarch64": "ARM (aarch64)",

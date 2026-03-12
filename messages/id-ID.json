@@ -6,7 +6,8 @@
       "title": "Tidak ditemukan",
       "description": "Halaman yang Anda cari tidak ada. Harap periksa URL dan coba lagi."
     },
-    "close": "Tutup"
+    "close": "Tutup",
+    "selectLanguage": "Select language"
   },
   "header": {
     "toggleTheme": "Alih Tema",
@@ -160,6 +161,7 @@
   "download": {
     "title": "Unduh",
     "description": "Download the latest Rocky Linux versions here.",
+    "selectArchitecture": "Select architecture",
     "tabs": {
       "x86_64": "AMD/Intel (x86_64)",
       "aarch64": "ARM (aarch64)",

@@ -6,7 +6,8 @@
       "title": "Не знайдено",
       "description": "\"Сторінки, яку ви шукаєте, не існує. Будь ласка, перевірте URL і спробуйте ще раз.\""
     },
-    "close": "Закрити"
+    "close": "Закрити",
+    "selectLanguage": "Select language"
   },
   "header": {
     "toggleTheme": "Перемкнути тему",
@@ -160,6 +161,7 @@
   "download": {
     "title": "Звантажити",
     "description": "Завантажте останні версії Rocky Linux тут.",
+    "selectArchitecture": "Select architecture",
     "tabs": {
       "x86_64": "AMD/Intel (x86_64)",
       "aarch64": "ARM (aarch64)",

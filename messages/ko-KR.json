@@ -6,7 +6,8 @@
       "title": "404 Not Found ",
       "description": "찾고 있는 페이지가 존재하지 않습니다. URL을 확인하고 다시 시도하세요."
     },
-    "close": "닫기"
+    "close": "닫기",
+    "selectLanguage": "Select language"
   },
   "header": {
     "toggleTheme": "테마 전환",
@@ -160,6 +161,7 @@
   "download": {
     "title": "다운로드",
     "description": "최신 로키 리눅스 설치",
+    "selectArchitecture": "Select architecture",
     "tabs": {
       "x86_64": "AMD/Intel (x86_64)",
       "aarch64": "ARM (aarch64)",

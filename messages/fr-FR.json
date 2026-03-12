@@ -6,7 +6,8 @@
       "title": "Introuvable",
       "description": "La page que vous recherchez n'existe pas. Veuillez vérifier l'URL et réessayer."
     },
-    "close": "Fermer"
+    "close": "Fermer",
+    "selectLanguage": "Sélectionnez une langue"
   },
   "header": {
     "toggleTheme": "Changer de Thème",
@@ -65,7 +66,7 @@
       "threads": "Fils de Discussion",
       "youtube": "YouTube"
     },
-    "disclaimer": "Linux® est la marque déposée de Linus Torvalds aux États-Unis et dans d'autres pays. Red Hat Enterprise Linux, RHEL et CentOS sont des marques ou des marques déposées de Red Hat, Inc. ou de ses filiales aux États-Unis et dans d'autres pays. Nous ne sommes pas affiliés, approuvés ni sponsorisés par Red Hat, Inc."
+    "disclaimer": "Linux® est la marque déposée de Linus Torvalds aux États-Unis et dans d'autres pays. Red Hat Enterprise Linux, RHEL et CentOS sont des marques ou des marques déposées de Red Hat, Inc. ou de ses filiales aux États-Unis et dans d'autres pays. Nous ne sommes ni affiliés, ni approuvés, ni sponsorisés par Red Hat, Inc."
   },
   "home": {
     "hero": {
@@ -160,6 +161,7 @@
   "download": {
     "title": "Téléchargement",
     "description": "Téléchargez les dernières versions de Rocky Linux ici.",
+    "selectArchitecture": "Sélectionnez une architecture",
     "tabs": {
       "x86_64": "AMD/Intel (x86_64)",
       "aarch64": "ARM (aarch64)",
