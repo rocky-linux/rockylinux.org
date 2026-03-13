@@ -104,7 +104,7 @@
     "title": "最新消息",
     "description": "關注 Rocky Linux 社群的最新消息與動態。",
     "notFound": {
-      "title": "您訪問的頁面不存在",
+      "title": "您造訪的頁面不存在",
       "description": "您查詢的新聞文章不存在。您可以在<newsLink>新聞頁面</newsLink>找到我們所有的新聞文章。"
     }
   },
