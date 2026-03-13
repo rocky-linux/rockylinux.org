@@ -101,10 +101,10 @@
     }
   },
   "news": {
-    "title": "News",
+    "title": "Neuigkeiten",
     "description": "Bleiben Sie auf dem Laufenden über Neuigkeiten und Updates der Rocky Linux Community.",
     "notFound": {
-      "title": "Not Found",
+      "title": "Nicht Gefunden",
       "description": "Der von Ihnen gesuchte Beitrag existiert nicht. Sie finden alle unsere Nachrichten auf der <newsLink>News-Seite</newsLink>."
     }
   },
@@ -118,10 +118,10 @@
     },
     "facebook": "Facebook",
     "linkedin": "LinkedIn",
-    "threads": "Threads"
+    "threads": "Themen"
   },
   "about": {
-    "title": "About",
+    "title": "Über uns",
     "headings": {
       "title": "Alles begann mit einem Blog-Kommentar.",
       "subTitle": "Historie"
@@ -139,27 +139,27 @@
     }
   },
   "sponsors": {
-    "title": "Sponsors",
+    "title": "Sponsoren",
     "description": "Das Rocky Linux Projekt wird durch die großzügige Unterstützung unserer Sponsoren ermöglicht und wir sind dankbar für ihre Beiträge zum Projekt.",
     "learnMore": "Weitere Informationen",
     "foundingSponsor": "Gründungssponsor"
   },
   "partners": {
-    "title": "Partners",
+    "title": "Partner",
     "description": "Das Rocky Linux Projekt ist stolz darauf, mit den folgenden Organisationen zusammenzuarbeiten. Wir sind sehr dankbar für ihre Unterstützung und Beiträge zum Projekt.",
     "foundingPartner": "Gründungspartner"
   },
   "supportProviders": {
-    "title": "Commercial Support",
+    "title": "Kommerzieller Support",
     "description": "Die folgenden Sponsoren bieten kommerzielle Unterstützung für Rocky Linux.",
-    "foundingSponsor": "Founding Sponsor"
+    "foundingSponsor": "Gründungssponsor"
   },
   "shop": {
     "title": "Offizielles Merchandise",
     "description": "Kaufen Sie ein paar Swag! Alle unsere Verkäufer liefern weltweit."
   },
   "download": {
-    "title": "Download",
+    "title": "Herunterladen",
     "description": "Laden Sie hier die neuesten Rocky Linux Versionen herunter.",
     "selectArchitecture": "Architektur auswählen",
     "tabs": {
@@ -253,7 +253,7 @@
       },
       "rpiImages": {
         "title": "Raspberry Pi Images",
-        "download": "Download",
+        "download": "Herunterladen",
         "readMe": "LIESMICH"
       },
       "wslImages": {
@@ -290,7 +290,7 @@
       "ccats_title": "CCATS",
       "ccats_text": "K/A",
       "ern_title": "ERN",
-      "ern_text": "N/A"
+      "ern_text": "K/A"
     }
   },
   "community": {
@@ -323,7 +323,7 @@
         "description": "Treten Sie unserem <link1>Mattermost Chat</link1> bei und stellen Sie sich in einem unserer vielen SIG Kanäle vor. Lassen Sie uns wissen, woran Sie interessiert sind und wir finden etwas, mit dem Sie helfen können! Wenn Sie daran interessiert sind, eine neue SIG vorzuschlagen, lesen Sie bitte unsere <link2>Wiki-Seite</link2> zum Thema."
       },
       "docs": {
-        "title": "Documentation",
+        "title": "Dokumentation",
         "description": "Treten Sie unserem <link1>Mattermost Chat</link1> bei und stellen Sie sich im <link2>~Documentation</link2> Kanal vor. Werfen Sie einen Blick auf die zur Verfügung stehende Anleitung auf unserer <link3>README</link3>."
       }
     }
