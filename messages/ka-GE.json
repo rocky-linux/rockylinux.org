@@ -101,10 +101,10 @@
     }
   },
   "news": {
-    "title": "News",
+    "title": "სიახლეები",
     "description": "Stay up to date with the latest news and updates from the Rocky Linux community.",
     "notFound": {
-      "title": "Not Found",
+      "title": "ვერ ვიპოვე",
       "description": "The news post you are looking for does not exist. You can find all our news posts on the <newsLink>news page</newsLink>."
     }
   },
@@ -118,10 +118,10 @@
     },
     "facebook": "Facebook",
     "linkedin": "LinkedIn",
-    "threads": "Threads"
+    "threads": "ძაფები"
   },
   "about": {
-    "title": "About",
+    "title": "შესახებ",
     "headings": {
       "title": "It all started with a blog comment.",
       "subTitle": "ისტორია"
@@ -139,13 +139,13 @@
     }
   },
   "sponsors": {
-    "title": "Sponsors",
+    "title": "სპონსორები",
     "description": "The Rocky Linux project is made possible by the generous support of our sponsors. We are grateful for their contributions to the project.",
     "learnMore": "გაიგეთ მეტი",
     "foundingSponsor": "Founding Sponsor"
   },
   "partners": {
-    "title": "Partners",
+    "title": "პარტნიორები",
     "description": "The Rocky Linux project is proud to partner with the following organizations. We are grateful for their support and contributions to the project.",
     "foundingPartner": "Founding Partner"
   },
@@ -159,7 +159,7 @@
     "description": "Purchase some swag! All of our vendors ship globally."
   },
   "download": {
-    "title": "Download",
+    "title": "გადმოწერა",
     "description": "Download the latest Rocky Linux versions here.",
     "selectArchitecture": "Select architecture",
     "tabs": {
@@ -253,7 +253,7 @@
       },
       "rpiImages": {
         "title": "Raspberry Pi Images",
-        "download": "Download",
+        "download": "გადმოწერა",
         "readMe": "წამიკითხე"
       },
       "wslImages": {
@@ -323,7 +323,7 @@
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in one of our many SIG channels. Let us know what you're interested in working on, and we'll find something you can help out with! If you're interested in proposing a new SIG, please see our <link2>wiki page</link2> on the topic."
       },
       "docs": {
-        "title": "Documentation",
+        "title": "დოკუმენტაცია",
         "description": "Join our <link1>Mattermost chat</link1> and introduce yourself in the <link2>~Documentation</link2> channel. Make sure to review the contributing guide available on our <link3>README</link3>."
       }
     }
