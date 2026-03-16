@@ -12,6 +12,10 @@ Technical documentation for the Rocky Linux website codebase.
 
 - [Testing Patterns and Lessons Learned](./e2e/testing-patterns.md) - Playwright patterns for Radix UI components, accessible selectors, and portaled element handling.
 
+### Known Issues
+
+- [Known Issues Index](./known-issues.md) - Tracked build warnings and known issues that are not bugs in our code.
+
 ## Quick Links
 
 - [Project README](../README.md)
