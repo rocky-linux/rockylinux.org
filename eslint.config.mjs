@@ -44,6 +44,7 @@ const eslintConfig = defineConfig([
       ...js.configs.recommended.rules,
       ...typescriptPlugin.configs.recommended.rules,
       "no-console": "off",
+      "react-hooks/incompatible-library": "off", // Not using React Compiler
       "@typescript-eslint/no-unused-vars": [
         "warn",
         {

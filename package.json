@@ -42,7 +42,6 @@
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "deepmerge": "^4.3.1",
-    "eslint-config-next": "^16.1.7",
     "gray-matter": "^4.0.3",
     "jest-environment-jsdom": "^30.3.0",
     "js-cookie": "^3.0.5",
@@ -72,6 +71,7 @@
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "eslint": "^9.34.0",
+    "eslint-config-next": "^16.1.7",
     "@playwright/test": "^1.58.2",
     "@swc/core": "^1.15.18",
     "@swc/jest": "^0.2.39",

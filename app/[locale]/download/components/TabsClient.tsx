@@ -1,6 +1,11 @@
 "use client";
 
-import { useState, startTransition, useSyncExternalStore } from "react";
+import {
+  useState,
+  useMemo,
+  startTransition,
+  useSyncExternalStore,
+} from "react";
 import { useSearchParams, usePathname } from "next/navigation";
 import { detectArchitecture } from "@/utils/architectureDetection";
 
@@ -132,11 +137,14 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
       : null;
   });
 
-  // Track the previous searchParams to detect URL changes
-  const [prevSearchParams, setPrevSearchParams] = useState(searchParams);
+  // Track the previous URL arch to detect external URL changes
+  const [prevArchFromUrl, setPrevArchFromUrl] = useState(archFromUrl);
 
-  // Derive detected architecture (only after hydration to avoid mismatch)
-  const detectedArch = hydrated ? detectArchitecture() : "x86_64";
+  // Memoize architecture detection to avoid expensive canvas/WebGL checks on every render
+  const detectedArch = useMemo(
+    () => (hydrated ? detectArchitecture() : "x86_64"),
+    [hydrated]
+  );
 
   const defaultArch = availableArchitectures.includes(detectedArch)
     ? detectedArch
@@ -146,9 +154,9 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
     ? (archFromUrl ?? defaultArch)
     : defaultArch;
 
-  // Clear client override when URL changes (derived state pattern)
-  if (searchParams !== prevSearchParams) {
-    setPrevSearchParams(searchParams);
+  // Clear client override when URL arch param changes (e.g. browser back/forward)
+  if (archFromUrl !== prevArchFromUrl) {
+    setPrevArchFromUrl(archFromUrl);
     setClientArch(null);
   }
 
