@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, startTransition } from "react";
+import { useState, startTransition, useSyncExternalStore } from "react";
 import { useSearchParams, usePathname } from "next/navigation";
 import { detectArchitecture } from "@/utils/architectureDetection";
 
@@ -118,23 +118,25 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
 
   const archFromUrl = searchParams.get("arch");
 
-  // Use a stable default for initial render to avoid hydration mismatch
-  const [detectedArch, setDetectedArch] = useState("x86_64");
+  // Use useSyncExternalStore to detect hydration without setState in effects
+  const hydrated = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
 
-  // Client-side state for current architecture (for instant switching)
+  // Client-side override for architecture (for instant switching)
   const [clientArch, setClientArch] = useState<string | null>(() => {
     return archFromUrl && availableArchitectures.includes(archFromUrl)
       ? archFromUrl
       : null;
   });
 
-  // Detect architecture only on client after hydration
-  useEffect(() => {
-    const detected = detectArchitecture();
-    if (availableArchitectures.includes(detected)) {
-      setDetectedArch(detected);
-    }
-  }, [availableArchitectures]);
+  // Track the previous searchParams to detect URL changes
+  const [prevSearchParams, setPrevSearchParams] = useState(searchParams);
+
+  // Derive detected architecture (only after hydration to avoid mismatch)
+  const detectedArch = hydrated ? detectArchitecture() : "x86_64";
 
   const defaultArch = availableArchitectures.includes(detectedArch)
     ? detectedArch
@@ -143,6 +145,12 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
   const urlArch = availableArchitectures.includes(archFromUrl ?? "")
     ? (archFromUrl ?? defaultArch)
     : defaultArch;
+
+  // Clear client override when URL changes (derived state pattern)
+  if (searchParams !== prevSearchParams) {
+    setPrevSearchParams(searchParams);
+    setClientArch(null);
+  }
 
   // Use client-side state for current architecture, fallback to URL or default
   const currentArch = clientArch ?? urlArch;
@@ -163,12 +171,6 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
     // Use window.history.pushState for shallow update without server round-trip
     window.history.pushState(null, "", newUrl);
   };
-
-  // Sync client state with URL changes (including browser navigation)
-  useEffect(() => {
-    // Clear client state when URL changes to let URL take precedence
-    setClientArch(null);
-  }, [searchParams]);
 
   return (
     <Tabs

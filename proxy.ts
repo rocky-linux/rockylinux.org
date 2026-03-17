@@ -1,7 +1,7 @@
 import createMiddleware from "next-intl/middleware";
 import { routing } from "./i18n/routing";
 
-export default createMiddleware({
+export const proxy = createMiddleware({
   ...routing,
   // Disable Accept-Language header detection to enable static rendering
   // See: docs/i18n/caching-and-locale-detection.md
