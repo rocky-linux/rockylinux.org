@@ -20,6 +20,8 @@ const eslintConfig = defineConfig([
     "**/__mocks__/**",
     "**/__tests__/**",
     ".lintstagedrc.mjs",
+    "lint-staged.config.js",
+    "postcss.config.js",
     "next.config.mjs",
     "global.d.ts",
     "jest.setup.js",
