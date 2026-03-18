@@ -98,24 +98,11 @@ interface DownloadTranslations {
   };
 }
 
-// Module-level cache for processed architectures
-const processedArchitecturesCache = new Map<string, ProcessedArchitectures>();
-
-// Helper function to process architectures with caching
 export function processArchitecturesData(
   downloadData: DownloadData,
   translations: DownloadTranslations
 ): ProcessedArchitectures {
-  const cacheKey = JSON.stringify({
-    architectures: Object.keys(downloadData.architectures),
-    translationsKeys: Object.keys(translations.cards),
-  });
-
-  if (processedArchitecturesCache.has(cacheKey)) {
-    return processedArchitecturesCache.get(cacheKey)!;
-  }
-
-  const processedData = Object.fromEntries(
+  return Object.fromEntries(
     Object.entries(downloadData.architectures).map(([arch, data]) => [
       arch,
       {
@@ -315,7 +302,4 @@ export function processArchitecturesData(
       },
     ])
   );
-
-  processedArchitecturesCache.set(cacheKey, processedData);
-  return processedData;
 }
