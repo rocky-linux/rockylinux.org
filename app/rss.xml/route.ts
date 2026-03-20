@@ -12,7 +12,7 @@ export async function GET() {
     pubDate: new Date(),
   });
 
-  const posts = await getSortedPostsData({ includeContent: true });
+  const posts = await getSortedPostsData();
 
   posts.forEach((post) => {
     feed.item({

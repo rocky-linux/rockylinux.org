@@ -14,7 +14,7 @@ import {
 import { Route } from "next";
 
 const NewsSnippet = async () => {
-  const posts = await getSortedPostsData({ numPosts: 6 });
+  const posts = await getSortedPostsData(6);
   const t = await getTranslations("home.news");
 
   return (

@@ -22,15 +22,7 @@ export async function checkIfSlugIsValid(slug: string) {
   }
 }
 
-/**
- * Returns sorted post data. By default, skips the expensive markdown-to-HTML
- * processing and derives excerpts from raw markdown text. Pass
- * `includeContent: true` to include the full `contentHtml` field (e.g. for
- * the RSS feed).
- */
-export async function getSortedPostsData(
-  options: { numPosts?: number; includeContent?: boolean } = {}
-): Promise<
+export async function getSortedPostsData(numPosts?: number): Promise<
   {
     slug: string;
     excerpt: string;
@@ -39,7 +31,6 @@ export async function getSortedPostsData(
     title: string;
   }[]
 > {
-  const { numPosts, includeContent = false } = options;
   const fileNames = await fs.promises.readdir(postsDirectory);
 
   const allPostsData = await Promise.all(
@@ -51,25 +42,13 @@ export async function getSortedPostsData(
 
       const matterResult = matter(fileContents);
 
-      let contentHtml = "";
-      let excerpt: string;
-
-      if (includeContent) {
-        contentHtml = await processMarkdownAsHTML(matterResult.content);
-        const plainText = contentHtml.replace(/<[^>]*>/g, "");
-        excerpt = plainText.substring(0, 150) + "...";
-      } else {
-        // Derive excerpt from raw markdown without expensive HTML processing
-        const plainText = matterResult.content
-          .replace(/[#*_`~>\[\]()!|\\-]/g, "")
-          .replace(/\n+/g, " ")
-          .trim();
-        excerpt = plainText.substring(0, 150) + "...";
-      }
+      const contentHtml = await processMarkdownAsHTML(matterResult.content);
+      const plainText = contentHtml.replace(/<[^>]*>/g, "");
+      const excerpt = plainText.substring(0, 150) + "...";
 
       return {
         slug,
-        excerpt,
+        excerpt, // Include both excerpt and full content
         contentHtml,
         ...(matterResult.data as { date: string; title: string }),
       };
