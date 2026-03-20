@@ -26,14 +26,31 @@ export async function generateMetadata({
 }: LayoutProps<"/[locale]">): Promise<Metadata> {
   const { locale } = await params;
 
+  const title = "Rocky Linux";
+  const description =
+    "Rocky Linux is an open enterprise Operating System designed to be 100% bug-for-bug compatible with Enterprise Linux.";
+  const url = "https://rockylinux.org";
+
   return {
-    title: "Rocky Linux",
+    title,
     icons: { icon: "/favicon.png" },
-    description:
-      "Rocky Linux is an open enterprise Operating System designed to be 100% bug-for-bug compatible with Enterprise Linux.",
+    description,
     alternates: {
       ...alternatesForPath(locale, "/"),
-      types: { "application/rss+xml": "https://rockylinux.org/rss.xml" },
+      types: { "application/rss+xml": `${url}/rss.xml` },
+    },
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: title,
+      locale: "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary",
+      title,
+      description,
     },
   };
 }

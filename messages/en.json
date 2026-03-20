@@ -58,12 +58,9 @@
     },
     "socialNav": {
       "bluesky": "Bluesky",
-      "facebook": "Facebook",
       "github": "GitHub",
-      "instagram": "Instagram",
       "linkedin": "LinkedIn",
       "mastodon": "Mastodon",
-      "threads": "Threads",
       "youtube": "YouTube"
     },
     "disclaimer": "Rocky Linux® is the registered trademark of the Rocky Enterprise Software Foundation in the U.S. and other countries. Linux® is the registered trademark of Linus Torvalds in the U.S. and other countries. Red Hat Enterprise Linux, RHEL and CentOS are trademarks or registered trademarks of Red Hat, Inc. or its subsidiaries in the US and other countries. We are not affiliated with, endorsed by or sponsored by Red Hat, Inc."
@@ -90,6 +87,24 @@
       "easyMigration": {
         "name": "Easy Migration",
         "description": "Migrate from other Enterprise Linux distributions without sweating it. We provide an easy-to-use migration script, free of charge."
+      }
+    },
+    "releaseTracker": {
+      "title": "Releases",
+      "description": "Track current and upcoming Rocky Linux releases.",
+      "stages": {
+        "upstream": "Upstream",
+        "building": "Building",
+        "testing": "Testing",
+        "syncing": "Syncing",
+        "released": "Released"
+      },
+      "stageDescriptions": {
+        "upstream": "A new version of Enterprise Linux has been released upstream.",
+        "building": "Packages are being built from imported sources.",
+        "testing": "A release candidate is undergoing quality assurance and validation testing.",
+        "syncing": "Release assets are being synced to public mirrors.",
+        "released": "The release is complete and available for download."
       }
     },
     "news": {

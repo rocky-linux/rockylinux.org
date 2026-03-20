@@ -7,7 +7,7 @@
       "description": "您正在查找的页面不存在。请检查URL，然后重试。"
     },
     "close": "关闭",
-    "selectLanguage": "Select language"
+    "selectLanguage": "选择语言"
   },
   "header": {
     "toggleTheme": "切换主题",
@@ -161,7 +161,7 @@
   "download": {
     "title": "下载",
     "description": "在这里下载最新的 Rocky Linux 版本。",
-    "selectArchitecture": "Select architecture",
+    "selectArchitecture": "选择架构",
     "tabs": {
       "x86_64": "AMD/Intel (x86_64)",
       "aarch64": "ARM (aarch64)",

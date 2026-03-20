@@ -9,8 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import Cookies from "js-cookie";
-import { Globe } from "lucide-react";
+import { GlobeIcon } from "@radix-ui/react-icons";
 import { availableLanguages as allLocales } from "@/config/i18nProperties";
 
 type LanguagePickerProps = {
@@ -72,7 +71,7 @@ export default function LanguagePicker({
   );
 
   const handleLanguageChange = (newLocale: string) => {
-    Cookies.set("NEXT_LOCALE", newLocale, { path: "/" });
+    document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000`;
 
     // Strip existing locale prefix if present
     const segments = pathname.split("/").filter(Boolean);
@@ -101,7 +100,7 @@ export default function LanguagePicker({
         className="w-[180px]"
         aria-label={t("selectLanguage")}
       >
-        <Globe className="mr-2 h-4 w-4" />
+        <GlobeIcon className="mr-2 h-4 w-4" />
         <SelectValue placeholder={t("selectLanguage")} />
       </SelectTrigger>
       <SelectContent>

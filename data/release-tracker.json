@@ -1,0 +1,38 @@
+[
+  {
+    "version": "10.1",
+    "currentStage": "released",
+    "comment": "Rocky Linux 10.1 is fully released and available from the [Downloads](https://rockylinux.org/download) page.",
+    "stageLinks": {
+      "upstream": "https://access.redhat.com/errata/RHBA-2025:19954",
+      "building": "https://koji.rockylinux.org/koji/builds?tagID=7762",
+      "testing": "https://chat.rockylinux.org/rocky-linux/channels/rocky-release-v101",
+      "syncing": "https://mirrors.rockylinux.org/mirrormanager/propagation/rocky_10.1_BaseOS_x86_64",
+      "released": "news/rocky-linux-10-1-ga-release"
+    }
+  },
+  {
+    "version": "9.7",
+    "currentStage": "released",
+    "comment": "Rocky Linux 9.7 is fully released and available from the [Downloads](https://rockylinux.org/download) page.",
+    "stageLinks": {
+      "upstream": "https://access.redhat.com/errata/RHBA-2025:20949",
+      "building": "https://koji.rockylinux.org/koji/builds?tagID=5897",
+      "testing": "https://chat.rockylinux.org/rocky-linux/channels/rocky-release-v97",
+      "syncing": "https://mirrors.rockylinux.org/mirrormanager/propagation/rocky_9.7_BaseOS_x86_64",
+      "released": "news/rocky-linux-9-7-ga-release"
+    }
+  },
+  {
+    "version": "8.10",
+    "currentStage": "released",
+    "comment": "Rocky Linux 8.10 is fully released and available from the [Downloads](https://rockylinux.org/download) page.",
+    "stageLinks": {
+      "upstream": "https://access.redhat.com/errata/RHBA-2024:3135",
+      "building": "https://koji.rockylinux.org/koji/builds?tagID=13",
+      "testing": "https://chat.rockylinux.org/rocky-linux/channels/rocky-release-v810",
+      "syncing": "https://mirrors.rockylinux.org/mirrormanager/propagation/rocky_8.10_BaseOS_x86_64",
+      "released": "news/rocky-linux-8-10-ga-release"
+    }
+  }
+]

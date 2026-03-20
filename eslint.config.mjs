@@ -1,19 +1,11 @@
 import { defineConfig, globalIgnores } from "eslint/config";
-import { FlatCompat } from "@eslint/eslintrc";
+import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
+import nextTypescript from "eslint-config-next/typescript";
 import globals from "globals";
 import js from "@eslint/js";
 import typescriptParser from "@typescript-eslint/parser";
 import typescriptPlugin from "@typescript-eslint/eslint-plugin";
 import jsdocPlugin from "eslint-plugin-jsdoc";
-import path from "path";
-import { fileURLToPath } from "url";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
 
 const eslintConfig = defineConfig([
   globalIgnores([
@@ -27,12 +19,15 @@ const eslintConfig = defineConfig([
     "scripts/**",
     "**/__mocks__/**",
     "**/__tests__/**",
-    ".lintstagedrc.js",
+    ".lintstagedrc.mjs",
+    "lint-staged.config.js",
+    "postcss.config.js",
     "next.config.mjs",
     "global.d.ts",
     "jest.setup.js",
   ]),
-  ...compat.extends("next/core-web-vitals"),
+  ...nextCoreWebVitals,
+  ...nextTypescript,
   {
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
@@ -51,6 +46,7 @@ const eslintConfig = defineConfig([
       ...js.configs.recommended.rules,
       ...typescriptPlugin.configs.recommended.rules,
       "no-console": "off",
+      "react-hooks/incompatible-library": "off", // Not using React Compiler
       "@typescript-eslint/no-unused-vars": [
         "warn",
         {

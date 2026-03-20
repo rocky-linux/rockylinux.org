@@ -6,9 +6,9 @@ const ExportCompliance = () => {
 
   return (
     <div className="mt-6">
-      <h1 className="text-lg font-bold font-display tracking-tight sm:text-xl">
+      <h2 className="text-lg font-bold font-display tracking-tight sm:text-xl">
         {t("exportCompliance.title")}
-      </h1>
+      </h2>
       <p className="mt-2 text-sm">{t("exportCompliance.text1")}</p>
       <p className="mt-1 text-sm">{t("exportCompliance.text2")}</p>
       <p className="mt-1 text-sm">{t("exportCompliance.narrative")}</p>

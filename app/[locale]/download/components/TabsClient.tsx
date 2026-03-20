@@ -1,6 +1,11 @@
 "use client";
 
-import { useEffect, useState, startTransition } from "react";
+import {
+  useState,
+  useMemo,
+  startTransition,
+  useSyncExternalStore,
+} from "react";
 import { useSearchParams, usePathname } from "next/navigation";
 import { detectArchitecture } from "@/utils/architectureDetection";
 
@@ -118,23 +123,28 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
 
   const archFromUrl = searchParams.get("arch");
 
-  // Use a stable default for initial render to avoid hydration mismatch
-  const [detectedArch, setDetectedArch] = useState("x86_64");
+  // Use useSyncExternalStore to detect hydration without setState in effects
+  const hydrated = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
 
-  // Client-side state for current architecture (for instant switching)
+  // Client-side override for architecture (for instant switching)
   const [clientArch, setClientArch] = useState<string | null>(() => {
     return archFromUrl && availableArchitectures.includes(archFromUrl)
       ? archFromUrl
       : null;
   });
 
-  // Detect architecture only on client after hydration
-  useEffect(() => {
-    const detected = detectArchitecture();
-    if (availableArchitectures.includes(detected)) {
-      setDetectedArch(detected);
-    }
-  }, [availableArchitectures]);
+  // Track the previous URL arch to detect external URL changes
+  const [prevArchFromUrl, setPrevArchFromUrl] = useState(archFromUrl);
+
+  // Memoize architecture detection to avoid expensive canvas/WebGL checks on every render
+  const detectedArch = useMemo(
+    () => (hydrated ? detectArchitecture() : "x86_64"),
+    [hydrated]
+  );
 
   const defaultArch = availableArchitectures.includes(detectedArch)
     ? detectedArch
@@ -143,6 +153,12 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
   const urlArch = availableArchitectures.includes(archFromUrl ?? "")
     ? (archFromUrl ?? defaultArch)
     : defaultArch;
+
+  // Clear client override when URL arch param changes (e.g. browser back/forward)
+  if (archFromUrl !== prevArchFromUrl) {
+    setPrevArchFromUrl(archFromUrl);
+    setClientArch(null);
+  }
 
   // Use client-side state for current architecture, fallback to URL or default
   const currentArch = clientArch ?? urlArch;
@@ -163,12 +179,6 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
     // Use window.history.pushState for shallow update without server round-trip
     window.history.pushState(null, "", newUrl);
   };
-
-  // Sync client state with URL changes (including browser navigation)
-  useEffect(() => {
-    // Clear client state when URL changes to let URL take precedence
-    setClientArch(null);
-  }, [searchParams]);
 
   return (
     <Tabs
