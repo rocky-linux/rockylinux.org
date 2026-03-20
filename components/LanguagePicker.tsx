@@ -9,7 +9,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import Cookies from "js-cookie";
 import { Globe } from "lucide-react";
 import { availableLanguages as allLocales } from "@/config/i18nProperties";
 
@@ -72,7 +71,7 @@ export default function LanguagePicker({
   );
 
   const handleLanguageChange = (newLocale: string) => {
-    Cookies.set("NEXT_LOCALE", newLocale, { path: "/" });
+    document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000`;
 
     // Strip existing locale prefix if present
     const segments = pathname.split("/").filter(Boolean);
