@@ -1,5 +1,6 @@
 import Hero from "./Hero";
 import FeatureOne from "./FeatureOne";
+import ReleaseTracker from "./ReleaseTracker";
 import NewsSnippet from "./NewsSnippet";
 import LogoCloud from "@/components/logoCloud/LogoCloud";
 import { setRequestLocale } from "next-intl/server";
@@ -29,6 +30,7 @@ export default async function Home({ params }: Props) {
     <>
       <Hero />
       <FeatureOne />
+      <ReleaseTracker />
       <NewsSnippet />
       <LogoCloud />
     </>
