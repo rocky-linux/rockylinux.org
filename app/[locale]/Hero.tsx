@@ -57,6 +57,7 @@ const Hero = () => {
                 alt="Rocky Linux Screenshot"
                 width={2432}
                 height={1442}
+                priority
                 className="rounded-md shadow-2xl ring-1 ring-slate-900/10 dark:ring-slate-100/10"
               />
             </div>
