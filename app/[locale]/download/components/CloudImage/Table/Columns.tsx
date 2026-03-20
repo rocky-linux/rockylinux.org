@@ -3,7 +3,7 @@
 
 import { Button } from "@/components/ui/button";
 import { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown } from "lucide-react";
+import { CaretSortIcon } from "@radix-ui/react-icons";
 
 export type CloudImage = {
   version: string;
@@ -23,7 +23,7 @@ export const Columns: ColumnDef<CloudImage>[] = [
           onClick={() => column.toggleSorting(column.getIsSorted() == "asc")}
         >
           Version
-          <ArrowUpDown className="ml-2 h-4 w-4" />
+          <CaretSortIcon className="ml-2 h-4 w-4" />
         </Button>
       );
     },
@@ -37,7 +37,7 @@ export const Columns: ColumnDef<CloudImage>[] = [
           onClick={() => column.toggleSorting(column.getIsSorted() == "asc")}
         >
           Region
-          <ArrowUpDown className="ml-2 h-4 w-4" />
+          <CaretSortIcon className="ml-2 h-4 w-4" />
         </Button>
       );
     },
@@ -51,7 +51,7 @@ export const Columns: ColumnDef<CloudImage>[] = [
           onClick={() => column.toggleSorting(column.getIsSorted() == "asc")}
         >
           Architecture
-          <ArrowUpDown className="ml-2 h-4 w-4" />
+          <CaretSortIcon className="ml-2 h-4 w-4" />
         </Button>
       );
     },
