@@ -69,8 +69,30 @@ describe("News Library", () => {
   });
 
   describe("getSortedPostsData", () => {
-    it("should return an array of sorted post data with excerpt and contentHtml", async () => {
+    it("should return sorted post data without contentHtml by default", async () => {
       const sortedPosts = await newsLib.getSortedPostsData();
+      expect(sortedPosts).toStrictEqual([
+        {
+          slug: "post2",
+          excerpt: "Post 2 content...",
+          contentHtml: "",
+          date: "2022-01-02",
+          title: "Post 2",
+        },
+        {
+          slug: "post1",
+          excerpt: "Post 1 content...",
+          contentHtml: "",
+          date: "2022-01-01",
+          title: "Post 1",
+        },
+      ]);
+    });
+
+    it("should include contentHtml when includeContent is true", async () => {
+      const sortedPosts = await newsLib.getSortedPostsData({
+        includeContent: true,
+      });
       expect(sortedPosts).toStrictEqual([
         {
           slug: "post2",
