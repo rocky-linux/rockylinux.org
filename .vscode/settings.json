@@ -1,3 +1,7 @@
 {
-  "editor.formatOnPaste": true
+  "editor.formatOnPaste": true,
+  "sonarlint.connectedMode.project": {
+    "connectionId": "rocky-linux",
+    "projectKey": "rocky-linux_rockylinux.org"
+  }
 }
