@@ -34,6 +34,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# MacOS, Windows, Linux
+Thumbs.db
+.DS_Store
+Desktop.ini
+
 # JetBrains IDEs
 .idea
 
@@ -43,3 +48,10 @@ next-env.d.ts
 /blob-report/
 /playwright/.cache/
 .playwright-cli/
+
+# VS Code
+.vscode/
+!.vscode/settings.json
+
+# Misc Temp Folders
+/temp/

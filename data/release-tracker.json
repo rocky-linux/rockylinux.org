@@ -1,5 +1,21 @@
 [
   {
+    "version": "10.2",
+    "currentStage": "upstream",
+    "comment": "Rocky Linux 10.2 will commence building after Red Hat Enterprise Linux 10.2 is released (Expected May 2026).",
+    "stageLinks": {
+      "building": "https://koji.rockylinux.org/koji/builds?tagID=7763"
+    }
+  },
+  {
+    "version": "9.8",
+    "currentStage": "upstream",
+    "comment": "Rocky Linux 9.8 will commence building after Red Hat Enterprise Linux 9.8 is released (Expected May 2026).",
+    "stageLinks": {
+      "building": "https://koji.rockylinux.org/koji/builds?tagID=5898"
+    }
+  },
+  {
     "version": "10.1",
     "currentStage": "released",
     "comment": "Rocky Linux 10.1 is fully released and available from the [Downloads](https://rockylinux.org/download) page.",
