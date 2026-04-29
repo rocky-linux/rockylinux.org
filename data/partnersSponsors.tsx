@@ -174,17 +174,26 @@ const partnerSponsorData = [
             description:
               "As a global leader in high performance, high-efficiency server technology, and innovation Supermicro is excited to work with the RESF and deliver data center servers and storage systems optimized for Rocky Linux.",
           },
-        ],
-        tierFour: [
+          {
+            href: "https://uptimerobot.com",
+            src: "/images/sponsors-partners/uptimerobot.svg",
+            name: "UptimeRobot",
+            description:
+              "UptimeRobot is an uptime monitoring service trusted by over 3 million users. It helps the Rocky Linux community keep its infrastructure online by providing real-time alerts the moment something goes down.",
+          },
           {
             href: "https://crowdin.com",
+            src: "/images/sponsors-partners/crowdin.svg",
             name: "Crowdin",
-          },
-          {
-            href: "https://ontrackinternetsolutions.com",
-            name: "OnTrack Internet Solutions",
+            description:
+              "Crowdin is a localization platform that helps teams translate and manage multilingual content. Crowdin empowers the Rocky Linux community to make its resources accessible to users around the world.",
           },
         ],
+        tierFour: [] as Array<{
+          href: string;
+          name: string;
+          supportProvider?: boolean;
+        }>,
       },
     ],
   },
