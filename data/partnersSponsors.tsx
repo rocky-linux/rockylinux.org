@@ -187,10 +187,13 @@ const partnerSponsorData = [
             name: "Crowdin",
             description:
               "Crowdin is a localization platform that helps teams translate and manage multilingual content. Crowdin empowers the Rocky Linux community to make its resources accessible to users around the world.",
-          }
+          },
         ],
-        tierFour: [
-	]
+        tierFour: [] as Array<{
+          href: string;
+          name: string;
+          supportProvider?: boolean;
+        }>,
       },
     ],
   },
