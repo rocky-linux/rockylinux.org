@@ -2,7 +2,7 @@
 
 import { spawnSync } from "node:child_process";
 import { existsSync, renameSync, rmSync } from "node:fs";
-import { resolve } from "node:path";
+import { delimiter, join, resolve } from "node:path";
 
 const CONTENT_REPO_URL =
   process.env.NEWS_CONTENT_REPO_URL ??
@@ -12,6 +12,15 @@ const CONTENT_REPO_BRANCH = process.env.NEWS_CONTENT_REPO_BRANCH ?? "main";
 const REPO_ROOT = process.cwd();
 const TMP_DIR = resolve(REPO_ROOT, ".content-tmp");
 const NEWS_DIR = resolve(REPO_ROOT, "news");
+
+// Restrict PATH to system-owned directories so the spawned `git` cannot be
+// hijacked by a binary in a user-writable directory the calling shell happens
+// to have on its PATH (SonarCloud javascript:S4036).
+const SAFE_PATH_DIRS =
+  process.platform === "win32"
+    ? [join(process.env.SystemRoot ?? String.raw`C:\Windows`, "System32")]
+    : ["/usr/local/bin", "/usr/bin", "/bin", "/opt/homebrew/bin"];
+const SAFE_PATH = SAFE_PATH_DIRS.join(delimiter);
 
 const log = (msg) => console.log(`[fetch-news-content] ${msg}`);
 const err = (msg) => console.error(`[fetch-news-content] ${msg}`);
@@ -36,7 +45,10 @@ const clone = spawnSync(
     CONTENT_REPO_URL,
     TMP_DIR,
   ],
-  { stdio: "inherit" },
+  {
+    stdio: "inherit",
+    env: { ...process.env, PATH: SAFE_PATH },
+  },
 );
 
 if (clone.status !== 0) {
