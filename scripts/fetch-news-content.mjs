@@ -13,14 +13,18 @@ const REPO_ROOT = process.cwd();
 const TMP_DIR = resolve(REPO_ROOT, ".content-tmp");
 const NEWS_DIR = resolve(REPO_ROOT, "news");
 
-// Restrict PATH to system-owned directories so the spawned `git` cannot be
-// hijacked by a binary in a user-writable directory the calling shell happens
-// to have on its PATH (SonarCloud javascript:S4036).
+// Resolve `git` to an absolute path from a set of system-owned directories so
+// the spawn cannot be hijacked by a binary in a user-writable directory the
+// calling shell happens to have on its PATH (SonarCloud javascript:S4036).
 const SAFE_PATH_DIRS =
   process.platform === "win32"
     ? [join(process.env.SystemRoot ?? String.raw`C:\Windows`, "System32")]
     : ["/usr/local/bin", "/usr/bin", "/bin", "/opt/homebrew/bin"];
 const SAFE_PATH = SAFE_PATH_DIRS.join(delimiter);
+const GIT_EXECUTABLE = process.platform === "win32" ? "git.exe" : "git";
+const GIT_BIN = SAFE_PATH_DIRS.map((dir) => join(dir, GIT_EXECUTABLE)).find(
+  (candidate) => existsSync(candidate),
+);
 
 const log = (msg) => console.log(`[fetch-news-content] ${msg}`);
 const err = (msg) => console.error(`[fetch-news-content] ${msg}`);
@@ -30,12 +34,17 @@ if (process.env.SKIP_NEWS_FETCH === "1") {
   process.exit(0);
 }
 
+if (!GIT_BIN) {
+  err(`could not find ${GIT_EXECUTABLE} in trusted PATH (${SAFE_PATH}). Aborting.`);
+  process.exit(1);
+}
+
 rmSync(NEWS_DIR, { recursive: true, force: true });
 rmSync(TMP_DIR, { recursive: true, force: true });
 
 log(`cloning ${CONTENT_REPO_URL} (${CONTENT_REPO_BRANCH}) into ${TMP_DIR}`);
 const clone = spawnSync(
-  "git",
+  GIT_BIN,
   [
     "clone",
     "--depth",
