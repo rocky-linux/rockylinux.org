@@ -55,3 +55,7 @@ Desktop.ini
 
 # Misc Temp Folders
 /temp/
+
+# News content (cloned at build time from rocky-linux/rockylinux.org-content)
+/news/
+/.content-tmp/
