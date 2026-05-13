@@ -74,8 +74,8 @@ const GIT_EXECUTABLE = process.platform === "win32" ? "git.exe" : "git";
 
 // Walk the allowlist and prefer a root-owned binary on Unix (these can't have
 // been planted by a non-privileged attacker). Fall back to whichever candidate
-// exists so Homebrew/Nix/user-managed toolchains aren't broken — the absolute
-// path + locked PATH env on spawn is the real S4036 mitigation; the ownership
+// exists so Homebrew/user-managed toolchains aren't broken — the absolute path
+// + locked PATH env on spawn is the real S4036 mitigation; the ownership
 // check is defense-in-depth on top of that.
 const findGitBin = () => {
   const candidates = SAFE_PATH_DIRS.map((dir) => join(dir, GIT_EXECUTABLE)).filter(
