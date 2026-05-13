@@ -1,11 +1,31 @@
 #!/usr/bin/env node
 
+// Build-time fetch of news markdown from rocky-linux/rockylinux.org-content.
+// Wired into postinstall, prebuild, and predev in package.json.
+//
+// Environment overrides:
+//   NEWS_CONTENT_REPO_URL    Override the upstream content repo URL.
+//   NEWS_CONTENT_REPO_BRANCH Branch to clone (default: "main").
+//   NEWS_FETCH_TIMEOUT_MS    Clone timeout in ms (default: 120000).
+//   SKIP_NEWS_FETCH=1        Skip entirely (offline dev / debugging).
+
 import { spawnSync } from "node:child_process";
 import { existsSync, renameSync, rmSync, statSync } from "node:fs";
 import { delimiter, dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const CLONE_TIMEOUT_MS = Number(process.env.NEWS_FETCH_TIMEOUT_MS ?? 120_000);
+const parseTimeoutMs = (raw) => {
+  if (raw === undefined) return 120_000;
+  const n = Number(raw);
+  if (!Number.isFinite(n) || n < 0) {
+    console.error(
+      `[fetch-news-content] invalid NEWS_FETCH_TIMEOUT_MS=${JSON.stringify(raw)} — must be a non-negative finite number.`,
+    );
+    process.exit(1);
+  }
+  return n;
+};
+const CLONE_TIMEOUT_MS = parseTimeoutMs(process.env.NEWS_FETCH_TIMEOUT_MS);
 
 const redactUrl = (url) => {
   try {
@@ -52,23 +72,32 @@ const SAFE_PATH_DIRS =
 const SAFE_PATH = SAFE_PATH_DIRS.join(delimiter);
 const GIT_EXECUTABLE = process.platform === "win32" ? "git.exe" : "git";
 
-// On Unix, require the resolved binary to be root-owned so a user-writable
-// directory in the allowlist (e.g. Homebrew's /usr/local/bin on Intel macOS)
-// can't be the source of the binary we actually run. On Windows we rely on
-// the ACLs that protect Program Files / System32 by default.
-const isTrustedBin = (candidate) => {
-  if (!existsSync(candidate)) return false;
-  if (process.platform === "win32") return true;
-  try {
-    return statSync(candidate).uid === 0;
-  } catch {
-    return false;
+// Walk the allowlist and prefer a root-owned binary on Unix (these can't have
+// been planted by a non-privileged attacker). Fall back to whichever candidate
+// exists so Homebrew/Nix/user-managed toolchains aren't broken — the absolute
+// path + locked PATH env on spawn is the real S4036 mitigation; the ownership
+// check is defense-in-depth on top of that.
+const findGitBin = () => {
+  const candidates = SAFE_PATH_DIRS.map((dir) => join(dir, GIT_EXECUTABLE)).filter(
+    existsSync,
+  );
+  if (candidates.length === 0) return null;
+  if (process.platform === "win32") {
+    return { path: candidates[0], rootOwned: true };
   }
+  const rootOwned = candidates.find((c) => {
+    try {
+      return statSync(c).uid === 0;
+    } catch {
+      return false;
+    }
+  });
+  return rootOwned
+    ? { path: rootOwned, rootOwned: true }
+    : { path: candidates[0], rootOwned: false };
 };
-
-const GIT_BIN = SAFE_PATH_DIRS.map((dir) => join(dir, GIT_EXECUTABLE)).find(
-  isTrustedBin,
-);
+const git = findGitBin();
+const GIT_BIN = git?.path;
 
 const log = (msg) => console.log(`[fetch-news-content] ${msg}`);
 const err = (msg) => console.error(`[fetch-news-content] ${msg}`);
@@ -76,10 +105,27 @@ const err = (msg) => console.error(`[fetch-news-content] ${msg}`);
 const fail = (msg, { cleanupTmp = true } = {}) => {
   err(msg);
   if (cleanupTmp) {
-    rmSync(TMP_DIR, { recursive: true, force: true });
+    try {
+      rmSync(TMP_DIR, { recursive: true, force: true });
+    } catch {
+      // best effort — we're already failing
+    }
   }
   process.exit(1);
 };
+
+// Route filesystem failures (rmSync, renameSync, statSync, etc.) through
+// fail() so they surface as a clear "[fetch-news-content] …" line instead of
+// a raw Node stack trace.
+process.on("uncaughtException", (e) => {
+  fail(`unexpected error: ${e?.message ?? e}`);
+});
+
+if (git && !git.rootOwned) {
+  log(
+    `warning: using ${git.path}, which is not root-owned. Acceptable for Homebrew/Nix toolchains, but CI/Vercel should resolve a root-owned binary.`,
+  );
+}
 
 if (process.env.SKIP_NEWS_FETCH === "1") {
   log("SKIP_NEWS_FETCH=1 — leaving news/ untouched.");
@@ -95,8 +141,7 @@ if (!existsSync(join(REPO_ROOT, "package.json"))) {
 
 if (!GIT_BIN) {
   fail(
-    `could not find a trusted ${GIT_EXECUTABLE} in ${SAFE_PATH}. ` +
-      `On Unix, the binary must be owned by root. Aborting.`,
+    `could not find ${GIT_EXECUTABLE} in ${SAFE_PATH}. Aborting.`,
     { cleanupTmp: false },
   );
 }
