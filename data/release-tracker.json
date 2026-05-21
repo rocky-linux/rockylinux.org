@@ -2,8 +2,9 @@
   {
     "version": "10.2",
     "currentStage": "building",
-    "comment": "Rocky Linux 10.2 will commence building after Red Hat Enterprise Linux 10.2 is released (Expected May 2026).",
+    "comment": "Rocky Linux 10.2 is currently building. Release assets are not yet suitable for general testing.",
     "stageLinks": {
+      "upstream": "https://access.redhat.com/errata/RHBA-2026:19802",
       "building": "https://koji.rockylinux.org/koji/builds?tagID=7763",
       "testing": "https://chat.rockylinux.org/rocky-linux/channels/rocky-release-v102"
     }
@@ -11,7 +12,7 @@
   {
     "version": "9.8",
     "currentStage": "building",
-    "comment": "Rocky Linux 9.8 will commence building after Red Hat Enterprise Linux 9.8 is released (Expected May 2026).",
+    "comment": "Rocky Linux 9.8 is currently building. Release assets are not yet suitable for general testing.",
     "stageLinks": {
       "building": "https://koji.rockylinux.org/koji/builds?tagID=5898",
       "testing": "https://chat.rockylinux.org/rocky-linux/channels/rocky-release-v98"
