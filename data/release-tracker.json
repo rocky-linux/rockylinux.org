@@ -1,21 +1,24 @@
 [
   {
     "version": "10.2",
-    "currentStage": "building",
+    "currentStage": "syncing",
     "comment": "Rocky Linux 10.2 is currently building. Release assets are not yet suitable for general testing.",
     "stageLinks": {
       "upstream": "https://access.redhat.com/errata/RHBA-2026:19802",
       "building": "https://koji.rockylinux.org/koji/builds?tagID=7763",
+      "syncing": "https://mirrors.rockylinux.org/mirrormanager/propagation/rocky_10.2_BaseOS_x86_64",
       "testing": "https://chat.rockylinux.org/rocky-linux/channels/rocky-release-v102"
     }
   },
   {
     "version": "9.8",
-    "currentStage": "building",
-    "comment": "Rocky Linux 9.8 is currently building. Release assets are not yet suitable for general testing.",
+    "currentStage": "released",
+    "comment": "Rocky Linux 9.8 is fully released and available from the [Downloads](https://rockylinux.org/download) page.",
     "stageLinks": {
       "building": "https://koji.rockylinux.org/koji/builds?tagID=5898",
-      "testing": "https://chat.rockylinux.org/rocky-linux/channels/rocky-release-v98"
+      "testing": "https://chat.rockylinux.org/rocky-linux/channels/rocky-release-v98",
+      "syncing": "https://mirrors.rockylinux.org/mirrormanager/propagation/rocky_9.8_BaseOS_x86_64",
+      "released": "news/rocky-linux-9-8-ga-release"
     }
   },
   {
@@ -28,18 +31,6 @@
       "testing": "https://chat.rockylinux.org/rocky-linux/channels/rocky-release-v101",
       "syncing": "https://mirrors.rockylinux.org/mirrormanager/propagation/rocky_10.1_BaseOS_x86_64",
       "released": "news/rocky-linux-10-1-ga-release"
-    }
-  },
-  {
-    "version": "9.7",
-    "currentStage": "released",
-    "comment": "Rocky Linux 9.7 is fully released and available from the [Downloads](https://rockylinux.org/download) page.",
-    "stageLinks": {
-      "upstream": "https://access.redhat.com/errata/RHBA-2025:20949",
-      "building": "https://koji.rockylinux.org/koji/builds?tagID=5897",
-      "testing": "https://chat.rockylinux.org/rocky-linux/channels/rocky-release-v97",
-      "syncing": "https://mirrors.rockylinux.org/mirrormanager/propagation/rocky_9.7_BaseOS_x86_64",
-      "released": "news/rocky-linux-9-7-ga-release"
     }
   },
   {
