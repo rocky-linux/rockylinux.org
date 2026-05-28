@@ -2,7 +2,7 @@
   {
     "version": "10.2",
     "currentStage": "syncing",
-    "comment": "Rocky Linux 10.2 is currently building. Release assets are not yet suitable for general testing.",
+    "comment": "Rocky Linux 10.2 is currently syncing to mirrors and will be released on May 29th 12:00 EST",
     "stageLinks": {
       "upstream": "https://access.redhat.com/errata/RHBA-2026:19802",
       "building": "https://koji.rockylinux.org/koji/builds?tagID=7763",
