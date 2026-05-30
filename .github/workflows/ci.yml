@@ -22,7 +22,11 @@ jobs:
           key: node-modules-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
       - name: Install Dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: npm ci
+        # --ignore-scripts: skip install lifecycle scripts (postinstall news
+        # clone, prepare → husky + playwright install). `playwright install`
+        # is unbounded and hangs CI for the full 6h job timeout (issue #329);
+        # none of these are needed to lint.
+        run: npm ci --ignore-scripts
       - name: Run ESLint
         run: npm run lint
 
@@ -46,7 +50,10 @@ jobs:
           key: node-modules-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
       - name: Install Dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: npm ci
+        # --ignore-scripts: skip install lifecycle scripts that hang CI (#329).
+        # News content is still fetched: `npm run build` runs the `prebuild`
+        # script (scripts/fetch-news-content.mjs) before `next build`.
+        run: npm ci --ignore-scripts
       - name: Cache Next.js build
         uses: actions/cache@v5
         with:
@@ -82,7 +89,9 @@ jobs:
           key: node-modules-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
       - name: Install Dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: npm ci
+        # --ignore-scripts: skip install lifecycle scripts that hang CI (#329).
+        # Unit tests need neither news content, husky, nor browsers.
+        run: npm ci --ignore-scripts
       - name: Run Unit Tests
         run: npm run test
 
@@ -109,7 +118,11 @@ jobs:
           key: node-modules-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
       - name: Install Dependencies
         if: steps.npm-cache.outputs.cache-hit != 'true'
-        run: npm ci
+        # --ignore-scripts: skip install lifecycle scripts that hang CI (#329).
+        # Browsers are installed by the explicit "Install Playwright Browsers"
+        # step below, and `npm start` serves the prebuilt .next artifact (news
+        # content is already baked into the static pages at build time).
+        run: npm ci --ignore-scripts
       - name: Download build artifact
         uses: actions/download-artifact@v8
         with:
