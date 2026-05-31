@@ -9,8 +9,8 @@ import type {
 function parseMonthDay(dateStr: string): { month: number; day: number } {
   const parts = dateStr.split("-");
   return {
-    month: parseInt(parts[1], 10),
-    day: parseInt(parts[2], 10),
+    month: Number(parts[1]),
+    day: Number(parts[2]),
   };
 }
 
