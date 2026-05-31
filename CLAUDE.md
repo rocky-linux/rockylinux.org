@@ -85,3 +85,4 @@ Detailed technical documentation is available in the `/docs` folder:
 
 - [Documentation Index](./docs/README.md)
 - [i18n Caching and Locale Detection](./docs/i18n/caching-and-locale-detection.md) - Critical information about Vercel caching behavior with next-intl
+- [Project Issue Management](./docs/project/issue-management.md) - How to create issues in the Web/Design GitHub Project tied to an epic, and how to audit every item for epic coverage. Read this before creating or organizing project issues.
