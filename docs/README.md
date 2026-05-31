@@ -24,6 +24,10 @@ Technical documentation for the Rocky Linux website codebase.
 
 - [Known Issues Index](./known-issues.md) - Tracked build warnings and known issues that are not bugs in our code.
 
+### Research
+
+- [Back Button Hijacking Policy](./research/back-button-hijacking-policy.md) - Why the downloads page's History API usage is not affected by Google's June 15, 2026 "back button hijacking" spam policy.
+
 ## Quick Links
 
 - [Project README](../README.md)
