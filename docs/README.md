@@ -28,6 +28,10 @@ Technical documentation for the Rocky Linux website codebase.
 
 - [Back Button Hijacking Policy](./research/back-button-hijacking-policy.md) - Why the downloads page's History API usage is not affected by Google's June 15, 2026 "back button hijacking" spam policy.
 
+### Project Management
+
+- [Project Issue Management](./project/issue-management.md) - How the Web/Design GitHub Project is organized, how to create an issue tied to an epic, and how to audit every item for epic coverage.
+
 ## Quick Links
 
 - [Project README](../README.md)
