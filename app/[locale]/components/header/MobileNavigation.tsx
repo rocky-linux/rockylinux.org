@@ -10,7 +10,7 @@ import { Accordion } from "@/components/ui/accordion";
 import { Link } from "@/i18n/navigation";
 
 import { Button } from "@/components/ui/button";
-import Logo from "@/components/Logo";
+import BrandedLogo from "@/components/BrandedLogo";
 
 import DarkModeToggle from "./DarkModeToggle";
 import NavItem from "./nav/mobile/NavItem";
@@ -58,7 +58,7 @@ const MobileNavigation = ({
           className="w-full"
         >
           <Link href={"/" as Route}>
-            <Logo />
+            <BrandedLogo />
             <span className="sr-only">{rockyLinuxSRText}</span>
           </Link>
           <Accordion

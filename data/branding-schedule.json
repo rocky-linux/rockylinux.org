@@ -1,0 +1,11 @@
+[
+  {
+    "name": "Pride Month",
+    "startDate": "2026-06-01",
+    "endDate": "2026-06-30",
+    "icon": "/images/logos/pride.png",
+    "favicon": "/images/logos/pride_favicon.png",
+    "tooltip": "The Rocky Linux project recognizes LGBTQ Pride Month.",
+    "recurring": true
+  }
+]
