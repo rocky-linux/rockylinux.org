@@ -1,4 +1,5 @@
 import { test, expect, type Page } from "@playwright/test";
+import { expectDownloadPage } from "./utils/PageAssertions";
 
 /**
  * Scheduled branding (see `data/branding-schedule.json`) swaps the logo icon
@@ -7,9 +8,13 @@ import { test, expect, type Page } from "@playwright/test";
  * clock API to pin "now" to a date inside and outside the Pride Month range
  * without touching the system clock.
  *
- * The favicon swap is the piece unit tests can't cover: it's an imperative
- * `<link rel="icon">` mutation in BrandedLogo's useEffect, not part of React's
- * render tree. These tests assert it actually lands in a real browser.
+ * BrandedLogo renders the favicon declaratively (`<link rel="icon">` in the
+ * render tree) so React reconciles it across client-side navigations. An
+ * earlier version mutated `document.head` imperatively in a useEffect, which
+ * corrupted Next.js head reconciliation and broke client navigation — the URL
+ * changed but the page content and <title> stayed stale, so links appeared to
+ * need a second click. These tests assert the favicon lands in a real browser
+ * AND that navigation still commits on a single click while branding is active.
  */
 
 // Mid-month / midday so the assertion holds regardless of the browser timezone.
@@ -27,9 +32,12 @@ const headerLogoImage = (page: Page) =>
 const headerLogoDefaultIcon = (page: Page) =>
   page.getByRole("banner").locator("svg path[fill='#10B981']");
 
-/** The favicon `<link>` the effect points at the Pride favicon. */
+/** The favicon `<link>` pointing at the Pride favicon. */
 const prideFavicon = (page: Page) =>
   page.locator("link[rel='icon'][href*='pride_favicon']");
+
+/** Every `<link rel="icon">` in the document head. */
+const faviconLinks = (page: Page) => page.locator("link[rel='icon']");
 
 test.describe("Scheduled branding logo", () => {
   test("swaps the logo icon and favicon during an active period", async ({
@@ -44,8 +52,37 @@ test.describe("Scheduled branding logo", () => {
     await expect(headerLogoImage(page)).toHaveAttribute("href", /pride\.png/);
     await expect(headerLogoDefaultIcon(page)).toHaveCount(0);
 
-    // The effect replaces the favicon link in <head>.
+    // The favicon link in <head> points at the Pride favicon, and it is the
+    // only icon link — the root layout no longer renders a competing default.
     await expect(prideFavicon(page)).toHaveCount(1);
+    await expect(faviconLinks(page)).toHaveCount(1);
+  });
+
+  test("navigates on a single click while branding is active", async ({
+    page,
+  }) => {
+    // Regression: the imperative favicon mutation used to break client-side
+    // navigation while branding was active, so a link needed two clicks.
+    await page.clock.setFixedTime(DURING_PRIDE);
+    await page.goto("/");
+
+    // Confirm branding is actually active for this run.
+    await expect(prideFavicon(page)).toHaveCount(1);
+
+    await page
+      .getByRole("region", { name: /community way/i })
+      .getByRole("link", { name: "Download" })
+      .click();
+
+    // A single click must commit the navigation: URL, <title>, and content.
+    await expectDownloadPage(page);
+    await expect(
+      page.getByRole("region", { name: /community way/i })
+    ).toHaveCount(0);
+
+    // The favicon survives the client navigation as the single icon link.
+    await expect(prideFavicon(page)).toHaveCount(1);
+    await expect(faviconLinks(page)).toHaveCount(1);
   });
 
   test("uses the default logo and favicon outside any active period", async ({
@@ -58,7 +95,10 @@ test.describe("Scheduled branding logo", () => {
     await expect(headerLogoDefaultIcon(page)).toBeVisible();
     await expect(headerLogoImage(page)).toHaveCount(0);
 
-    // The effect early-returns, so the Pride favicon is never injected.
+    // No branding active: the Pride favicon is never used, and the only icon
+    // link is the default favicon.
     await expect(prideFavicon(page)).toHaveCount(0);
+    await expect(faviconLinks(page)).toHaveCount(1);
+    await expect(faviconLinks(page)).toHaveAttribute("href", "/favicon.png");
   });
 });

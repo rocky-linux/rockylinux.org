@@ -1,6 +1,16 @@
 import { getActiveBranding } from "../branding";
 import type { BrandingSchedule } from "@/types/brandingTypes";
 
+/**
+ * Build a Date in local time. getActiveBranding compares recurring events
+ * using the local calendar (`now.getMonth()`/`now.getDate()`), so tests must
+ * construct dates in local time too. `new Date("2026-06-01")` parses as UTC
+ * midnight, which lands on the previous day in timezones behind UTC and makes
+ * the boundary assertions fail anywhere other than a UTC machine (e.g. CI).
+ */
+const localDate = (year: number, month: number, day: number) =>
+  new Date(year, month - 1, day);
+
 const prideEvent = {
   name: "Pride Month",
   startDate: "2026-06-01",
@@ -32,7 +42,7 @@ const holidayEvent = {
 
 describe("getActiveBranding", () => {
   it("should return null for an empty schedule", () => {
-    expect(getActiveBranding([], new Date("2026-06-15"))).toBeNull();
+    expect(getActiveBranding([], localDate(2026, 6, 15))).toBeNull();
   });
 
   it("should use the current date when no date is provided", () => {
@@ -43,33 +53,33 @@ describe("getActiveBranding", () => {
     const schedule: BrandingSchedule = [prideEvent];
 
     it("should match during the active period", () => {
-      expect(getActiveBranding(schedule, new Date("2026-06-15"))).toEqual(
+      expect(getActiveBranding(schedule, localDate(2026, 6, 15))).toEqual(
         prideEvent
       );
     });
 
     it("should match on the start date", () => {
-      expect(getActiveBranding(schedule, new Date("2026-06-01"))).toEqual(
+      expect(getActiveBranding(schedule, localDate(2026, 6, 1))).toEqual(
         prideEvent
       );
     });
 
     it("should match on the end date", () => {
-      expect(getActiveBranding(schedule, new Date("2026-06-30"))).toEqual(
+      expect(getActiveBranding(schedule, localDate(2026, 6, 30))).toEqual(
         prideEvent
       );
     });
 
     it("should not match one day before the start date", () => {
-      expect(getActiveBranding(schedule, new Date("2026-05-31"))).toBeNull();
+      expect(getActiveBranding(schedule, localDate(2026, 5, 31))).toBeNull();
     });
 
     it("should not match one day after the end date", () => {
-      expect(getActiveBranding(schedule, new Date("2026-07-01"))).toBeNull();
+      expect(getActiveBranding(schedule, localDate(2026, 7, 1))).toBeNull();
     });
 
     it("should match the same month-day in a different year", () => {
-      expect(getActiveBranding(schedule, new Date("2030-06-15"))).toEqual(
+      expect(getActiveBranding(schedule, localDate(2030, 6, 15))).toEqual(
         prideEvent
       );
     });
@@ -79,13 +89,13 @@ describe("getActiveBranding", () => {
     const schedule: BrandingSchedule = [nonRecurringEvent];
 
     it("should match during the active period", () => {
-      expect(getActiveBranding(schedule, new Date("2026-06-23"))).toEqual(
+      expect(getActiveBranding(schedule, localDate(2026, 6, 23))).toEqual(
         nonRecurringEvent
       );
     });
 
     it("should not match the same dates in a different year", () => {
-      expect(getActiveBranding(schedule, new Date("2027-06-23"))).toBeNull();
+      expect(getActiveBranding(schedule, localDate(2027, 6, 23))).toBeNull();
     });
   });
 
@@ -93,34 +103,34 @@ describe("getActiveBranding", () => {
     const schedule: BrandingSchedule = [holidayEvent];
 
     it("should match in December within the range", () => {
-      expect(getActiveBranding(schedule, new Date("2026-12-25"))).toEqual(
+      expect(getActiveBranding(schedule, localDate(2026, 12, 25))).toEqual(
         holidayEvent
       );
     });
 
     it("should match in January within the range", () => {
-      expect(getActiveBranding(schedule, new Date("2027-01-03"))).toEqual(
+      expect(getActiveBranding(schedule, localDate(2027, 1, 3))).toEqual(
         holidayEvent
       );
     });
 
     it("should not match before the range in December", () => {
-      expect(getActiveBranding(schedule, new Date("2026-12-14"))).toBeNull();
+      expect(getActiveBranding(schedule, localDate(2026, 12, 14))).toBeNull();
     });
 
     it("should not match after the range in January", () => {
-      expect(getActiveBranding(schedule, new Date("2027-01-06"))).toBeNull();
+      expect(getActiveBranding(schedule, localDate(2027, 1, 6))).toBeNull();
     });
 
     it("should not match in a month outside the range", () => {
-      expect(getActiveBranding(schedule, new Date("2026-07-15"))).toBeNull();
+      expect(getActiveBranding(schedule, localDate(2026, 7, 15))).toBeNull();
     });
   });
 
   describe("priority ordering", () => {
     it("should return the first matching event when events overlap", () => {
       const schedule: BrandingSchedule = [prideEvent, nonRecurringEvent];
-      expect(getActiveBranding(schedule, new Date("2026-06-23"))).toEqual(
+      expect(getActiveBranding(schedule, localDate(2026, 6, 23))).toEqual(
         prideEvent
       );
     });

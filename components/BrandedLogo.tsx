@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import Logo, { LogoWordmark } from "@/components/Logo";
 import { getActiveBranding } from "@/utils/branding";
 import {
@@ -11,37 +11,43 @@ import {
 } from "@/components/ui/tooltip";
 import brandingSchedule from "@/data/branding-schedule.json";
 
+/** Default favicon used when no scheduled branding is active. */
+const DEFAULT_FAVICON = "/favicon.png";
+
 const BrandedLogo = () => {
   const activeBranding = useMemo(() => getActiveBranding(brandingSchedule), []);
 
-  useEffect(() => {
-    if (!activeBranding) return;
+  /*
+    Render the favicon link declaratively so React 19 hoists it into <head>
+    and reconciles it across client-side navigations. The previous approach
+    mutated document.head imperatively in a useEffect (removing/appending
+    <link> nodes), which corrupted Next.js's head reconciliation and broke
+    client-side navigation — the URL changed but content and <title> stayed
+    stale, so links appeared to require a second click.
 
-    const updateFavicon = () => {
-      const existingIcons = document.querySelectorAll(
-        "link[rel='icon'], link[rel='shortcut icon']"
-      );
-      existingIcons.forEach((icon) => icon.remove());
-
-      const link = document.createElement("link");
-      link.rel = "icon";
-      link.href = activeBranding.favicon;
-      document.head.appendChild(link);
-    };
-
-    // Run immediately and also after a brief delay to handle
-    // Next.js head streaming that may re-add the default favicon
-    updateFavicon();
-    const timeout = setTimeout(updateFavicon, 100);
-    return () => clearTimeout(timeout);
-  }, [activeBranding]);
+    This is the single source of truth for the favicon (the root layout no
+    longer sets one), so there is exactly one <link rel="icon"> and no
+    ordering ambiguity between a default and a branded icon.
+  */
+  const favicon = (
+    <link
+      rel="icon"
+      href={activeBranding?.favicon ?? DEFAULT_FAVICON}
+    />
+  );
 
   if (!activeBranding) {
-    return <Logo />;
+    return (
+      <>
+        {favicon}
+        <Logo />
+      </>
+    );
   }
 
   return (
     <TooltipProvider>
+      {favicon}
       <Tooltip>
         <TooltipTrigger asChild>
           <svg
