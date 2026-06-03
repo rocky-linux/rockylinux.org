@@ -125,10 +125,16 @@ test.describe("Language Switcher", () => {
 
       await page.waitForURL(/\/fr-FR/);
 
-      const cookies = await context.cookies();
-      const localeCookie = cookies.find((c) => c.name === "NEXT_LOCALE");
-      expect(localeCookie).toBeDefined();
-      expect(localeCookie!.value).toBe("fr-FR");
+      // The cookie is written client-side just before a full-page navigation,
+      // and the next-intl middleware may also set it via the server response.
+      // Poll rather than reading once so a single sample taken mid-reload
+      // (before the cookie is committed) doesn't cause a flake.
+      await expect
+        .poll(async () => {
+          const cookies = await context.cookies();
+          return cookies.find((c) => c.name === "NEXT_LOCALE")?.value;
+        })
+        .toBe("fr-FR");
     });
   });
 

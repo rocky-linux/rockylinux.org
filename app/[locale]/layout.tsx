@@ -33,7 +33,10 @@ export async function generateMetadata({
 
   return {
     title,
-    icons: { icon: "/favicon.png" },
+    // The favicon is rendered by <BrandedLogo> (a client component) so it can
+    // reflect date-based scheduled branding without a redeploy. It is the sole
+    // source of the favicon — a second icon here would compete with that link
+    // in <head> and could win based on document order.
     description,
     alternates: {
       ...alternatesForPath(locale, "/"),
