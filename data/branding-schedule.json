@@ -1,5 +1,23 @@
 [
   {
+    "name": "Valentine's Day",
+    "startDate": "2026-02-14",
+    "endDate": "2026-02-14",
+    "icon": "/images/logos/heart.png",
+    "favicon": "/images/logos/heart_favicon.png",
+    "tooltip": "Happy Valentine's Day!",
+    "recurring": true
+  },
+  {
+    "name": "White Day",
+    "startDate": "2026-03-14",
+    "endDate": "2026-03-14",
+    "icon": "/images/logos/heart.png",
+    "favicon": "/images/logos/heart_favicon.png",
+    "tooltip": "ハッピー・ホワイトデー！",
+    "recurring": true
+  },
+  {
     "name": "Pride Month",
     "startDate": "2026-06-01",
     "endDate": "2026-06-30",
