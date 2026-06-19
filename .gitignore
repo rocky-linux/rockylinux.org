@@ -59,3 +59,5 @@ Desktop.ini
 # News content (cloned at build time from rocky-linux/rockylinux.org-content)
 /news/
 /.content-tmp/
+# Images copied at build time from the content repo's /images
+/public/images/content/

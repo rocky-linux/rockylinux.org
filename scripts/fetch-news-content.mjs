@@ -51,6 +51,10 @@ const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(SCRIPT_DIR, "..");
 const TMP_DIR = resolve(REPO_ROOT, ".content-tmp");
 const NEWS_DIR = resolve(REPO_ROOT, "news");
+// Images committed alongside the markdown in the content repo's /images are
+// copied here so posts can reference them as /images/content/<path>. Files
+// under /public are served from /, so /public/images/content/foo.png -> /images/content/foo.png.
+const CONTENT_IMAGES_DIR = resolve(REPO_ROOT, "public", "images", "content");
 
 // Resolve `git` to an absolute path from a set of system-owned directories so
 // the spawn cannot be hijacked by a binary in a user-writable directory the
@@ -193,6 +197,23 @@ if (!existsSync(clonedNewsDir)) {
 // the previous news/ intact if anything above fails.
 rmSync(NEWS_DIR, { recursive: true, force: true });
 renameSync(clonedNewsDir, NEWS_DIR);
+
+// Copy the content repo's images/ (if present) into public/images/content so
+// posts can link assets as /images/content/<path>. Optional: the content repo
+// won't always carry images, so a missing dir is not an error.
+const clonedImagesDir = resolve(TMP_DIR, "images");
+if (existsSync(clonedImagesDir)) {
+  rmSync(CONTENT_IMAGES_DIR, { recursive: true, force: true });
+  renameSync(clonedImagesDir, CONTENT_IMAGES_DIR);
+  log(
+    `public/images/content/ populated from ${redactedUrl}@${CONTENT_REPO_BRANCH}.`,
+  );
+} else {
+  // Stale assets from a previous build would otherwise linger and 404-mask.
+  rmSync(CONTENT_IMAGES_DIR, { recursive: true, force: true });
+  log(`no images/ in content repo — cleared public/images/content/.`);
+}
+
 rmSync(TMP_DIR, { recursive: true, force: true });
 
 log(`news/ populated from ${redactedUrl}@${CONTENT_REPO_BRANCH}.`);
