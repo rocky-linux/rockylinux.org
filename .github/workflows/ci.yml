@@ -137,12 +137,26 @@ jobs:
         with:
           path: ~/.cache/ms-playwright
           key: playwright-${{ runner.os }}-${{ steps.playwright-version.outputs.version }}
-      # Browser binaries come from the Playwright CDN (no apt), so this step
-      # fails loudly/fast on a network stall instead of hanging. Only the OS
-      # deps below touch apt — see that step for why they're split out.
+      # Browser binaries come from the Playwright CDN (no apt). The download can
+      # stall mid-stream from GitHub runners (playwright#34297, #20665) and
+      # `playwright install` has no overall timeout, so it would otherwise hang
+      # until the 60-minute job cap. Bound each attempt with `timeout` and retry
+      # with a fresh connection; a healthy download finishes in 1-3 min.
       - name: Install Playwright Browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: npx playwright install
+        timeout-minutes: 12
+        run: |
+          for attempt in 1 2 3; do
+            echo "::group::playwright install (attempt $attempt)"
+            if timeout 180 npx playwright install; then
+              echo "::endgroup::"
+              exit 0
+            fi
+            echo "::endgroup::"
+            echo "attempt $attempt stalled or failed; retrying with a fresh connection"
+          done
+          echo "playwright install did not complete after 3 attempts" >&2
+          exit 1
       # Split from the browser download and run unconditionally (OS deps aren't
       # in the browser cache). `playwright install --with-deps`/`install-deps`
       # shells out to `sudo apt-get`, which on ubuntu-latest (24.04) hangs
