@@ -137,12 +137,30 @@ jobs:
         with:
           path: ~/.cache/ms-playwright
           key: playwright-${{ runner.os }}-${{ steps.playwright-version.outputs.version }}
+      # Browser binaries come from the Playwright CDN (no apt), so this step
+      # fails loudly/fast on a network stall instead of hanging. Only the OS
+      # deps below touch apt — see that step for why they're split out.
       - name: Install Playwright Browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps
+        run: npx playwright install
+      # Split from the browser download and run unconditionally (OS deps aren't
+      # in the browser cache). `playwright install --with-deps`/`install-deps`
+      # shells out to `sudo apt-get`, which on ubuntu-latest (24.04) hangs
+      # indefinitely with no output when either (a) a background
+      # unattended-upgrades job holds the dpkg lock, or (b) needrestart prompts
+      # interactively despite DEBIAN_FRONTEND (Launchpad #2004203). We stop the
+      # background apt jobs, suppress needrestart, and cap the step so a stall
+      # fails fast instead of eating the 60-minute job timeout.
       - name: Install Playwright OS deps
-        if: steps.playwright-cache.outputs.cache-hit == 'true'
-        run: npx playwright install-deps
+        timeout-minutes: 10
+        env:
+          DEBIAN_FRONTEND: noninteractive
+          NEEDRESTART_MODE: a
+          NEEDRESTART_SUSPEND: "1"
+        run: |
+          sudo systemctl stop unattended-upgrades apt-daily.service apt-daily-upgrade.service 2>/dev/null || true
+          sudo systemctl kill --kill-who=all apt-daily.service 2>/dev/null || true
+          sudo -E npx playwright install-deps
       - name: Run Playwright tests
         run: npx playwright test
       - name: Upload Playwright report
