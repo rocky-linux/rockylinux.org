@@ -110,6 +110,11 @@ jobs:
       options: --ipc=host
     env:
       CI: true
+      # The container runs as root, but GitHub sets HOME=/github/home (owned by
+      # the image's pwuser). Firefox refuses to launch when $HOME isn't owned by
+      # the current user, so point HOME at root's own dir — this is the exact
+      # workaround Playwright's launch error recommends.
+      HOME: /root
       CROWDIN_PROJECT_ID: ${{ vars.CROWDIN_PROJECT_ID }}
       CROWDIN_API_TOKEN: ${{ secrets.CROWDIN_API_TOKEN }}
     steps:
