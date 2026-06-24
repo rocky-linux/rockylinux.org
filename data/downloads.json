@@ -230,14 +230,14 @@
               "cinnamon": "https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-Cinnamon-aarch64-latest.iso"
             },
             "rpiImages": {
-              "currentVersion": "v9.2",
-              "download": "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images/RockyRpi_9.2.img.xz"
+              "currentVersion": "v9.8",
+              "download": "https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-SBC-RaspberryPi.latest.aarch64.raw.xz"
             },
             "specializedDevices": [
               {
                 "name": "Raspberry Pi",
-                "download": "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images/RockyLinuxRpi_9-latest.img.xz",
-                "checksum": "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images/RockyLinuxRpi_9-latest.img.xz.sha256sum",
+                "download": "https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-SBC-RaspberryPi.latest.aarch64.raw.xz",
+                "checksum": "https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-SBC-RaspberryPi.latest.aarch64.raw.xz.CHECKSUM",
                 "readMe": "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images/README.txt"
               }
             ],
@@ -256,7 +256,7 @@
               "checksum": "https://dl.rockylinux.org/pub/rocky/9/images/aarch64/CHECKSUM"
             },
             "rpiImages": {
-              "checksum": "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images/RockyRpi_9.2.img.xz.sha256sum",
+              "checksum": "https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-SBC-RaspberryPi.latest.aarch64.raw.xz.CHECKSUM",
               "readMe": "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images/README.txt"
             },
             "liveImages": {
