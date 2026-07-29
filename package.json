@@ -93,6 +93,7 @@
   },
   "overrides": {
     "glob": "^13",
-    "postcss": "$postcss"
+    "postcss": "$postcss",
+    "sharp": "^0.35.3"
   }
 }
