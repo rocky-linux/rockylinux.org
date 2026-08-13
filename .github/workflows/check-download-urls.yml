@@ -5,10 +5,12 @@ on:
     branches: [main, develop]
     paths:
       - "data/downloads.json"
+      - "data/torrents.json"
   pull_request:
     branches: [main, develop]
     paths:
       - "data/downloads.json"
+      - "data/torrents.json"
   schedule:
     # Run daily at 2 AM UTC to catch broken links
     - cron: "0 2 * * *"
@@ -86,7 +88,7 @@ jobs:
             if (fs.existsSync('url-check-summary.md')) {
               body += fs.readFileSync('url-check-summary.md', 'utf8');
             } else {
-              body += 'The URL checker found broken links in downloads.json. Please check the workflow logs for details.';
+              body += 'The URL checker found broken links in downloads.json / torrents.json. Please check the workflow logs for details.';
             }
 
             body += '\n\n[View latest workflow run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})';

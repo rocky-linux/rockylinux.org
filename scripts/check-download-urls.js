@@ -20,6 +20,10 @@ const colors = {
 const downloadsPath = path.join(__dirname, "..", "data", "downloads.json");
 const downloadsData = JSON.parse(fs.readFileSync(downloadsPath, "utf8"));
 
+// Read torrents.json
+const torrentsPath = path.join(__dirname, "..", "data", "torrents.json");
+const torrentsData = JSON.parse(fs.readFileSync(torrentsPath, "utf8"));
+
 // Extract all URLs from the nested structure
 function extractUrls(obj, path = "") {
   const urls = [];
@@ -38,6 +42,45 @@ function extractUrls(obj, path = "") {
   }
 
   return urls;
+}
+
+// Extract checkable URLs from torrents.json
+//
+// Only `torrentUrl` is checked. Tracker announce URLs are deliberately skipped:
+// they reject parameterless HEAD requests, and tracker uptime is unreliable
+// enough that any failure would be noise rather than a signal. A targeted
+// extractor is used instead of the generic walk above precisely to keep them
+// out, since some trackers are plain http:// URLs.
+function extractTorrentUrls(data) {
+  const urls = [];
+
+  (data.torrents || []).forEach((torrent, index) => {
+    const label = torrent.name || `torrents[${index}]`;
+
+    if (torrent.torrentUrl) {
+      urls.push({ url: torrent.torrentUrl, path: `${label}.torrentUrl` });
+    }
+  });
+
+  return urls;
+}
+
+// Tag URLs with the data file they came from so failures are traceable
+function withSource(urls, source) {
+  return urls.map((entry) => ({ ...entry, path: `${source}:${entry.path}` }));
+}
+
+// Deduplicate URLs, keeping the first path each one was found at
+function dedupeUrls(urls) {
+  const seen = new Map();
+
+  for (const entry of urls) {
+    if (!seen.has(entry.url)) {
+      seen.set(entry.url, entry);
+    }
+  }
+
+  return [...seen.values()];
 }
 
 // Check if URL is accessible (single attempt)
@@ -146,9 +189,16 @@ async function main() {
     `${colors.blue}Rocky Linux Download URL Checker${colors.reset}\n`
   );
 
-  const urls = extractUrls(downloadsData);
+  const downloadUrls = withSource(extractUrls(downloadsData), "downloads.json");
+  const torrentUrls = withSource(
+    extractTorrentUrls(torrentsData),
+    "torrents.json"
+  );
+  const urls = dedupeUrls([...downloadUrls, ...torrentUrls]);
+
   console.log(
-    `Found ${colors.yellow}${urls.length}${colors.reset} URLs to check\n`
+    `Found ${colors.yellow}${urls.length}${colors.reset} unique URLs to check ` +
+      `${colors.gray}(${downloadUrls.length} from downloads.json, ${torrentUrls.length} from torrents.json)${colors.reset}\n`
   );
 
   const results = [];
@@ -234,7 +284,7 @@ async function main() {
     if (process.env.GITHUB_ACTIONS) {
       const summary =
         `## 🚨 URL Check Failed\n\n` +
-        `Found ${failed.length} broken URL(s) in downloads.json:\n\n` +
+        `Found ${failed.length} broken URL(s) in downloads.json / torrents.json:\n\n` +
         failed
           .map(
             (r) =>
