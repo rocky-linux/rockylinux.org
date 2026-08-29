@@ -143,7 +143,7 @@ jobs:
           name: nextjs-build
           path: .next
       - name: Run Playwright tests
-        run: npx playwright test
+        run: ./node_modules/.bin/playwright test
       - name: Upload Playwright report
         uses: actions/upload-artifact@v7
         if: always()
