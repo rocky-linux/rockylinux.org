@@ -116,6 +116,24 @@ interface TabsClientProps {
   };
 }
 
+type GroupKey = Exclude<
+  keyof ProcessedVersion,
+  "versionName" | "versionId" | "currentVersion" | "plannedEol"
+>;
+
+// Versions that still have enabled downloads in a group, shaped for a card
+const versionsFor = (versions: ProcessedVersion[], key: GroupKey) =>
+  versions
+    .filter((version) => version[key].downloadOptions.length > 0)
+    .map((version) => ({
+      versionName: version.versionName,
+      versionId: version.versionId,
+      currentVersion: version.currentVersion,
+      plannedEol: version.plannedEol,
+      downloadOptions: version[key].downloadOptions,
+      links: version[key].links,
+    }));
+
 const TabsClient = ({ architectures, translations }: TabsClientProps) => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -140,15 +158,20 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
   // Track the previous URL arch to detect external URL changes
   const [prevArchFromUrl, setPrevArchFromUrl] = useState(archFromUrl);
 
+  // Architectures without enabled downloads are filtered out, so x86_64 may be missing
+  const fallbackArch = availableArchitectures.includes("x86_64")
+    ? "x86_64"
+    : availableArchitectures[0];
+
   // Memoize architecture detection to avoid expensive canvas/WebGL checks on every render
   const detectedArch = useMemo(
-    () => (hydrated ? detectArchitecture() : "x86_64"),
-    [hydrated]
+    () => (hydrated ? detectArchitecture() : fallbackArch),
+    [hydrated, fallbackArch]
   );
 
   const defaultArch = availableArchitectures.includes(detectedArch)
     ? detectedArch
-    : "x86_64";
+    : fallbackArch;
 
   const urlArch = availableArchitectures.includes(archFromUrl ?? "")
     ? (archFromUrl ?? defaultArch)
@@ -178,6 +201,96 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
 
     // Use window.history.pushState for shallow update without server round-trip
     window.history.pushState(null, "", newUrl);
+  };
+
+  const renderCards = (arch: string, versions: ProcessedVersion[]) => {
+    const defaultVersions = versionsFor(versions, "defaultImages");
+    const containerVersions = versionsFor(versions, "containerImages");
+    const liveVersions = versionsFor(versions, "liveImages");
+    const rpiVersions = versionsFor(versions, "rpiImages");
+    const visionFive2Versions = versionsFor(versions, "visionFive2Images");
+    const wslVersions = versionsFor(versions, "wslImages");
+
+    return (
+      <>
+        {defaultVersions.length > 0 ? (
+          <DefaultImageCard
+            title={translations.cards.defaultImages.title}
+            titleTooltip={true}
+            titleTooltipText={[
+              {
+                text: translations.cards.defaultImages.tooltips.dvd,
+              },
+              {
+                text: translations.cards.defaultImages.tooltips.boot,
+              },
+              {
+                text: translations.cards.defaultImages.tooltips.minimal,
+              },
+            ]}
+            titleTooltipButtonLink="https://docs.rockylinux.org/guides/installation/"
+            titleTooltipButtonLabel={
+              translations.cards.defaultImages.tooltips.buttonLabel
+            }
+            versions={defaultVersions}
+          />
+        ) : null}
+        {/* Always shown: the cloud provider buttons don't come from downloads.json */}
+        <CloudImageCard
+          title={translations.cards.cloudImages.title}
+          titleTooltip={false}
+          titleTooltipButtonLink=""
+          titleTooltipButtonLabel=""
+          versions={versionsFor(versions, "cloudImages")}
+        />
+        {containerVersions.length > 0 ? (
+          <DefaultImageCard
+            title={translations.cards.container.title}
+            titleTooltip={false}
+            titleTooltipButtonLink=""
+            titleTooltipButtonLabel=""
+            versions={containerVersions}
+          />
+        ) : null}
+        {(arch === "x86_64" || arch === "aarch64") &&
+        liveVersions.length > 0 ? (
+          <DefaultImageCard
+            title={translations.cards.liveImages.title}
+            titleTooltip={false}
+            titleTooltipButtonLink=""
+            titleTooltipButtonLabel=""
+            versions={liveVersions}
+          />
+        ) : null}
+        {arch === "aarch64" && rpiVersions.length > 0 ? (
+          <DefaultImageCard
+            title={translations.cards.rpiImages.title}
+            titleTooltip={false}
+            titleTooltipButtonLink=""
+            titleTooltipButtonLabel=""
+            versions={rpiVersions}
+          />
+        ) : null}
+        {arch === "riscv64" && visionFive2Versions.length > 0 ? (
+          <DefaultImageCard
+            title={translations.cards.visionfive2Images.title}
+            titleTooltip={false}
+            titleTooltipButtonLink=""
+            titleTooltipButtonLabel=""
+            versions={visionFive2Versions}
+          />
+        ) : null}
+        {(arch === "x86_64" || arch === "aarch64") && wslVersions.length > 0 ? (
+          <DefaultImageCard
+            title={translations.cards.wslImages.title}
+            titleTooltip={false}
+            titleTooltipButtonLink=""
+            titleTooltipButtonLabel=""
+            versions={wslVersions}
+          />
+        ) : null}
+      </>
+    );
   };
 
   return (
@@ -227,125 +340,7 @@ const TabsClient = ({ architectures, translations }: TabsClientProps) => {
           value={arch}
         >
           <div className="grid gap-4 sm:gap-6 mt-4 overflow-x-hidden">
-            <DefaultImageCard
-              title={translations.cards.defaultImages.title}
-              titleTooltip={true}
-              titleTooltipText={[
-                {
-                  text: translations.cards.defaultImages.tooltips.dvd,
-                },
-                {
-                  text: translations.cards.defaultImages.tooltips.boot,
-                },
-                {
-                  text: translations.cards.defaultImages.tooltips.minimal,
-                },
-              ]}
-              titleTooltipButtonLink="https://docs.rockylinux.org/guides/installation/"
-              titleTooltipButtonLabel={
-                translations.cards.defaultImages.tooltips.buttonLabel
-              }
-              versions={data.versions.map((version) => ({
-                versionName: version.versionName,
-                versionId: version.versionId,
-                currentVersion: version.currentVersion,
-                plannedEol: version.plannedEol,
-                downloadOptions: version.defaultImages.downloadOptions,
-                links: version.defaultImages.links,
-              }))}
-            />
-            <CloudImageCard
-              title={translations.cards.cloudImages.title}
-              titleTooltip={false}
-              titleTooltipButtonLink=""
-              titleTooltipButtonLabel=""
-              versions={data.versions.map((version) => ({
-                versionName: version.versionName,
-                versionId: version.versionId,
-                currentVersion: version.currentVersion,
-                plannedEol: version.plannedEol,
-                downloadOptions: version.cloudImages.downloadOptions,
-                links: version.cloudImages.links,
-              }))}
-            />
-            <DefaultImageCard
-              title={translations.cards.container.title}
-              titleTooltip={false}
-              titleTooltipButtonLink=""
-              titleTooltipButtonLabel=""
-              versions={data.versions.map((version) => ({
-                versionName: version.versionName,
-                versionId: version.versionId,
-                currentVersion: version.currentVersion,
-                plannedEol: version.plannedEol,
-                downloadOptions: version.containerImages.downloadOptions,
-                links: version.containerImages.links,
-              }))}
-            />
-            {arch === "x86_64" || arch === "aarch64" ? (
-              <DefaultImageCard
-                title={translations.cards.liveImages.title}
-                titleTooltip={false}
-                titleTooltipButtonLink=""
-                titleTooltipButtonLabel=""
-                versions={data.versions.map((version) => ({
-                  versionName: version.versionName,
-                  versionId: version.versionId,
-                  currentVersion: version.currentVersion,
-                  plannedEol: version.plannedEol,
-                  downloadOptions: version.liveImages.downloadOptions,
-                  links: version.liveImages.links,
-                }))}
-              />
-            ) : null}
-            {arch === "aarch64" ? (
-              <DefaultImageCard
-                title={translations.cards.rpiImages.title}
-                titleTooltip={false}
-                titleTooltipButtonLink=""
-                titleTooltipButtonLabel=""
-                versions={data.versions.map((version) => ({
-                  versionName: version.versionName,
-                  versionId: version.versionId,
-                  currentVersion: version.currentVersion,
-                  plannedEol: version.plannedEol,
-                  downloadOptions: version.rpiImages.downloadOptions,
-                  links: version.rpiImages.links,
-                }))}
-              />
-            ) : null}
-            {arch === "riscv64" ? (
-              <DefaultImageCard
-                title={translations.cards.visionfive2Images.title}
-                titleTooltip={false}
-                titleTooltipButtonLink=""
-                titleTooltipButtonLabel=""
-                versions={data.versions.map((version) => ({
-                  versionName: version.versionName,
-                  versionId: version.versionId,
-                  currentVersion: version.currentVersion,
-                  plannedEol: version.plannedEol,
-                  downloadOptions: version.visionFive2Images.downloadOptions,
-                  links: version.visionFive2Images.links,
-                }))}
-              />
-            ) : null}
-            {arch === "x86_64" || arch === "aarch64" ? (
-              <DefaultImageCard
-                title={translations.cards.wslImages.title}
-                titleTooltip={false}
-                titleTooltipButtonLink=""
-                titleTooltipButtonLabel=""
-                versions={data.versions.map((version) => ({
-                  versionName: version.versionName,
-                  versionId: version.versionId,
-                  currentVersion: version.currentVersion,
-                  plannedEol: version.plannedEol,
-                  downloadOptions: version.wslImages.downloadOptions,
-                  links: version.wslImages.links,
-                }))}
-              />
-            ) : null}
+            {renderCards(arch, data.versions)}
           </div>
         </TabsContent>
       ))}

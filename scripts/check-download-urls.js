@@ -16,14 +16,6 @@ const colors = {
   gray: "\x1b[90m",
 };
 
-// Read downloads.json
-const downloadsPath = path.join(__dirname, "..", "data", "downloads.json");
-const downloadsData = JSON.parse(fs.readFileSync(downloadsPath, "utf8"));
-
-// Read torrents.json
-const torrentsPath = path.join(__dirname, "..", "data", "torrents.json");
-const torrentsData = JSON.parse(fs.readFileSync(torrentsPath, "utf8"));
-
 // Extract all URLs from the nested structure
 function extractUrls(obj, path = "") {
   const urls = [];
@@ -42,6 +34,89 @@ function extractUrls(obj, path = "") {
   }
 
   return urls;
+}
+
+// Extract checkable URLs from downloads.json, skipping disabled URLs
+//
+// Every URL (downloads, links and specializedDevices fields) is a string, or
+// `{ "url": "...", "enabled": false }` when it is disabled. A group's links
+// (checksums, README, ...) are also hidden once every download in that group
+// is disabled, because the site hides them.
+// Mirrors `resolveUrl` / `processArchitecturesData` in
+// utils/downloadDataProcessor.ts (this CommonJS script can't import TS).
+function extractDownloadUrls(data) {
+  const urls = [];
+  let disabled = 0;
+  let hiddenLinks = 0;
+
+  const isUrl = (value) =>
+    typeof value === "string" &&
+    (value.startsWith("http://") || value.startsWith("https://"));
+
+  // Returns the URL of an enabled entry, "disabled", or null for non-URLs
+  const resolveEntry = (entry) => {
+    if (isUrl(entry)) return entry;
+    if (entry && typeof entry === "object" && isUrl(entry.url)) {
+      return entry.enabled === false ? "disabled" : entry.url;
+    }
+    return null;
+  };
+
+  // Collects enabled URLs from a flat object of entries; returns how many
+  const collect = (entries, basePath, { hidden = false } = {}) => {
+    let enabled = 0;
+
+    for (const [key, entry] of Object.entries(entries)) {
+      const url = resolveEntry(entry);
+
+      if (url === "disabled") {
+        disabled++;
+      } else if (url && hidden) {
+        hiddenLinks++;
+      } else if (url) {
+        urls.push({ url, path: `${basePath}.${key}` });
+        enabled++;
+      }
+    }
+
+    return enabled;
+  };
+
+  // Arrays (e.g. specializedDevices) aren't rendered as groups, so they are
+  // never hidden; each item's fields still honor their own enabled flag
+  const collectArray = (items, basePath) =>
+    items.forEach((item, index) => collect(item, `${basePath}.${index}`));
+
+  for (const [arch, archData] of Object.entries(data.architectures || {})) {
+    (archData.versions || []).forEach((version, index) => {
+      const versionPath = `architectures.${arch}.versions.${index}`;
+      const enabledGroups = new Set();
+
+      for (const [group, entries] of Object.entries(
+        version.downloadOptions || {}
+      )) {
+        const groupPath = `${versionPath}.downloadOptions.${group}`;
+
+        if (Array.isArray(entries)) {
+          collectArray(entries, groupPath);
+        } else if (collect(entries, groupPath) > 0) {
+          enabledGroups.add(group);
+        }
+      }
+
+      for (const [group, links] of Object.entries(version.links || {})) {
+        const groupPath = `${versionPath}.links.${group}`;
+
+        if (Array.isArray(links)) {
+          collectArray(links, groupPath);
+        } else {
+          collect(links, groupPath, { hidden: !enabledGroups.has(group) });
+        }
+      }
+    });
+  }
+
+  return { urls, disabled, hiddenLinks };
 }
 
 // Extract checkable URLs from torrents.json
@@ -189,7 +264,14 @@ async function main() {
     `${colors.blue}Rocky Linux Download URL Checker${colors.reset}\n`
   );
 
-  const downloadUrls = withSource(extractUrls(downloadsData), "downloads.json");
+  const downloadsPath = path.join(__dirname, "..", "data", "downloads.json");
+  const downloadsData = JSON.parse(fs.readFileSync(downloadsPath, "utf8"));
+
+  const torrentsPath = path.join(__dirname, "..", "data", "torrents.json");
+  const torrentsData = JSON.parse(fs.readFileSync(torrentsPath, "utf8"));
+
+  const downloads = extractDownloadUrls(downloadsData);
+  const downloadUrls = withSource(downloads.urls, "downloads.json");
   const torrentUrls = withSource(
     extractTorrentUrls(torrentsData),
     "torrents.json"
@@ -198,7 +280,7 @@ async function main() {
 
   console.log(
     `Found ${colors.yellow}${urls.length}${colors.reset} unique URLs to check ` +
-      `${colors.gray}(${downloadUrls.length} from downloads.json, ${torrentUrls.length} from torrents.json)${colors.reset}\n`
+      `${colors.gray}(${downloadUrls.length} from downloads.json, ${downloads.disabled + downloads.hiddenLinks} skipped [${downloads.disabled} disabled, ${downloads.hiddenLinks} hidden links], ${torrentUrls.length} from torrents.json)${colors.reset}\n`
   );
 
   const results = [];
@@ -317,8 +399,15 @@ async function main() {
     });
 }
 
-// Run the checker
-main().catch((err) => {
-  console.error(`${colors.red}Error running URL checker:${colors.reset}`, err);
-  process.exit(1);
-});
+module.exports = { extractDownloadUrls };
+
+// Run the checker when executed directly (not when required by tests)
+if (require.main === module) {
+  main().catch((err) => {
+    console.error(
+      `${colors.red}Error running URL checker:${colors.reset}`,
+      err
+    );
+    process.exit(1);
+  });
+}
