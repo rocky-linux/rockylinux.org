@@ -19,79 +19,90 @@ export interface VersionItem {
 
 export interface SpecializedDevice {
   name: string;
-  download: string;
-  checksum: string;
-  readMe?: string;
+  download: UrlEntry;
+  checksum: UrlEntry;
+  readMe?: UrlEntry;
 }
+
+/**
+ * A download or link URL. A plain string is enabled. Use the object form only
+ * to disable it: `{ "url": "...", "enabled": false }`.
+ *
+ * `disabled-reason` is a note for people reading downloads.json (JSON has no
+ * comments). The app and the URL checker intentionally ignore it.
+ */
+export type UrlEntry =
+  | string
+  | { url: string; enabled?: boolean; "disabled-reason"?: string };
 
 export interface DownloadOptions {
   defaultImages: {
-    dvd: string;
-    boot: string;
-    minimal?: string;
+    dvd: UrlEntry;
+    boot: UrlEntry;
+    minimal?: UrlEntry;
   };
   cloudImages?: {
-    qcow2: string;
+    qcow2: UrlEntry;
   };
   container: {
-    fullImage: string;
-    minimalImage: string;
+    fullImage: UrlEntry;
+    minimalImage: UrlEntry;
   };
   liveImages?: {
-    gnome: string;
-    gnomeLite: string;
-    kde?: string;
-    xfce: string;
-    mate: string;
-    cinnamon?: string;
+    gnome: UrlEntry;
+    gnomeLite: UrlEntry;
+    kde?: UrlEntry;
+    xfce: UrlEntry;
+    mate: UrlEntry;
+    cinnamon?: UrlEntry;
   };
   rpiImages?: {
     currentVersion?: string;
-    download: string;
+    download: UrlEntry;
   };
   wslImages?: {
     currentVersion?: string;
-    download: string;
+    download: UrlEntry;
   };
   visionfive2Images?: {
     currentVersion?: string;
-    download: string;
+    download: UrlEntry;
   };
   specializedDevices?: SpecializedDevice[];
 }
 
 export interface Links {
   defaultImages: {
-    torrent: string;
-    checksum: string;
-    baseOs: string;
-    archived: string;
+    torrent: UrlEntry;
+    checksum: UrlEntry;
+    baseOs: UrlEntry;
+    archived: UrlEntry;
   };
   cloudImages?: {
-    checksum: string;
+    checksum: UrlEntry;
   };
   liveImages?: {
-    checksums: string;
+    checksums: UrlEntry;
   };
   rpiImages?: {
     currentVersion?: string;
-    checksum: string;
-    readMe: string;
+    checksum: UrlEntry;
+    readMe: UrlEntry;
   };
   wslImages?: {
     currentVersion?: string;
-    checksum: string;
-    readMe: string;
+    checksum: UrlEntry;
+    readMe: UrlEntry;
   };
   visionfive2Images?: {
     currentVersion?: string;
-    checksum: string;
-    readMe?: string;
+    checksum: UrlEntry;
+    readMe?: UrlEntry;
   };
   specializedDevices?: {
     name: string;
-    checksum: string;
-    readMe?: string;
+    checksum: UrlEntry;
+    readMe?: UrlEntry;
   }[];
 }
 

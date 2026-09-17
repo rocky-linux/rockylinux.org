@@ -173,7 +173,11 @@
                 "name": "Raspberry Pi",
                 "download": "https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz",
                 "checksum": "https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz.CHECKSUM",
-                "readMe": "https://dl.rockylinux.org/pub/sig/10/altarch/aarch64/images/README.txt"
+                "readMe": {
+                  "url": "https://dl.rockylinux.org/pub/sig/10/altarch/aarch64/images/README.txt",
+                  "enabled": false,
+                  "disabled-reason": "404 since 2026-09-10: the SIG staging-to-production sync (sync-to-staging-sig.sh) deletes the altarch images directory, which holds this README. Infra restored the files once, but they were removed again, and infra agreed to pull the links until the script is fixed. The Raspberry Pi image itself is hosted elsewhere and still works."
+                }
               }
             ],
             "wslImages": {
@@ -195,7 +199,11 @@
             },
             "rpiImages": {
               "checksum": "https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz.CHECKSUM",
-              "readMe": "https://dl.rockylinux.org/pub/sig/10/altarch/aarch64/images/README.txt"
+              "readMe": {
+                "url": "https://dl.rockylinux.org/pub/sig/10/altarch/aarch64/images/README.txt",
+                "enabled": false,
+                "disabled-reason": "404 since 2026-09-10: the SIG staging-to-production sync (sync-to-staging-sig.sh) deletes the altarch images directory, which holds this README. Infra restored the files once, but they were removed again, and infra agreed to pull the links until the script is fixed. The Raspberry Pi image itself is hosted elsewhere and still works."
+              }
             },
             "wslImages": {
               "checksum": "https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-WSL-Base.latest.aarch64.wsl.CHECKSUM",
@@ -238,7 +246,11 @@
                 "name": "Raspberry Pi",
                 "download": "https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-SBC-RaspberryPi.latest.aarch64.raw.xz",
                 "checksum": "https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-SBC-RaspberryPi.latest.aarch64.raw.xz.CHECKSUM",
-                "readMe": "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images/README.txt"
+                "readMe": {
+                  "url": "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images/README.txt",
+                  "enabled": false,
+                  "disabled-reason": "404 since 2026-09-10: the SIG staging-to-production sync (sync-to-staging-sig.sh) deletes the altarch images directory, which holds this README. Infra restored the files once, but they were removed again, and infra agreed to pull the links until the script is fixed. The Raspberry Pi image itself is hosted elsewhere and still works."
+                }
               }
             ],
             "wslImages": {
@@ -257,7 +269,11 @@
             },
             "rpiImages": {
               "checksum": "https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-SBC-RaspberryPi.latest.aarch64.raw.xz.CHECKSUM",
-              "readMe": "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images/README.txt"
+              "readMe": {
+                "url": "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images/README.txt",
+                "enabled": false,
+                "disabled-reason": "404 since 2026-09-10: the SIG staging-to-production sync (sync-to-staging-sig.sh) deletes the altarch images directory, which holds this README. Infra restored the files once, but they were removed again, and infra agreed to pull the links until the script is fixed. The Raspberry Pi image itself is hosted elsewhere and still works."
+              }
             },
             "liveImages": {
               "checksums": "https://dl.rockylinux.org/pub/rocky/9/live/aarch64/"
@@ -284,7 +300,11 @@
             },
             "rpiImages": {
               "currentVersion": "v8.8",
-              "download": "https://dl.rockylinux.org/pub/sig/8/altarch/aarch64/images/RockyRpi_8.8.img.xz"
+              "download": {
+                "url": "https://dl.rockylinux.org/pub/sig/8/altarch/aarch64/images/RockyRpi_8.8.img.xz",
+                "enabled": false,
+                "disabled-reason": "404 since 2026-09-10: the SIG staging-to-production sync (sync-to-staging-sig.sh) deletes the altarch images directory. Infra restored the files once, but they were removed again, and infra agreed to pull the links until the script is fixed. Also hides this group's CHECKSUM and README links, which 404 for the same reason."
+              }
             },
             "container": {
               "fullImage": "https://hub.docker.com/r/rockylinux/rockylinux/tags?name=8.10",

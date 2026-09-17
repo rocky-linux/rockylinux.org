@@ -1,4 +1,4 @@
-import type { DownloadData } from "@/types/downloads";
+import type { DownloadData, UrlEntry } from "@/types/downloads";
 
 // Type for processed version data
 interface ProcessedVersion {
@@ -98,198 +98,219 @@ interface DownloadTranslations {
   };
 }
 
+type DownloadOptionItem = { label: string; link: string };
+type LinkItem = { name: string; link: string };
+
+/**
+ * Returns the URL of a download or link entry, or `undefined` when the entry
+ * is missing or marked `enabled: false`. URLs are enabled by default.
+ *
+ * Keep in sync with `extractDownloadUrls` in `scripts/check-download-urls.js`.
+ */
+export function resolveUrl(entry?: UrlEntry): string | undefined {
+  if (entry === undefined) return undefined;
+  if (typeof entry === "string") return entry;
+  return entry.enabled === false ? undefined : entry.url;
+}
+
+// Builds download buttons, skipping missing and disabled entries
+function buildOptions(
+  pairs: [label: string, entry: UrlEntry | undefined][]
+): DownloadOptionItem[] {
+  return pairs.flatMap(([label, entry]) => {
+    const link = resolveUrl(entry);
+    return link ? [{ label, link }] : [];
+  });
+}
+
+// Builds a group's links, skipping missing and disabled entries
+function buildLinks(
+  pairs: [name: string, entry: UrlEntry | undefined][]
+): LinkItem[] {
+  return pairs.flatMap(([name, entry]) => {
+    const link = resolveUrl(entry);
+    return link ? [{ name, link }] : [];
+  });
+}
+
+// A group's links are only shown while it has at least one enabled download
+function buildGroup(
+  downloadOptions: DownloadOptionItem[],
+  getLinks: () => LinkItem[]
+): { downloadOptions: DownloadOptionItem[]; links: LinkItem[] } {
+  return {
+    downloadOptions,
+    links: downloadOptions.length > 0 ? getLinks() : [],
+  };
+}
+
+const GROUP_KEYS = [
+  "defaultImages",
+  "cloudImages",
+  "containerImages",
+  "liveImages",
+  "rpiImages",
+  "wslImages",
+  "visionFive2Images",
+] as const;
+
 export function processArchitecturesData(
   downloadData: DownloadData,
   translations: DownloadTranslations
 ): ProcessedArchitectures {
-  return Object.fromEntries(
-    Object.entries(downloadData.architectures).map(([arch, data]) => [
+  const processed = Object.entries(downloadData.architectures).map(
+    ([arch, data]): [string, { versions: ProcessedVersion[] }] => [
       arch,
       {
         versions: data.versions.map((version) => {
-          // Create a combined version with all the different mappings
-          const baseVersion = {
+          const options = version.downloadOptions;
+          const links = version.links;
+
+          const defaultImages = buildGroup(
+            buildOptions([
+              [
+                translations.cards.defaultImages.downloadOptions.dvd,
+                options.defaultImages.dvd,
+              ],
+              [
+                translations.cards.defaultImages.downloadOptions.boot,
+                options.defaultImages.boot,
+              ],
+              [
+                translations.cards.defaultImages.downloadOptions.minimal,
+                options.defaultImages.minimal,
+              ],
+            ]),
+            () =>
+              buildLinks([
+                [
+                  translations.cards.defaultImages.torrent,
+                  links.defaultImages.torrent,
+                ],
+                [
+                  translations.cards.defaultImages.checksum,
+                  links.defaultImages.checksum,
+                ],
+                [
+                  translations.cards.defaultImages.baseOs,
+                  links.defaultImages.baseOs,
+                ],
+                [
+                  translations.cards.defaultImages.archived,
+                  links.defaultImages.archived,
+                ],
+              ])
+          );
+
+          // Cloud images are only listed when the checksum link also exists
+          const cloudImages = buildGroup(
+            links.cloudImages
+              ? buildOptions([
+                  [
+                    translations.cards.cloudImages.downloadOptions.qcow2,
+                    options.cloudImages?.qcow2,
+                  ],
+                ])
+              : [],
+            () =>
+              buildLinks([
+                [
+                  translations.cards.defaultImages.checksum,
+                  links.cloudImages?.checksum,
+                ],
+              ])
+          );
+
+          const containerImages = buildGroup(
+            buildOptions([
+              [
+                translations.cards.container.downloadOptions.fullImage,
+                options.container.fullImage,
+              ],
+              [
+                translations.cards.container.downloadOptions.minimalImage,
+                options.container.minimalImage,
+              ],
+            ]),
+            () => []
+          );
+
+          const liveImages = buildGroup(
+            buildOptions(
+              Object.entries(options.liveImages ?? {}).map(([key, entry]) => [
+                translations.cards.liveImages.downloadOptions[key] ||
+                  `Live Image (${key.toUpperCase()})`,
+                entry,
+              ])
+            ),
+            () =>
+              buildLinks([
+                [
+                  translations.cards.defaultImages.checksums,
+                  links.liveImages?.checksums,
+                ],
+              ])
+          );
+
+          const rpiImages = buildGroup(
+            buildOptions([
+              [
+                translations.cards.rpiImages.download,
+                options.rpiImages?.download,
+              ],
+            ]),
+            () =>
+              buildLinks([
+                [
+                  translations.cards.defaultImages.checksum,
+                  links.rpiImages?.checksum,
+                ],
+                [translations.cards.rpiImages.readMe, links.rpiImages?.readMe],
+              ])
+          );
+
+          const wslImages = buildGroup(
+            buildOptions([
+              [
+                translations.cards.wslImages.download,
+                options.wslImages?.download,
+              ],
+            ]),
+            () =>
+              buildLinks([
+                [
+                  translations.cards.defaultImages.checksum,
+                  links.wslImages?.checksum,
+                ],
+                [translations.cards.wslImages.readMe, links.wslImages?.readMe],
+              ])
+          );
+
+          const visionFive2Images = buildGroup(
+            buildOptions([
+              [
+                translations.cards.visionfive2Images.download,
+                options.visionfive2Images?.download,
+              ],
+            ]),
+            () =>
+              buildLinks([
+                [
+                  translations.cards.defaultImages.checksum,
+                  links.visionfive2Images?.checksum,
+                ],
+                [
+                  translations.cards.visionfive2Images.readMe,
+                  links.visionfive2Images?.readMe,
+                ],
+              ])
+          );
+
+          return {
             versionName: version.versionName,
             versionId: version.versionId,
             currentVersion: version.currentVersion,
             plannedEol: version.plannedEol,
-          };
-
-          const defaultImages = {
-            downloadOptions: [
-              {
-                label: translations.cards.defaultImages.downloadOptions.dvd,
-                link: version.downloadOptions.defaultImages.dvd,
-              },
-              {
-                label: translations.cards.defaultImages.downloadOptions.boot,
-                link: version.downloadOptions.defaultImages.boot,
-              },
-              ...(version.downloadOptions.defaultImages.minimal
-                ? [
-                    {
-                      label:
-                        translations.cards.defaultImages.downloadOptions
-                          .minimal,
-                      link: version.downloadOptions.defaultImages
-                        .minimal as string,
-                    },
-                  ]
-                : []),
-            ],
-            links: [
-              {
-                name: translations.cards.defaultImages.torrent,
-                link: version.links.defaultImages.torrent,
-              },
-              {
-                name: translations.cards.defaultImages.checksum,
-                link: version.links.defaultImages.checksum,
-              },
-              {
-                name: translations.cards.defaultImages.baseOs,
-                link: version.links.defaultImages.baseOs,
-              },
-              {
-                name: translations.cards.defaultImages.archived,
-                link: version.links.defaultImages.archived,
-              },
-            ],
-          };
-
-          const cloudImages = {
-            downloadOptions:
-              version.downloadOptions.cloudImages && version.links.cloudImages
-                ? [
-                    {
-                      label:
-                        translations.cards.cloudImages.downloadOptions.qcow2,
-                      link: version.downloadOptions.cloudImages.qcow2,
-                    },
-                  ]
-                : [],
-            links:
-              version.downloadOptions.cloudImages && version.links.cloudImages
-                ? [
-                    {
-                      name: translations.cards.defaultImages.checksum,
-                      link: version.links.cloudImages.checksum,
-                    },
-                  ]
-                : [],
-          };
-
-          const containerImages = {
-            downloadOptions: [
-              {
-                label: translations.cards.container.downloadOptions.fullImage,
-                link: version.downloadOptions.container.fullImage,
-              },
-              {
-                label:
-                  translations.cards.container.downloadOptions.minimalImage,
-                link: version.downloadOptions.container.minimalImage,
-              },
-            ],
-            links: [],
-          };
-
-          const liveImages = {
-            downloadOptions: version.downloadOptions.liveImages
-              ? Object.entries(version.downloadOptions.liveImages).map(
-                  ([key, link]) => ({
-                    label:
-                      translations.cards.liveImages.downloadOptions[key] ||
-                      `Live Image (${key.toUpperCase()})`,
-                    link: link as string,
-                  })
-                )
-              : [],
-            links: version.links.liveImages
-              ? [
-                  {
-                    name: translations.cards.defaultImages.checksums,
-                    link: version.links.liveImages.checksums,
-                  },
-                ]
-              : [],
-          };
-
-          const rpiImages = {
-            downloadOptions: version.downloadOptions.rpiImages
-              ? [
-                  {
-                    label: translations.cards.rpiImages.download,
-                    link: version.downloadOptions.rpiImages.download,
-                  },
-                ]
-              : [],
-            links: version.links.rpiImages
-              ? [
-                  {
-                    name: translations.cards.defaultImages.checksum,
-                    link: version.links.rpiImages.checksum,
-                  },
-                  {
-                    name: translations.cards.rpiImages.readMe,
-                    link: version.links.rpiImages.readMe,
-                  },
-                ]
-              : [],
-          };
-
-          const wslImages = {
-            downloadOptions: version.downloadOptions.wslImages
-              ? [
-                  {
-                    label: translations.cards.wslImages.download,
-                    link: version.downloadOptions.wslImages.download,
-                  },
-                ]
-              : [],
-            links: version.links.wslImages
-              ? [
-                  {
-                    name: translations.cards.defaultImages.checksum,
-                    link: version.links.wslImages.checksum,
-                  },
-                  {
-                    name: translations.cards.wslImages.readMe,
-                    link: version.links.wslImages.readMe,
-                  },
-                ]
-              : [],
-          };
-
-          const visionFive2Images = {
-            downloadOptions: version.downloadOptions.visionfive2Images
-              ? [
-                  {
-                    label: translations.cards.visionfive2Images.download,
-                    link: version.downloadOptions.visionfive2Images.download,
-                  },
-                ]
-              : [],
-            links: version.links.visionfive2Images
-              ? [
-                  {
-                    name: translations.cards.defaultImages.checksum,
-                    link: version.links.visionfive2Images.checksum,
-                  },
-                  ...(version.links.visionfive2Images.readMe
-                    ? [
-                        {
-                          name: translations.cards.visionfive2Images.readMe,
-                          link: version.links.visionfive2Images.readMe,
-                        },
-                      ]
-                    : []),
-                ]
-              : [],
-          };
-
-          return {
-            ...baseVersion,
             defaultImages,
             cloudImages,
             containerImages,
@@ -300,6 +321,15 @@ export function processArchitecturesData(
           };
         }),
       },
-    ])
+    ]
+  );
+
+  // Drop architectures that have no enabled downloads left at all
+  return Object.fromEntries(
+    processed.filter(([, { versions }]) =>
+      versions.some((version) =>
+        GROUP_KEYS.some((key) => version[key].downloadOptions.length > 0)
+      )
+    )
   );
 }

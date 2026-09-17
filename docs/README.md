@@ -12,6 +12,10 @@ Technical documentation for the Rocky Linux website codebase.
 
 - [Testing Patterns and Lessons Learned](./e2e/testing-patterns.md) - Playwright patterns for Radix UI components, accessible selectors, and portaled element handling.
 
+### Downloads
+
+- [Disabling Downloads and Links](./downloads/disabling-downloads.md) - How to disable individual downloads, links and `specializedDevices` URLs in `data/downloads.json` with `enabled: false` (plus an optional `disabled-reason` note), how empty groups, versions, cards and architectures are hidden automatically, and how the URL checker skips them.
+
 ### Upgrades
 
 - [Next.js 16 Upgrade](./upgrades/next-16.md) - Migration from Next.js 15 to 16, including middleware→proxy rename, ESLint config changes, and Turbopack adoption.
