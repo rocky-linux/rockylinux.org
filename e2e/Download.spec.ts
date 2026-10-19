@@ -2,7 +2,7 @@ import { test, expect, type Page } from "@playwright/test";
 import { getArchFromUrl, switchArch } from "./utils/DownloadUtils";
 
 const choosePlatform = (page: Page, name: RegExp) =>
-  page.getByRole("radio", { name }).check({ force: true });
+  page.getByRole("radio", { name }).check();
 
 test.describe("Download page structure and defaults", () => {
   test.beforeEach(async ({ page }) => {
@@ -172,9 +172,7 @@ test.describe("Download selection updates URL", () => {
   });
 
   test("choosing a release updates URL and content", async ({ page }) => {
-    await page.getByRole("radio", { name: /Rocky Linux 9/ }).check({
-      force: true,
-    });
+    await page.getByRole("radio", { name: /Rocky Linux 9/ }).check();
 
     await expect(page).toHaveURL(/version=rocky-9/);
     await expect(

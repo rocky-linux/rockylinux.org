@@ -4,6 +4,8 @@ import {
   groupsFor,
   listReleases,
   majorVersion,
+  resolveArch,
+  resolvePlatform,
 } from "@/utils/downloadSelection";
 import type {
   ProcessedArchitectures,
@@ -112,5 +114,42 @@ describe("downloadSelection", () => {
       "wsl",
       "devices",
     ]);
+  });
+
+  describe("resolvePlatform", () => {
+    const available = ["cloud", "install", "wsl"] as const;
+
+    it("keeps a valid, available request", () => {
+      expect(resolvePlatform([...available], "wsl")).toBe("wsl");
+    });
+
+    it("falls back to servers for unknown or unavailable requests", () => {
+      expect(resolvePlatform([...available], "bogus")).toBe("install");
+      expect(resolvePlatform([...available], "devices")).toBe("install");
+      expect(resolvePlatform([...available], null)).toBe("install");
+    });
+
+    it("uses the first platform when servers are unavailable", () => {
+      expect(resolvePlatform(["cloud", "wsl"], null)).toBe("cloud");
+    });
+  });
+
+  describe("resolveArch", () => {
+    it("keeps an available request", () => {
+      expect(resolveArch(["x86_64", "aarch64"], "aarch64")).toBe("aarch64");
+    });
+
+    it("defaults to x86_64 rather than guessing", () => {
+      expect(resolveArch(["aarch64", "x86_64"], null)).toBe("x86_64");
+      expect(resolveArch(["aarch64", "x86_64"], "bogus")).toBe("x86_64");
+    });
+
+    it("uses the first architecture when x86_64 is unavailable", () => {
+      expect(resolveArch(["aarch64", "riscv64"], null)).toBe("aarch64");
+    });
+
+    it("returns undefined when nothing is available", () => {
+      expect(resolveArch([], null)).toBeUndefined();
+    });
   });
 });

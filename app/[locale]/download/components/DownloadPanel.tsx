@@ -47,39 +47,25 @@ const DownloadPanel = ({
   const t = useTranslations("download");
 
   const hintFor = (key: GroupKey, label: string): string | undefined => {
-    const labels = {
-      dvd: t("cards.defaultImages.downloadOptions.dvd"),
-      boot: t("cards.defaultImages.downloadOptions.boot"),
-      minimal: t("cards.defaultImages.downloadOptions.minimal"),
-      fullImage: t("cards.container.downloadOptions.fullImage"),
-      minimalImage: t("cards.container.downloadOptions.minimalImage"),
+    const byLabel: Partial<Record<GroupKey, Record<string, string>>> = {
+      defaultImages: {
+        [t("cards.defaultImages.downloadOptions.dvd")]: t("hints.dvd"),
+        [t("cards.defaultImages.downloadOptions.boot")]: t("hints.boot"),
+        [t("cards.defaultImages.downloadOptions.minimal")]: t("hints.minimal"),
+      },
+      containerImages: {
+        [t("cards.container.downloadOptions.fullImage")]: t("hints.fullImage"),
+        [t("cards.container.downloadOptions.minimalImage")]:
+          t("hints.minimalImage"),
+      },
     };
-    switch (key) {
-      case "defaultImages":
-        return label === labels.dvd
-          ? t("hints.dvd")
-          : label === labels.boot
-            ? t("hints.boot")
-            : label === labels.minimal
-              ? t("hints.minimal")
-              : undefined;
-      case "cloudImages":
-        return t("hints.qcow2");
-      case "containerImages":
-        return label === labels.fullImage
-          ? t("hints.fullImage")
-          : label === labels.minimalImage
-            ? t("hints.minimalImage")
-            : undefined;
-      case "wslImages":
-        return t("hints.wsl");
-      case "rpiImages":
-        return t("hints.rpi");
-      case "visionFive2Images":
-        return t("hints.visionfive2");
-      default:
-        return undefined;
-    }
+    const forGroup: Partial<Record<GroupKey, string>> = {
+      cloudImages: t("hints.qcow2"),
+      wslImages: t("hints.wsl"),
+      rpiImages: t("hints.rpi"),
+      visionFive2Images: t("hints.visionfive2"),
+    };
+    return byLabel[key]?.[label] ?? forGroup[key];
   };
 
   const groupTitle = (key: GroupKey): string | undefined => {

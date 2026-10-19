@@ -36,9 +36,7 @@ const DownloadRow = ({
       <Button
         asChild
         variant={primary ? "default" : "outline"}
-        className={
-          primary ? "w-full sm:w-44 sm:shrink-0" : "w-full sm:w-44 sm:shrink-0"
-        }
+        className="w-full sm:w-44 sm:shrink-0"
       >
         <a
           href={href}

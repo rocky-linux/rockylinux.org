@@ -8,9 +8,9 @@ import type { ProcessedArchitectures } from "@/utils/downloadDataProcessor";
 import {
   availableArchs,
   availablePlatforms,
-  isPlatformId,
   listReleases,
-  type PlatformId,
+  resolveArch,
+  resolvePlatform,
 } from "@/utils/downloadSelection";
 
 import DownloadPanel from "./DownloadPanel";
@@ -93,24 +93,10 @@ const DownloadWizard = ({ architectures }: DownloadWizardProps) => {
 
   if (!release) return null;
 
-  // Server admins are the main audience, so servers are the default platform
   const platforms = availablePlatforms(architectures, release.versionId);
-  const platform: PlatformId = isPlatformId(selection.platform)
-    ? platforms.includes(selection.platform)
-      ? selection.platform
-      : platforms[0]
-    : platforms.includes("install")
-      ? "install"
-      : platforms[0];
-
-  // The browser's architecture says nothing about the machine being deployed
-  // to, so x86_64 is the default rather than a guess from the user agent.
+  const platform = resolvePlatform(platforms, selection.platform);
   const archs = availableArchs(architectures, release.versionId, platform);
-  const arch = archs.includes(selection.arch ?? "")
-    ? (selection.arch ?? undefined)
-    : archs.includes("x86_64")
-      ? "x86_64"
-      : archs[0];
+  const arch = resolveArch(archs, selection.arch);
 
   return (
     <div className="mx-auto max-w-5xl space-y-12">

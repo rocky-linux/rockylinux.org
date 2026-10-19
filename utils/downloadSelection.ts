@@ -128,3 +128,30 @@ export function availablePlatforms(
 
 export const isPlatformId = (value: string | null): value is PlatformId =>
   PLATFORMS.some((p) => p.id === value);
+
+/**
+ * The platform to show: the requested one if this release offers it, else
+ * servers (the main audience), else the first available.
+ */
+export function resolvePlatform(
+  available: PlatformId[],
+  requested: string | null
+): PlatformId {
+  if (isPlatformId(requested) && available.includes(requested)) {
+    return requested;
+  }
+  return available.includes("install") ? "install" : available[0];
+}
+
+/**
+ * The architecture to show: the requested one if available, else x86_64.
+ * The visitor's browser architecture says nothing about the machine being
+ * deployed to, so it is deliberately not used.
+ */
+export function resolveArch(
+  available: string[],
+  requested: string | null
+): string | undefined {
+  if (requested && available.includes(requested)) return requested;
+  return available.includes("x86_64") ? "x86_64" : available[0];
+}
