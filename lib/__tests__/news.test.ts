@@ -19,6 +19,10 @@ jest.mock("fs", () => ({
   },
 }));
 
+jest.mock("image-size", () => ({
+  imageSize: jest.fn().mockReturnValue({ width: 1052, height: 240 }),
+}));
+
 // Tests
 
 describe("News Library", () => {
@@ -113,6 +117,98 @@ describe("News Library", () => {
     it("should throw an error if the post does not exist", async () => {
       const slug = "non-existent-post";
       await expect(newsLib.getPostData(slug)).rejects.toThrow();
+    });
+
+    it("should not include an image when the post has no image frontmatter", async () => {
+      const postData = await newsLib.getPostData("post1");
+      expect(postData).not.toHaveProperty("image");
+    });
+  });
+
+  describe("post images", () => {
+    const mockPostWithImage = (frontmatter: string) => {
+      jest.spyOn(fs.promises, "readFile").mockImplementation((filePath) => {
+        if (filePath.toString().endsWith(".md")) {
+          return Promise.resolve(
+            `---\ntitle: Post 1\ndate: "2022-01-01"\n${frontmatter}\n---\n\nPost 1 content`
+          );
+        }
+        return Promise.resolve(Buffer.from("image bytes"));
+      });
+    };
+
+    it("should resolve image frontmatter into dimensions and a dark variant", async () => {
+      mockPostWithImage(
+        'image: "/images/logos/opencourant.png"\nimageDark: "/images/logos/opencourant-dark.png"\nimageAlt: "OpenCourant Logo"\nimageWidth: 526'
+      );
+
+      const postData = await newsLib.getPostData("post1");
+
+      expect(postData.image).toStrictEqual({
+        src: "/images/logos/opencourant.png",
+        srcDark: "/images/logos/opencourant-dark.png",
+        alt: "OpenCourant Logo",
+        width: 1052,
+        height: 240,
+        displayWidth: 526,
+      });
+    });
+
+    it("should omit the dark variant, display width, and default the alt text", async () => {
+      mockPostWithImage('image: "/images/news/example.png"');
+
+      const postData = await newsLib.getPostData("post1");
+
+      expect(postData.image).toStrictEqual({
+        src: "/images/news/example.png",
+        alt: "",
+        width: 1052,
+        height: 240,
+      });
+    });
+
+    it("should not expose raw image frontmatter keys", async () => {
+      mockPostWithImage(
+        'image: "/images/news/example.png"\nimageDark: "/images/news/example-dark.png"\nimageAlt: "Example"'
+      );
+
+      const postData = await newsLib.getPostData("post1");
+
+      expect(postData).not.toHaveProperty("imageDark");
+      expect(postData).not.toHaveProperty("imageAlt");
+      expect(postData).not.toHaveProperty("imageWidth");
+    });
+
+    it("should skip the image when the file cannot be read", async () => {
+      jest.spyOn(fs.promises, "readFile").mockImplementation((filePath) => {
+        if (filePath.toString().endsWith(".md")) {
+          return Promise.resolve(
+            '---\ntitle: Post 1\ndate: "2022-01-01"\nimage: "/images/news/missing.png"\n---\n\nPost 1 content'
+          );
+        }
+        return Promise.reject(new Error("ENOENT"));
+      });
+
+      const warn = jest.spyOn(console, "warn").mockImplementation(() => {});
+
+      const postData = await newsLib.getPostData("post1");
+
+      expect(postData).not.toHaveProperty("image");
+      expect(warn).toHaveBeenCalled();
+
+      warn.mockRestore();
+    });
+
+    it("should skip the image when the path escapes the public directory", async () => {
+      mockPostWithImage('image: "/../../etc/passwd"');
+
+      const warn = jest.spyOn(console, "warn").mockImplementation(() => {});
+
+      const postData = await newsLib.getPostData("post1");
+
+      expect(postData).not.toHaveProperty("image");
+
+      warn.mockRestore();
     });
   });
 });
