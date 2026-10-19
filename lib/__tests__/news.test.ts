@@ -229,6 +229,69 @@ describe("News Library", () => {
       expect(postData.image?.srcDark).toBe("/images/news/example-dark.png");
     });
 
+    it("should coerce non-string frontmatter values instead of crashing", async () => {
+      mockPostWithImage('image: 123\nimageAlt: 456\nimageWidth: "526"');
+
+      const warn = jest.spyOn(console, "warn").mockImplementation(() => {});
+
+      const postData = await newsLib.getPostData("post1");
+
+      expect(postData.image).toStrictEqual({
+        src: "/123",
+        alt: "456",
+        width: 1052,
+        height: 240,
+        displayWidth: 526,
+      });
+
+      warn.mockRestore();
+    });
+
+    it("should drop an unusable imageWidth but keep the image", async () => {
+      mockPostWithImage(
+        'image: "/images/news/example.png"\nimageWidth: "wide"'
+      );
+
+      const warn = jest.spyOn(console, "warn").mockImplementation(() => {});
+
+      const postData = await newsLib.getPostData("post1");
+
+      expect(postData.image?.src).toBe("/images/news/example.png");
+      expect(postData.image).not.toHaveProperty("displayWidth");
+      expect(warn).toHaveBeenCalledWith(
+        expect.stringContaining('Ignoring invalid "imageWidth"')
+      );
+
+      warn.mockRestore();
+    });
+
+    it("should drop a non-positive imageWidth", async () => {
+      mockPostWithImage('image: "/images/news/example.png"\nimageWidth: 0');
+
+      const warn = jest.spyOn(console, "warn").mockImplementation(() => {});
+
+      const postData = await newsLib.getPostData("post1");
+
+      expect(postData.image).not.toHaveProperty("displayWidth");
+
+      warn.mockRestore();
+    });
+
+    it("should drop an image whose path is not a scalar", async () => {
+      mockPostWithImage("image:\n  nested: true");
+
+      const warn = jest.spyOn(console, "warn").mockImplementation(() => {});
+
+      const postData = await newsLib.getPostData("post1");
+
+      expect(postData).not.toHaveProperty("image");
+      expect(warn).toHaveBeenCalledWith(
+        expect.stringContaining('Ignoring invalid "image"')
+      );
+
+      warn.mockRestore();
+    });
+
     it("should not expose raw image frontmatter keys", async () => {
       mockPostWithImage(
         'image: "/images/news/example.png"\nimageDark: "/images/news/example-dark.png"\nimageAlt: "Example"'

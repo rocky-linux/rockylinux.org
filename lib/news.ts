@@ -3,6 +3,7 @@ import path from "path";
 
 import matter from "gray-matter";
 import { imageSize } from "image-size";
+import { z } from "zod";
 import { processMarkdownAsHTML } from "@/utils/remarkUtils";
 
 const postsDirectory = path.join(process.cwd(), "news");
@@ -28,15 +29,48 @@ export type Post = {
   image?: PostImage;
 };
 
+// Only the fields passed through to `Post` untouched. The content repo's CI
+// validates `title` and `date`; the image fields below are author-written YAML
+// and are validated here instead of trusted.
 type PostFrontmatter = {
   date: string;
   title: string;
   author?: string;
-  image?: string;
-  imageDark?: string;
-  imageAlt?: string;
-  imageWidth?: number;
 };
+
+// YAML yields whatever the author typed, so `imageAlt: 123` arrives as a number
+// and `image: 123` as a number. Both used to reach string methods and return
+// 500 — for the whole feed, in the alt case. Accept scalars, coerce to the type
+// the renderer needs, and drop anything else with a warning.
+const scalar = z.union([z.string(), z.number(), z.boolean()]);
+const imagePathSchema = scalar.transform(String).pipe(z.string().trim().min(1));
+const imageAltSchema = scalar.transform(String);
+const imageWidthSchema = z
+  .union([z.string(), z.number()])
+  .transform(Number)
+  .pipe(z.number().finite().positive());
+
+// Each field is parsed independently so one bad value does not discard the rest.
+function parseFrontmatterField<T>(
+  schema: z.ZodType<T>,
+  value: unknown,
+  field: string
+): T | undefined {
+  if (value === undefined || value === null) {
+    return undefined;
+  }
+
+  const result = schema.safeParse(value);
+
+  if (!result.success) {
+    console.warn(
+      `Ignoring invalid "${field}" in post frontmatter: ${result.error.issues[0].message}`
+    );
+    return undefined;
+  }
+
+  return result.data;
+}
 
 // Paths are root-relative to `public`, but authors write them with and without
 // the leading slash. Consumers cannot take the bare form: `next/image` throws
@@ -98,13 +132,15 @@ async function resolveDarkVariant(
 }
 
 async function resolvePostImage(
-  frontmatter: PostFrontmatter
+  data: Record<string, unknown>
 ): Promise<PostImage | undefined> {
-  if (!frontmatter.image) {
+  const rawSrc = parseFrontmatterField(imagePathSchema, data.image, "image");
+
+  if (!rawSrc) {
     return undefined;
   }
 
-  const src = normalizeImagePath(frontmatter.image);
+  const src = normalizeImagePath(rawSrc);
   const dimensions = await getImageDimensions(src);
 
   if (!dimensions) {
@@ -112,28 +148,37 @@ async function resolvePostImage(
     return undefined;
   }
 
-  const srcDark = await resolveDarkVariant(frontmatter.imageDark, dimensions);
+  const srcDark = await resolveDarkVariant(
+    parseFrontmatterField(imagePathSchema, data.imageDark, "imageDark"),
+    dimensions
+  );
+  const displayWidth = parseFrontmatterField(
+    imageWidthSchema,
+    data.imageWidth,
+    "imageWidth"
+  );
 
   return {
     src,
     ...(srcDark ? { srcDark } : {}),
-    alt: frontmatter.imageAlt ?? "",
+    alt: parseFrontmatterField(imageAltSchema, data.imageAlt, "imageAlt") ?? "",
     ...dimensions,
-    ...(frontmatter.imageWidth ? { displayWidth: frontmatter.imageWidth } : {}),
+    ...(displayWidth ? { displayWidth } : {}),
   };
 }
 
 async function buildPost(slug: string, fileContents: string): Promise<Post> {
   const matterResult = matter(fileContents);
-  const data = matterResult.data as PostFrontmatter;
+  const data = matterResult.data as Record<string, unknown>;
 
   const {
     image: _image,
     imageDark: _imageDark,
     imageAlt: _imageAlt,
     imageWidth: _imageWidth,
-    ...frontmatter
+    ...rest
   } = data;
+  const frontmatter = rest as PostFrontmatter;
 
   const contentHtml = await processMarkdownAsHTML(matterResult.content);
   const plainText = contentHtml.replace(/<[^>]*>/g, "");
