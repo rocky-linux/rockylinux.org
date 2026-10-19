@@ -4,11 +4,7 @@ import Date from "@/components/Date";
 import PostImage from "@/components/PostImage";
 import ShareButtons from "@/components/shareButtons/ShareButtons";
 
-import {
-  checkIfSlugIsValid,
-  getPostData,
-  type Post as NewsPost,
-} from "@/lib/news";
+import { checkIfSlugIsValid, getPostData, type Post } from "@/lib/news";
 import { absoluteUrl, alternatesForPath } from "@/lib/seo";
 import { safeJsonLdStringify } from "@/utils/jsonLd";
 import { notFound } from "next/navigation";
@@ -23,8 +19,6 @@ export type Props = {
   params: Promise<Params>;
 };
 
-export type PostData = NewsPost;
-
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
 
@@ -34,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const postData: PostData = await getPostData(slug);
+  const postData: Post = await getPostData(slug);
   const url = `https://rockylinux.org/news/${slug}`;
   const author = postData.author || "Rocky Linux Team";
 
@@ -65,7 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function Post({ params }: Props) {
+export default async function PostPage({ params }: Props) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
 
@@ -73,7 +67,7 @@ export default async function Post({ params }: Props) {
     notFound();
   }
 
-  const postData: PostData = await getPostData(slug);
+  const postData: Post = await getPostData(slug);
   const author = postData.author || "Rocky Linux Team";
 
   const jsonLd = {

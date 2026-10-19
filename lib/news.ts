@@ -55,6 +55,38 @@ async function getImageDimensions(src: string) {
   }
 }
 
+// The dark variant is optional, so a broken one drops only itself and leaves
+// the light image to render on both themes.
+async function resolveDarkVariant(
+  src: string | undefined,
+  lightDimensions: { width: number; height: number }
+) {
+  if (!src) {
+    return undefined;
+  }
+
+  const dimensions = await getImageDimensions(src);
+
+  if (!dimensions) {
+    console.warn(`Could not resolve dark post image "${src}"`);
+    return undefined;
+  }
+
+  // Both variants render at the light image's dimensions, so a mismatch would
+  // distort the dark one.
+  if (
+    dimensions.width !== lightDimensions.width ||
+    dimensions.height !== lightDimensions.height
+  ) {
+    console.warn(
+      `Dark post image "${src}" is ${dimensions.width}x${dimensions.height}, ` +
+        `but the light variant is ${lightDimensions.width}x${lightDimensions.height}`
+    );
+  }
+
+  return src;
+}
+
 async function resolvePostImage(
   frontmatter: PostFrontmatter
 ): Promise<PostImage | undefined> {
@@ -69,9 +101,11 @@ async function resolvePostImage(
     return undefined;
   }
 
+  const srcDark = await resolveDarkVariant(frontmatter.imageDark, dimensions);
+
   return {
     src: frontmatter.image,
-    ...(frontmatter.imageDark ? { srcDark: frontmatter.imageDark } : {}),
+    ...(srcDark ? { srcDark } : {}),
     alt: frontmatter.imageAlt ?? "",
     ...dimensions,
     ...(frontmatter.imageWidth ? { displayWidth: frontmatter.imageWidth } : {}),

@@ -3,6 +3,7 @@ import * as newsLib from "../news";
 // Mocks
 import fs, { Dirent } from "fs";
 import path from "path";
+import { imageSize } from "image-size";
 import "@/utils/remarkUtils";
 
 jest.mock("@/utils/remarkUtils", () => ({
@@ -165,6 +166,56 @@ describe("News Library", () => {
         width: 1052,
         height: 240,
       });
+    });
+
+    it("should drop only the dark variant when its file cannot be read", async () => {
+      jest.spyOn(fs.promises, "readFile").mockImplementation((filePath) => {
+        const target = filePath.toString();
+        if (target.endsWith(".md")) {
+          return Promise.resolve(
+            '---\ntitle: Post 1\ndate: "2022-01-01"\nimage: "/images/news/example.png"\nimageDark: "/images/news/missing-dark.png"\n---\n\nPost 1 content'
+          );
+        }
+        if (target.endsWith("missing-dark.png")) {
+          return Promise.reject(new Error("ENOENT"));
+        }
+        return Promise.resolve(Buffer.from("image bytes"));
+      });
+
+      const warn = jest.spyOn(console, "warn").mockImplementation(() => {});
+
+      const postData = await newsLib.getPostData("post1");
+
+      expect(postData.image).toStrictEqual({
+        src: "/images/news/example.png",
+        alt: "",
+        width: 1052,
+        height: 240,
+      });
+      expect(warn).toHaveBeenCalledWith(
+        expect.stringContaining("missing-dark.png")
+      );
+
+      warn.mockRestore();
+    });
+
+    it("should keep the dark variant but warn when its dimensions differ", async () => {
+      mockPostWithImage(
+        'image: "/images/news/example.png"\nimageDark: "/images/news/example-dark.png"'
+      );
+
+      (imageSize as jest.Mock)
+        .mockReturnValueOnce({ width: 1052, height: 240 })
+        .mockReturnValueOnce({ width: 800, height: 200 });
+
+      const warn = jest.spyOn(console, "warn").mockImplementation(() => {});
+
+      const postData = await newsLib.getPostData("post1");
+
+      expect(postData.image?.srcDark).toBe("/images/news/example-dark.png");
+      expect(warn).toHaveBeenCalledWith(expect.stringContaining("800x200"));
+
+      warn.mockRestore();
     });
 
     it("should not expose raw image frontmatter keys", async () => {

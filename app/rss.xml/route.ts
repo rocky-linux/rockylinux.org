@@ -1,6 +1,7 @@
 import RSS from "rss";
 import { getSortedPostsData, type Post } from "@/lib/news";
 import { absoluteUrl } from "@/lib/seo";
+import { escapeHtmlAttribute } from "@/utils/html";
 
 // Feed readers cannot apply the site's theme, so only the light variant is used.
 function contentWithImage(post: Post) {
@@ -9,9 +10,8 @@ function contentWithImage(post: Post) {
   }
 
   const { src, alt, width, height } = post.image;
-  const escapedAlt = alt.replace(/"/g, "&quot;");
 
-  return `<p><img src="${absoluteUrl(src)}" alt="${escapedAlt}" width="${width}" height="${height}" /></p>${post.contentHtml}`;
+  return `<p><img src="${escapeHtmlAttribute(absoluteUrl(src))}" alt="${escapeHtmlAttribute(alt)}" width="${width}" height="${height}" /></p>${post.contentHtml}`;
 }
 
 export async function GET() {
