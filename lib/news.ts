@@ -15,7 +15,7 @@ export type PostImage = {
   alt: string;
   width: number;
   height: number;
-  /** Caps the rendered width in CSS pixels. Defaults to the full content column. */
+  /** Caps the rendered width in CSS pixels. Defaults to the content column. */
   displayWidth?: number;
 };
 
@@ -29,19 +29,15 @@ export type Post = {
   image?: PostImage;
 };
 
-// Only the fields passed through to `Post` untouched. The content repo's CI
-// validates `title` and `date`; the image fields below are author-written YAML
-// and are validated here instead of trusted.
+// Fields passed through to `Post` untouched. Image fields are validated below.
 type PostFrontmatter = {
   date: string;
   title: string;
   author?: string;
 };
 
-// YAML yields whatever the author typed, so `imageAlt: 123` arrives as a number
-// and `image: 123` as a number. Both used to reach string methods and return
-// 500 — for the whole feed, in the alt case. Accept scalars, coerce to the type
-// the renderer needs, and drop anything else with a warning.
+// YAML yields whatever the author typed, so coerce scalars rather than trusting
+// the declared types; unparseable values would otherwise reach string methods.
 const scalar = z.union([z.string(), z.number(), z.boolean()]);
 const imagePathSchema = scalar.transform(String).pipe(z.string().trim().min(1));
 const imageAltSchema = scalar.transform(String);
@@ -50,7 +46,7 @@ const imageWidthSchema = z
   .transform(Number)
   .pipe(z.number().finite().positive());
 
-// Each field is parsed independently so one bad value does not discard the rest.
+// Parsed per field so one bad value does not discard the rest.
 function parseFrontmatterField<T>(
   schema: z.ZodType<T>,
   value: unknown,
@@ -72,17 +68,12 @@ function parseFrontmatterField<T>(
   return result.data;
 }
 
-// Paths are root-relative to `public`, but authors write them with and without
-// the leading slash. Consumers cannot take the bare form: `next/image` throws
-// on it and `absoluteUrl` would join it straight onto the origin, so a single
-// missing slash returns 500 for the whole post. Normalize instead of rejecting,
-// since both forms clearly mean the same file.
+// `next/image` throws and `absoluteUrl` malforms without the leading slash.
 function normalizeImagePath(src: string) {
   return src.startsWith("/") ? src : `/${src}`;
 }
 
-// Returns undefined for unreadable files so a bad reference in the content
-// repo drops the image instead of failing the build.
+// Undefined for unreadable files, so a bad reference drops the image.
 async function getImageDimensions(src: string) {
   const fullPath = path.join(publicDirectory, src);
 
@@ -98,8 +89,7 @@ async function getImageDimensions(src: string) {
   }
 }
 
-// The dark variant is optional, so a broken one drops only itself and leaves
-// the light image to render on both themes.
+// A broken dark variant drops only itself; the light image serves both themes.
 async function resolveDarkVariant(
   rawSrc: string | undefined,
   lightDimensions: { width: number; height: number }
@@ -116,8 +106,7 @@ async function resolveDarkVariant(
     return undefined;
   }
 
-  // Both variants render at the light image's dimensions, so a mismatch would
-  // distort the dark one.
+  // Both render at the light image's dimensions, so a mismatch distorts.
   if (
     dimensions.width !== lightDimensions.width ||
     dimensions.height !== lightDimensions.height
