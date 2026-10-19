@@ -3,6 +3,7 @@ import * as newsLib from "../news";
 // Mocks
 import fs, { Dirent } from "fs";
 import path from "path";
+import { imageSize } from "image-size";
 import "@/utils/remarkUtils";
 
 jest.mock("@/utils/remarkUtils", () => ({
@@ -165,6 +166,130 @@ describe("News Library", () => {
         width: 1052,
         height: 240,
       });
+    });
+
+    it("should drop only the dark variant when its file cannot be read", async () => {
+      jest.spyOn(fs.promises, "readFile").mockImplementation((filePath) => {
+        const target = filePath.toString();
+        if (target.endsWith(".md")) {
+          return Promise.resolve(
+            '---\ntitle: Post 1\ndate: "2022-01-01"\nimage: "/images/news/example.png"\nimageDark: "/images/news/missing-dark.png"\n---\n\nPost 1 content'
+          );
+        }
+        if (target.endsWith("missing-dark.png")) {
+          return Promise.reject(new Error("ENOENT"));
+        }
+        return Promise.resolve(Buffer.from("image bytes"));
+      });
+
+      const warn = jest.spyOn(console, "warn").mockImplementation(() => {});
+
+      const postData = await newsLib.getPostData("post1");
+
+      expect(postData.image).toStrictEqual({
+        src: "/images/news/example.png",
+        alt: "",
+        width: 1052,
+        height: 240,
+      });
+      expect(warn).toHaveBeenCalledWith(
+        expect.stringContaining("missing-dark.png")
+      );
+
+      warn.mockRestore();
+    });
+
+    it("should keep the dark variant but warn when its dimensions differ", async () => {
+      mockPostWithImage(
+        'image: "/images/news/example.png"\nimageDark: "/images/news/example-dark.png"'
+      );
+
+      (imageSize as jest.Mock)
+        .mockReturnValueOnce({ width: 1052, height: 240 })
+        .mockReturnValueOnce({ width: 800, height: 200 });
+
+      const warn = jest.spyOn(console, "warn").mockImplementation(() => {});
+
+      const postData = await newsLib.getPostData("post1");
+
+      expect(postData.image?.srcDark).toBe("/images/news/example-dark.png");
+      expect(warn).toHaveBeenCalledWith(expect.stringContaining("800x200"));
+
+      warn.mockRestore();
+    });
+
+    it("should add a leading slash to paths written without one", async () => {
+      mockPostWithImage(
+        'image: "images/news/example.png"\nimageDark: "images/news/example-dark.png"'
+      );
+
+      const postData = await newsLib.getPostData("post1");
+
+      expect(postData.image?.src).toBe("/images/news/example.png");
+      expect(postData.image?.srcDark).toBe("/images/news/example-dark.png");
+    });
+
+    it("should coerce non-string frontmatter values instead of crashing", async () => {
+      mockPostWithImage('image: 123\nimageAlt: 456\nimageWidth: "526"');
+
+      const warn = jest.spyOn(console, "warn").mockImplementation(() => {});
+
+      const postData = await newsLib.getPostData("post1");
+
+      expect(postData.image).toStrictEqual({
+        src: "/123",
+        alt: "456",
+        width: 1052,
+        height: 240,
+        displayWidth: 526,
+      });
+
+      warn.mockRestore();
+    });
+
+    it("should drop an unusable imageWidth but keep the image", async () => {
+      mockPostWithImage(
+        'image: "/images/news/example.png"\nimageWidth: "wide"'
+      );
+
+      const warn = jest.spyOn(console, "warn").mockImplementation(() => {});
+
+      const postData = await newsLib.getPostData("post1");
+
+      expect(postData.image?.src).toBe("/images/news/example.png");
+      expect(postData.image).not.toHaveProperty("displayWidth");
+      expect(warn).toHaveBeenCalledWith(
+        expect.stringContaining('Ignoring invalid "imageWidth"')
+      );
+
+      warn.mockRestore();
+    });
+
+    it("should drop a non-positive imageWidth", async () => {
+      mockPostWithImage('image: "/images/news/example.png"\nimageWidth: 0');
+
+      const warn = jest.spyOn(console, "warn").mockImplementation(() => {});
+
+      const postData = await newsLib.getPostData("post1");
+
+      expect(postData.image).not.toHaveProperty("displayWidth");
+
+      warn.mockRestore();
+    });
+
+    it("should drop an image whose path is not a scalar", async () => {
+      mockPostWithImage("image:\n  nested: true");
+
+      const warn = jest.spyOn(console, "warn").mockImplementation(() => {});
+
+      const postData = await newsLib.getPostData("post1");
+
+      expect(postData).not.toHaveProperty("image");
+      expect(warn).toHaveBeenCalledWith(
+        expect.stringContaining('Ignoring invalid "image"')
+      );
+
+      warn.mockRestore();
     });
 
     it("should not expose raw image frontmatter keys", async () => {

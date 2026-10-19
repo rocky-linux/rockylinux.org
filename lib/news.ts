@@ -3,6 +3,7 @@ import path from "path";
 
 import matter from "gray-matter";
 import { imageSize } from "image-size";
+import { z } from "zod";
 import { processMarkdownAsHTML } from "@/utils/remarkUtils";
 
 const postsDirectory = path.join(process.cwd(), "news");
@@ -14,7 +15,7 @@ export type PostImage = {
   alt: string;
   width: number;
   height: number;
-  /** Caps the rendered width in CSS pixels. Defaults to the full content column. */
+  /** Caps the rendered width in CSS pixels. Defaults to the content column. */
   displayWidth?: number;
 };
 
@@ -28,18 +29,51 @@ export type Post = {
   image?: PostImage;
 };
 
+// Fields passed through to `Post` untouched. Image fields are validated below.
 type PostFrontmatter = {
   date: string;
   title: string;
   author?: string;
-  image?: string;
-  imageDark?: string;
-  imageAlt?: string;
-  imageWidth?: number;
 };
 
-// Returns undefined for unreadable files so a bad reference in the content
-// repo drops the image instead of failing the build.
+// YAML yields whatever the author typed, so coerce scalars rather than trusting
+// the declared types; unparseable values would otherwise reach string methods.
+const scalar = z.union([z.string(), z.number(), z.boolean()]);
+const imagePathSchema = scalar.transform(String).pipe(z.string().trim().min(1));
+const imageAltSchema = scalar.transform(String);
+const imageWidthSchema = z
+  .union([z.string(), z.number()])
+  .transform(Number)
+  .pipe(z.number().finite().positive());
+
+// Parsed per field so one bad value does not discard the rest.
+function parseFrontmatterField<T>(
+  schema: z.ZodType<T>,
+  value: unknown,
+  field: string
+): T | undefined {
+  if (value === undefined || value === null) {
+    return undefined;
+  }
+
+  const result = schema.safeParse(value);
+
+  if (!result.success) {
+    console.warn(
+      `Ignoring invalid "${field}" in post frontmatter: ${result.error.issues[0].message}`
+    );
+    return undefined;
+  }
+
+  return result.data;
+}
+
+// `next/image` throws and `absoluteUrl` malforms without the leading slash.
+function normalizeImagePath(src: string) {
+  return src.startsWith("/") ? src : `/${src}`;
+}
+
+// Undefined for unreadable files, so a bad reference drops the image.
 async function getImageDimensions(src: string) {
   const fullPath = path.join(publicDirectory, src);
 
@@ -55,40 +89,85 @@ async function getImageDimensions(src: string) {
   }
 }
 
-async function resolvePostImage(
-  frontmatter: PostFrontmatter
-): Promise<PostImage | undefined> {
-  if (!frontmatter.image) {
+// A broken dark variant drops only itself; the light image serves both themes.
+async function resolveDarkVariant(
+  rawSrc: string | undefined,
+  lightDimensions: { width: number; height: number }
+) {
+  if (!rawSrc) {
     return undefined;
   }
 
-  const dimensions = await getImageDimensions(frontmatter.image);
+  const src = normalizeImagePath(rawSrc);
+  const dimensions = await getImageDimensions(src);
 
   if (!dimensions) {
-    console.warn(`Could not resolve post image "${frontmatter.image}"`);
+    console.warn(`Could not resolve dark post image "${src}"`);
     return undefined;
   }
 
+  // Both render at the light image's dimensions, so a mismatch distorts.
+  if (
+    dimensions.width !== lightDimensions.width ||
+    dimensions.height !== lightDimensions.height
+  ) {
+    console.warn(
+      `Dark post image "${src}" is ${dimensions.width}x${dimensions.height}, ` +
+        `but the light variant is ${lightDimensions.width}x${lightDimensions.height}`
+    );
+  }
+
+  return src;
+}
+
+async function resolvePostImage(
+  data: Record<string, unknown>
+): Promise<PostImage | undefined> {
+  const rawSrc = parseFrontmatterField(imagePathSchema, data.image, "image");
+
+  if (!rawSrc) {
+    return undefined;
+  }
+
+  const src = normalizeImagePath(rawSrc);
+  const dimensions = await getImageDimensions(src);
+
+  if (!dimensions) {
+    console.warn(`Could not resolve post image "${src}"`);
+    return undefined;
+  }
+
+  const srcDark = await resolveDarkVariant(
+    parseFrontmatterField(imagePathSchema, data.imageDark, "imageDark"),
+    dimensions
+  );
+  const displayWidth = parseFrontmatterField(
+    imageWidthSchema,
+    data.imageWidth,
+    "imageWidth"
+  );
+
   return {
-    src: frontmatter.image,
-    ...(frontmatter.imageDark ? { srcDark: frontmatter.imageDark } : {}),
-    alt: frontmatter.imageAlt ?? "",
+    src,
+    ...(srcDark ? { srcDark } : {}),
+    alt: parseFrontmatterField(imageAltSchema, data.imageAlt, "imageAlt") ?? "",
     ...dimensions,
-    ...(frontmatter.imageWidth ? { displayWidth: frontmatter.imageWidth } : {}),
+    ...(displayWidth ? { displayWidth } : {}),
   };
 }
 
 async function buildPost(slug: string, fileContents: string): Promise<Post> {
   const matterResult = matter(fileContents);
-  const data = matterResult.data as PostFrontmatter;
+  const data = matterResult.data as Record<string, unknown>;
 
   const {
     image: _image,
     imageDark: _imageDark,
     imageAlt: _imageAlt,
     imageWidth: _imageWidth,
-    ...frontmatter
+    ...rest
   } = data;
+  const frontmatter = rest as PostFrontmatter;
 
   const contentHtml = await processMarkdownAsHTML(matterResult.content);
   const plainText = contentHtml.replace(/<[^>]*>/g, "");
