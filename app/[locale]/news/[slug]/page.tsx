@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 
 import Date from "@/components/Date";
+import PostImage from "@/components/PostImage";
 import ShareButtons from "@/components/shareButtons/ShareButtons";
 
-import { checkIfSlugIsValid, getPostData } from "@/lib/news";
-import { alternatesForPath } from "@/lib/seo";
+import {
+  checkIfSlugIsValid,
+  getPostData,
+  type Post as NewsPost,
+} from "@/lib/news";
+import { absoluteUrl, alternatesForPath } from "@/lib/seo";
 import { safeJsonLdStringify } from "@/utils/jsonLd";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
@@ -18,13 +23,7 @@ export type Props = {
   params: Promise<Params>;
 };
 
-export type PostData = {
-  title: string;
-  date: string;
-  author?: string;
-  contentHtml: string;
-  excerpt: string;
-};
+export type PostData = NewsPost;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
@@ -51,6 +50,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       publishedTime: postData.date,
       authors: [author],
+      ...(postData.image && {
+        images: [
+          {
+            url: absoluteUrl(postData.image.src),
+            width: postData.image.width,
+            height: postData.image.height,
+            alt: postData.image.alt || postData.title,
+          },
+        ],
+      }),
     },
     alternates: alternatesForPath(locale, `/news/${slug}`),
   };
@@ -73,6 +82,7 @@ export default async function Post({ params }: Props) {
     headline: postData.title,
     description: postData.excerpt,
     datePublished: postData.date,
+    ...(postData.image && { image: [absoluteUrl(postData.image.src)] }),
     author: {
       "@type": "Person",
       name: author,
@@ -105,6 +115,7 @@ export default async function Post({ params }: Props) {
           <p className="text-base leading-7 text-center mb-12 italic">
             {author}
           </p>
+          {postData.image && <PostImage image={postData.image} />}
           <div
             className="prose dark:prose-invert prose-headings:font-display prose-a:text-primary prose-pre:bg-muted prose-pre:py-3 prose-pre:px-4 prose-pre:rounded prose-pre:text-black dark:prose-pre:text-white prose-img:rounded-md max-w-none mb-12"
             dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
