@@ -4,6 +4,15 @@ import type { Metadata } from "next";
 const BASE_URL = "https://rockylinux.org";
 
 /**
+ * Builds a full URL for a root-relative path.
+ * Metadata consumed by crawlers (OpenGraph, JSON-LD) must be absolute, and the
+ * app does not set a `metadataBase`.
+ */
+export function absoluteUrl(path: string): string {
+  return `${BASE_URL}${path}`;
+}
+
+/**
  * Builds a full URL for a given locale and path.
  * English (default locale) has no prefix; others use `/{locale}{path}`.
  */
