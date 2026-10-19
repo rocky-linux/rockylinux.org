@@ -37,9 +37,7 @@ const DownloadRow = ({
         asChild
         variant={primary ? "default" : "outline"}
         className={
-          primary
-            ? "w-full sm:w-44 sm:shrink-0 bg-green-600 hover:bg-green-700 dark:text-white"
-            : "w-full sm:w-44 sm:shrink-0"
+          primary ? "w-full sm:w-44 sm:shrink-0" : "w-full sm:w-44 sm:shrink-0"
         }
       >
         <a

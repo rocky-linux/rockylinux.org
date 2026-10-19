@@ -201,6 +201,9 @@ const DownloadPanel = ({
   };
 
   const archLabel = (a: string) => t(`tabs.${a}`);
+  const singleArchLabel = arch
+    ? `${t("results.architecture")}: ${archLabel(arch)}`
+    : "";
 
   return (
     <div className="rounded-2xl border bg-card p-4 sm:p-8">
@@ -262,9 +265,7 @@ const DownloadPanel = ({
               </p>
             </div>
           ) : (
-            <p className="text-sm text-muted-foreground">
-              {`${t("results.architecture")}: ${archLabel(arch)}`}
-            </p>
+            <p className="text-sm text-muted-foreground">{singleArchLabel}</p>
           )}
           {archs.map((a) => (
             <TabsContent

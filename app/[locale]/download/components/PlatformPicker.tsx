@@ -61,13 +61,13 @@ const PlatformPicker = ({
               className={cn(
                 "flex h-full items-start gap-3 rounded-xl border-2 bg-card p-4 transition-colors",
                 "hover:border-muted-foreground/50 peer-focus-visible:ring-2 peer-focus-visible:ring-ring peer-focus-visible:ring-offset-2",
-                checked && "border-green-600 bg-green-600/5"
+                checked && "border-primary bg-primary/5"
               )}
             >
               <Icon
                 className={cn(
                   "mt-0.5 size-6 shrink-0",
-                  checked ? "text-green-600" : "text-muted-foreground"
+                  checked ? "text-primary" : "text-muted-foreground"
                 )}
               />
               <span className="flex flex-col gap-1">

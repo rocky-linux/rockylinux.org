@@ -23,7 +23,7 @@ const NextSteps = () => {
           <li key={id}>
             <a
               href={href}
-              className="block h-full rounded-xl border bg-card p-4 transition-colors hover:border-green-600 focus-visible:outline-2 focus-visible:outline-ring"
+              className="block h-full rounded-xl border bg-card p-4 transition-colors hover:border-primary focus-visible:outline-2 focus-visible:outline-ring"
             >
               <span className="block font-display font-bold">
                 {t(`${id}.title`)}

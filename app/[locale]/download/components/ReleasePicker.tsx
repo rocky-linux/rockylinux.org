@@ -43,7 +43,7 @@ const ReleasePicker = ({
               className={cn(
                 "flex h-full flex-col gap-1 rounded-xl border-2 bg-card p-4 transition-colors",
                 "hover:border-muted-foreground/50 peer-focus-visible:ring-2 peer-focus-visible:ring-ring peer-focus-visible:ring-offset-2",
-                checked && "border-green-600 bg-green-600/5"
+                checked && "border-primary bg-primary/5"
               )}
             >
               <span className="flex items-center justify-between gap-2">
@@ -54,7 +54,7 @@ const ReleasePicker = ({
                   className={cn(
                     "rounded-full px-2 py-0.5 text-xs font-semibold",
                     index === 0
-                      ? "bg-green-600 text-white"
+                      ? "bg-primary text-primary-foreground"
                       : "bg-muted text-muted-foreground"
                   )}
                 >
