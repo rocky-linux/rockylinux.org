@@ -38,6 +38,15 @@ type PostFrontmatter = {
   imageWidth?: number;
 };
 
+// Paths are root-relative to `public`, but authors write them with and without
+// the leading slash. Consumers cannot take the bare form: `next/image` throws
+// on it and `absoluteUrl` would join it straight onto the origin, so a single
+// missing slash returns 500 for the whole post. Normalize instead of rejecting,
+// since both forms clearly mean the same file.
+function normalizeImagePath(src: string) {
+  return src.startsWith("/") ? src : `/${src}`;
+}
+
 // Returns undefined for unreadable files so a bad reference in the content
 // repo drops the image instead of failing the build.
 async function getImageDimensions(src: string) {
@@ -58,13 +67,14 @@ async function getImageDimensions(src: string) {
 // The dark variant is optional, so a broken one drops only itself and leaves
 // the light image to render on both themes.
 async function resolveDarkVariant(
-  src: string | undefined,
+  rawSrc: string | undefined,
   lightDimensions: { width: number; height: number }
 ) {
-  if (!src) {
+  if (!rawSrc) {
     return undefined;
   }
 
+  const src = normalizeImagePath(rawSrc);
   const dimensions = await getImageDimensions(src);
 
   if (!dimensions) {
@@ -94,17 +104,18 @@ async function resolvePostImage(
     return undefined;
   }
 
-  const dimensions = await getImageDimensions(frontmatter.image);
+  const src = normalizeImagePath(frontmatter.image);
+  const dimensions = await getImageDimensions(src);
 
   if (!dimensions) {
-    console.warn(`Could not resolve post image "${frontmatter.image}"`);
+    console.warn(`Could not resolve post image "${src}"`);
     return undefined;
   }
 
   const srcDark = await resolveDarkVariant(frontmatter.imageDark, dimensions);
 
   return {
-    src: frontmatter.image,
+    src,
     ...(srcDark ? { srcDark } : {}),
     alt: frontmatter.imageAlt ?? "",
     ...dimensions,

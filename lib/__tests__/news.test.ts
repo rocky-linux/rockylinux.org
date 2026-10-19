@@ -218,6 +218,17 @@ describe("News Library", () => {
       warn.mockRestore();
     });
 
+    it("should add a leading slash to paths written without one", async () => {
+      mockPostWithImage(
+        'image: "images/news/example.png"\nimageDark: "images/news/example-dark.png"'
+      );
+
+      const postData = await newsLib.getPostData("post1");
+
+      expect(postData.image?.src).toBe("/images/news/example.png");
+      expect(postData.image?.srcDark).toBe("/images/news/example-dark.png");
+    });
+
     it("should not expose raw image frontmatter keys", async () => {
       mockPostWithImage(
         'image: "/images/news/example.png"\nimageDark: "/images/news/example-dark.png"\nimageAlt: "Example"'
