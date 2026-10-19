@@ -1,16 +1,16 @@
 import { Suspense } from "react";
 import { useTranslations } from "next-intl";
 
-import TabsClient from "./TabsClient";
+import DownloadWizard from "./DownloadWizard";
 import { processArchitecturesData } from "@/utils/downloadDataProcessor";
 
 import type { DownloadData } from "@/types/downloads";
 
-interface DownloadTabsProps {
+interface DownloadExperienceProps {
   downloadData: DownloadData;
 }
 
-const DownloadTabs = ({ downloadData }: DownloadTabsProps) => {
+const DownloadExperience = ({ downloadData }: DownloadExperienceProps) => {
   const t = useTranslations("download");
 
   // Pre-process translations on server side for client component
@@ -27,7 +27,6 @@ const DownloadTabs = ({ downloadData }: DownloadTabsProps) => {
         t(`tabs.shortened.${arch}`),
       ])
     ),
-    selectArchitecture: t("selectArchitecture"),
     cards: {
       defaultImages: {
         title: t("cards.defaultImages.title"),
@@ -95,12 +94,9 @@ const DownloadTabs = ({ downloadData }: DownloadTabsProps) => {
     <Suspense
       fallback={<div className="animate-pulse h-96 bg-muted rounded-lg" />}
     >
-      <TabsClient
-        architectures={processedArchitectures}
-        translations={translations}
-      />
+      <DownloadWizard architectures={processedArchitectures} />
     </Suspense>
   );
 };
 
-export default DownloadTabs;
+export default DownloadExperience;

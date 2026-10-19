@@ -5,10 +5,10 @@ const ExportCompliance = () => {
   const t = useTranslations("download");
 
   return (
-    <div className="mt-6">
-      <h2 className="text-lg font-bold font-display tracking-tight sm:text-xl">
+    <details className="mt-6">
+      <summary className="cursor-pointer text-lg font-bold font-display tracking-tight sm:text-xl">
         {t("exportCompliance.title")}
-      </h2>
+      </summary>
       <p className="mt-2 text-sm">{t("exportCompliance.text1")}</p>
       <p className="mt-1 text-sm">{t("exportCompliance.text2")}</p>
       <p className="mt-1 text-sm">{t("exportCompliance.narrative")}</p>
@@ -46,7 +46,7 @@ const ExportCompliance = () => {
           </TableRow>
         </TableBody>
       </Table>
-    </div>
+    </details>
   );
 };
 
