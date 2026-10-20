@@ -1,7 +1,7 @@
 import type { DownloadData, UrlEntry } from "@/types/downloads";
 
 // Type for processed version data
-interface ProcessedVersion {
+export interface ProcessedVersion {
   versionName: string;
   versionId: string;
   currentVersion: string;
@@ -37,7 +37,10 @@ interface ProcessedVersion {
 }
 
 // Type for processed architectures data
-type ProcessedArchitectures = Record<string, { versions: ProcessedVersion[] }>;
+export type ProcessedArchitectures = Record<
+  string,
+  { versions: ProcessedVersion[] }
+>;
 
 // Type for the translations object
 interface DownloadTranslations {

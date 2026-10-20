@@ -1,7 +1,8 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import downloadData from "@/data/downloads.json";
 
-import DownloadTabs from "./components/Tabs";
+import DownloadExperience from "./components/DownloadExperience";
+import NextSteps from "./components/NextSteps";
 import GetInvolved from "./components/get-involved";
 import ExportCompliance from "./components/export-compliance";
 
@@ -37,13 +38,18 @@ const DownloadPage = async ({ params }: Props) => {
       <div className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl font-bold font-display tracking-tight sm:text-4xl">
+            <h1 className="text-3xl font-bold font-display tracking-tight sm:text-5xl">
               {t("title")}
-            </h2>
-            <p className="mt-2 text-lg leading-8">{t("description")}</p>
+            </h1>
+            <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">
+              {t("description")}
+            </p>
           </div>
-          <div className="mx-auto mt-10 border-t pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none">
-            <DownloadTabs downloadData={typedDownloadData} />
+          <div className="mt-10 sm:mt-14">
+            <DownloadExperience downloadData={typedDownloadData} />
+          </div>
+          <div className="mx-auto mt-16 max-w-5xl">
+            <NextSteps />
           </div>
           <hr className="my-8" />
           <GetInvolved />
