@@ -1,0 +1,1663 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Downloads Page Concepts</title>
+<meta name="description" content="Four interactive concepts for the rockylinux.org downloads page redesign, in light and dark mode.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Red+Hat+Display:wght@700;800&amp;display=swap">
+<style>
+  :root { --s-bg: #f4f4f5; --s-fg: #09090b; --s-card: #ffffff; --s-mfg: #52525b; --s-border: #d4d4d8; --s-pri: #065f46; --s-on-pri: #ffffff; --s-ring: #047857; --s-warn-bg: #fffbeb; --s-warn-fg: #713f12; color-scheme: light; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --s-bg: #0c0a09; --s-fg: #f2f2f2; --s-card: #1c1917; --s-mfg: #b4b4bb; --s-border: #3f3f46; --s-pri: #34d399; --s-on-pri: #052e16; --s-ring: #34d399; --s-warn-bg: #292524; --s-warn-fg: #fde68a; color-scheme: dark; }
+  }
+  :root[data-theme="dark"] { --s-bg: #0c0a09; --s-fg: #f2f2f2; --s-card: #1c1917; --s-mfg: #b4b4bb; --s-border: #3f3f46; --s-pri: #34d399; --s-on-pri: #052e16; --s-ring: #34d399; --s-warn-bg: #292524; --s-warn-fg: #fde68a; color-scheme: dark; }
+  html, body { margin: 0; }
+  body { background: var(--s-bg); color: var(--s-fg); font: 16px/1.5 'Inter', ui-sans-serif, system-ui, sans-serif; }
+  .shell { position: sticky; top: 0; z-index: 10; background: var(--s-card); border-bottom: 1px solid var(--s-border); }
+  .shell-in { max-width: 1280px; margin: 0 auto; padding: 12px 16px; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; }
+  .shell h1 { margin: 0; font: 800 20px/1.2 'Red Hat Display', ui-sans-serif, sans-serif; }
+  .grp { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .grp-label { font-weight: 600; font-size: 14px; }
+  .seg { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 12px; border: 1px solid var(--s-border); background: var(--s-bg); }
+  .seg button { min-height: 44px; min-width: 44px; padding: 8px 14px; border: 0; border-radius: 9px; background: transparent; color: var(--s-fg); font: 500 15px/1.2 'Inter', sans-serif; cursor: pointer; }
+  .seg button[aria-pressed="true"] { background: var(--s-pri); color: var(--s-on-pri); font-weight: 700; }
+  .shell :focus-visible, .intro :focus-visible { outline: 3px solid var(--s-ring); outline-offset: 2px; }
+  .intro { max-width: 1280px; margin: 0 auto; padding: 20px 16px 8px; display: flex; flex-direction: column; gap: 8px; }
+  .intro h2 { margin: 0; font: 800 28px/1.2 'Red Hat Display', sans-serif; }
+  .intro p { margin: 0; max-width: 80ch; }
+  .intro .muted { color: var(--s-mfg); }
+  .note { background: var(--s-warn-bg); color: var(--s-warn-fg); border: 1px solid var(--s-border); border-radius: 12px; padding: 10px 14px; font-size: 15px; }
+  .stage { padding: 16px 0 48px; display: flex; justify-content: center; }
+  .stage.phone .frame { width: 390px; border: 1px solid var(--s-border); border-radius: 24px; overflow: hidden; }
+  .frame { width: 100%; max-width: 1280px; }
+  @media (max-width: 700px) { .shell { position: static; } }
+  .sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    body { margin: 0; background: transparent; }
+    .rl { --bg: #ffffff; --fg: #09090b; --card: #ffffff; --muted: #f4f4f5; --mfg: #52525b; --border: #e4e4e7; --control: #71717a; --pri: #065f46; --on-pri: #ffffff; --pri-hover: #064e3b; --link: #065f46; --ring: #047857; --brand: #10b981; --soft: #ecfdf5; --soft-fg: #065f46; --shadow: 0 1px 2px rgba(9, 9, 11, 0.06), 0 8px 24px rgba(9, 9, 11, 0.06);
+      font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; font-size: 16px; line-height: 1.5; color: var(--fg); background: var(--bg); container-type: inline-size; box-sizing: border-box; }
+    .rl.dark { --bg: #0c0a09; --fg: #f2f2f2; --card: #1c1917; --muted: #262626; --mfg: #b4b4bb; --border: #292524; --control: #8a8a93; --pri: #34d399; --on-pri: #052e16; --pri-hover: #6ee7b7; --link: #6ee7b7; --ring: #34d399; --soft: #022c22; --soft-fg: #6ee7b7; --shadow: none; }
+    .rl *, .rl *::before, .rl *::after { box-sizing: border-box; }
+    .rl h1, .rl h2, .rl h3, .rl h4 { font-family: 'Red Hat Display', ui-sans-serif, system-ui, sans-serif; margin: 0; letter-spacing: -0.01em; line-height: 1.2; }
+    .rl p { margin: 0; }
+    .rl a { color: var(--link); text-underline-offset: 3px; }
+    .rl a:hover { text-decoration-thickness: 2px; }
+    .rl :focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
+    .rl code, .rl .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; min-width: 44px; padding: 10px 18px; border-radius: 12px; font: 600 16px/1.25 'Inter', ui-sans-serif, system-ui, sans-serif; text-decoration: none; cursor: pointer; border: 1px solid transparent; white-space: nowrap; }
+    .rl a.btn { text-decoration: none; }
+    .rl .btn-pri { background: var(--pri); color: var(--on-pri); }
+    .rl .btn-pri:hover { background: var(--pri-hover); }
+    .rl .btn-out { background: var(--card); color: var(--fg); border-color: var(--control); }
+    .rl .btn-out:hover { background: var(--muted); }
+    .rl .btn-ghost { background: transparent; color: var(--fg); }
+    .rl .btn-ghost:hover { background: var(--muted); }
+    .btn-lg { min-height: 56px; padding: 14px 28px; font-size: 18px; }
+    .btn-sm { padding: 8px 12px; font-size: 14px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); }
+    .muted { color: var(--mfg); }
+    .badge { display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px; border-radius: 999px; font: 600 14px/1.6 'Inter', sans-serif; background: var(--soft); color: var(--soft-fg); white-space: nowrap; }
+    .badge-out { background: transparent; border: 1px solid var(--control); color: var(--fg); }
+    .label { font: 600 14px/1.4 'Inter', sans-serif; color: var(--fg); }
+    .selectwrap { position: relative; display: flex; }
+    .select { appearance: none; -webkit-appearance: none; width: 100%; min-height: 44px; padding: 8px 40px 8px 12px; border-radius: 12px; border: 1px solid var(--control); background: var(--card); color: var(--fg); font: 500 16px/1.25 'Inter', sans-serif; cursor: pointer; }
+    .selectwrap svg { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); pointer-events: none; color: var(--fg); }
+    .tabs { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 14px; background: var(--muted); }
+    .tab { min-height: 44px; padding: 8px 16px; border-radius: 10px; border: 0; background: transparent; color: var(--mfg); font: 500 16px/1.25 'Inter', sans-serif; cursor: pointer; }
+    .tab:hover { color: var(--fg); }
+    .tab[aria-selected="true"], .tab[aria-pressed="true"] { background: var(--card); color: var(--fg); font-weight: 700; box-shadow: inset 0 -3px 0 var(--pri); }
+    .code { display: flex; align-items: center; gap: 8px; background: var(--muted); border: 1px solid var(--border); border-radius: 12px; padding: 4px 4px 4px 14px; font-size: 15px; }
+    .code code { flex: 1 1 auto; min-width: 0; overflow-x: auto; white-space: nowrap; padding: 8px 0; color: var(--fg); }
+    details.acc { border-top: 1px solid var(--border); }
+    details.acc:last-of-type { border-bottom: 1px solid var(--border); }
+    details.acc > summary { list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; padding: 12px 4px; cursor: pointer; }
+    details.acc > summary::-webkit-details-marker { display: none; }
+    details.acc > summary .chev { transition: transform 0.2s ease-out; flex: none; }
+    details.acc[open] > summary .chev { transform: rotate(180deg); }
+    .accbody { padding: 0 4px 24px; display: flex; flex-direction: column; gap: 16px; }
+    .linkrow { display: flex; flex-wrap: wrap; gap: 0 24px; }
+    .linkrow a { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-size: 16px; }
+    .row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 16px 0; border-top: 1px solid var(--border); }
+    .row:first-child { border-top: 0; }
+    .sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    .rl table { border-collapse: collapse; width: 100%; }
+    .rl th, .rl td { text-align: left; padding: 14px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    .rl th { font: 600 14px/1.4 'Inter', sans-serif; color: var(--mfg); }
+    .choice { display: flex; flex-direction: column; gap: 8px; padding: 20px; border-radius: 16px; border: 2px solid var(--border); background: var(--card); cursor: pointer; text-align: left; color: var(--fg); font: inherit; min-height: 44px; }
+    .choice:hover { border-color: var(--control); }
+    .choice[aria-checked="true"], .choice[aria-pressed="true"] { border-color: var(--pri); background: var(--soft); }
+    .meter { height: 8px; border-radius: 999px; background: var(--muted); border: 1px solid var(--control); overflow: hidden; }
+    .meter > span { display: block; height: 100%; background: var(--pri); }
+    @container (max-width: 760px) {
+      .stack-sm { flex-direction: column !important; align-items: stretch !important; }
+      .grid-sm { grid-template-columns: minmax(0, 1fr) !important; }
+      .row { grid-template-columns: minmax(0, 1fr); }
+      .row .btn { width: 100%; }
+      .hide-sm { display: none !important; }
+      .full-sm { width: 100% !important; }
+      .pad-sm { padding-left: 16px !important; padding-right: 16px !important; }
+      .h1-sm { font-size: 36px !important; }
+      .h2-sm { font-size: 28px !important; }
+      .rl .tabs { display: flex; }
+      .rl .tabs .tab { flex: 1 1 auto; }
+    }
+    @media (prefers-reduced-motion: reduce) { .rl * { transition: none !important; } }
+
+/* UseCase */
+.choice .ico { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: var(--muted); color: var(--fg); }
+    .choice[aria-pressed="true"] .ico { background: var(--pri); color: var(--on-pri); }
+    .choice:disabled { cursor: not-allowed; border-style: dashed; background: transparent; }
+/* CompareVersions */
+.vcard[data-selected="true"] { border: 2px solid var(--pri); }
+    @container (max-width: 760px) {
+      .rtable thead { display: none; }
+      .rtable tr { display: flex; flex-direction: column; gap: 8px; padding: 16px 0; border-bottom: 1px solid var(--border); }
+      .rtable td { display: block; padding: 0; border: 0; }
+      .rtable td .btn { width: 100%; }
+    }
+</style>
+</head>
+<body>
+<header class="shell">
+  <div class="shell-in">
+    <h1>Downloads page concepts</h1>
+    <div class="grp" role="group" aria-labelledby="g-concept"><span class="grp-label" id="g-concept">Concept</span><div class="seg" id="concepts"></div></div>
+    <div class="grp" role="group" aria-labelledby="g-theme"><span class="grp-label" id="g-theme">Theme</span><div class="seg" id="themes"></div></div>
+    <div class="grp" role="group" aria-labelledby="g-width"><span class="grp-label" id="g-width">Width</span><div class="seg" id="widths"></div></div>
+  </div>
+</header>
+<section class="intro" aria-live="polite">
+  <h2 id="concept-title"></h2>
+  <p id="concept-desc" class="muted"></p>
+  <p class="note">Mockup for discussion. Download buttons point at real mirrors and will start full-size downloads. The AWS AMI link is a placeholder.</p>
+</section>
+<main class="stage" id="stage"><div class="frame" id="frame"></div></main>
+
+<template id="tpl-Recommended">
+<div id="top" class="{{rootClass}}" style="width: {{w}}px; min-height: {{minh}}px;">
+<header class="pad-sm" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 32px; border-bottom: 1px solid var(--border); background: var(--bg);">
+  <a href="#top" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: var(--fg); text-decoration: none; font-family: 'Red Hat Display', ui-sans-serif, sans-serif; font-weight: 800; font-size: 20px;">
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="14" style="fill: var(--brand);"></circle><path d="M5 20 L11 11 L15 16 L18 13 L23 20 Z" style="fill: var(--bg);"></path></svg>
+    Rocky Linux
+  </a>
+  <button type="button" class="btn btn-ghost" onClick="{{toggleTheme}}" aria-label="{{themeLabel}}" style="padding: 10px;">
+    <template data-if="dark">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+    </template>
+    <template data-if="light">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+    </template>
+  </button>
+</header>
+
+<main class="pad-sm" style="display: flex; flex-direction: column; gap: 56px; max-width: 1200px; margin: 0 auto; padding: 64px 64px 96px;">
+
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center;">
+    <h1 class="h1-sm" style="font-size: 52px; font-weight: 800;">Download Rocky Linux</h1>
+    <p class="muted" style="font-size: 18px; max-width: 60ch;">Free, open, enterprise-grade Linux. Start with the recommended download, or pick another image below.</p>
+  </div>
+
+  <section class="card grid-sm pad-sm" aria-labelledby="rec-title" style="display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 40px; padding: 40px;">
+    <div style="display: flex; flex-direction: column; gap: 24px;">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <span class="badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg> Recommended for most people</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <h2 id="rec-title" class="h2-sm" style="font-size: 44px; font-weight: 800;">Rocky Linux {{latest.cur}}</h2>
+        <p class="muted" style="font-size: 17px;">DVD ISO for {{archLabel}} · Supported until {{latest.eol}}</p>
+      </div>
+      <div class="stack-sm" style="display: flex; flex-wrap: wrap; gap: 12px;">
+        <a class="btn btn-pri btn-lg" href="{{dvd.url}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg> Download {{dvd.name}}</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px; max-width: 340px;" class="full-sm">
+        <label class="label" for="arch-a">Architecture <span class="muted" style="font-weight: 400;">(detected automatically)</span></label>
+        <div class="selectwrap">
+          <select id="arch-a" class="select" value="{{arch}}" onChange="{{onArch}}">
+            <option value="x86_64">AMD/Intel (x86_64)</option>
+            <option value="aarch64">ARM (aarch64)</option>
+            <option value="ppc64le">PowerPC (ppc64le)</option>
+            <option value="s390x">IBM Z (s390x)</option>
+            <option value="riscv64">RISC-V (riscv64)</option>
+          </select>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+        </div>
+      </div>
+      <nav aria-label="Download resources" class="linkrow">
+        <template data-if="links.torrent"><a href="{{links.torrent}}">Torrent</a></template>
+        <a href="{{links.checksum}}">CHECKSUM</a>
+        <a href="#verify-a">How to verify</a>
+        <a href="https://docs.rockylinux.org/guides/installation/">Installation guide</a>
+      </nav>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 4px; padding: 24px; border-radius: 12px; background: var(--muted);">
+      <h3 style="font-size: 20px; font-weight: 700; padding-bottom: 8px;">Which ISO do I need?</h3>
+      <template data-for="isos" data-as="iso">
+        <div class="row">
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <span style="font-weight: 700;">{{iso.name}}</span>
+            <span class="muted" style="font-size: 15px;">{{iso.desc}}</span>
+          </div>
+          <a class="btn btn-out btn-sm" href="{{iso.url}}" aria-label="Download {{iso.name}}">Download</a>
+        </div>
+      </template>
+    </div>
+  </section>
+
+  <section aria-labelledby="more-title" style="display: flex; flex-direction: column; gap: 16px;">
+    <div class="stack-sm" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 8px; flex-wrap: wrap;">
+      <h2 id="more-title" class="h2-sm" style="font-size: 32px; font-weight: 700;">More ways to get Rocky Linux</h2>
+      <p class="muted">Showing images for {{archLabel}}</p>
+    </div>
+    <div>
+      <template data-if="hasOlder">
+        <details class="acc">
+          <summary>
+            <span style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-family: 'Red Hat Display', sans-serif; font-weight: 700; font-size: 20px;">Other supported versions</span>
+              <span class="muted" style="font-size: 15px;">{{olderSummary}}</span>
+            </span>
+            <svg class="chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+          </summary>
+          <div class="accbody">
+            <template data-for="older" data-as="v">
+              <div class="card" style="display: flex; flex-direction: column; gap: 12px; padding: 20px; box-shadow: none;">
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: baseline;">
+                  <h3 style="font-size: 20px; font-weight: 700;">Rocky Linux {{v.cur}}</h3>
+                  <span class="muted" style="font-size: 15px;">Supported until {{v.eol}}</span>
+                </div>
+                <div class="stack-sm" style="display: flex; flex-wrap: wrap; gap: 8px;">
+                  <template data-for="v.isos" data-as="iso">
+                    <a class="btn btn-out" href="{{iso.url}}" aria-label="{{iso.aria}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg> {{iso.name}}</a>
+                  </template>
+                </div>
+                <div class="linkrow">
+                  <template data-if="v.torrent"><a href="{{v.torrent}}" aria-label="Torrent for Rocky Linux {{v.cur}}">Torrent</a></template>
+                  <a href="{{v.checksum}}" aria-label="CHECKSUM for Rocky Linux {{v.cur}}">CHECKSUM</a>
+                </div>
+              </div>
+            </template>
+            <p>Need an older point release? Browse <a href="https://dl.rockylinux.org/vault/rocky">archived releases</a>.</p>
+          </div>
+        </details>
+      </template>
+
+      <template data-if="hasCloud">
+        <details class="acc">
+          <summary>
+            <span style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-family: 'Red Hat Display', sans-serif; font-weight: 700; font-size: 20px;">Cloud and virtual machine images</span>
+              <span class="muted" style="font-size: 15px;">Generic Cloud (QCOW2), AWS, Google Cloud and Azure</span>
+            </span>
+            <svg class="chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+          </summary>
+          <div class="accbody">
+            <div class="row" style="padding-top: 0;">
+              <div style="display: flex; flex-direction: column; gap: 2px;">
+                <span style="font-weight: 700;">Generic Cloud · QCOW2</span>
+                <span class="muted" style="font-size: 15px;">For KVM, OpenStack and other cloud-init platforms. <a href="{{cloudChecksum}}" aria-label="CHECKSUM for Generic Cloud image">CHECKSUM</a></span>
+              </div>
+              <a class="btn btn-out" href="{{cloudUrl}}" aria-label="Download QCOW2 image"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg> Download QCOW2</a>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <span style="font-weight: 700;">Cloud providers</span>
+              <div class="stack-sm" style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <a class="btn btn-out" href="#aws-amis">AWS AMI list</a>
+                <a class="btn btn-out" href="https://console.cloud.google.com/marketplace/browse?filter=partner:Rocky%20Linux">Google Cloud <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg><span class="sr">(opens external site)</span></a>
+                <a class="btn btn-out" href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/resf.rockylinux-x86_64">Microsoft Azure <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg><span class="sr">(opens external site)</span></a>
+              </div>
+            </div>
+          </div>
+        </details>
+      </template>
+
+      <template data-if="hasContainers">
+        <details class="acc">
+          <summary>
+            <span style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-family: 'Red Hat Display', sans-serif; font-weight: 700; font-size: 20px;">Container images</span>
+              <span class="muted" style="font-size: 15px;">Full and minimal OCI images for Podman or Docker</span>
+            </span>
+            <svg class="chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+          </summary>
+          <div class="accbody">
+            <template data-for="containers" data-as="c">
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <span style="font-weight: 700;">{{c.label}}</span>
+                <div class="code">
+                  <code>{{c.cmd}}</code>
+                  <button type="button" class="btn btn-ghost btn-sm" onClick="{{c.copy}}" aria-label="{{c.aria}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"></path></svg> {{c.copyText}}</button>
+                </div>
+              </div>
+            </template>
+            <p><a href="{{containerTags}}">Browse all tags on Docker Hub</a></p>
+          </div>
+        </details>
+      </template>
+
+      <template data-if="hasLive">
+        <details class="acc">
+          <summary>
+            <span style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-family: 'Red Hat Display', sans-serif; font-weight: 700; font-size: 20px;">Live desktop images</span>
+              <span class="muted" style="font-size: 15px;">Try a desktop from USB before you install</span>
+            </span>
+            <svg class="chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+          </summary>
+          <div class="accbody">
+            <div class="stack-sm" style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <template data-for="live" data-as="l">
+                <a class="btn btn-out" href="{{l.url}}" aria-label="Download {{l.name}} live image"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg> {{l.name}}</a>
+              </template>
+            </div>
+            <p><a href="{{liveChecksums}}">CHECKSUM files for live images</a></p>
+          </div>
+        </details>
+      </template>
+
+      <template data-if="hasWsl">
+        <details class="acc">
+          <summary>
+            <span style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-family: 'Red Hat Display', sans-serif; font-weight: 700; font-size: 20px;">Windows Subsystem for Linux (WSL)</span>
+              <span class="muted" style="font-size: 15px;">Run Rocky Linux inside Windows</span>
+            </span>
+            <svg class="chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+          </summary>
+          <div class="accbody">
+            <div class="stack-sm" style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+              <a class="btn btn-out" href="{{wsl.download}}" aria-label="Download WSL image"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg> Download WSL image</a>
+              <div class="linkrow">
+                <a href="{{wsl.checksum}}" aria-label="CHECKSUM for WSL image">CHECKSUM</a>
+                <a href="{{wsl.readMe}}">WSL setup guide</a>
+              </div>
+            </div>
+          </div>
+        </details>
+      </template>
+
+      <template data-if="hasBoards">
+        <details class="acc">
+          <summary>
+            <span style="display: flex; flex-direction: column; gap: 2px;">
+              <span style="font-family: 'Red Hat Display', sans-serif; font-weight: 700; font-size: 20px;">Single-board computers</span>
+              <span class="muted" style="font-size: 15px;">{{boardSummary}}</span>
+            </span>
+            <svg class="chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+          </summary>
+          <div class="accbody">
+            <template data-for="boards" data-as="b">
+              <div class="row">
+                <div style="display: flex; flex-direction: column; gap: 2px;">
+                  <span style="font-weight: 700;">{{b.name}}</span>
+                  <template data-if="b.checksum"><a href="{{b.checksum}}" aria-label="CHECKSUM for {{b.name}}" style="font-size: 15px;">CHECKSUM</a></template>
+                </div>
+                <a class="btn btn-out" href="{{b.url}}" aria-label="Download {{b.name}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg> Download</a>
+              </div>
+            </template>
+          </div>
+        </details>
+      </template>
+
+      <details class="acc" id="verify-a">
+        <summary>
+          <span style="display: flex; flex-direction: column; gap: 2px;">
+            <span style="font-family: 'Red Hat Display', sans-serif; font-weight: 700; font-size: 20px;">Verify your download</span>
+            <span class="muted" style="font-size: 15px;">Check that your image downloaded completely and was not changed</span>
+          </span>
+          <svg class="chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+        </summary>
+        <div class="accbody" style="max-width: 80ch;">
+          <ol style="margin: 0; padding-left: 24px; display: flex; flex-direction: column; gap: 16px;">
+            <li>Download the <a href="{{links.checksum}}">CHECKSUM</a> file into the same folder as your ISO.</li>
+            <li style="display: flex; flex-direction: column; gap: 8px;">
+              <span>Run the command for your system:</span>
+              <template data-for="verify" data-as="c">
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                  <span class="muted" style="font-size: 15px;">{{c.label}}</span>
+                  <div class="code">
+                    <code>{{c.cmd}}</code>
+                    <button type="button" class="btn btn-ghost btn-sm" onClick="{{c.copy}}" aria-label="{{c.aria}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"></path></svg> {{c.copyText}}</button>
+                  </div>
+                </div>
+              </template>
+            </li>
+            <li>On Linux, look for <strong>OK</strong> next to the file name. On Windows, compare the hash with the one in the CHECKSUM file.</li>
+          </ol>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="card grid-sm" aria-labelledby="involved-title" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: center; padding: 32px;">
+    <div style="display: flex; flex-direction: column; gap: 8px; max-width: 72ch;">
+      <h2 id="involved-title" style="font-size: 24px; font-weight: 700;">Get involved</h2>
+      <p>As you download and use Rocky Linux, the Rocky Enterprise Software Foundation invites you to be a part of the community as a contributor. There are many ways to contribute to the project, from documentation, QA, and testing to coding changes for SIGs, providing mirroring or hosting, and helping other users.</p>
+    </div>
+    <a class="btn btn-out" href="/contribute">Ways to contribute</a>
+  </section>
+  <details class="acc">
+    <summary>
+      <span style="display: flex; flex-direction: column; gap: 2px;">
+        <span style="font-family: 'Red Hat Display', ui-sans-serif, sans-serif; font-weight: 700; font-size: 18px;">Export compliance and customs information</span>
+        <span class="muted" style="font-size: 15px;">By downloading Rocky Linux software, you acknowledge these terms.</span>
+      </span>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+    </summary>
+    <div class="accbody" style="max-width: 80ch;">
+      <p>By downloading Rocky Linux software, you acknowledge that you understand all of the following:</p>
+      <p>Rocky Linux software and technical information may be subject to the U.S. Export Administration Regulations (the "EAR") and other U.S. and foreign laws and may not be exported, re-exported or transferred (a) to a prohibited destination country under the EAR or U.S. sanctions regulations (currently Cuba, Iran, North Korea, Sudan, Syria, and the Crimea Region of Ukraine, subject to change as posted by the United States government); (b) to any prohibited destination or to any end user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government; or (c) for use in connection with the design, development or production of nuclear, chemical or biological weapons, or rocket systems, space launch vehicles, or sounding rockets, or unmanned air vehicle systems.</p>
+      <p>Rocky Linux in source code and binary code form is publicly available and is not subject to the EAR in accordance with §740.17(b)(1).</p>
+      <table>
+        <caption class="sr">Export classification</caption>
+        <tbody>
+          <tr><th scope="row">Product</th><td>Rocky Linux. Includes Rocky Linux Project "Special Interest Group" repositories.</td></tr>
+          <tr><th scope="row">ECCN</th><td>5D992.c</td></tr>
+          <tr><th scope="row">License Exception</th><td>Mass Market §740.17(b)(1)</td></tr>
+          <tr><th scope="row">CCATS</th><td>N/A</td></tr>
+          <tr><th scope="row">ERN</th><td>N/A</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+  <p class="sr" aria-live="polite">{{announce}}</p>
+
+</main>
+</div>
+</template>
+<template id="tpl-SelectorBar">
+<div id="top" class="{{rootClass}}" style="width: {{w}}px; min-height: {{minh}}px;">
+<header class="pad-sm" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 32px; border-bottom: 1px solid var(--border); background: var(--bg);">
+  <a href="#top" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: var(--fg); text-decoration: none; font-family: 'Red Hat Display', ui-sans-serif, sans-serif; font-weight: 800; font-size: 20px;">
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="14" style="fill: var(--brand);"></circle><path d="M5 20 L11 11 L15 16 L18 13 L23 20 Z" style="fill: var(--bg);"></path></svg>
+    Rocky Linux
+  </a>
+  <button type="button" class="btn btn-ghost" onClick="{{toggleTheme}}" aria-label="{{themeLabel}}" style="padding: 10px;">
+    <template data-if="dark">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+    </template>
+    <template data-if="light">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+    </template>
+  </button>
+</header>
+
+<main class="pad-sm" style="display: flex; flex-direction: column; gap: 32px; max-width: 1200px; margin: 0 auto; padding: 64px 64px 96px;">
+
+  <div style="display: flex; flex-direction: column; gap: 12px;">
+    <h1 class="h1-sm" style="font-size: 52px; font-weight: 800;">Download Rocky Linux</h1>
+    <p class="muted" style="font-size: 18px; max-width: 64ch;">Choose a version, architecture and image type. We picked the most common options for you.</p>
+  </div>
+
+  <form class="card grid-sm pad-sm" aria-label="Choose your download" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; padding: 20px 24px;">
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <label class="label" for="sb-version">Version</label>
+      <div class="selectwrap">
+        <select id="sb-version" class="select" value="{{verId}}" onChange="{{onVer}}">
+          <option value="10">Rocky Linux 10 (latest)</option>
+          <option value="9">Rocky Linux 9</option>
+          <option value="8" disabled="{{no8}}">Rocky Linux 8</option>
+        </select>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <label class="label" for="sb-arch">Architecture</label>
+      <div class="selectwrap">
+        <select id="sb-arch" class="select" value="{{arch}}" onChange="{{onArch}}">
+          <option value="x86_64">AMD/Intel (x86_64)</option>
+          <option value="aarch64">ARM (aarch64)</option>
+          <option value="ppc64le">PowerPC (ppc64le)</option>
+          <option value="s390x">IBM Z (s390x)</option>
+          <option value="riscv64">RISC-V (riscv64)</option>
+        </select>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <label class="label" for="sb-type">Image type</label>
+      <div class="selectwrap">
+        <select id="sb-type" class="select" value="{{type}}" onChange="{{onType}}">
+          <option value="iso">Installation ISO</option>
+          <option value="live" disabled="{{off.live}}">Live desktop</option>
+          <option value="cloud" disabled="{{off.cloud}}">Cloud or virtual machine</option>
+          <option value="container" disabled="{{off.container}}">Container</option>
+          <option value="wsl" disabled="{{off.wsl}}">Windows (WSL)</option>
+          <option value="sbc" disabled="{{off.sbc}}">Single-board computer</option>
+        </select>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+      </div>
+    </div>
+    <p class="muted" style="grid-column: 1 / -1; font-size: 15px;">Unavailable combinations are disabled. Architecture was detected from your browser.</p>
+  </form>
+
+  <section class="card grid-sm pad-sm" aria-labelledby="result-title" style="display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 40px; padding: 36px;">
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span class="badge">Rocky Linux {{ver.cur}}</span>
+          <span class="badge badge-out">{{archLabel}}</span>
+        </div>
+        <h2 id="result-title" class="h2-sm" style="font-size: 32px; font-weight: 800; padding-top: 8px;">{{res.title}}</h2>
+        <p class="muted" style="font-size: 17px;">{{res.lede}} Supported until {{ver.eol}}.</p>
+      </div>
+      <template data-if="res.hasItems">
+        <div>
+          <template data-for="res.items" data-as="it">
+            <div class="row">
+              <div style="display: flex; flex-direction: column; gap: 2px;">
+                <span style="font-weight: 700; font-size: 17px;">{{it.name}}</span>
+                <span class="muted" style="font-size: 15px;">{{it.desc}}</span>
+              </div>
+              <template data-if="it.primary"><a class="btn btn-pri" href="{{it.url}}" aria-label="{{it.aria}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg> Download</a></template>
+              <template data-if="it.secondary"><a class="btn btn-out" href="{{it.url}}" aria-label="{{it.aria}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg> Download</a></template>
+            </div>
+          </template>
+        </div>
+      </template>
+      <template data-if="res.hasCmds">
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <template data-for="res.cmds" data-as="c">
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <span style="font-weight: 700;">{{c.label}}</span>
+              <div class="code">
+                <code>{{c.cmd}}</code>
+                <button type="button" class="btn btn-ghost btn-sm" onClick="{{c.copy}}" aria-label="{{c.aria}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"></path></svg> {{c.copyText}}</button>
+              </div>
+            </div>
+          </template>
+        </div>
+      </template>
+      <template data-if="res.providers">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-weight: 700;">Launch from a cloud provider</span>
+          <div class="stack-sm" style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <a class="btn btn-out" href="#aws-amis">AWS AMI list</a>
+            <a class="btn btn-out" href="https://console.cloud.google.com/marketplace/browse?filter=partner:Rocky%20Linux">Google Cloud <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg><span class="sr">(opens external site)</span></a>
+            <a class="btn btn-out" href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/resf.rockylinux-x86_64">Microsoft Azure <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg><span class="sr">(opens external site)</span></a>
+          </div>
+        </div>
+      </template>
+      <template data-if="res.hasLinks">
+        <nav aria-label="More download options" class="linkrow">
+          <template data-for="res.links" data-as="l"><a href="{{l.url}}">{{l.label}}</a></template>
+        </nav>
+      </template>
+    </div>
+
+    <aside aria-labelledby="help-title" style="display: flex; flex-direction: column; gap: 16px; padding: 24px; border-radius: 12px; background: var(--muted); align-self: start;">
+      <h3 id="help-title" style="font-size: 20px; font-weight: 700; display: flex; align-items: center; gap: 8px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path><path d="m9 12 2 2 4-4"></path></svg> Before you install</h3>
+      <template data-if="res.canVerify">
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <p>Check your download against the <a href="{{res.checksum}}">CHECKSUM</a> file. Save it in the same folder, then run:</p>
+          <template data-for="res.verify" data-as="c">
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <span class="muted" style="font-size: 15px;">{{c.label}}</span>
+              <div class="code" style="background: var(--card);">
+                <code>{{c.cmd}}</code>
+                <button type="button" class="btn btn-ghost btn-sm" onClick="{{c.copy}}" aria-label="{{c.aria}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"></path></svg> {{c.copyText}}</button>
+              </div>
+            </div>
+          </template>
+        </div>
+      </template>
+      <div class="linkrow" style="flex-direction: column; gap: 0;">
+        <a href="https://docs.rockylinux.org/guides/installation/">Installation guide</a>
+        <a href="https://docs.rockylinux.org/release_notes/">Release notes</a>
+      </div>
+    </aside>
+  </section>
+
+
+  <section class="card grid-sm" aria-labelledby="involved-title" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: center; padding: 32px;">
+    <div style="display: flex; flex-direction: column; gap: 8px; max-width: 72ch;">
+      <h2 id="involved-title" style="font-size: 24px; font-weight: 700;">Get involved</h2>
+      <p>As you download and use Rocky Linux, the Rocky Enterprise Software Foundation invites you to be a part of the community as a contributor. There are many ways to contribute to the project, from documentation, QA, and testing to coding changes for SIGs, providing mirroring or hosting, and helping other users.</p>
+    </div>
+    <a class="btn btn-out" href="/contribute">Ways to contribute</a>
+  </section>
+  <details class="acc">
+    <summary>
+      <span style="display: flex; flex-direction: column; gap: 2px;">
+        <span style="font-family: 'Red Hat Display', ui-sans-serif, sans-serif; font-weight: 700; font-size: 18px;">Export compliance and customs information</span>
+        <span class="muted" style="font-size: 15px;">By downloading Rocky Linux software, you acknowledge these terms.</span>
+      </span>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+    </summary>
+    <div class="accbody" style="max-width: 80ch;">
+      <p>By downloading Rocky Linux software, you acknowledge that you understand all of the following:</p>
+      <p>Rocky Linux software and technical information may be subject to the U.S. Export Administration Regulations (the "EAR") and other U.S. and foreign laws and may not be exported, re-exported or transferred (a) to a prohibited destination country under the EAR or U.S. sanctions regulations (currently Cuba, Iran, North Korea, Sudan, Syria, and the Crimea Region of Ukraine, subject to change as posted by the United States government); (b) to any prohibited destination or to any end user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government; or (c) for use in connection with the design, development or production of nuclear, chemical or biological weapons, or rocket systems, space launch vehicles, or sounding rockets, or unmanned air vehicle systems.</p>
+      <p>Rocky Linux in source code and binary code form is publicly available and is not subject to the EAR in accordance with §740.17(b)(1).</p>
+      <table>
+        <caption class="sr">Export classification</caption>
+        <tbody>
+          <tr><th scope="row">Product</th><td>Rocky Linux. Includes Rocky Linux Project "Special Interest Group" repositories.</td></tr>
+          <tr><th scope="row">ECCN</th><td>5D992.c</td></tr>
+          <tr><th scope="row">License Exception</th><td>Mass Market §740.17(b)(1)</td></tr>
+          <tr><th scope="row">CCATS</th><td>N/A</td></tr>
+          <tr><th scope="row">ERN</th><td>N/A</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+  <p class="sr" aria-live="polite">{{announce}}</p>
+
+</main>
+</div>
+</template>
+<template id="tpl-UseCase">
+<div id="top" class="{{rootClass}}" style="width: {{w}}px; min-height: {{minh}}px;">
+<header class="pad-sm" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 32px; border-bottom: 1px solid var(--border); background: var(--bg);">
+  <a href="#top" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: var(--fg); text-decoration: none; font-family: 'Red Hat Display', ui-sans-serif, sans-serif; font-weight: 800; font-size: 20px;">
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="14" style="fill: var(--brand);"></circle><path d="M5 20 L11 11 L15 16 L18 13 L23 20 Z" style="fill: var(--bg);"></path></svg>
+    Rocky Linux
+  </a>
+  <button type="button" class="btn btn-ghost" onClick="{{toggleTheme}}" aria-label="{{themeLabel}}" style="padding: 10px;">
+    <template data-if="dark">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+    </template>
+    <template data-if="light">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+    </template>
+  </button>
+</header>
+
+<main class="pad-sm" style="display: flex; flex-direction: column; gap: 40px; max-width: 1200px; margin: 0 auto; padding: 64px 64px 96px;">
+
+  <div class="stack-sm" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap;">
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <h1 class="h1-sm" style="font-size: 52px; font-weight: 800;">Download Rocky Linux</h1>
+      <p class="muted" style="font-size: 18px; max-width: 56ch;">Tell us where you're running Rocky Linux and we'll show you the right image.</p>
+    </div>
+    <div class="stack-sm" style="display: flex; gap: 16px; align-items: flex-end; flex-wrap: wrap;">
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <span class="label" id="uc-ver-label">Version</span>
+        <div class="tabs" role="group" aria-labelledby="uc-ver-label">
+          <template data-for="versions" data-as="v">
+            <button type="button" class="tab" aria-pressed="{{v.pressed}}" onClick="{{v.pick}}">{{v.label}}</button>
+          </template>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px; min-width: 240px;">
+        <label class="label" for="uc-arch">Architecture</label>
+        <div class="selectwrap">
+          <select id="uc-arch" class="select" value="{{arch}}" onChange="{{onArch}}">
+            <option value="x86_64">AMD/Intel (x86_64)</option>
+            <option value="aarch64">ARM (aarch64)</option>
+            <option value="ppc64le">PowerPC (ppc64le)</option>
+            <option value="s390x">IBM Z (s390x)</option>
+            <option value="riscv64">RISC-V (riscv64)</option>
+          </select>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section aria-labelledby="uc-q" style="display: flex; flex-direction: column; gap: 16px;">
+    <h2 id="uc-q" class="h2-sm" style="font-size: 28px; font-weight: 700;">Where are you installing Rocky Linux?</h2>
+    <div class="grid-sm" role="group" aria-labelledby="uc-q" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px;">
+      <template data-for="cases" data-as="c">
+        <button type="button" class="choice" aria-pressed="{{c.pressed}}" disabled="{{c.disabled}}" onClick="{{c.pick}}">
+          <span style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+            <span class="ico" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="{{c.icon}}"></path></svg>
+            </span>
+            <template data-if="c.pressed"><span class="badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg> Selected</span></template>
+          </span>
+          <span style="font-family: 'Red Hat Display', sans-serif; font-weight: 700; font-size: 20px;">{{c.title}}</span>
+          <span class="muted" style="font-size: 15px;">{{c.desc}}</span>
+        </button>
+      </template>
+    </div>
+  </section>
+
+  <section class="card grid-sm pad-sm" aria-labelledby="result-title" style="display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 40px; padding: 36px;">
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span class="badge">Rocky Linux {{ver.cur}}</span>
+          <span class="badge badge-out">{{archLabel}}</span>
+        </div>
+        <h2 id="result-title" class="h2-sm" style="font-size: 32px; font-weight: 800; padding-top: 8px;">{{res.title}}</h2>
+        <p class="muted" style="font-size: 17px;">{{res.lede}} Supported until {{ver.eol}}.</p>
+      </div>
+      <template data-if="res.hasItems">
+        <div>
+          <template data-for="res.items" data-as="it">
+            <div class="row">
+              <div style="display: flex; flex-direction: column; gap: 2px;">
+                <span style="font-weight: 700; font-size: 17px;">{{it.name}}</span>
+                <span class="muted" style="font-size: 15px;">{{it.desc}}</span>
+              </div>
+              <template data-if="it.primary"><a class="btn btn-pri" href="{{it.url}}" aria-label="{{it.aria}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg> Download</a></template>
+              <template data-if="it.secondary"><a class="btn btn-out" href="{{it.url}}" aria-label="{{it.aria}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg> Download</a></template>
+            </div>
+          </template>
+        </div>
+      </template>
+      <template data-if="res.hasCmds">
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <template data-for="res.cmds" data-as="c">
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <span style="font-weight: 700;">{{c.label}}</span>
+              <div class="code">
+                <code>{{c.cmd}}</code>
+                <button type="button" class="btn btn-ghost btn-sm" onClick="{{c.copy}}" aria-label="{{c.aria}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"></path></svg> {{c.copyText}}</button>
+              </div>
+            </div>
+          </template>
+        </div>
+      </template>
+      <template data-if="res.providers">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-weight: 700;">Launch from a cloud provider</span>
+          <div class="stack-sm" style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <a class="btn btn-out" href="#aws-amis">AWS AMI list</a>
+            <a class="btn btn-out" href="https://console.cloud.google.com/marketplace/browse?filter=partner:Rocky%20Linux">Google Cloud <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg><span class="sr">(opens external site)</span></a>
+            <a class="btn btn-out" href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/resf.rockylinux-x86_64">Microsoft Azure <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg><span class="sr">(opens external site)</span></a>
+          </div>
+        </div>
+      </template>
+      <template data-if="res.hasLinks">
+        <nav aria-label="More download options" class="linkrow">
+          <template data-for="res.links" data-as="l"><a href="{{l.url}}">{{l.label}}</a></template>
+        </nav>
+      </template>
+    </div>
+
+    <aside aria-labelledby="help-title" style="display: flex; flex-direction: column; gap: 16px; padding: 24px; border-radius: 12px; background: var(--muted); align-self: start;">
+      <h3 id="help-title" style="font-size: 20px; font-weight: 700; display: flex; align-items: center; gap: 8px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path><path d="m9 12 2 2 4-4"></path></svg> Before you install</h3>
+      <template data-if="res.canVerify">
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <p>Check your download against the <a href="{{res.checksum}}">CHECKSUM</a> file. Save it in the same folder, then run:</p>
+          <template data-for="res.verify" data-as="c">
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <span class="muted" style="font-size: 15px;">{{c.label}}</span>
+              <div class="code" style="background: var(--card);">
+                <code>{{c.cmd}}</code>
+                <button type="button" class="btn btn-ghost btn-sm" onClick="{{c.copy}}" aria-label="{{c.aria}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"></path></svg> {{c.copyText}}</button>
+              </div>
+            </div>
+          </template>
+        </div>
+      </template>
+      <div class="linkrow" style="flex-direction: column; gap: 0;">
+        <a href="https://docs.rockylinux.org/guides/installation/">Installation guide</a>
+        <a href="https://docs.rockylinux.org/release_notes/">Release notes</a>
+      </div>
+    </aside>
+  </section>
+
+
+  <section class="card grid-sm" aria-labelledby="involved-title" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: center; padding: 32px;">
+    <div style="display: flex; flex-direction: column; gap: 8px; max-width: 72ch;">
+      <h2 id="involved-title" style="font-size: 24px; font-weight: 700;">Get involved</h2>
+      <p>As you download and use Rocky Linux, the Rocky Enterprise Software Foundation invites you to be a part of the community as a contributor. There are many ways to contribute to the project, from documentation, QA, and testing to coding changes for SIGs, providing mirroring or hosting, and helping other users.</p>
+    </div>
+    <a class="btn btn-out" href="/contribute">Ways to contribute</a>
+  </section>
+  <details class="acc">
+    <summary>
+      <span style="display: flex; flex-direction: column; gap: 2px;">
+        <span style="font-family: 'Red Hat Display', ui-sans-serif, sans-serif; font-weight: 700; font-size: 18px;">Export compliance and customs information</span>
+        <span class="muted" style="font-size: 15px;">By downloading Rocky Linux software, you acknowledge these terms.</span>
+      </span>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+    </summary>
+    <div class="accbody" style="max-width: 80ch;">
+      <p>By downloading Rocky Linux software, you acknowledge that you understand all of the following:</p>
+      <p>Rocky Linux software and technical information may be subject to the U.S. Export Administration Regulations (the "EAR") and other U.S. and foreign laws and may not be exported, re-exported or transferred (a) to a prohibited destination country under the EAR or U.S. sanctions regulations (currently Cuba, Iran, North Korea, Sudan, Syria, and the Crimea Region of Ukraine, subject to change as posted by the United States government); (b) to any prohibited destination or to any end user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government; or (c) for use in connection with the design, development or production of nuclear, chemical or biological weapons, or rocket systems, space launch vehicles, or sounding rockets, or unmanned air vehicle systems.</p>
+      <p>Rocky Linux in source code and binary code form is publicly available and is not subject to the EAR in accordance with §740.17(b)(1).</p>
+      <table>
+        <caption class="sr">Export classification</caption>
+        <tbody>
+          <tr><th scope="row">Product</th><td>Rocky Linux. Includes Rocky Linux Project "Special Interest Group" repositories.</td></tr>
+          <tr><th scope="row">ECCN</th><td>5D992.c</td></tr>
+          <tr><th scope="row">License Exception</th><td>Mass Market §740.17(b)(1)</td></tr>
+          <tr><th scope="row">CCATS</th><td>N/A</td></tr>
+          <tr><th scope="row">ERN</th><td>N/A</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+  <p class="sr" aria-live="polite">{{announce}}</p>
+
+</main>
+</div>
+</template>
+<template id="tpl-CompareVersions">
+<div id="top" class="{{rootClass}}" style="width: {{w}}px; min-height: {{minh}}px;">
+<header class="pad-sm" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 32px; border-bottom: 1px solid var(--border); background: var(--bg);">
+  <a href="#top" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: var(--fg); text-decoration: none; font-family: 'Red Hat Display', ui-sans-serif, sans-serif; font-weight: 800; font-size: 20px;">
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="14" style="fill: var(--brand);"></circle><path d="M5 20 L11 11 L15 16 L18 13 L23 20 Z" style="fill: var(--bg);"></path></svg>
+    Rocky Linux
+  </a>
+  <button type="button" class="btn btn-ghost" onClick="{{toggleTheme}}" aria-label="{{themeLabel}}" style="padding: 10px;">
+    <template data-if="dark">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+    </template>
+    <template data-if="light">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+    </template>
+  </button>
+</header>
+
+<main class="pad-sm" style="display: flex; flex-direction: column; gap: 40px; max-width: 1200px; margin: 0 auto; padding: 64px 64px 96px;">
+
+  <div class="stack-sm" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap;">
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <h1 class="h1-sm" style="font-size: 52px; font-weight: 800;">Download Rocky Linux</h1>
+      <p class="muted" style="font-size: 18px; max-width: 56ch;">Every supported version, with how long each one is supported.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px; min-width: 260px;">
+      <label class="label" for="cv-arch">Architecture</label>
+      <div class="selectwrap">
+        <select id="cv-arch" class="select" value="{{arch}}" onChange="{{onArch}}">
+          <option value="x86_64">AMD/Intel (x86_64)</option>
+          <option value="aarch64">ARM (aarch64)</option>
+          <option value="ppc64le">PowerPC (ppc64le)</option>
+          <option value="s390x">IBM Z (s390x)</option>
+          <option value="riscv64">RISC-V (riscv64)</option>
+        </select>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+      </div>
+    </div>
+  </div>
+
+  <section aria-labelledby="cv-versions" style="display: flex; flex-direction: column; gap: 16px;">
+    <h2 id="cv-versions" class="sr">Supported versions</h2>
+    <div class="grid-sm" style="display: grid; grid-template-columns: repeat({{cols}}, minmax(0, 1fr)); gap: 16px;">
+      <template data-for="cards" data-as="v">
+        <article class="card vcard" data-selected="{{v.selected}}" aria-labelledby="{{v.hid}}" style="display: flex; flex-direction: column; gap: 16px; padding: 28px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <template data-if="v.latest"><span class="badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg> Latest</span></template>
+            <template data-if="v.notLatest"><span class="badge badge-out">Supported</span></template>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <h3 id="{{v.hid}}" style="font-size: 30px; font-weight: 800;">Rocky Linux {{v.id}}</h3>
+            <p class="muted">Current release {{v.cur}}</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; font-size: 15px;">
+              <span>Supported until <strong>{{v.eol}}</strong></span>
+            </div>
+            <span class="meter" aria-hidden="true"><span style="width: {{v.pct}}%;"></span></span>
+            <span class="muted" style="font-size: 15px;">{{v.left}}</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px; margin-top: auto;">
+            <template data-if="v.latest"><a class="btn btn-pri" href="{{v.dvd}}" aria-label="Download Rocky Linux {{v.cur}} DVD ISO"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg> Download DVD ISO</a></template>
+            <template data-if="v.notLatest"><a class="btn btn-out" href="{{v.dvd}}" aria-label="Download Rocky Linux {{v.cur}} DVD ISO"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg> Download DVD ISO</a></template>
+            <button type="button" class="btn btn-ghost" aria-pressed="{{v.selected}}" aria-controls="cv-all" onClick="{{v.pick}}">{{v.showLabel}}</button>
+          </div>
+        </article>
+      </template>
+    </div>
+  </section>
+
+  <section id="cv-all" class="card pad-sm" aria-labelledby="cv-all-title" style="display: flex; flex-direction: column; gap: 16px; padding: 32px;">
+    <div class="stack-sm" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 8px; flex-wrap: wrap;">
+      <h2 id="cv-all-title" class="h2-sm" style="font-size: 30px; font-weight: 800;">All images for Rocky Linux {{ver.cur}}</h2>
+      <p class="muted">{{archLabel}}</p>
+    </div>
+    <table class="rtable">
+      <caption class="sr">Images for Rocky Linux {{ver.cur}} on {{archLabel}}</caption>
+      <thead>
+        <tr><th scope="col">Image</th><th scope="col">Best for</th><th scope="col">Verify</th><th scope="col"><span class="sr">Download</span></th></tr>
+      </thead>
+      <tbody>
+        <template data-for="rows" data-as="r">
+          <tr>
+            <th scope="row" style="color: var(--fg); font-size: 16px; font-weight: 700;">{{r.name}}</th>
+            <td class="muted" style="font-size: 15px;">{{r.desc}}</td>
+            <td><template data-if="r.checksum"><a href="{{r.checksum}}" aria-label="CHECKSUM for {{r.name}}" style="display: inline-flex; align-items: center; min-height: 44px;">CHECKSUM</a></template></td>
+            <td style="text-align: right;"><a class="btn btn-out btn-sm" href="{{r.url}}" aria-label="Download {{r.name}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg> Download</a></td>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+    <template data-if="hasContainers">
+      <div style="display: flex; flex-direction: column; gap: 12px; padding-top: 8px;">
+        <h3 style="font-size: 20px; font-weight: 700;">Container images</h3>
+        <div class="grid-sm" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;">
+          <template data-for="containers" data-as="c">
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <span class="muted" style="font-size: 15px;">{{c.label}}</span>
+              <div class="code">
+                <code>{{c.cmd}}</code>
+                <button type="button" class="btn btn-ghost btn-sm" onClick="{{c.copy}}" aria-label="{{c.aria}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"></path></svg> {{c.copyText}}</button>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </template>
+    <nav aria-label="More download options" class="linkrow">
+      <template data-if="links.torrent"><a href="{{links.torrent}}">Torrent (DVD ISO)</a></template>
+      <a href="{{links.baseOs}}">BaseOS packages</a>
+      <a href="https://dl.rockylinux.org/vault/rocky">Archived releases</a>
+      <a href="https://docs.rockylinux.org/guides/installation/">Installation guide</a>
+    </nav>
+  </section>
+
+  <section class="card grid-sm" aria-labelledby="involved-title" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: center; padding: 32px;">
+    <div style="display: flex; flex-direction: column; gap: 8px; max-width: 72ch;">
+      <h2 id="involved-title" style="font-size: 24px; font-weight: 700;">Get involved</h2>
+      <p>As you download and use Rocky Linux, the Rocky Enterprise Software Foundation invites you to be a part of the community as a contributor. There are many ways to contribute to the project, from documentation, QA, and testing to coding changes for SIGs, providing mirroring or hosting, and helping other users.</p>
+    </div>
+    <a class="btn btn-out" href="/contribute">Ways to contribute</a>
+  </section>
+  <details class="acc">
+    <summary>
+      <span style="display: flex; flex-direction: column; gap: 2px;">
+        <span style="font-family: 'Red Hat Display', ui-sans-serif, sans-serif; font-weight: 700; font-size: 18px;">Export compliance and customs information</span>
+        <span class="muted" style="font-size: 15px;">By downloading Rocky Linux software, you acknowledge these terms.</span>
+      </span>
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+    </summary>
+    <div class="accbody" style="max-width: 80ch;">
+      <p>By downloading Rocky Linux software, you acknowledge that you understand all of the following:</p>
+      <p>Rocky Linux software and technical information may be subject to the U.S. Export Administration Regulations (the "EAR") and other U.S. and foreign laws and may not be exported, re-exported or transferred (a) to a prohibited destination country under the EAR or U.S. sanctions regulations (currently Cuba, Iran, North Korea, Sudan, Syria, and the Crimea Region of Ukraine, subject to change as posted by the United States government); (b) to any prohibited destination or to any end user who has been prohibited from participating in U.S. export transactions by any federal agency of the U.S. government; or (c) for use in connection with the design, development or production of nuclear, chemical or biological weapons, or rocket systems, space launch vehicles, or sounding rockets, or unmanned air vehicle systems.</p>
+      <p>Rocky Linux in source code and binary code form is publicly available and is not subject to the EAR in accordance with §740.17(b)(1).</p>
+      <table>
+        <caption class="sr">Export classification</caption>
+        <tbody>
+          <tr><th scope="row">Product</th><td>Rocky Linux. Includes Rocky Linux Project "Special Interest Group" repositories.</td></tr>
+          <tr><th scope="row">ECCN</th><td>5D992.c</td></tr>
+          <tr><th scope="row">License Exception</th><td>Mass Market §740.17(b)(1)</td></tr>
+          <tr><th scope="row">CCATS</th><td>N/A</td></tr>
+          <tr><th scope="row">ERN</th><td>N/A</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+  <p class="sr" aria-live="polite">{{announce}}</p>
+
+</main>
+</div>
+</template>
+
+<script>
+class DCLogic {
+  constructor(props, rerender) { this.props = props; this.state = {}; this._rerender = rerender; }
+  setState(patch) { Object.assign(this.state, typeof patch === 'function' ? patch(this.state) : patch); this._rerender(); }
+}
+</script>
+<script>
+window.DC_COMPONENTS = window.DC_COMPONENTS || {};
+window.DC_COMPONENTS.Recommended = (function () {
+
+const DATA = {"x86_64":[{"id":"10","cur":"10.2","eol":"May 31, 2035","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.2-x86_64-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.2-x86_64-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.2-x86_64-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/10/images/x86_64/Rocky-10-GenericCloud-Base.latest.x86_64.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2-minimal"},"liveImages":{"gnome":"https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-Workstation-x86_64-latest.iso","gnomeLite":"https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-Workstation-Lite-x86_64-latest.iso","kde":"https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-KDE-x86_64-latest.iso"},"wslImages":{"download":"https://dl.rockylinux.org/pub/rocky/10/images/x86_64/Rocky-10-WSL-Base.latest.x86_64.wsl"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.2-x86_64-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/10/isos/x86_64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/10/BaseOS/x86_64/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/x86_64/CHECKSUM"},"liveImagesLinks":{"checksums":"https://dl.rockylinux.org/pub/rocky/10/live/x86_64/"},"wslImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/x86_64/Rocky-10-WSL-Base.latest.x86_64.wsl.CHECKSUM","readMe":"https://docs.rockylinux.org/guides/interoperability/import_rocky_to_wsl/"}},{"id":"9","cur":"9.8","eol":"May 31, 2032","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.8-x86_64-dvd.iso","boot":"https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.8-x86_64-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.8-x86_64-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/9/images/x86_64/Rocky-9-GenericCloud-Base.latest.x86_64.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8-minimal"},"liveImages":{"gnome":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-Workstation-x86_64-latest.iso","gnomeLite":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-Workstation-Lite-x86_64-latest.iso","kde":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-KDE-x86_64-latest.iso","xfce":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-XFCE-x86_64-latest.iso","mate":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-MATE-x86_64-latest.iso","cinnamon":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-Cinnamon-x86_64-latest.iso"},"wslImages":{"download":"https://dl.rockylinux.org/pub/rocky/9/images/x86_64/Rocky-9-WSL-Base.latest.x86_64.wsl"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.8-x86_64-dvd.torrent","checksum":"https://download.rockylinux.org/pub/rocky/9/isos/x86_64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/9/BaseOS/x86_64/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/x86_64/CHECKSUM"},"liveImagesLinks":{"checksums":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/"},"wslImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/x86_64/Rocky-9-WSL-Base.latest.x86_64.wsl.CHECKSUM","readMe":"https://docs.rockylinux.org/guides/interoperability/import_rocky_to_wsl/"}},{"id":"8","cur":"8.10","eol":"May 31, 2029","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.10-x86_64-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.10-x86_64-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.10-x86_64-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/8/images/x86_64/Rocky-8-GenericCloud-Base.latest.x86_64.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=8.10","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=8.10-minimal"},"liveImages":{"gnome":"https://dl.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-8-Workstation-x86_64-latest.iso","gnomeLite":"https://dl.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-8-Workstation-Lite-x86_64-latest.iso","xfce":"https://dl.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-8-XFCE-x86_64-latest.iso","mate":"https://dl.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-8-MATE-x86_64-latest.iso"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.10-x86_64-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/8/isos/x86_64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/8/BaseOS/x86_64/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/8/images/x86_64/CHECKSUM"},"liveImagesLinks":{"checksums":"https://dl.rockylinux.org/pub/rocky/8/live/x86_64/"}}],"aarch64":[{"id":"10","cur":"10.2","eol":"May 31, 2035","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.2-aarch64-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.2-aarch64-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.2-aarch64-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-GenericCloud-Base.latest.aarch64.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2-minimal"},"liveImages":{"gnome":"https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-Workstation-aarch64-latest.iso","gnomeLite":"https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-Workstation-Lite-aarch64-latest.iso","kde":"https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-KDE-aarch64-latest.iso"},"rpiImages":{"download":"https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz"},"wslImages":{"download":"https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-WSL-Base.latest.aarch64.wsl"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.2-aarch64-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/10/isos/aarch64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/10/BaseOS/aarch64/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/aarch64/CHECKSUM"},"liveImagesLinks":{"checksums":"https://dl.rockylinux.org/pub/rocky/10/live/aarch64/"},"rpiImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz.CHECKSUM"},"wslImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-WSL-Base.latest.aarch64.wsl.CHECKSUM","readMe":"https://docs.rockylinux.org/guides/interoperability/import_rocky_to_wsl/"}},{"id":"9","cur":"9.8","eol":"May 31, 2032","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.8-aarch64-dvd.iso","boot":"https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.8-aarch64-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.8-aarch64-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-GenericCloud-Base.latest.aarch64.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8-minimal"},"liveImages":{"gnome":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-Workstation-aarch64-latest.iso","gnomeLite":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-Workstation-Lite-aarch64-latest.iso","kde":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-KDE-aarch64-latest.iso","xfce":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-XFCE-aarch64-latest.iso","mate":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-MATE-aarch64-latest.iso","cinnamon":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-Cinnamon-aarch64-latest.iso"},"rpiImages":{"download":"https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-SBC-RaspberryPi.latest.aarch64.raw.xz"},"wslImages":{"download":"https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-WSL-Base.latest.aarch64.wsl"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.8-aarch64-dvd.torrent","checksum":"https://download.rockylinux.org/pub/rocky/9/isos/aarch64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/9/BaseOS/aarch64/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/aarch64/CHECKSUM"},"rpiImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-SBC-RaspberryPi.latest.aarch64.raw.xz.CHECKSUM"},"liveImagesLinks":{"checksums":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/"},"wslImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-WSL-Base.latest.aarch64.wsl.CHECKSUM","readMe":"https://docs.rockylinux.org/guides/interoperability/import_rocky_to_wsl/"}},{"id":"8","cur":"8.10","eol":"May 31, 2029","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.10-aarch64-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.10-aarch64-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.10-aarch64-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/8/images/aarch64/Rocky-8-GenericCloud-Base.latest.aarch64.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=8.10","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=8.10-minimal"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.10-aarch64-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/8/isos/aarch64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/8/BaseOS/aarch64/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/8.10/images/aarch64/CHECKSUM"}}],"ppc64le":[{"id":"10","cur":"10.2","eol":"May 31, 2035","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.2-ppc64le-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.2-ppc64le-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.2-ppc64le-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/10/images/ppc64le/Rocky-10-GenericCloud-Base.latest.ppc64le.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2-minimal"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.2-ppc64le-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/10/BaseOS/ppc64le/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/ppc64le/CHECKSUM"}},{"id":"9","cur":"9.8","eol":"May 31, 2032","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.8-ppc64le-dvd.iso","boot":"https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.8-ppc64le-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.8-ppc64le-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/9/images/ppc64le/Rocky-9-GenericCloud-Base.latest.ppc64le.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8-minimal"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.8-ppc64le-dvd.torrent","checksum":"https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/9/BaseOS/ppc64le/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/ppc64le/CHECKSUM"}}],"s390x":[{"id":"10","cur":"10.2","eol":"May 31, 2035","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.2-s390x-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.2-s390x-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.2-s390x-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/10/images/s390x/Rocky-10-GenericCloud-Base.latest.s390x.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2-minimal"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.2-s390x-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/10/isos/s390x/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/10/BaseOS/s390x/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/s390x/CHECKSUM"}},{"id":"9","cur":"9.8","eol":"May 31, 2032","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.8-s390x-dvd.iso","boot":"https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.8-s390x-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.8-s390x-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/9/images/s390x/Rocky-9-GenericCloud-Base.latest.s390x.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8-minimal"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.8-s390x-dvd.torrent","checksum":"https://download.rockylinux.org/pub/rocky/9/isos/s390x/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/9/BaseOS/s390x/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/s390x/CHECKSUM"}}],"riscv64":[{"id":"10","cur":"10.2","eol":"May 31, 2035","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.2-riscv64-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.2-riscv64-boot.iso"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2-minimal"},"visionfive2Images":{"download":"https://dl.rockylinux.org/vault/rocky/10.0/images/riscv64/Rocky-10-VisionFive2-latest.riscv64.tar.xz"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.2-riscv64-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/10/isos/riscv64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/10/BaseOS/riscv64/","archived":"https://dl.rockylinux.org/vault/rocky"},"visionfive2ImagesLinks":{"checksum":"https://dl.rockylinux.org/vault/rocky/10.0/images/riscv64/Rocky-10-VisionFive2-latest.riscv64.tar.xz.CHECKSUM"}}]};
+const ARCHES = [
+  { id: 'x86_64', label: 'AMD/Intel (x86_64)' },
+  { id: 'aarch64', label: 'ARM (aarch64)' },
+  { id: 'ppc64le', label: 'PowerPC (ppc64le)' },
+  { id: 's390x', label: 'IBM Z (s390x)' },
+  { id: 'riscv64', label: 'RISC-V (riscv64)' },
+];
+const ISO = {
+  dvd: { name: 'DVD ISO', desc: 'Everything included. Installs without an internet connection.' },
+  boot: { name: 'Boot ISO', desc: 'Small image that downloads packages during a custom, network-based install.' },
+  minimal: { name: 'Minimal ISO', desc: 'Core system only, self-contained for offline setup. Add software later.' },
+};
+const LIVE = { gnome: 'GNOME', gnomeLite: 'GNOME (Lite)', kde: 'KDE Plasma', xfce: 'Xfce', mate: 'MATE', cinnamon: 'Cinnamon' };
+const RELEASED = { '10': '2025-06-11', '9': '2022-07-14', '8': '2021-06-21' };
+const CLOUDS = [
+  { name: 'AWS (AMI list)', url: '#aws-amis' },
+  { name: 'Google Cloud', url: 'https://console.cloud.google.com/marketplace/browse?filter=partner:Rocky%20Linux' },
+  { name: 'Microsoft Azure', url: 'https://azuremarketplace.microsoft.com/en-us/marketplace/apps/resf.rockylinux-x86_64' },
+];
+const TODAY = new Date('2026-09-17');
+
+function versionsFor(arch) { return DATA[arch] || []; }
+function tagFor(v, minimal) { return v.cur + (minimal ? '-minimal' : ''); }
+function isoItems(v) {
+  const d = v.defaultImages || {};
+  return ['dvd', 'boot', 'minimal'].filter((k) => d[k]).map((k, i) => ({ key: k, name: ISO[k].name, desc: ISO[k].desc, url: d[k], primary: i === 0 }));
+}
+function liveItems(v) {
+  const l = v.liveImages || {};
+  return Object.keys(l).map((k) => ({ key: k, name: LIVE[k] || k, url: l[k] }));
+}
+function lifecycle(v) {
+  const start = new Date(RELEASED[v.id] || '2025-01-01');
+  const end = new Date(v.eol);
+  const pct = Math.max(0, Math.min(100, Math.round(((TODAY - start) / (end - start)) * 100)));
+  const yearsLeft = Math.max(0, (end - TODAY) / (365.25 * 24 * 3600 * 1000));
+  return { pct: pct, left: yearsLeft >= 1 ? Math.floor(yearsLeft) + '+ years of support left' : 'Less than a year of support left' };
+}
+function themeBits(self) {
+  const dark = self.state && self.state.dark !== undefined && self.state.dark !== null ? self.state.dark : !!(self.props.dark === true || self.props.dark === 'true');
+  return {
+    dark: dark,
+    light: !dark,
+    rootClass: 'rl' + (dark ? ' dark' : ''),
+    themeLabel: dark ? 'Switch to light theme' : 'Switch to dark theme',
+    toggleTheme: () => self.setState({ dark: !dark }),
+    w: Number(self.props.width) || 1280,
+  };
+}
+function copyText(self, text, key) {
+  try { if (navigator.clipboard) navigator.clipboard.writeText(text).catch(() => {}); } catch (e) {}
+  self.setState({ copied: key, announce: 'Copied to clipboard' });
+  clearTimeout(self._copyTimer);
+  self._copyTimer = setTimeout(() => self.setState({ copied: null, announce: '' }), 2000);
+}
+
+class Component extends DCLogic {
+  renderVals() {
+    const t = themeBits(this);
+    const self = this;
+    const st = this.state || {};
+    const arch = st.arch || 'x86_64';
+    const vs = versionsFor(arch);
+    const latest = vs[0];
+    const archLabel = ARCHES.find((a) => a.id === arch).label;
+    const isos = isoItems(latest);
+    const links = latest.defaultImagesLinks || {};
+    const cmd = (key, label, text) => ({ key: key, label: label, cmd: text, copyText: st.copied === key ? 'Copied' : 'Copy', aria: 'Copy command: ' + text, copy: () => copyText(self, text, key) });
+    const older = vs.slice(1).map((v) => ({
+      cur: v.cur, eol: v.eol,
+      isos: isoItems(v).map((i) => Object.assign({}, i, { aria: 'Download Rocky Linux ' + v.cur + ' ' + i.name })),
+      torrent: (v.defaultImagesLinks || {}).torrent || '',
+      checksum: (v.defaultImagesLinks || {}).checksum || '#',
+    }));
+    const boards = [];
+    vs.forEach((v) => {
+      if (v.rpiImages && v.rpiImages.download) boards.push({ name: 'Raspberry Pi · Rocky Linux ' + v.id, url: v.rpiImages.download, checksum: (v.rpiImagesLinks || {}).checksum || '' });
+      if (v.visionfive2Images && v.visionfive2Images.download) boards.push({ name: 'VisionFive 2 · Rocky Linux ' + v.id + ' (archived)', url: v.visionfive2Images.download, checksum: (v.visionfive2ImagesLinks || {}).checksum || '' });
+    });
+    const dvd = isos[0] || { name: 'ISO', url: '#' };
+    const file = dvd.url.split('/').pop();
+    return Object.assign(t, {
+      minh: Number(this.props.minh) || 2000,
+      arch: arch,
+      archLabel: archLabel,
+      onArch: (e) => this.setState({ arch: e.target.value }),
+      latest: latest,
+      dvd: dvd,
+      isos: isos,
+      links: { torrent: links.torrent || '', checksum: links.checksum || '#' },
+      hasOlder: older.length > 0,
+      older: older,
+      olderSummary: older.map((v) => 'Rocky Linux ' + v.cur).join(' and ') + ' remain supported',
+      hasCloud: !!(latest.cloudImages && latest.cloudImages.qcow2),
+      cloudUrl: latest.cloudImages ? latest.cloudImages.qcow2 : '#',
+      cloudChecksum: (latest.cloudImagesLinks || {}).checksum || '#',
+      hasContainers: !!latest.container,
+      containers: latest.container ? [
+        cmd('c-full', 'Full image', 'podman pull docker.io/rockylinux/rockylinux:' + tagFor(latest, false)),
+        cmd('c-min', 'Minimal image', 'podman pull docker.io/rockylinux/rockylinux:' + tagFor(latest, true)),
+      ] : [],
+      containerTags: latest.container ? latest.container.fullImage : '#',
+      hasLive: liveItems(latest).length > 0,
+      live: liveItems(latest),
+      liveChecksums: (latest.liveImagesLinks || {}).checksums || '#',
+      hasWsl: !!(latest.wslImages && latest.wslImages.download),
+      wsl: { download: (latest.wslImages || {}).download || '#', checksum: (latest.wslImagesLinks || {}).checksum || '#', readMe: (latest.wslImagesLinks || {}).readMe || 'https://docs.rockylinux.org/guides/interoperability/import_rocky_to_wsl/' },
+      hasBoards: boards.length > 0,
+      boards: boards,
+      boardSummary: boards.map((b) => b.name.split(' · ')[0]).filter((n, i, a) => a.indexOf(n) === i).join(', ') + ' images',
+      verify: [
+        cmd('v-lin', 'Linux', 'sha256sum --check --ignore-missing CHECKSUM'),
+        cmd('v-win', 'Windows (PowerShell)', 'Get-FileHash .\\' + file + ' -Algorithm SHA256'),
+      ],
+      announce: st.announce || '',
+    });
+  }
+}
+
+return Component;
+})();
+</script>
+<script>
+window.DC_COMPONENTS = window.DC_COMPONENTS || {};
+window.DC_COMPONENTS.SelectorBar = (function () {
+
+const DATA = {"x86_64":[{"id":"10","cur":"10.2","eol":"May 31, 2035","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.2-x86_64-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.2-x86_64-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.2-x86_64-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/10/images/x86_64/Rocky-10-GenericCloud-Base.latest.x86_64.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2-minimal"},"liveImages":{"gnome":"https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-Workstation-x86_64-latest.iso","gnomeLite":"https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-Workstation-Lite-x86_64-latest.iso","kde":"https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-KDE-x86_64-latest.iso"},"wslImages":{"download":"https://dl.rockylinux.org/pub/rocky/10/images/x86_64/Rocky-10-WSL-Base.latest.x86_64.wsl"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.2-x86_64-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/10/isos/x86_64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/10/BaseOS/x86_64/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/x86_64/CHECKSUM"},"liveImagesLinks":{"checksums":"https://dl.rockylinux.org/pub/rocky/10/live/x86_64/"},"wslImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/x86_64/Rocky-10-WSL-Base.latest.x86_64.wsl.CHECKSUM","readMe":"https://docs.rockylinux.org/guides/interoperability/import_rocky_to_wsl/"}},{"id":"9","cur":"9.8","eol":"May 31, 2032","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.8-x86_64-dvd.iso","boot":"https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.8-x86_64-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.8-x86_64-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/9/images/x86_64/Rocky-9-GenericCloud-Base.latest.x86_64.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8-minimal"},"liveImages":{"gnome":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-Workstation-x86_64-latest.iso","gnomeLite":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-Workstation-Lite-x86_64-latest.iso","kde":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-KDE-x86_64-latest.iso","xfce":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-XFCE-x86_64-latest.iso","mate":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-MATE-x86_64-latest.iso","cinnamon":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-Cinnamon-x86_64-latest.iso"},"wslImages":{"download":"https://dl.rockylinux.org/pub/rocky/9/images/x86_64/Rocky-9-WSL-Base.latest.x86_64.wsl"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.8-x86_64-dvd.torrent","checksum":"https://download.rockylinux.org/pub/rocky/9/isos/x86_64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/9/BaseOS/x86_64/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/x86_64/CHECKSUM"},"liveImagesLinks":{"checksums":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/"},"wslImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/x86_64/Rocky-9-WSL-Base.latest.x86_64.wsl.CHECKSUM","readMe":"https://docs.rockylinux.org/guides/interoperability/import_rocky_to_wsl/"}},{"id":"8","cur":"8.10","eol":"May 31, 2029","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.10-x86_64-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.10-x86_64-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.10-x86_64-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/8/images/x86_64/Rocky-8-GenericCloud-Base.latest.x86_64.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=8.10","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=8.10-minimal"},"liveImages":{"gnome":"https://dl.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-8-Workstation-x86_64-latest.iso","gnomeLite":"https://dl.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-8-Workstation-Lite-x86_64-latest.iso","xfce":"https://dl.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-8-XFCE-x86_64-latest.iso","mate":"https://dl.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-8-MATE-x86_64-latest.iso"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.10-x86_64-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/8/isos/x86_64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/8/BaseOS/x86_64/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/8/images/x86_64/CHECKSUM"},"liveImagesLinks":{"checksums":"https://dl.rockylinux.org/pub/rocky/8/live/x86_64/"}}],"aarch64":[{"id":"10","cur":"10.2","eol":"May 31, 2035","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.2-aarch64-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.2-aarch64-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.2-aarch64-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-GenericCloud-Base.latest.aarch64.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2-minimal"},"liveImages":{"gnome":"https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-Workstation-aarch64-latest.iso","gnomeLite":"https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-Workstation-Lite-aarch64-latest.iso","kde":"https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-KDE-aarch64-latest.iso"},"rpiImages":{"download":"https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz"},"wslImages":{"download":"https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-WSL-Base.latest.aarch64.wsl"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.2-aarch64-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/10/isos/aarch64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/10/BaseOS/aarch64/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/aarch64/CHECKSUM"},"liveImagesLinks":{"checksums":"https://dl.rockylinux.org/pub/rocky/10/live/aarch64/"},"rpiImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz.CHECKSUM"},"wslImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-WSL-Base.latest.aarch64.wsl.CHECKSUM","readMe":"https://docs.rockylinux.org/guides/interoperability/import_rocky_to_wsl/"}},{"id":"9","cur":"9.8","eol":"May 31, 2032","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.8-aarch64-dvd.iso","boot":"https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.8-aarch64-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.8-aarch64-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-GenericCloud-Base.latest.aarch64.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8-minimal"},"liveImages":{"gnome":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-Workstation-aarch64-latest.iso","gnomeLite":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-Workstation-Lite-aarch64-latest.iso","kde":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-KDE-aarch64-latest.iso","xfce":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-XFCE-aarch64-latest.iso","mate":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-MATE-aarch64-latest.iso","cinnamon":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-Cinnamon-aarch64-latest.iso"},"rpiImages":{"download":"https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-SBC-RaspberryPi.latest.aarch64.raw.xz"},"wslImages":{"download":"https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-WSL-Base.latest.aarch64.wsl"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.8-aarch64-dvd.torrent","checksum":"https://download.rockylinux.org/pub/rocky/9/isos/aarch64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/9/BaseOS/aarch64/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/aarch64/CHECKSUM"},"rpiImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-SBC-RaspberryPi.latest.aarch64.raw.xz.CHECKSUM"},"liveImagesLinks":{"checksums":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/"},"wslImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-WSL-Base.latest.aarch64.wsl.CHECKSUM","readMe":"https://docs.rockylinux.org/guides/interoperability/import_rocky_to_wsl/"}},{"id":"8","cur":"8.10","eol":"May 31, 2029","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.10-aarch64-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.10-aarch64-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.10-aarch64-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/8/images/aarch64/Rocky-8-GenericCloud-Base.latest.aarch64.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=8.10","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=8.10-minimal"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.10-aarch64-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/8/isos/aarch64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/8/BaseOS/aarch64/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/8.10/images/aarch64/CHECKSUM"}}],"ppc64le":[{"id":"10","cur":"10.2","eol":"May 31, 2035","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.2-ppc64le-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.2-ppc64le-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.2-ppc64le-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/10/images/ppc64le/Rocky-10-GenericCloud-Base.latest.ppc64le.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2-minimal"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.2-ppc64le-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/10/BaseOS/ppc64le/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/ppc64le/CHECKSUM"}},{"id":"9","cur":"9.8","eol":"May 31, 2032","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.8-ppc64le-dvd.iso","boot":"https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.8-ppc64le-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.8-ppc64le-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/9/images/ppc64le/Rocky-9-GenericCloud-Base.latest.ppc64le.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8-minimal"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.8-ppc64le-dvd.torrent","checksum":"https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/9/BaseOS/ppc64le/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/ppc64le/CHECKSUM"}}],"s390x":[{"id":"10","cur":"10.2","eol":"May 31, 2035","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.2-s390x-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.2-s390x-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.2-s390x-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/10/images/s390x/Rocky-10-GenericCloud-Base.latest.s390x.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2-minimal"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.2-s390x-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/10/isos/s390x/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/10/BaseOS/s390x/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/s390x/CHECKSUM"}},{"id":"9","cur":"9.8","eol":"May 31, 2032","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.8-s390x-dvd.iso","boot":"https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.8-s390x-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.8-s390x-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/9/images/s390x/Rocky-9-GenericCloud-Base.latest.s390x.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8-minimal"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.8-s390x-dvd.torrent","checksum":"https://download.rockylinux.org/pub/rocky/9/isos/s390x/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/9/BaseOS/s390x/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/s390x/CHECKSUM"}}],"riscv64":[{"id":"10","cur":"10.2","eol":"May 31, 2035","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.2-riscv64-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.2-riscv64-boot.iso"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2-minimal"},"visionfive2Images":{"download":"https://dl.rockylinux.org/vault/rocky/10.0/images/riscv64/Rocky-10-VisionFive2-latest.riscv64.tar.xz"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.2-riscv64-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/10/isos/riscv64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/10/BaseOS/riscv64/","archived":"https://dl.rockylinux.org/vault/rocky"},"visionfive2ImagesLinks":{"checksum":"https://dl.rockylinux.org/vault/rocky/10.0/images/riscv64/Rocky-10-VisionFive2-latest.riscv64.tar.xz.CHECKSUM"}}]};
+const ARCHES = [
+  { id: 'x86_64', label: 'AMD/Intel (x86_64)' },
+  { id: 'aarch64', label: 'ARM (aarch64)' },
+  { id: 'ppc64le', label: 'PowerPC (ppc64le)' },
+  { id: 's390x', label: 'IBM Z (s390x)' },
+  { id: 'riscv64', label: 'RISC-V (riscv64)' },
+];
+const ISO = {
+  dvd: { name: 'DVD ISO', desc: 'Everything included. Installs without an internet connection.' },
+  boot: { name: 'Boot ISO', desc: 'Small image that downloads packages during a custom, network-based install.' },
+  minimal: { name: 'Minimal ISO', desc: 'Core system only, self-contained for offline setup. Add software later.' },
+};
+const LIVE = { gnome: 'GNOME', gnomeLite: 'GNOME (Lite)', kde: 'KDE Plasma', xfce: 'Xfce', mate: 'MATE', cinnamon: 'Cinnamon' };
+const RELEASED = { '10': '2025-06-11', '9': '2022-07-14', '8': '2021-06-21' };
+const CLOUDS = [
+  { name: 'AWS (AMI list)', url: '#aws-amis' },
+  { name: 'Google Cloud', url: 'https://console.cloud.google.com/marketplace/browse?filter=partner:Rocky%20Linux' },
+  { name: 'Microsoft Azure', url: 'https://azuremarketplace.microsoft.com/en-us/marketplace/apps/resf.rockylinux-x86_64' },
+];
+const TODAY = new Date('2026-09-17');
+
+function versionsFor(arch) { return DATA[arch] || []; }
+function tagFor(v, minimal) { return v.cur + (minimal ? '-minimal' : ''); }
+function isoItems(v) {
+  const d = v.defaultImages || {};
+  return ['dvd', 'boot', 'minimal'].filter((k) => d[k]).map((k, i) => ({ key: k, name: ISO[k].name, desc: ISO[k].desc, url: d[k], primary: i === 0 }));
+}
+function liveItems(v) {
+  const l = v.liveImages || {};
+  return Object.keys(l).map((k) => ({ key: k, name: LIVE[k] || k, url: l[k] }));
+}
+function lifecycle(v) {
+  const start = new Date(RELEASED[v.id] || '2025-01-01');
+  const end = new Date(v.eol);
+  const pct = Math.max(0, Math.min(100, Math.round(((TODAY - start) / (end - start)) * 100)));
+  const yearsLeft = Math.max(0, (end - TODAY) / (365.25 * 24 * 3600 * 1000));
+  return { pct: pct, left: yearsLeft >= 1 ? Math.floor(yearsLeft) + '+ years of support left' : 'Less than a year of support left' };
+}
+function themeBits(self) {
+  const dark = self.state && self.state.dark !== undefined && self.state.dark !== null ? self.state.dark : !!(self.props.dark === true || self.props.dark === 'true');
+  return {
+    dark: dark,
+    light: !dark,
+    rootClass: 'rl' + (dark ? ' dark' : ''),
+    themeLabel: dark ? 'Switch to light theme' : 'Switch to dark theme',
+    toggleTheme: () => self.setState({ dark: !dark }),
+    w: Number(self.props.width) || 1280,
+  };
+}
+function copyText(self, text, key) {
+  try { if (navigator.clipboard) navigator.clipboard.writeText(text).catch(() => {}); } catch (e) {}
+  self.setState({ copied: key, announce: 'Copied to clipboard' });
+  clearTimeout(self._copyTimer);
+  self._copyTimer = setTimeout(() => self.setState({ copied: null, announce: '' }), 2000);
+}
+
+const TYPES = [
+  { id: 'iso', label: 'Installation ISO' },
+  { id: 'live', label: 'Live desktop' },
+  { id: 'cloud', label: 'Cloud or virtual machine' },
+  { id: 'container', label: 'Container' },
+  { id: 'wsl', label: 'Windows (WSL)' },
+  { id: 'sbc', label: 'Single-board computer' },
+];
+function available(v) {
+  return {
+    iso: isoItems(v).length > 0,
+    live: liveItems(v).length > 0,
+    cloud: !!(v.cloudImages && v.cloudImages.qcow2),
+    container: !!v.container,
+    wsl: !!(v.wslImages && v.wslImages.download),
+    sbc: !!((v.rpiImages && v.rpiImages.download) || (v.visionfive2Images && v.visionfive2Images.download)),
+  };
+}
+// Builds the one result panel for a version + image type.
+function resultFor(self, v, type) {
+  const st = self.state || {};
+  const cmd = (key, label, text) => ({ key: key, label: label, cmd: text, copyText: st.copied === key ? 'Copied' : 'Copy', aria: 'Copy command: ' + text, copy: () => copyText(self, text, key) });
+  const L = v.defaultImagesLinks || {};
+  const r = { items: [], cmds: [], links: [], providers: false, verify: [], canVerify: false, checksum: '#', title: '', lede: '' };
+  if (type === 'iso') {
+    r.title = 'Installation ISOs';
+    r.lede = 'Install on physical hardware or a virtual machine.';
+    r.items = isoItems(v).map((i) => ({ name: i.name, desc: i.desc, url: i.url, primary: i.primary, secondary: !i.primary, aria: 'Download ' + i.name }));
+    if (L.torrent) r.links.push({ label: 'Torrent (DVD ISO)', url: L.torrent });
+    r.links.push({ label: 'BaseOS packages', url: L.baseOs || '#' });
+    r.links.push({ label: 'Archived releases', url: L.archived || 'https://dl.rockylinux.org/vault/rocky' });
+    r.checksum = L.checksum || '#';
+    r.canVerify = true;
+    const file = (r.items[0] ? r.items[0].url : '').split('/').pop();
+    r.verify = [cmd('v-lin', 'Linux', 'sha256sum --check --ignore-missing CHECKSUM'), cmd('v-win', 'Windows (PowerShell)', 'Get-FileHash .\\' + file + ' -Algorithm SHA256')];
+  } else if (type === 'live') {
+    r.title = 'Live desktop images';
+    r.lede = 'Boot a full desktop from USB to try Rocky Linux, then install from it.';
+    r.items = liveItems(v).map((l, i) => ({ name: l.name, desc: l.key === 'gnomeLite' ? 'A lighter GNOME with fewer preinstalled apps.' : 'Live image with the ' + l.name + ' desktop.', url: l.url, primary: i === 0, secondary: i !== 0, aria: 'Download ' + l.name + ' live image' }));
+    r.checksum = (v.liveImagesLinks || {}).checksums || '#';
+    r.canVerify = true;
+    r.verify = [cmd('v-lin', 'Linux', 'sha256sum --check --ignore-missing CHECKSUM')];
+  } else if (type === 'cloud') {
+    r.title = 'Cloud and virtual machine images';
+    r.lede = 'Use the generic image with any cloud-init platform, or launch from a provider.';
+    r.items = [{ name: 'Generic Cloud · QCOW2', desc: 'For KVM, OpenStack and other cloud-init platforms.', url: v.cloudImages.qcow2, primary: true, secondary: false, aria: 'Download Generic Cloud QCOW2 image' }];
+    r.providers = true;
+    r.checksum = (v.cloudImagesLinks || {}).checksum || '#';
+    r.canVerify = true;
+    r.verify = [cmd('v-lin', 'Linux', 'sha256sum --check --ignore-missing CHECKSUM')];
+  } else if (type === 'container') {
+    r.title = 'Container images';
+    r.lede = 'Official OCI images. Pull them with Podman or Docker.';
+    r.cmds = [cmd('c-full', 'Full image', 'podman pull docker.io/rockylinux/rockylinux:' + tagFor(v, false)), cmd('c-min', 'Minimal image', 'podman pull docker.io/rockylinux/rockylinux:' + tagFor(v, true))];
+    r.links.push({ label: 'All tags on Docker Hub', url: v.container.fullImage });
+  } else if (type === 'wsl') {
+    r.title = 'Windows Subsystem for Linux';
+    r.lede = 'Import Rocky Linux as a WSL distribution on Windows.';
+    r.items = [{ name: 'WSL image', desc: 'Base image to import with wsl --import.', url: v.wslImages.download, primary: true, secondary: false, aria: 'Download WSL image' }];
+    r.links.push({ label: 'WSL setup guide', url: (v.wslImagesLinks || {}).readMe || 'https://docs.rockylinux.org/guides/interoperability/import_rocky_to_wsl/' });
+    r.checksum = (v.wslImagesLinks || {}).checksum || '#';
+    r.canVerify = true;
+    r.verify = [cmd('v-win', 'Windows (PowerShell)', 'Get-FileHash .\\' + v.wslImages.download.split('/').pop() + ' -Algorithm SHA256')];
+  } else if (type === 'sbc') {
+    r.title = 'Single-board computers';
+    r.lede = 'Ready-to-flash images for supported boards.';
+    if (v.rpiImages && v.rpiImages.download) r.items.push({ name: 'Raspberry Pi', desc: 'Compressed raw image to write to an SD card.', url: v.rpiImages.download, primary: true, secondary: false, aria: 'Download Raspberry Pi image' });
+    if (v.visionfive2Images && v.visionfive2Images.download) r.items.push({ name: 'VisionFive 2 (archived)', desc: 'Archived image from Rocky Linux 10.0.', url: v.visionfive2Images.download, primary: r.items.length === 0, secondary: r.items.length > 0, aria: 'Download VisionFive 2 image' });
+    const ck = (v.rpiImagesLinks || {}).checksum || (v.visionfive2ImagesLinks || {}).checksum;
+    r.checksum = ck || '#';
+    r.canVerify = !!ck;
+    r.verify = [cmd('v-lin', 'Linux', 'sha256sum --check --ignore-missing CHECKSUM')];
+  }
+  r.hasItems = r.items.length > 0;
+  r.hasCmds = r.cmds.length > 0;
+  r.hasLinks = r.links.length > 0;
+  return r;
+}
+
+class Component extends DCLogic {
+  renderVals() {
+    const t = themeBits(this);
+    const st = this.state || {};
+    const arch = st.arch || 'x86_64';
+    const vs = versionsFor(arch);
+    const ver = vs.find((v) => v.id === st.ver) || vs[0];
+    const avail = available(ver);
+    const type = avail[st.type] ? st.type : 'iso';
+    return Object.assign(t, {
+      minh: Number(this.props.minh) || 1500,
+      arch: arch,
+      archLabel: ARCHES.find((a) => a.id === arch).label,
+      verId: ver.id,
+      ver: ver,
+      no8: !vs.some((v) => v.id === '8'),
+      type: type,
+      off: { live: !avail.live, cloud: !avail.cloud, container: !avail.container, wsl: !avail.wsl, sbc: !avail.sbc },
+      onArch: (e) => this.setState({ arch: e.target.value }),
+      onVer: (e) => this.setState({ ver: e.target.value }),
+      onType: (e) => this.setState({ type: e.target.value }),
+      res: resultFor(this, ver, type),
+      announce: st.announce || '',
+    });
+  }
+}
+
+return Component;
+})();
+</script>
+<script>
+window.DC_COMPONENTS = window.DC_COMPONENTS || {};
+window.DC_COMPONENTS.UseCase = (function () {
+
+const DATA = {"x86_64":[{"id":"10","cur":"10.2","eol":"May 31, 2035","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.2-x86_64-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.2-x86_64-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.2-x86_64-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/10/images/x86_64/Rocky-10-GenericCloud-Base.latest.x86_64.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2-minimal"},"liveImages":{"gnome":"https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-Workstation-x86_64-latest.iso","gnomeLite":"https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-Workstation-Lite-x86_64-latest.iso","kde":"https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-KDE-x86_64-latest.iso"},"wslImages":{"download":"https://dl.rockylinux.org/pub/rocky/10/images/x86_64/Rocky-10-WSL-Base.latest.x86_64.wsl"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.2-x86_64-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/10/isos/x86_64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/10/BaseOS/x86_64/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/x86_64/CHECKSUM"},"liveImagesLinks":{"checksums":"https://dl.rockylinux.org/pub/rocky/10/live/x86_64/"},"wslImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/x86_64/Rocky-10-WSL-Base.latest.x86_64.wsl.CHECKSUM","readMe":"https://docs.rockylinux.org/guides/interoperability/import_rocky_to_wsl/"}},{"id":"9","cur":"9.8","eol":"May 31, 2032","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.8-x86_64-dvd.iso","boot":"https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.8-x86_64-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.8-x86_64-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/9/images/x86_64/Rocky-9-GenericCloud-Base.latest.x86_64.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8-minimal"},"liveImages":{"gnome":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-Workstation-x86_64-latest.iso","gnomeLite":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-Workstation-Lite-x86_64-latest.iso","kde":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-KDE-x86_64-latest.iso","xfce":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-XFCE-x86_64-latest.iso","mate":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-MATE-x86_64-latest.iso","cinnamon":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-Cinnamon-x86_64-latest.iso"},"wslImages":{"download":"https://dl.rockylinux.org/pub/rocky/9/images/x86_64/Rocky-9-WSL-Base.latest.x86_64.wsl"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.8-x86_64-dvd.torrent","checksum":"https://download.rockylinux.org/pub/rocky/9/isos/x86_64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/9/BaseOS/x86_64/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/x86_64/CHECKSUM"},"liveImagesLinks":{"checksums":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/"},"wslImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/x86_64/Rocky-9-WSL-Base.latest.x86_64.wsl.CHECKSUM","readMe":"https://docs.rockylinux.org/guides/interoperability/import_rocky_to_wsl/"}},{"id":"8","cur":"8.10","eol":"May 31, 2029","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.10-x86_64-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.10-x86_64-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.10-x86_64-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/8/images/x86_64/Rocky-8-GenericCloud-Base.latest.x86_64.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=8.10","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=8.10-minimal"},"liveImages":{"gnome":"https://dl.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-8-Workstation-x86_64-latest.iso","gnomeLite":"https://dl.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-8-Workstation-Lite-x86_64-latest.iso","xfce":"https://dl.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-8-XFCE-x86_64-latest.iso","mate":"https://dl.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-8-MATE-x86_64-latest.iso"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.10-x86_64-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/8/isos/x86_64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/8/BaseOS/x86_64/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/8/images/x86_64/CHECKSUM"},"liveImagesLinks":{"checksums":"https://dl.rockylinux.org/pub/rocky/8/live/x86_64/"}}],"aarch64":[{"id":"10","cur":"10.2","eol":"May 31, 2035","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.2-aarch64-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.2-aarch64-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.2-aarch64-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-GenericCloud-Base.latest.aarch64.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2-minimal"},"liveImages":{"gnome":"https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-Workstation-aarch64-latest.iso","gnomeLite":"https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-Workstation-Lite-aarch64-latest.iso","kde":"https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-KDE-aarch64-latest.iso"},"rpiImages":{"download":"https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz"},"wslImages":{"download":"https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-WSL-Base.latest.aarch64.wsl"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.2-aarch64-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/10/isos/aarch64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/10/BaseOS/aarch64/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/aarch64/CHECKSUM"},"liveImagesLinks":{"checksums":"https://dl.rockylinux.org/pub/rocky/10/live/aarch64/"},"rpiImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz.CHECKSUM"},"wslImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-WSL-Base.latest.aarch64.wsl.CHECKSUM","readMe":"https://docs.rockylinux.org/guides/interoperability/import_rocky_to_wsl/"}},{"id":"9","cur":"9.8","eol":"May 31, 2032","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.8-aarch64-dvd.iso","boot":"https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.8-aarch64-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.8-aarch64-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-GenericCloud-Base.latest.aarch64.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8-minimal"},"liveImages":{"gnome":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-Workstation-aarch64-latest.iso","gnomeLite":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-Workstation-Lite-aarch64-latest.iso","kde":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-KDE-aarch64-latest.iso","xfce":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-XFCE-aarch64-latest.iso","mate":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-MATE-aarch64-latest.iso","cinnamon":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-Cinnamon-aarch64-latest.iso"},"rpiImages":{"download":"https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-SBC-RaspberryPi.latest.aarch64.raw.xz"},"wslImages":{"download":"https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-WSL-Base.latest.aarch64.wsl"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.8-aarch64-dvd.torrent","checksum":"https://download.rockylinux.org/pub/rocky/9/isos/aarch64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/9/BaseOS/aarch64/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/aarch64/CHECKSUM"},"rpiImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-SBC-RaspberryPi.latest.aarch64.raw.xz.CHECKSUM"},"liveImagesLinks":{"checksums":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/"},"wslImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-WSL-Base.latest.aarch64.wsl.CHECKSUM","readMe":"https://docs.rockylinux.org/guides/interoperability/import_rocky_to_wsl/"}},{"id":"8","cur":"8.10","eol":"May 31, 2029","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.10-aarch64-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.10-aarch64-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.10-aarch64-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/8/images/aarch64/Rocky-8-GenericCloud-Base.latest.aarch64.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=8.10","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=8.10-minimal"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.10-aarch64-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/8/isos/aarch64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/8/BaseOS/aarch64/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/8.10/images/aarch64/CHECKSUM"}}],"ppc64le":[{"id":"10","cur":"10.2","eol":"May 31, 2035","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.2-ppc64le-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.2-ppc64le-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.2-ppc64le-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/10/images/ppc64le/Rocky-10-GenericCloud-Base.latest.ppc64le.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2-minimal"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.2-ppc64le-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/10/BaseOS/ppc64le/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/ppc64le/CHECKSUM"}},{"id":"9","cur":"9.8","eol":"May 31, 2032","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.8-ppc64le-dvd.iso","boot":"https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.8-ppc64le-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.8-ppc64le-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/9/images/ppc64le/Rocky-9-GenericCloud-Base.latest.ppc64le.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8-minimal"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.8-ppc64le-dvd.torrent","checksum":"https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/9/BaseOS/ppc64le/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/ppc64le/CHECKSUM"}}],"s390x":[{"id":"10","cur":"10.2","eol":"May 31, 2035","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.2-s390x-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.2-s390x-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.2-s390x-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/10/images/s390x/Rocky-10-GenericCloud-Base.latest.s390x.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2-minimal"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.2-s390x-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/10/isos/s390x/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/10/BaseOS/s390x/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/s390x/CHECKSUM"}},{"id":"9","cur":"9.8","eol":"May 31, 2032","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.8-s390x-dvd.iso","boot":"https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.8-s390x-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.8-s390x-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/9/images/s390x/Rocky-9-GenericCloud-Base.latest.s390x.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8-minimal"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.8-s390x-dvd.torrent","checksum":"https://download.rockylinux.org/pub/rocky/9/isos/s390x/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/9/BaseOS/s390x/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/s390x/CHECKSUM"}}],"riscv64":[{"id":"10","cur":"10.2","eol":"May 31, 2035","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.2-riscv64-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.2-riscv64-boot.iso"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2-minimal"},"visionfive2Images":{"download":"https://dl.rockylinux.org/vault/rocky/10.0/images/riscv64/Rocky-10-VisionFive2-latest.riscv64.tar.xz"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.2-riscv64-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/10/isos/riscv64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/10/BaseOS/riscv64/","archived":"https://dl.rockylinux.org/vault/rocky"},"visionfive2ImagesLinks":{"checksum":"https://dl.rockylinux.org/vault/rocky/10.0/images/riscv64/Rocky-10-VisionFive2-latest.riscv64.tar.xz.CHECKSUM"}}]};
+const ARCHES = [
+  { id: 'x86_64', label: 'AMD/Intel (x86_64)' },
+  { id: 'aarch64', label: 'ARM (aarch64)' },
+  { id: 'ppc64le', label: 'PowerPC (ppc64le)' },
+  { id: 's390x', label: 'IBM Z (s390x)' },
+  { id: 'riscv64', label: 'RISC-V (riscv64)' },
+];
+const ISO = {
+  dvd: { name: 'DVD ISO', desc: 'Everything included. Installs without an internet connection.' },
+  boot: { name: 'Boot ISO', desc: 'Small image that downloads packages during a custom, network-based install.' },
+  minimal: { name: 'Minimal ISO', desc: 'Core system only, self-contained for offline setup. Add software later.' },
+};
+const LIVE = { gnome: 'GNOME', gnomeLite: 'GNOME (Lite)', kde: 'KDE Plasma', xfce: 'Xfce', mate: 'MATE', cinnamon: 'Cinnamon' };
+const RELEASED = { '10': '2025-06-11', '9': '2022-07-14', '8': '2021-06-21' };
+const CLOUDS = [
+  { name: 'AWS (AMI list)', url: '#aws-amis' },
+  { name: 'Google Cloud', url: 'https://console.cloud.google.com/marketplace/browse?filter=partner:Rocky%20Linux' },
+  { name: 'Microsoft Azure', url: 'https://azuremarketplace.microsoft.com/en-us/marketplace/apps/resf.rockylinux-x86_64' },
+];
+const TODAY = new Date('2026-09-17');
+
+function versionsFor(arch) { return DATA[arch] || []; }
+function tagFor(v, minimal) { return v.cur + (minimal ? '-minimal' : ''); }
+function isoItems(v) {
+  const d = v.defaultImages || {};
+  return ['dvd', 'boot', 'minimal'].filter((k) => d[k]).map((k, i) => ({ key: k, name: ISO[k].name, desc: ISO[k].desc, url: d[k], primary: i === 0 }));
+}
+function liveItems(v) {
+  const l = v.liveImages || {};
+  return Object.keys(l).map((k) => ({ key: k, name: LIVE[k] || k, url: l[k] }));
+}
+function lifecycle(v) {
+  const start = new Date(RELEASED[v.id] || '2025-01-01');
+  const end = new Date(v.eol);
+  const pct = Math.max(0, Math.min(100, Math.round(((TODAY - start) / (end - start)) * 100)));
+  const yearsLeft = Math.max(0, (end - TODAY) / (365.25 * 24 * 3600 * 1000));
+  return { pct: pct, left: yearsLeft >= 1 ? Math.floor(yearsLeft) + '+ years of support left' : 'Less than a year of support left' };
+}
+function themeBits(self) {
+  const dark = self.state && self.state.dark !== undefined && self.state.dark !== null ? self.state.dark : !!(self.props.dark === true || self.props.dark === 'true');
+  return {
+    dark: dark,
+    light: !dark,
+    rootClass: 'rl' + (dark ? ' dark' : ''),
+    themeLabel: dark ? 'Switch to light theme' : 'Switch to dark theme',
+    toggleTheme: () => self.setState({ dark: !dark }),
+    w: Number(self.props.width) || 1280,
+  };
+}
+function copyText(self, text, key) {
+  try { if (navigator.clipboard) navigator.clipboard.writeText(text).catch(() => {}); } catch (e) {}
+  self.setState({ copied: key, announce: 'Copied to clipboard' });
+  clearTimeout(self._copyTimer);
+  self._copyTimer = setTimeout(() => self.setState({ copied: null, announce: '' }), 2000);
+}
+
+const TYPES = [
+  { id: 'iso', label: 'Installation ISO' },
+  { id: 'live', label: 'Live desktop' },
+  { id: 'cloud', label: 'Cloud or virtual machine' },
+  { id: 'container', label: 'Container' },
+  { id: 'wsl', label: 'Windows (WSL)' },
+  { id: 'sbc', label: 'Single-board computer' },
+];
+function available(v) {
+  return {
+    iso: isoItems(v).length > 0,
+    live: liveItems(v).length > 0,
+    cloud: !!(v.cloudImages && v.cloudImages.qcow2),
+    container: !!v.container,
+    wsl: !!(v.wslImages && v.wslImages.download),
+    sbc: !!((v.rpiImages && v.rpiImages.download) || (v.visionfive2Images && v.visionfive2Images.download)),
+  };
+}
+// Builds the one result panel for a version + image type.
+function resultFor(self, v, type) {
+  const st = self.state || {};
+  const cmd = (key, label, text) => ({ key: key, label: label, cmd: text, copyText: st.copied === key ? 'Copied' : 'Copy', aria: 'Copy command: ' + text, copy: () => copyText(self, text, key) });
+  const L = v.defaultImagesLinks || {};
+  const r = { items: [], cmds: [], links: [], providers: false, verify: [], canVerify: false, checksum: '#', title: '', lede: '' };
+  if (type === 'iso') {
+    r.title = 'Installation ISOs';
+    r.lede = 'Install on physical hardware or a virtual machine.';
+    r.items = isoItems(v).map((i) => ({ name: i.name, desc: i.desc, url: i.url, primary: i.primary, secondary: !i.primary, aria: 'Download ' + i.name }));
+    if (L.torrent) r.links.push({ label: 'Torrent (DVD ISO)', url: L.torrent });
+    r.links.push({ label: 'BaseOS packages', url: L.baseOs || '#' });
+    r.links.push({ label: 'Archived releases', url: L.archived || 'https://dl.rockylinux.org/vault/rocky' });
+    r.checksum = L.checksum || '#';
+    r.canVerify = true;
+    const file = (r.items[0] ? r.items[0].url : '').split('/').pop();
+    r.verify = [cmd('v-lin', 'Linux', 'sha256sum --check --ignore-missing CHECKSUM'), cmd('v-win', 'Windows (PowerShell)', 'Get-FileHash .\\' + file + ' -Algorithm SHA256')];
+  } else if (type === 'live') {
+    r.title = 'Live desktop images';
+    r.lede = 'Boot a full desktop from USB to try Rocky Linux, then install from it.';
+    r.items = liveItems(v).map((l, i) => ({ name: l.name, desc: l.key === 'gnomeLite' ? 'A lighter GNOME with fewer preinstalled apps.' : 'Live image with the ' + l.name + ' desktop.', url: l.url, primary: i === 0, secondary: i !== 0, aria: 'Download ' + l.name + ' live image' }));
+    r.checksum = (v.liveImagesLinks || {}).checksums || '#';
+    r.canVerify = true;
+    r.verify = [cmd('v-lin', 'Linux', 'sha256sum --check --ignore-missing CHECKSUM')];
+  } else if (type === 'cloud') {
+    r.title = 'Cloud and virtual machine images';
+    r.lede = 'Use the generic image with any cloud-init platform, or launch from a provider.';
+    r.items = [{ name: 'Generic Cloud · QCOW2', desc: 'For KVM, OpenStack and other cloud-init platforms.', url: v.cloudImages.qcow2, primary: true, secondary: false, aria: 'Download Generic Cloud QCOW2 image' }];
+    r.providers = true;
+    r.checksum = (v.cloudImagesLinks || {}).checksum || '#';
+    r.canVerify = true;
+    r.verify = [cmd('v-lin', 'Linux', 'sha256sum --check --ignore-missing CHECKSUM')];
+  } else if (type === 'container') {
+    r.title = 'Container images';
+    r.lede = 'Official OCI images. Pull them with Podman or Docker.';
+    r.cmds = [cmd('c-full', 'Full image', 'podman pull docker.io/rockylinux/rockylinux:' + tagFor(v, false)), cmd('c-min', 'Minimal image', 'podman pull docker.io/rockylinux/rockylinux:' + tagFor(v, true))];
+    r.links.push({ label: 'All tags on Docker Hub', url: v.container.fullImage });
+  } else if (type === 'wsl') {
+    r.title = 'Windows Subsystem for Linux';
+    r.lede = 'Import Rocky Linux as a WSL distribution on Windows.';
+    r.items = [{ name: 'WSL image', desc: 'Base image to import with wsl --import.', url: v.wslImages.download, primary: true, secondary: false, aria: 'Download WSL image' }];
+    r.links.push({ label: 'WSL setup guide', url: (v.wslImagesLinks || {}).readMe || 'https://docs.rockylinux.org/guides/interoperability/import_rocky_to_wsl/' });
+    r.checksum = (v.wslImagesLinks || {}).checksum || '#';
+    r.canVerify = true;
+    r.verify = [cmd('v-win', 'Windows (PowerShell)', 'Get-FileHash .\\' + v.wslImages.download.split('/').pop() + ' -Algorithm SHA256')];
+  } else if (type === 'sbc') {
+    r.title = 'Single-board computers';
+    r.lede = 'Ready-to-flash images for supported boards.';
+    if (v.rpiImages && v.rpiImages.download) r.items.push({ name: 'Raspberry Pi', desc: 'Compressed raw image to write to an SD card.', url: v.rpiImages.download, primary: true, secondary: false, aria: 'Download Raspberry Pi image' });
+    if (v.visionfive2Images && v.visionfive2Images.download) r.items.push({ name: 'VisionFive 2 (archived)', desc: 'Archived image from Rocky Linux 10.0.', url: v.visionfive2Images.download, primary: r.items.length === 0, secondary: r.items.length > 0, aria: 'Download VisionFive 2 image' });
+    const ck = (v.rpiImagesLinks || {}).checksum || (v.visionfive2ImagesLinks || {}).checksum;
+    r.checksum = ck || '#';
+    r.canVerify = !!ck;
+    r.verify = [cmd('v-lin', 'Linux', 'sha256sum --check --ignore-missing CHECKSUM')];
+  }
+  r.hasItems = r.items.length > 0;
+  r.hasCmds = r.cmds.length > 0;
+  r.hasLinks = r.links.length > 0;
+  return r;
+}
+
+const CASES = [
+  { id: 'iso', title: 'Server or PC', desc: 'Install on hardware or a virtual machine from an ISO.', icon: 'M4 3h16v6H4zM4 15h16v6H4zM8 6h.01M8 18h.01' },
+  { id: 'cloud', title: 'Cloud', desc: 'Generic cloud image or a ready-made provider image.', icon: 'M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z' },
+  { id: 'container', title: 'Containers', desc: 'Official images for Podman, Docker and Kubernetes.', icon: 'M21 8 12 3 3 8v8l9 5 9-5zM3 8l9 5 9-5M12 13v8' },
+  { id: 'live', title: 'Desktop', desc: 'Try a live desktop from USB, then install.', icon: 'M3 4h18v12H3zM8 20h8M12 16v4' },
+  { id: 'wsl', title: 'Windows (WSL)', desc: 'Run Rocky Linux inside Windows.', icon: 'M3 5h18v14H3zM3 9h18M7 13l2 2-2 2M12 17h4' },
+  { id: 'sbc', title: 'Single-board computer', desc: 'Raspberry Pi and other boards.', icon: 'M6 6h12v12H6zM9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4' },
+];
+class Component extends DCLogic {
+  renderVals() {
+    const t = themeBits(this);
+    const st = this.state || {};
+    const arch = st.arch || 'x86_64';
+    const archLabel = ARCHES.find((a) => a.id === arch).label;
+    const vs = versionsFor(arch);
+    const ver = vs.find((v) => v.id === st.ver) || vs[0];
+    const avail = available(ver);
+    const type = avail[st.type] ? st.type : 'iso';
+    return Object.assign(t, {
+      minh: Number(this.props.minh) || 1800,
+      arch: arch,
+      archLabel: archLabel,
+      ver: ver,
+      versions: vs.map((v) => ({ label: v.id === vs[0].id ? v.cur + ' (latest)' : v.cur, pressed: v.id === ver.id, pick: () => this.setState({ ver: v.id }) })),
+      cases: CASES.map((c) => ({
+        title: c.title,
+        icon: c.icon,
+        desc: avail[c.id] ? c.desc : 'Not available for ' + archLabel + ' on Rocky Linux ' + ver.id + '.',
+        pressed: c.id === type,
+        disabled: !avail[c.id],
+        pick: () => this.setState({ type: c.id }),
+      })),
+      onArch: (e) => this.setState({ arch: e.target.value }),
+      res: resultFor(this, ver, type),
+      announce: st.announce || '',
+    });
+  }
+}
+
+return Component;
+})();
+</script>
+<script>
+window.DC_COMPONENTS = window.DC_COMPONENTS || {};
+window.DC_COMPONENTS.CompareVersions = (function () {
+
+const DATA = {"x86_64":[{"id":"10","cur":"10.2","eol":"May 31, 2035","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.2-x86_64-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.2-x86_64-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.2-x86_64-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/10/images/x86_64/Rocky-10-GenericCloud-Base.latest.x86_64.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2-minimal"},"liveImages":{"gnome":"https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-Workstation-x86_64-latest.iso","gnomeLite":"https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-Workstation-Lite-x86_64-latest.iso","kde":"https://dl.rockylinux.org/pub/rocky/10/live/x86_64/Rocky-10-KDE-x86_64-latest.iso"},"wslImages":{"download":"https://dl.rockylinux.org/pub/rocky/10/images/x86_64/Rocky-10-WSL-Base.latest.x86_64.wsl"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/10/isos/x86_64/Rocky-10.2-x86_64-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/10/isos/x86_64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/10/BaseOS/x86_64/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/x86_64/CHECKSUM"},"liveImagesLinks":{"checksums":"https://dl.rockylinux.org/pub/rocky/10/live/x86_64/"},"wslImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/x86_64/Rocky-10-WSL-Base.latest.x86_64.wsl.CHECKSUM","readMe":"https://docs.rockylinux.org/guides/interoperability/import_rocky_to_wsl/"}},{"id":"9","cur":"9.8","eol":"May 31, 2032","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.8-x86_64-dvd.iso","boot":"https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.8-x86_64-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.8-x86_64-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/9/images/x86_64/Rocky-9-GenericCloud-Base.latest.x86_64.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8-minimal"},"liveImages":{"gnome":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-Workstation-x86_64-latest.iso","gnomeLite":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-Workstation-Lite-x86_64-latest.iso","kde":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-KDE-x86_64-latest.iso","xfce":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-XFCE-x86_64-latest.iso","mate":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-MATE-x86_64-latest.iso","cinnamon":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/Rocky-9-Cinnamon-x86_64-latest.iso"},"wslImages":{"download":"https://dl.rockylinux.org/pub/rocky/9/images/x86_64/Rocky-9-WSL-Base.latest.x86_64.wsl"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.8-x86_64-dvd.torrent","checksum":"https://download.rockylinux.org/pub/rocky/9/isos/x86_64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/9/BaseOS/x86_64/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/x86_64/CHECKSUM"},"liveImagesLinks":{"checksums":"https://dl.rockylinux.org/pub/rocky/9/live/x86_64/"},"wslImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/x86_64/Rocky-9-WSL-Base.latest.x86_64.wsl.CHECKSUM","readMe":"https://docs.rockylinux.org/guides/interoperability/import_rocky_to_wsl/"}},{"id":"8","cur":"8.10","eol":"May 31, 2029","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.10-x86_64-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.10-x86_64-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.10-x86_64-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/8/images/x86_64/Rocky-8-GenericCloud-Base.latest.x86_64.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=8.10","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=8.10-minimal"},"liveImages":{"gnome":"https://dl.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-8-Workstation-x86_64-latest.iso","gnomeLite":"https://dl.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-8-Workstation-Lite-x86_64-latest.iso","xfce":"https://dl.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-8-XFCE-x86_64-latest.iso","mate":"https://dl.rockylinux.org/pub/rocky/8/Live/x86_64/Rocky-8-MATE-x86_64-latest.iso"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.10-x86_64-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/8/isos/x86_64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/8/BaseOS/x86_64/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/8/images/x86_64/CHECKSUM"},"liveImagesLinks":{"checksums":"https://dl.rockylinux.org/pub/rocky/8/live/x86_64/"}}],"aarch64":[{"id":"10","cur":"10.2","eol":"May 31, 2035","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.2-aarch64-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.2-aarch64-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.2-aarch64-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-GenericCloud-Base.latest.aarch64.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2-minimal"},"liveImages":{"gnome":"https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-Workstation-aarch64-latest.iso","gnomeLite":"https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-Workstation-Lite-aarch64-latest.iso","kde":"https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-KDE-aarch64-latest.iso"},"rpiImages":{"download":"https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz"},"wslImages":{"download":"https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-WSL-Base.latest.aarch64.wsl"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/10/isos/aarch64/Rocky-10.2-aarch64-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/10/isos/aarch64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/10/BaseOS/aarch64/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/aarch64/CHECKSUM"},"liveImagesLinks":{"checksums":"https://dl.rockylinux.org/pub/rocky/10/live/aarch64/"},"rpiImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz.CHECKSUM"},"wslImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-WSL-Base.latest.aarch64.wsl.CHECKSUM","readMe":"https://docs.rockylinux.org/guides/interoperability/import_rocky_to_wsl/"}},{"id":"9","cur":"9.8","eol":"May 31, 2032","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.8-aarch64-dvd.iso","boot":"https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.8-aarch64-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.8-aarch64-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-GenericCloud-Base.latest.aarch64.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8-minimal"},"liveImages":{"gnome":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-Workstation-aarch64-latest.iso","gnomeLite":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-Workstation-Lite-aarch64-latest.iso","kde":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-KDE-aarch64-latest.iso","xfce":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-XFCE-aarch64-latest.iso","mate":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-MATE-aarch64-latest.iso","cinnamon":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-Cinnamon-aarch64-latest.iso"},"rpiImages":{"download":"https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-SBC-RaspberryPi.latest.aarch64.raw.xz"},"wslImages":{"download":"https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-WSL-Base.latest.aarch64.wsl"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/9/isos/aarch64/Rocky-9.8-aarch64-dvd.torrent","checksum":"https://download.rockylinux.org/pub/rocky/9/isos/aarch64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/9/BaseOS/aarch64/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/aarch64/CHECKSUM"},"rpiImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-SBC-RaspberryPi.latest.aarch64.raw.xz.CHECKSUM"},"liveImagesLinks":{"checksums":"https://dl.rockylinux.org/pub/rocky/9/live/aarch64/"},"wslImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-WSL-Base.latest.aarch64.wsl.CHECKSUM","readMe":"https://docs.rockylinux.org/guides/interoperability/import_rocky_to_wsl/"}},{"id":"8","cur":"8.10","eol":"May 31, 2029","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.10-aarch64-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.10-aarch64-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.10-aarch64-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/8/images/aarch64/Rocky-8-GenericCloud-Base.latest.aarch64.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=8.10","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=8.10-minimal"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/8/isos/aarch64/Rocky-8.10-aarch64-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/8/isos/aarch64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/8/BaseOS/aarch64/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/8.10/images/aarch64/CHECKSUM"}}],"ppc64le":[{"id":"10","cur":"10.2","eol":"May 31, 2035","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.2-ppc64le-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.2-ppc64le-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.2-ppc64le-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/10/images/ppc64le/Rocky-10-GenericCloud-Base.latest.ppc64le.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2-minimal"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/Rocky-10.2-ppc64le-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/10/isos/ppc64le/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/10/BaseOS/ppc64le/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/ppc64le/CHECKSUM"}},{"id":"9","cur":"9.8","eol":"May 31, 2032","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.8-ppc64le-dvd.iso","boot":"https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.8-ppc64le-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.8-ppc64le-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/9/images/ppc64le/Rocky-9-GenericCloud-Base.latest.ppc64le.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8-minimal"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/Rocky-9.8-ppc64le-dvd.torrent","checksum":"https://download.rockylinux.org/pub/rocky/9/isos/ppc64le/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/9/BaseOS/ppc64le/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/ppc64le/CHECKSUM"}}],"s390x":[{"id":"10","cur":"10.2","eol":"May 31, 2035","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.2-s390x-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.2-s390x-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.2-s390x-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/10/images/s390x/Rocky-10-GenericCloud-Base.latest.s390x.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2-minimal"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/10/isos/s390x/Rocky-10.2-s390x-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/10/isos/s390x/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/10/BaseOS/s390x/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/10/images/s390x/CHECKSUM"}},{"id":"9","cur":"9.8","eol":"May 31, 2032","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.8-s390x-dvd.iso","boot":"https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.8-s390x-boot.iso","minimal":"https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.8-s390x-minimal.iso"},"cloudImages":{"qcow2":"https://dl.rockylinux.org/pub/rocky/9/images/s390x/Rocky-9-GenericCloud-Base.latest.s390x.qcow2"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=9.8-minimal"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/9/isos/s390x/Rocky-9.8-s390x-dvd.torrent","checksum":"https://download.rockylinux.org/pub/rocky/9/isos/s390x/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/9/BaseOS/s390x/","archived":"https://dl.rockylinux.org/vault/rocky"},"cloudImagesLinks":{"checksum":"https://dl.rockylinux.org/pub/rocky/9/images/s390x/CHECKSUM"}}],"riscv64":[{"id":"10","cur":"10.2","eol":"May 31, 2035","defaultImages":{"dvd":"https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.2-riscv64-dvd1.iso","boot":"https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.2-riscv64-boot.iso"},"container":{"fullImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2","minimalImage":"https://hub.docker.com/r/rockylinux/rockylinux/tags?name=10.2-minimal"},"visionfive2Images":{"download":"https://dl.rockylinux.org/vault/rocky/10.0/images/riscv64/Rocky-10-VisionFive2-latest.riscv64.tar.xz"},"defaultImagesLinks":{"torrent":"https://download.rockylinux.org/pub/rocky/10/isos/riscv64/Rocky-10.2-riscv64-dvd1.torrent","checksum":"https://download.rockylinux.org/pub/rocky/10/isos/riscv64/CHECKSUM","baseOs":"https://download.rockylinux.org/pub/rocky/10/BaseOS/riscv64/","archived":"https://dl.rockylinux.org/vault/rocky"},"visionfive2ImagesLinks":{"checksum":"https://dl.rockylinux.org/vault/rocky/10.0/images/riscv64/Rocky-10-VisionFive2-latest.riscv64.tar.xz.CHECKSUM"}}]};
+const ARCHES = [
+  { id: 'x86_64', label: 'AMD/Intel (x86_64)' },
+  { id: 'aarch64', label: 'ARM (aarch64)' },
+  { id: 'ppc64le', label: 'PowerPC (ppc64le)' },
+  { id: 's390x', label: 'IBM Z (s390x)' },
+  { id: 'riscv64', label: 'RISC-V (riscv64)' },
+];
+const ISO = {
+  dvd: { name: 'DVD ISO', desc: 'Everything included. Installs without an internet connection.' },
+  boot: { name: 'Boot ISO', desc: 'Small image that downloads packages during a custom, network-based install.' },
+  minimal: { name: 'Minimal ISO', desc: 'Core system only, self-contained for offline setup. Add software later.' },
+};
+const LIVE = { gnome: 'GNOME', gnomeLite: 'GNOME (Lite)', kde: 'KDE Plasma', xfce: 'Xfce', mate: 'MATE', cinnamon: 'Cinnamon' };
+const RELEASED = { '10': '2025-06-11', '9': '2022-07-14', '8': '2021-06-21' };
+const CLOUDS = [
+  { name: 'AWS (AMI list)', url: '#aws-amis' },
+  { name: 'Google Cloud', url: 'https://console.cloud.google.com/marketplace/browse?filter=partner:Rocky%20Linux' },
+  { name: 'Microsoft Azure', url: 'https://azuremarketplace.microsoft.com/en-us/marketplace/apps/resf.rockylinux-x86_64' },
+];
+const TODAY = new Date('2026-09-17');
+
+function versionsFor(arch) { return DATA[arch] || []; }
+function tagFor(v, minimal) { return v.cur + (minimal ? '-minimal' : ''); }
+function isoItems(v) {
+  const d = v.defaultImages || {};
+  return ['dvd', 'boot', 'minimal'].filter((k) => d[k]).map((k, i) => ({ key: k, name: ISO[k].name, desc: ISO[k].desc, url: d[k], primary: i === 0 }));
+}
+function liveItems(v) {
+  const l = v.liveImages || {};
+  return Object.keys(l).map((k) => ({ key: k, name: LIVE[k] || k, url: l[k] }));
+}
+function lifecycle(v) {
+  const start = new Date(RELEASED[v.id] || '2025-01-01');
+  const end = new Date(v.eol);
+  const pct = Math.max(0, Math.min(100, Math.round(((TODAY - start) / (end - start)) * 100)));
+  const yearsLeft = Math.max(0, (end - TODAY) / (365.25 * 24 * 3600 * 1000));
+  return { pct: pct, left: yearsLeft >= 1 ? Math.floor(yearsLeft) + '+ years of support left' : 'Less than a year of support left' };
+}
+function themeBits(self) {
+  const dark = self.state && self.state.dark !== undefined && self.state.dark !== null ? self.state.dark : !!(self.props.dark === true || self.props.dark === 'true');
+  return {
+    dark: dark,
+    light: !dark,
+    rootClass: 'rl' + (dark ? ' dark' : ''),
+    themeLabel: dark ? 'Switch to light theme' : 'Switch to dark theme',
+    toggleTheme: () => self.setState({ dark: !dark }),
+    w: Number(self.props.width) || 1280,
+  };
+}
+function copyText(self, text, key) {
+  try { if (navigator.clipboard) navigator.clipboard.writeText(text).catch(() => {}); } catch (e) {}
+  self.setState({ copied: key, announce: 'Copied to clipboard' });
+  clearTimeout(self._copyTimer);
+  self._copyTimer = setTimeout(() => self.setState({ copied: null, announce: '' }), 2000);
+}
+
+class Component extends DCLogic {
+  renderVals() {
+    const t = themeBits(this);
+    const self = this;
+    const st = this.state || {};
+    const arch = st.arch || 'x86_64';
+    const archLabel = ARCHES.find((a) => a.id === arch).label;
+    const vs = versionsFor(arch);
+    const ver = vs.find((v) => v.id === st.ver) || vs[0];
+    const cmd = (key, label, text) => ({ key: key, label: label, cmd: text, copyText: st.copied === key ? 'Copied' : 'Copy', aria: 'Copy command: ' + text, copy: () => copyText(self, text, key) });
+    const L = ver.defaultImagesLinks || {};
+    const rows = isoItems(ver).map((i) => ({ name: i.name, desc: i.desc, url: i.url, checksum: L.checksum || '' }));
+    if (ver.cloudImages && ver.cloudImages.qcow2) rows.push({ name: 'Generic Cloud (QCOW2)', desc: 'KVM, OpenStack and other cloud-init platforms.', url: ver.cloudImages.qcow2, checksum: (ver.cloudImagesLinks || {}).checksum || '' });
+    liveItems(ver).forEach((l) => rows.push({ name: 'Live ' + l.name, desc: 'Try the ' + l.name + ' desktop from USB, then install.', url: l.url, checksum: (ver.liveImagesLinks || {}).checksums || '' }));
+    if (ver.wslImages && ver.wslImages.download) rows.push({ name: 'WSL', desc: 'Run Rocky Linux inside Windows.', url: ver.wslImages.download, checksum: (ver.wslImagesLinks || {}).checksum || '' });
+    if (ver.rpiImages && ver.rpiImages.download) rows.push({ name: 'Raspberry Pi', desc: 'Compressed raw image to write to an SD card.', url: ver.rpiImages.download, checksum: (ver.rpiImagesLinks || {}).checksum || '' });
+    if (ver.visionfive2Images && ver.visionfive2Images.download) rows.push({ name: 'VisionFive 2 (archived)', desc: 'Archived image from Rocky Linux 10.0.', url: ver.visionfive2Images.download, checksum: (ver.visionfive2ImagesLinks || {}).checksum || '' });
+    return Object.assign(t, {
+      minh: Number(this.props.minh) || 1900,
+      arch: arch,
+      archLabel: archLabel,
+      onArch: (e) => this.setState({ arch: e.target.value }),
+      ver: ver,
+      cols: vs.length,
+      cards: vs.map((v, i) => {
+        const lc = lifecycle(v);
+        const dvd = isoItems(v)[0];
+        return {
+          id: v.id, cur: v.cur, eol: v.eol, hid: 'cv-v' + v.id,
+          latest: i === 0, notLatest: i !== 0,
+          pct: lc.pct, left: lc.left,
+          dvd: dvd ? dvd.url : '#',
+          selected: v.id === ver.id,
+          showLabel: v.id === ver.id ? 'Showing all images below' : 'Show all ' + v.cur + ' images',
+          pick: () => this.setState({ ver: v.id }),
+        };
+      }),
+      rows: rows,
+      hasContainers: !!ver.container,
+      containers: ver.container ? [cmd('c-full', 'Full image', 'podman pull docker.io/rockylinux/rockylinux:' + tagFor(ver, false)), cmd('c-min', 'Minimal image', 'podman pull docker.io/rockylinux/rockylinux:' + tagFor(ver, true))] : [],
+      links: { torrent: L.torrent || '', baseOs: L.baseOs || '#' },
+      announce: st.announce || '',
+    });
+  }
+}
+
+return Component;
+})();
+</script>
+<script>
+(function () {
+  const CONCEPTS = [
+    { id: 'Recommended', label: 'A · Recommended', title: 'A · Recommended download', desc: 'One large download for the latest version on your detected architecture, a short "Which ISO do I need?" guide, and everything else in collapsible sections.' },
+    { id: 'SelectorBar', label: 'B · Selector bar', title: 'B · Selector bar', desc: 'Three dropdowns (version, architecture, image type) drive one result card, with a panel for verifying the download.' },
+    { id: 'UseCase', label: 'C · Use case', title: 'C · Pick by use case', desc: 'Choose where you are installing Rocky Linux (server, cloud, containers, desktop, WSL, single-board computer) and see the matching images.' },
+    { id: 'CompareVersions', label: 'D · Compare', title: 'D · Compare versions', desc: 'Every supported version side by side with its support timeline, then a table of all images for the selected version.' },
+  ];
+  const HOLE = /\{\{\s*([\w.$]+)\s*\}\}/g;
+  const WHOLE = /^\{\{\s*([\w.$]+)\s*\}\}$/;
+  const BOOL_ATTRS = { disabled: 1, checked: 1, selected: 1, hidden: 1, open: 1, required: 1 };
+
+  function lookup(scope, path) {
+    if (path === 'true') return true;
+    if (path === 'false') return false;
+    if (/^-?\d+(\.\d+)?$/.test(path)) return Number(path);
+    return path.split('.').reduce((o, k) => (o == null ? undefined : o[k]), scope);
+  }
+  const str = (v) => (v == null ? '' : String(v));
+  const interp = (s, scope) => s.replace(HOLE, (_, p) => str(lookup(scope, p)));
+
+  function renderChildren(parent, scope, out) {
+    parent.childNodes.forEach((n) => renderNode(n, scope, out));
+  }
+  function renderNode(n, scope, out) {
+    if (n.nodeType === 3) { out.appendChild(document.createTextNode(interp(n.nodeValue, scope))); return; }
+    if (n.nodeType !== 1) return;
+    if (n.tagName === 'TEMPLATE' && n.hasAttribute('data-for')) {
+      const list = lookup(scope, n.getAttribute('data-for')) || [];
+      const as = n.getAttribute('data-as');
+      list.forEach((item, i) => renderChildren(n.content, Object.assign(Object.create(scope), { [as]: item, $index: i }), out));
+      return;
+    }
+    if (n.tagName === 'TEMPLATE' && n.hasAttribute('data-if')) {
+      if (lookup(scope, n.getAttribute('data-if'))) renderChildren(n.content, scope, out);
+      return;
+    }
+    const el = n.cloneNode(false);
+    let valueAfter;
+    Array.from(n.attributes).forEach((a) => {
+      const whole = a.value.match(WHOLE);
+      const name = a.name;
+      if (name === 'onclick' || name === 'onchange' || name === 'oninput') {
+        el.removeAttribute(name);
+        const fn = whole ? lookup(scope, whole[1]) : null;
+        if (typeof fn === 'function') el.addEventListener(name.slice(2), fn);
+        return;
+      }
+      if (!a.value.includes('{{')) return;
+      const raw = whole ? lookup(scope, whole[1]) : interp(a.value, scope);
+      if (BOOL_ATTRS[name]) { if (raw === true || raw === 'true') el.setAttribute(name, ''); else el.removeAttribute(name); return; }
+      if (name === 'value' && el.tagName === 'SELECT') { el.removeAttribute(name); valueAfter = str(raw); return; }
+      el.setAttribute(name, str(raw));
+    });
+    renderChildren(n.content || n, scope, el);
+    if (valueAfter !== undefined) el.value = valueAfter;
+    out.appendChild(el);
+  }
+
+  // Index path from root, so focus and open <details> survive a re-render.
+  function pathOf(root, node) {
+    const p = [];
+    while (node && node !== root) { const par = node.parentNode; if (!par) return null; p.unshift(Array.prototype.indexOf.call(par.childNodes, node)); node = par; }
+    return node === root ? p : null;
+  }
+  const atPath = (root, p) => p.reduce((n, i) => (n ? n.childNodes[i] : null), root);
+
+  const frame = document.getElementById('frame');
+  const stage = document.getElementById('stage');
+  const instances = {};
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const view = { concept: 'Recommended', theme: prefersDark ? 'dark' : 'light', width: document.documentElement.clientWidth < 700 ? 'phone' : 'desktop' };
+  try {
+    const saved = JSON.parse(localStorage.getItem('rl-dl-concepts') || '{}');
+    Object.assign(view, saved);
+  } catch (e) {}
+  if (!CONCEPTS.some((c) => c.id === view.concept)) view.concept = 'Recommended';
+
+  function draw() {
+    const inst = instances[view.concept];
+    const active = document.activeElement;
+    const focusPath = frame.contains(active) ? pathOf(frame, active) : null;
+    const openPaths = Array.from(frame.querySelectorAll('details[open]')).map((d) => pathOf(frame, d));
+    const phone = view.width === 'phone';
+    inst.props.width = phone ? 390 : Math.min(1280, document.documentElement.clientWidth);
+    inst.props.dark = view.theme === 'dark';
+    inst.props.minh = 1;
+    const tpl = document.getElementById('tpl-' + view.concept);
+    const out = document.createDocumentFragment();
+    renderChildren(tpl.content, inst.renderVals(), out);
+    frame.replaceChildren(out);
+    openPaths.forEach((p) => { const d = p && atPath(frame, p); if (d && d.tagName === 'DETAILS') d.open = true; });
+    if (focusPath) { const f = atPath(frame, focusPath); if (f && f.focus) f.focus({ preventScroll: true }); }
+    stage.classList.toggle('phone', phone);
+  }
+
+  function seg(id, items, key) {
+    const box = document.getElementById(id);
+    box.replaceChildren();
+    items.forEach((it) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = it.label;
+      b.setAttribute('aria-pressed', String(view[key] === it.id));
+      b.addEventListener('click', () => { view[key] = it.id; if (key === 'theme') Object.values(instances).forEach((i) => { i.state.dark = null; }); update(); });
+      box.appendChild(b);
+    });
+  }
+  function update() {
+    try { localStorage.setItem('rl-dl-concepts', JSON.stringify(view)); } catch (e) {}
+    document.documentElement.setAttribute('data-theme', view.theme);
+    seg('concepts', CONCEPTS, 'concept');
+    seg('themes', [{ id: 'light', label: 'Light' }, { id: 'dark', label: 'Dark' }], 'theme');
+    seg('widths', [{ id: 'desktop', label: 'Desktop' }, { id: 'phone', label: 'Phone' }], 'width');
+    const c = CONCEPTS.find((x) => x.id === view.concept);
+    document.getElementById('concept-title').textContent = c.title;
+    document.getElementById('concept-desc').textContent = c.desc;
+    draw();
+  }
+
+  CONCEPTS.forEach((c) => { instances[c.id] = new window.DC_COMPONENTS[c.id]({}, () => draw()); });
+  let t;
+  window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(draw, 100); });
+  update();
+})();
+</script>
+</body>
+</html>
