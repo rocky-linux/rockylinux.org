@@ -1,10 +1,17 @@
 #!/usr/bin/env node
 "use strict";
 
-const fs = require("fs");
-const os = require("os");
-const path = require("path");
-const { execFileSync } = require("child_process");
+const fs = require("node:fs");
+const os = require("node:os");
+const path = require("node:path");
+const { execFileSync } = require("node:child_process");
+
+const GPG_SEARCH_DIRS = [
+  "/usr/bin",
+  "/bin",
+  "/usr/local/bin",
+  "/opt/homebrew/bin",
+];
 
 const FILE = "public/.well-known/security.txt";
 const KEY = "public/security-pgp-key.asc";
@@ -33,7 +40,7 @@ function checkExpires(contents) {
     return;
   }
 
-  const days = Math.floor((expires - new Date()) / 86400000);
+  const days = Math.floor((expires.getTime() - Date.now()) / 86400000);
   if (days < 0) {
     failures.push(
       `\`Expires\` passed ${Math.abs(days)} day(s) ago (${value}). The file is stale and must be re-signed.`
@@ -47,12 +54,21 @@ function checkExpires(contents) {
   }
 }
 
+function resolveGpg() {
+  for (const dir of GPG_SEARCH_DIRS) {
+    const candidate = path.join(dir, "gpg");
+    if (fs.existsSync(candidate)) return candidate;
+  }
+  throw new Error(`gpg not found in: ${GPG_SEARCH_DIRS.join(", ")}`);
+}
+
 function checkSignature() {
+  const gpgBin = resolveGpg();
   const home = fs.mkdtempSync(path.join(os.tmpdir(), "sec-txt-"));
   try {
     fs.chmodSync(home, 0o700);
     const gpg = (args) =>
-      execFileSync("gpg", ["--batch", "--homedir", home, ...args], {
+      execFileSync(gpgBin, ["--batch", "--homedir", home, ...args], {
         encoding: "utf8",
         stdio: ["ignore", "pipe", "pipe"],
       });
