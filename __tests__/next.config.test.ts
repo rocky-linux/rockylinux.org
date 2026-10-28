@@ -47,7 +47,7 @@ describe("next.config", () => {
     });
 
     it("should have the correct number of redirects", async () => {
-      expect(redirects).toHaveLength(13);
+      expect(redirects).toHaveLength(14);
     });
 
     it("should have the community-charter redirect", async () => {
@@ -150,6 +150,14 @@ describe("next.config", () => {
       expect(redirects).toContainEqual<Redirect>({
         source: "/keys",
         destination: "/resources/gpg-key-info",
+        permanent: true,
+      });
+    });
+
+    it("should redirect the legacy security.txt path to /.well-known/", async () => {
+      expect(redirects).toContainEqual<Redirect>({
+        source: "/security.txt",
+        destination: "/.well-known/security.txt",
         permanent: true,
       });
     });

@@ -20,6 +20,7 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "check:downloads": "node scripts/check-download-urls.js",
+    "check:security-txt": "node scripts/check-security-txt.js",
     "fetch:news": "node scripts/fetch-news-content.mjs"
   },
   "dependencies": {

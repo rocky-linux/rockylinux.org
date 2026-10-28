@@ -104,6 +104,11 @@ const nextConfig = {
         destination: "/resources/gpg-key-info",
         permanent: true,
       },
+      {
+        source: "/security.txt",
+        destination: "/.well-known/security.txt",
+        permanent: true,
+      },
     ];
   },
 };
