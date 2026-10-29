@@ -1,8 +1,13 @@
+---
+paths:
+  - "e2e/**"
+---
+
 # E2E Tests
 
 ## Before Writing Tests
 
-Read [docs/e2e/testing-patterns.md](../docs/e2e/testing-patterns.md) for Playwright patterns and gotchas specific to this project (Radix UI portaled components, accessible selectors, etc.).
+Read [docs/e2e/testing-patterns.md](../../docs/e2e/testing-patterns.md) for Playwright patterns and gotchas specific to this project (Radix UI portaled components, accessible selectors, etc.).
 
 ## Conventions
 

@@ -3,5 +3,18 @@
     "allow": [],
     "deny": []
   },
-  "respectGitignore": false
+  "respectGitignore": false,
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/block-content-repo-paths.mjs"
+          }
+        ]
+      }
+    ]
+  }
 }
