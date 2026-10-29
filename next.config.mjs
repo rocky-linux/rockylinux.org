@@ -2,6 +2,26 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 
+const permanentRedirects = [
+  ["/community-charter", "/about/charter"],
+  ["/sponsors", "/about/sponsors"],
+  ["/partners", "/about/partners"],
+  ["/coc", "/about/coc"],
+  ["/support", "/support/support-providers"],
+  ["/merch", "/contribute/shop"],
+  ["/cloud-images", "/download"],
+  ["/alternative-images", "/download"],
+  ["/licensing", "/legal/licensing"],
+  ["/privacy-policy", "/legal/privacy"],
+  ["/trademark", "/legal/trademarks"],
+  [
+    "/news/2024-07-01-rocky-linux-9-cve-2024-6378-regression",
+    "/news/2024-07-01-openssh-sigalrm-regression",
+  ],
+  ["/keys", "/resources/gpg-key-info"],
+  ["/security.txt", "/.well-known/security.txt"],
+];
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   typedRoutes: true,
@@ -38,73 +58,11 @@ const nextConfig = {
     ];
   },
   async redirects() {
-    return [
-      {
-        source: "/community-charter",
-        destination: "/about/charter",
-        permanent: true,
-      },
-      {
-        source: "/sponsors",
-        destination: "/about/sponsors",
-        permanent: true,
-      },
-      {
-        source: "/partners",
-        destination: "/about/partners",
-        permanent: true,
-      },
-      {
-        source: "/coc",
-        destination: "/about/coc",
-        permanent: true,
-      },
-      {
-        source: "/support",
-        destination: "/support/support-providers",
-        permanent: true,
-      },
-      {
-        source: "/merch",
-        destination: "/contribute/shop",
-        permanent: true,
-      },
-      {
-        source: "/cloud-images",
-        destination: "/download",
-        permanent: true,
-      },
-      {
-        source: "/alternative-images",
-        destination: "/download",
-        permanent: true,
-      },
-      {
-        source: "/licensing",
-        destination: "/legal/licensing",
-        permanent: true,
-      },
-      {
-        source: "/privacy-policy",
-        destination: "/legal/privacy",
-        permanent: true,
-      },
-      {
-        source: "/trademark",
-        destination: "/legal/trademarks",
-        permanent: true,
-      },
-      {
-        source: "/news/2024-07-01-rocky-linux-9-cve-2024-6378-regression",
-        destination: "/news/2024-07-01-openssh-sigalrm-regression",
-        permanent: true,
-      },
-      {
-        source: "/keys",
-        destination: "/resources/gpg-key-info",
-        permanent: true,
-      },
-    ];
+    return permanentRedirects.map(([source, destination]) => ({
+      source,
+      destination,
+      permanent: true,
+    }));
   },
 };
 
