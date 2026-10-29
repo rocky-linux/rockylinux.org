@@ -1,0 +1,19 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Contact: mailto:security@rockylinux.org
+Expires: 2027-10-01T00:00:00.000Z
+Encryption: https://openpgpkey.rockylinux.org/.well-known/openpgpkey/rockylinux.org/hu/t5s8ztdbon8yzntexy6oz5y48etqsnbb
+Encryption: https://rockylinux.org/security-pgp-key.asc
+Encryption: openpgp4fpr:f4c0847d7089f5b9b827e66f327541af5ce5f44b
+Preferred-Languages: en
+Canonical: https://rockylinux.org/.well-known/security.txt
+Canonical: https://www.rockylinux.org/.well-known/security.txt
+-----BEGIN PGP SIGNATURE-----
+
+iJEEARYIADkWIQT0wIR9cIn1ubgn5m8ydUGvXOX0SwUCauGfJBsUgAAAAAAEAA5t
+YW51MiwyLjUrMS4xMiwyLDIACgkQMnVBr1zl9EuFygEAuJBuTdoE2/BW5aoAmTRB
+9U5A/eHHqM3kn6MjzLA8HLEA/i+qrWqPVkFdkBj/l2/WqBoj4chUylZF+10Hy5JA
+T6MG
+=FgV8
+-----END PGP SIGNATURE-----
