@@ -6,7 +6,7 @@ Official Rocky Linux website — Next.js App Router, React, TypeScript, next-int
 
 - `npm run dev` · `npm run build` · `npm run lint` · `npm run typecheck` · `npm run test` (Jest) · `npm run e2e` (Playwright)
 - `npm run check:downloads` — verify URLs in `data/downloads.json`
-- Before committing, run `npm run lint`, `npm run typecheck`, and `npm run test` yourself and fix warnings too. The husky pre-commit hook (eslint, prettier, related Jest tests, markdown-filename check) only blocks on errors.
+- Before committing, run `npm run lint`, `npm run typecheck`, and `npm run test` yourself and fix warnings too. The husky pre-commit hook only runs eslint (errors block, warnings don't) and prettier on staged files — it does not typecheck or run tests.
 - `predev`/`prebuild`/`postinstall` clone content from rocky-linux/rockylinux.org-content. Set `SKIP_NEWS_FETCH=1` when offline.
 
 ## Layout

@@ -357,7 +357,7 @@ Body content in standard markdown.
 
 - Before adding a file, check that the section isn't sourced from rocky-linux/rockylinux.org-content (see the content-repo comment in `.gitignore`). Content is moving to that repo over time; if the section has moved, the change belongs there.
 - The page is served at `/<section>/<slug>` with no route code — the section's `[slug]` route checks that the file exists.
-- Filenames must not contain dots other than the extension (`gpg-key-info.md`, not `gpg.key.info.md`) — a pre-commit hook rejects them.
+- Filenames must not contain dots other than the extension (`gpg-key-info.md`, not `gpg.key.info.md`) — the `Validate Markdown Filenames` CI workflow rejects them.
 - Content is English-only; it is not sent to Crowdin.
 
 ## Navigation
