@@ -4,6 +4,10 @@ Technical documentation for the Rocky Linux website codebase.
 
 ## Documentation Index
 
+### Development
+
+- [Adding Pages and Navigation](./development/pages-and-navigation.md) - Page templates, component placement, composition over chaining, provider + hook state sharing, header/footer navigation, and the sitemap.
+
 ### Internationalization (i18n)
 
 - [Caching and Locale Detection](./i18n/caching-and-locale-detection.md) - Deep dive into i18n caching issues with Vercel and next-intl, including root cause analysis and recommended solutions.
@@ -31,6 +35,7 @@ Technical documentation for the Rocky Linux website codebase.
 ### Research
 
 - [Back Button Hijacking Policy](./research/back-button-hijacking-policy.md) - Why the downloads page's History API usage is not affected by Google's June 15, 2026 "back button hijacking" spam policy.
+- [React Composition Patterns](./research/react-composition-patterns.md) - Why pages compose via `children`, how nested children share client state (context + custom hook), and when a component may render its own children.
 
 ### Project Management
 

@@ -1,91 +1,61 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Official Rocky Linux website — Next.js App Router, React, TypeScript, next-intl, shadcn/ui (Radix), Tailwind.
 
-## Project Overview
+## Commands
 
-This is the official Rocky Linux website built with Next.js 15, React 19, and TypeScript. The site supports 34 languages and provides download options for multiple architectures.
+- `npm run dev` · `npm run build` · `npm run lint` · `npm run typecheck` · `npm run test` (Jest) · `npm run e2e` (Playwright)
+- `npm run check:downloads` — verify URLs in `data/downloads.json`
+- Before committing, run `npm run lint`, `npm run typecheck`, and `npm run test` yourself and fix warnings too. The husky pre-commit hook only runs eslint (errors block, warnings don't) and prettier on staged files — it does not typecheck or run tests.
+- `predev`/`prebuild`/`postinstall` clone content from rocky-linux/rockylinux.org-content. Set `SKIP_NEWS_FETCH=1` when offline.
 
-## Quick Start
+## Layout
 
-```bash
-npm install
-npm run dev
-```
+- Pages: `app/[locale]/<route>/page.tsx`; page-only components in `app/[locale]/<route>/components/`
+- Reusable feature components: `components/` or `components/<feature>/`; UI primitives (shadcn/ui only): `components/ui/`
+- Global types: `types/`; ambient declarations: `@types/`; app-wide hooks: `hooks/` (create with the first one)
+- Data: `data/*.json`; locale config: `config/i18nProperties.ts`, `i18n/`
+- `proxy.ts` is Next 16's replacement for `middleware.ts` — never create a `middleware.ts`
+- Import alias `@/*` → repo root
 
-## Key Commands
+## Content repo
 
-- `npm run build` - Build for production
-- `npm run lint` - Run ESLint
-- `npm run format` - Format code with Prettier
-- `npm run test` - Run unit tests
-- `npm run e2e` - Run Playwright E2E tests
+Some content lives in rocky-linux/rockylinux.org-content and is cloned in at dev/build time (`scripts/fetch-news-content.mjs`). The affected paths are listed under the content-repo comment in `.gitignore` (currently `news/` and `public/images/content/`). Never create or edit files there — they're overwritten on every fetch and never committed. New or changed content (e.g. a news post) goes in a PR to the content repo; only rendering code belongs here.
 
-## Common URLs
+## Conventions
 
-- Local development: `http://localhost:3000`
-- Staging: `https://staging.rockylinux.org`
-- Production: `https://rockylinux.org`
+- All user-facing text via next-intl. Add strings ONLY to `messages/en.json` — Crowdin generates the other locales.
+- Use `Link` and navigation helpers from `@/i18n/navigation`, never `next/link`.
+- Pages are server components that compose structure via `children`; client state lives in a provider with a custom hook, not in the page. See `docs/development/pages-and-navigation.md` before creating or restructuring a page.
+- React component props are typed `Readonly<Props>` (SonarQube S6759).
+- Every exported function, component, and hook has a full JSDoc block: summary, `@param` for each parameter (including destructured props fields), `@returns`, and `@throws` when it can throw.
+- Follow WCAG 2.1 AA.
+- Write tests for new features and bug fixes.
 
-## Important Conventions
+## TypeScript
 
-1. **TypeScript First** - All new code should be written in TypeScript
-2. **Internationalization** - All user-facing text must use the i18n system
-3. **Accessibility** - Follow WCAG 2.1 AA standards
-4. **Component Structure** - Use the established shadcn/ui pattern for new components
-5. **Testing** - Write tests for new features and bug fixes
+- IMPORTANT: Never use `any` — not as an annotation, cast (`as any`), or generic argument. Use a real type, a generic, `Record<string, unknown>`, or `unknown` with narrowing. If you believe `any` is truly unavoidable, stop and ask the user first with your justification. ESLint enforces this outside `__tests__/`; the rule applies there too.
+- Before creating a type, search `types/`, `@types/`, and nearby files for an existing one.
+- Placement: global/shared → `types/`; used by one page only → top of that page file; shared by a few related pages → `<route>/types/` (prefer promoting to `types/`).
+- Hooks: page/feature hook → its own `useX.ts` beside the components using it; app-wide → `hooks/`.
 
-## Key Features to Understand
+## Git
 
-1. **Download System** - Architecture detection and dynamic URL state management
-2. **Internationalization** - 34 language support with next-intl
-3. **News System** - Markdown-based blog with RSS feed
-4. **Theme System** - Dark/light mode with next-themes
+- Branch from `develop` and open PRs against `develop` (= staging). `develop` → `main` (= production) is a release PR.
 
-## Common Tasks
+## Shell gotchas
 
-### Adding a New Page
+- Quote bracketed paths in zsh: `git add "app/[locale]/..."`.
 
-1. Create the page in `/app/[locale]/your-page/page.tsx`
-2. Add translations to `/messages/en.json` (and other locales)
-3. Update navigation if needed in `/lib/navigation-items.ts`
+## Docs (read on demand)
 
-### Adding a New Component
-
-1. Create component in `/components/ui/` or `/components/`
-2. Follow the existing component patterns
-3. Include TypeScript types
-4. Add to component exports if needed
-
-### Working with Translations
-
-1. Edit message files in `/messages/[locale].json`
-2. Use `useTranslations` hook in components
-3. Create the english translation in `/messages/en.json` (other locale translations are created automatically by Crowdin)
-
-## Shell Gotchas
-
-- **Quote paths with brackets** — This repo uses `app/[locale]/` extensively. Zsh interprets `[locale]` as a glob pattern, so always quote these paths in shell commands: `git add "app/[locale]/..."`, not `git add app/[locale]/...`.
-
-## Code Quality Standards
-
-- Run `npm run lint` before committing
-- Follow the existing code style
-- Write meaningful commit messages
-- Keep components small and focused
-- Document complex logic
-
-## E2E Tests (Playwright)
-
-E2E tests are located in the `e2e` folder. They use Playwright to test the application in a real browser environment. Docs for writing E2E tests can be found in `docs/e2e/testing-patterns.md`.
-
-## Technical Documentation
-
-Detailed technical documentation is available in the `/docs` folder:
-
-- [Documentation Index](./docs/README.md)
-- [i18n Caching and Locale Detection](./docs/i18n/caching-and-locale-detection.md) - Critical information about Vercel caching behavior with next-intl
-- [Project Issue Management](./docs/project/issue-management.md) - How to create issues in the Web/Design GitHub Project tied to an epic, and how to audit every item for epic coverage. Read this before creating or organizing project issues.
+- Index: `docs/README.md`
+- Adding pages, components, header/footer nav, sitemap: `docs/development/pages-and-navigation.md`
+- Composition patterns rationale: `docs/research/react-composition-patterns.md`
+- i18n caching / Vercel locale detection: `docs/i18n/caching-and-locale-detection.md` — read before touching locale routing or caching
+- GitHub Project issues/epics: `docs/project/issue-management.md` — read before creating or organizing issues
+- Disabling downloads: `docs/downloads/disabling-downloads.md`
+- Known build warnings: `docs/known-issues.md`
 
 <!-- BEGIN:nextjs-agent-rules -->
 
