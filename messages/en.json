@@ -174,8 +174,8 @@
     "description": "Purchase some swag! All of our vendors ship globally."
   },
   "download": {
-    "title": "Download",
-    "description": "Download the latest Rocky Linux versions here.",
+    "title": "Download Rocky Linux",
+    "description": "Pick a release, tell us where you'll run it, and get the right files. Rocky Linux is free, and always will be.",
     "selectArchitecture": "Select architecture",
     "tabs": {
       "x86_64": "AMD/Intel (x86_64)",
@@ -306,6 +306,99 @@
       "ccats_text": "N/A",
       "ern_title": "ERN",
       "ern_text": "N/A"
+    },
+    "steps": {
+      "release": {
+        "title": "Choose a release",
+        "help": "Starting a new deployment? Choose the latest release. Pick an earlier one only if your software requires it."
+      },
+      "platform": {
+        "title": "Choose where you'll run it"
+      },
+      "download": {
+        "title": "Download"
+      }
+    },
+    "releases": {
+      "latest": "Latest",
+      "maintained": "Maintained",
+      "version": "Version {version}",
+      "supportedUntil": "Supported until {date}"
+    },
+    "platforms": {
+      "install": {
+        "title": "Servers & virtual machines",
+        "description": "Install on bare metal, VMs and hypervisors with an ISO."
+      },
+      "cloud": {
+        "title": "Cloud",
+        "description": "Images for AWS, Google Cloud, Azure and other cloud platforms."
+      },
+      "containers": {
+        "title": "Containers",
+        "description": "Base images for Docker, Podman and Kubernetes."
+      },
+      "desktop": {
+        "title": "Desktop",
+        "description": "Live ISOs to try or install a desktop environment."
+      },
+      "wsl": {
+        "title": "Windows (WSL)",
+        "description": "Run Rocky Linux on Windows without a virtual machine."
+      },
+      "devices": {
+        "title": "Single-board computers",
+        "description": "Images for Raspberry Pi and RISC-V boards."
+      }
+    },
+    "results": {
+      "heading": "{platform} · {release}",
+      "architecture": "Architecture",
+      "architectureHelp": "Not sure? Most servers and PCs are x86_64 (AMD/Intel). On an existing Linux machine, run uname -m to check.",
+      "download": "Download",
+      "openDockerHub": "View on Docker Hub",
+      "related": "Checksums and related files",
+      "verifyTitle": "Verify your download",
+      "verifyText": "Check the file against the published checksum before you use it:",
+      "pullTitle": "Pull from the command line",
+      "pullText": "Replace podman with docker if you prefer."
+    },
+    "hints": {
+      "dvd": "Full installer. Everything needed to install is included, no network required.",
+      "boot": "Small installer that downloads packages over the network during installation.",
+      "minimal": "Self-contained installer with a minimal package set, for offline installs.",
+      "qcow2": "Generic cloud image for OpenStack, KVM and other cloud-init based platforms.",
+      "fullImage": "Standard base image with the usual tools included.",
+      "minimalImage": "Smaller base image for lean deployments.",
+      "wsl": "Import it into WSL with wsl --import.",
+      "rpi": "Ready-to-boot image for supported Raspberry Pi boards.",
+      "visionfive2": "Ready-to-boot image for the VisionFive 2 board."
+    },
+    "cloudActions": {
+      "aws": "Find the AMI for your region and architecture.",
+      "google": "Launch from the Google Cloud Marketplace.",
+      "azure": "Launch from the Azure Marketplace.",
+      "viewAmis": "View AMIs",
+      "openMarketplace": "Open marketplace"
+    },
+    "nextSteps": {
+      "title": "What's next?",
+      "install": {
+        "title": "Installation guide",
+        "text": "A step-by-step walkthrough of your first install."
+      },
+      "docs": {
+        "title": "Documentation",
+        "text": "Guides for configuring and running Rocky Linux."
+      },
+      "migrate": {
+        "title": "Migrating from another distro?",
+        "text": "Convert an existing EL system in place with migrate2rocky."
+      },
+      "community": {
+        "title": "Ask the community",
+        "text": "Get help from other users on the forums."
+      }
     }
   },
   "community": {
