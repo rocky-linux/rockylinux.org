@@ -130,7 +130,7 @@ const MobileNavigation = ({
             <NavList name={t.contributeName}>
               <NavListItem
                 title={t.contribute.contribute}
-                href="https://wiki.rockylinux.org/contributing/"
+                href="https://docs.rockylinux.org/guides/contribute/"
               />
               <NavListItem
                 title={t.contribute.shop}
