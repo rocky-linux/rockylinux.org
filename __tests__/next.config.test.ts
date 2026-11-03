@@ -12,6 +12,26 @@ jest.mock("next-intl/plugin", () => {
 
 import nextConfig from "../next.config.mjs";
 
+const expectedRedirects: [string, string][] = [
+  ["/community-charter", "/about/charter"],
+  ["/sponsors", "/about/sponsors"],
+  ["/partners", "/about/partners"],
+  ["/coc", "/about/coc"],
+  ["/support", "/support/support-providers"],
+  ["/merch", "/contribute/shop"],
+  ["/cloud-images", "/download"],
+  ["/alternative-images", "/download"],
+  ["/licensing", "/legal/licensing"],
+  ["/privacy-policy", "/legal/privacy"],
+  ["/trademark", "/legal/trademarks"],
+  [
+    "/news/2024-07-01-rocky-linux-9-cve-2024-6378-regression",
+    "/news/2024-07-01-openssh-sigalrm-regression",
+  ],
+  ["/keys", "/resources/gpg-key-info"],
+  ["/security.txt", "/.well-known/security.txt"],
+];
+
 describe("next.config", () => {
   describe("images", () => {
     let remotePatterns: RemotePattern[];
@@ -47,112 +67,19 @@ describe("next.config", () => {
     });
 
     it("should have the correct number of redirects", async () => {
-      expect(redirects).toHaveLength(13);
+      expect(redirects).toHaveLength(expectedRedirects.length);
     });
 
-    it("should have the community-charter redirect", async () => {
-      expect(redirects).toContainEqual<Redirect>({
-        source: "/community-charter",
-        destination: "/about/charter",
-        permanent: true,
-      });
-    });
-
-    it("should have the sponsors redirect", async () => {
-      expect(redirects).toContainEqual<Redirect>({
-        source: "/sponsors",
-        destination: "/about/sponsors",
-        permanent: true,
-      });
-    });
-
-    it("should have the partners redirect", async () => {
-      expect(redirects).toContainEqual<Redirect>({
-        source: "/partners",
-        destination: "/about/partners",
-        permanent: true,
-      });
-    });
-
-    it("should have the coc redirect", async () => {
-      expect(redirects).toContainEqual<Redirect>({
-        source: "/coc",
-        destination: "/about/coc",
-        permanent: true,
-      });
-    });
-
-    it("should have the support redirect", async () => {
-      expect(redirects).toContainEqual<Redirect>({
-        source: "/support",
-        destination: "/support/support-providers",
-        permanent: true,
-      });
-    });
-
-    it("should have the merch redirect", async () => {
-      expect(redirects).toContainEqual<Redirect>({
-        source: "/merch",
-        destination: "/contribute/shop",
-        permanent: true,
-      });
-    });
-
-    it("should have the cloud-images redirect", async () => {
-      expect(redirects).toContainEqual<Redirect>({
-        source: "/cloud-images",
-        destination: "/download",
-        permanent: true,
-      });
-    });
-
-    it("should have the alternative-images redirect", async () => {
-      expect(redirects).toContainEqual<Redirect>({
-        source: "/alternative-images",
-        destination: "/download",
-        permanent: true,
-      });
-    });
-
-    it("should have the licensing redirect", async () => {
-      expect(redirects).toContainEqual<Redirect>({
-        source: "/licensing",
-        destination: "/legal/licensing",
-        permanent: true,
-      });
-    });
-
-    it("should have the privacy-policy redirect", async () => {
-      expect(redirects).toContainEqual<Redirect>({
-        source: "/privacy-policy",
-        destination: "/legal/privacy",
-        permanent: true,
-      });
-    });
-
-    it("should have the trademark redirect", async () => {
-      expect(redirects).toContainEqual<Redirect>({
-        source: "/trademark",
-        destination: "/legal/trademarks",
-        permanent: true,
-      });
-    });
-
-    it("should have typo redirect for regresshion", async () => {
-      expect(redirects).toContainEqual<Redirect>({
-        source: "/news/2024-07-01-rocky-linux-9-cve-2024-6378-regression",
-        destination: "/news/2024-07-01-openssh-sigalrm-regression",
-        permanent: true,
-      });
-    });
-
-    it("should redirect keys to the correct location", async () => {
-      expect(redirects).toContainEqual<Redirect>({
-        source: "/keys",
-        destination: "/resources/gpg-key-info",
-        permanent: true,
-      });
-    });
+    it.each(expectedRedirects)(
+      "should redirect %s to %s",
+      (source, destination) => {
+        expect(redirects).toContainEqual<Redirect>({
+          source,
+          destination,
+          permanent: true,
+        });
+      }
+    );
 
     describe("error cases", () => {
       it("should not have any redirects with malformed URLs", () => {

@@ -14,12 +14,14 @@
     "prepare": "husky && playwright install",
     "start": "next start",
     "typegen": "next typegen",
+    "typecheck": "next typegen && tsc --noEmit",
     "e2e": "playwright test",
     "e2e:dev": "playwright test --ui",
     "e2e:install": "playwright install",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "check:downloads": "node scripts/check-download-urls.js",
+    "check:security-txt": "node scripts/check-security-txt.js",
     "fetch:news": "node scripts/fetch-news-content.mjs"
   },
   "dependencies": {

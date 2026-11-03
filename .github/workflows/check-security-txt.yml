@@ -1,0 +1,150 @@
+name: Check security.txt
+
+on:
+  schedule:
+    - cron: "0 2 1 * *"
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - "public/.well-known/security.txt"
+      - "public/security-pgp-key.asc"
+      - "scripts/check-security-txt.js"
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+
+      - name: Check security.txt
+        id: check
+        run: node scripts/check-security-txt.js
+        continue-on-error: true
+
+      - name: Comment PR on failure
+        if: steps.check.outcome == 'failure' && github.event_name == 'pull_request'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const fs = require('fs');
+            if (!fs.existsSync('security-txt-summary.md')) return;
+            const summary = fs.readFileSync('security-txt-summary.md', 'utf8');
+
+            const comments = await github.rest.issues.listComments({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            });
+            const botComment = comments.data.find(comment =>
+              comment.user.type === 'Bot' &&
+              comment.body.includes('security.txt check failed')
+            );
+
+            if (botComment) {
+              await github.rest.issues.updateComment({
+                comment_id: botComment.id,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: summary + '\n\n*Updated: ' + new Date().toISOString() + '*'
+              });
+            } else {
+              await github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: summary
+              });
+            }
+
+      - name: Create or update issue on scheduled run failure
+        if: steps.check.outcome == 'failure' && github.event_name != 'pull_request'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const fs = require('fs');
+            let body = fs.existsSync('security-txt-summary.md')
+              ? fs.readFileSync('security-txt-summary.md', 'utf8')
+              : 'The security.txt check failed. Please check the workflow logs for details.';
+
+            body += '\n\n[View latest workflow run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})';
+
+            const title = 'security.txt needs attention';
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'security-txt'
+            });
+            const existingIssue = issues.data.find(issue => issue.title === title);
+
+            if (existingIssue) {
+              await github.rest.issues.createComment({
+                issue_number: existingIssue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: body + '\n\n*Check performed at: ' + new Date().toISOString() + '*'
+              });
+              console.log(`Updated existing issue #${existingIssue.number}`);
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body: body + '\n\n*First detected: ' + new Date().toISOString() + '*\n\nThis issue will be automatically updated with new checks until resolved.',
+                labels: ['security-txt']
+              });
+              console.log('Created new issue for security.txt');
+            }
+
+      - name: Close issue if resolved
+        if: steps.check.outcome == 'success' && github.event_name != 'pull_request'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: ['security-txt']
+            });
+            const existingIssue = issues.data.find(issue =>
+              issue.title === 'security.txt needs attention'
+            );
+            if (!existingIssue) return;
+
+            await github.rest.issues.createComment({
+              issue_number: existingIssue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'security.txt checks are passing again. Closing this issue.\n\n*Verified at: ' + new Date().toISOString() + '*'
+            });
+            await github.rest.issues.update({
+              issue_number: existingIssue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'closed'
+            });
+            console.log(`Closed issue #${existingIssue.number}`);
+
+      - name: Set workflow status
+        if: always()
+        run: |
+          if [ "${{ steps.check.outcome }}" == "failure" ]; then
+            echo "security.txt check failed - marking workflow as failed"
+            exit 1
+          else
+            echo "security.txt check passed"
+            exit 0
+          fi
