@@ -177,11 +177,12 @@ const t = useTranslations("global");
 **Pattern for client components receiving translations as props:**
 
 ```typescript
-// Server component (Tabs.tsx) passes translated string
-const translations = { selectArchitecture: t("selectArchitecture") };
+// Server component (DownloadExperience.tsx) passes translated strings
+const translations = { cards: { rpiImages: { download: t("cards.rpiImages.download") } } };
 
-// Client component (TabsClient.tsx) uses the prop
-<SelectTrigger aria-label={translations.selectArchitecture}>
+// Client components (DownloadPanel.tsx) can call the hook directly
+const t = useTranslations("download");
+<SelectTrigger aria-label={t("selectArchitecture")}>
 ```
 
 When adding a new `aria-label`, add the translation key to `messages/en.json` — Crowdin handles the other 33 locales automatically.
