@@ -30,8 +30,19 @@ Before contributing, ensure you have a basic understanding of the following:
 
 **Adding Images**
 
-- **Location:** All images should be placed in the `public/images` directory. Please categorize images by their purpose; for example, images for news posts should be placed in `public/images/news`.
+- **Location:** Images used by the site itself go in the `public/images` directory, categorized by purpose. Images for news posts go in the content repository instead (see below).
 - **Optimization:** Ensure that images are optimized for the web to enhance performance and reduce load times.
+
+**News Posts and Events**
+
+News posts are not stored in this repository. They live in [rocky-linux/rockylinux.org-content](https://github.com/rocky-linux/rockylinux.org-content), and this repository clones them at dev and build time. Only the code that renders them belongs here.
+
+- **Where to contribute:** Open a pull request against the `main` branch of the content repository. Merging it triggers a rebuild of the website, so a new post does not need a pull request or a release here.
+- **Do not edit here:** `news/` and `public/images/content/` are overwritten on every fetch and are not committed to this repository.
+- **Posts:** Add a Markdown file at `news/<slug>.md`. The filename becomes the post's URL (`/news/<slug>`), so keep it URL-safe and lowercase, with words separated by hyphens. The frontmatter must include `title` and `date`. The content repository checks this on every pull request, and you can run the same check there with `npm run validate`.
+- **Images:** Add image files to the content repository's `images/` directory and reference them as `/images/content/<filename>`, including images in the post body. Paths without the `content` folder will not load.
+- **Previewing locally:** Point your local site at a branch of the content repository with `NEWS_CONTENT_REPO_BRANCH=<branch> npm run dev`. For a branch on your fork, also set `NEWS_CONTENT_REPO_URL` to your fork's clone URL. Use `SKIP_NEWS_FETCH=1` when working offline.
+- **Events:** Event listings will also live in the content repository once the events page ([#387](https://github.com/rocky-linux/rockylinux.org/pull/387)) ships.
 
 **News Post Images**
 
@@ -42,14 +53,14 @@ News posts can declare a lead image in their frontmatter. It is rendered above t
 title: "Example Post"
 date: "2026-01-01"
 author: "Your Name"
-image: "/images/news/example.png"
-imageDark: "/images/news/example-dark.png"
+image: "/images/content/example.png"
+imageDark: "/images/content/example-dark.png"
 imageAlt: "Description of the image"
 imageWidth: 526
 ---
 ```
 
-- **`image`** (required for a lead image): Root-relative path under `public`. Intrinsic dimensions are read from the file at build time, so no size needs to be declared.
+- **`image`** (required for a lead image): Path to the image, in the form `/images/content/<filename>`. Intrinsic dimensions are read from the file at build time, so no size needs to be declared.
 - **`imageDark`** (optional): Variant shown when the site is in dark mode. Use this when an image does not read well on both backgrounds, such as a dark-on-transparent logo. Both variants should share the same dimensions.
 - **`imageAlt`** (optional): Alternative text. When an `imageDark` variant is present it is marked decorative, so only the light variant carries the alt text.
 - **`imageWidth`** (optional): Caps the rendered width in CSS pixels and centers the image. Omit it to span the full content column. Useful for logos and other artwork that should not be upscaled.
@@ -62,8 +73,16 @@ Currently, we are not accepting contributions for translations as the marketing 
 **Pull Request Process**
 
 1. **Pull Request:** Once you are ready, open a pull request against the `develop` branch. Ensure that your PR title and description clearly describe the changes, and **reference the associated issue number (e.g., "Fixes #123")**.
-2. **Review:** Your pull request will be reviewed by maintainers. Be responsive to feedback and make necessary adjustments based on the review.
+2. **Review:** Your pull request will be reviewed by a member of the Web Team (see **Reviewers**). Be responsive to feedback and make necessary adjustments based on the review.
 3. **Merge:** Once your PR is approved and passes all checks, a maintainer will merge it into the `develop` branch.
+
+**Reviewers**
+
+Request a review from one of the following Web Team members. This applies to pull requests into `develop` and to release pull requests from `develop` into `main`.
+
+| Name           | GitHub                                            |
+| -------------- | ------------------------------------------------- |
+| Gabriel Graves | [NebraskaCoder](https://github.com/NebraskaCoder) |
 
 **Testing**
 
