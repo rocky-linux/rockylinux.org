@@ -19,7 +19,11 @@ const GOOGLE_URL =
 const AZURE_URL =
   "https://azuremarketplace.microsoft.com/en-us/marketplace/apps/resf.rockylinux-x86_64";
 
-/** Marketplace entries for the big three clouds. */
+/**
+ * Marketplace entries for the big three clouds.
+ *
+ * @returns A list of AWS, Google Cloud and Azure rows.
+ */
 const CloudProviders = () => {
   const t = useTranslations("download");
   const tGlobal = useTranslations("global");

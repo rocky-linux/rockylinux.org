@@ -12,12 +12,22 @@ interface ReleasePickerProps {
   labelledBy: string;
 }
 
+/**
+ * Step 1: the release to download, as a radio group of cards.
+ *
+ * @param props - Component props.
+ * @param props.releases - Releases with downloads, newest first.
+ * @param props.selected - Version id of the checked release.
+ * @param props.onSelect - Called with the version id the visitor picks.
+ * @param props.labelledBy - Id of the element that names the group.
+ * @returns The release radio group.
+ */
 const ReleasePicker = ({
   releases,
   selected,
   onSelect,
   labelledBy,
-}: ReleasePickerProps) => {
+}: Readonly<ReleasePickerProps>) => {
   const t = useTranslations("download.releases");
 
   return (

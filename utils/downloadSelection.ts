@@ -36,13 +36,21 @@ export const PLATFORMS: PlatformSpec[] = [
 const majorOf = (versionId: string) =>
   Number.parseInt(/\d+/.exec(versionId)?.[0] ?? "0", 10);
 
-/** Major version number for a version id, e.g. "rocky-10" -> "10". */
+/**
+ * Major version number for a version id.
+ *
+ * @param versionId - Release id, e.g. "rocky-10".
+ * @returns The major version as a string, e.g. "10".
+ */
 export const majorVersion = (versionId: string) => String(majorOf(versionId));
 
 /**
  * Every release with at least one enabled download on some platform, newest
  * first. Releases whose downloads are all disabled are hidden, so retiring a
  * release in downloads.json removes it from the picker.
+ *
+ * @param arches - Processed downloads for every architecture.
+ * @returns The releases to offer.
  */
 export function listReleases(arches: ProcessedArchitectures): Release[] {
   const releases = new Map<string, Release>();
@@ -67,7 +75,15 @@ export function listReleases(arches: ProcessedArchitectures): Release[] {
     .sort((a, b) => majorOf(b.versionId) - majorOf(a.versionId));
 }
 
-/** Non-empty download groups for a platform on one architecture and release. */
+/**
+ * Non-empty download groups for a platform on one architecture and release.
+ *
+ * @param arches - Processed downloads for every architecture.
+ * @param arch - Architecture to look in.
+ * @param versionId - Release id.
+ * @param platform - Platform the visitor chose.
+ * @returns The groups with something to download, in display order.
+ */
 export function groupsFor(
   arches: ProcessedArchitectures,
   arch: string,
@@ -85,7 +101,14 @@ export function groupsFor(
   });
 }
 
-/** Architectures that have something to download for this selection. */
+/**
+ * Architectures that have something to download for this selection.
+ *
+ * @param arches - Processed downloads for every architecture.
+ * @param versionId - Release id.
+ * @param platform - Platform the visitor chose.
+ * @returns The architecture names.
+ */
 export function availableArchs(
   arches: ProcessedArchitectures,
   versionId: string,
@@ -99,6 +122,10 @@ export function availableArchs(
 /**
  * Platforms worth showing for a release. Cloud is always offered because the
  * AWS, Google Cloud and Azure marketplace links do not come from downloads.json.
+ *
+ * @param arches - Processed downloads for every architecture.
+ * @param versionId - Release id.
+ * @returns The platform ids, in display order.
  */
 export function availablePlatforms(
   arches: ProcessedArchitectures,
@@ -110,12 +137,22 @@ export function availablePlatforms(
   ).map(({ id }) => id);
 }
 
+/**
+ * Type guard for platform ids.
+ *
+ * @param value - A value such as a query parameter.
+ * @returns True when `value` is one of the known platforms.
+ */
 export const isPlatformId = (value: string | null): value is PlatformId =>
   PLATFORMS.some((p) => p.id === value);
 
 /**
  * The platform to show: the requested one if this release offers it, else
  * servers (the main audience), else the first available.
+ *
+ * @param available - Platforms offered for the release.
+ * @param requested - Platform asked for, e.g. from the URL.
+ * @returns The platform to show.
  */
 export function resolvePlatform(
   available: PlatformId[],
@@ -131,6 +168,10 @@ export function resolvePlatform(
  * The architecture to show: the requested one if available, else x86_64.
  * The visitor's browser architecture says nothing about the machine being
  * deployed to, so it is deliberately not used.
+ *
+ * @param available - Architectures that have downloads for the selection.
+ * @param requested - Architecture asked for, e.g. from the URL.
+ * @returns The architecture to show, or undefined when none is available.
  */
 export function resolveArch(
   available: string[],

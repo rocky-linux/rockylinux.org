@@ -44,12 +44,25 @@ const GROUP_HINTS: Partial<Record<GroupKey, string>> = {
   visionFive2Images: "visionfive2",
 };
 
-const CommandBlock = ({ children }: { children: string }) => (
+const CommandBlock = ({ children }: Readonly<{ children: string }>) => (
   <pre className="mt-2 overflow-x-auto rounded-lg border bg-muted px-4 py-3 text-sm">
     <code>{children}</code>
   </pre>
 );
 
+/**
+ * Step 3: the files for the chosen release, platform and architecture, with
+ * the architecture selector when there is more than one to choose from.
+ *
+ * @param props - Component props.
+ * @param props.arches - Processed downloads for every architecture.
+ * @param props.release - The selected release.
+ * @param props.platform - The selected platform.
+ * @param props.archs - Architectures that have downloads for this selection.
+ * @param props.arch - The architecture on screen.
+ * @param props.onArchChange - Called when the visitor picks another architecture.
+ * @returns The results card.
+ */
 const DownloadPanel = ({
   arches,
   release,
@@ -57,7 +70,7 @@ const DownloadPanel = ({
   archs,
   arch,
   onArchChange,
-}: DownloadPanelProps) => {
+}: Readonly<DownloadPanelProps>) => {
   const t = useTranslations("download");
 
   const hintFor = (key: GroupKey, optionId: string): string | undefined => {

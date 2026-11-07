@@ -19,6 +19,17 @@ interface RadioCardProps<T extends string> {
  * A selectable card backed by a native radio input. The input covers the whole
  * card (invisible but real), so clicks, taps, keyboard arrows and assistive
  * tech all work on the actual control.
+ *
+ * @param props - Component props.
+ * @param props.name - Radio group name.
+ * @param props.value - Value this card selects.
+ * @param props.checked - Whether this card is the selected one.
+ * @param props.onSelect - Called with `value` when the card is chosen.
+ * @param props.title - Accessible name of the option, rendered as the label.
+ * @param props.children - Extra details below the title.
+ * @param props.icon - Icon shown before the text.
+ * @param props.badge - Badge shown beside the title.
+ * @returns The card.
  */
 const RadioCard = <T extends string>({
   name,
@@ -29,7 +40,7 @@ const RadioCard = <T extends string>({
   children,
   icon,
   badge,
-}: RadioCardProps<T>) => (
+}: Readonly<RadioCardProps<T>>) => (
   <label className="relative block cursor-pointer">
     <input
       type="radio"

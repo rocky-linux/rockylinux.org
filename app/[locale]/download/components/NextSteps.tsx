@@ -7,7 +7,15 @@ interface NextStepsProps {
   versionId: string;
 }
 
-const NextSteps = ({ versionId }: NextStepsProps) => {
+/**
+ * Links to what to do after downloading, pointing at the documentation for the
+ * selected release.
+ *
+ * @param props - Component props.
+ * @param props.versionId - Selected release, e.g. "rocky-10".
+ * @returns The "What's next?" section.
+ */
+const NextSteps = ({ versionId }: Readonly<NextStepsProps>) => {
   const t = useTranslations("download.nextSteps");
   const docs = docsUrls(versionId);
   const steps = [

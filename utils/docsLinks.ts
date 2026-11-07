@@ -25,6 +25,9 @@ export interface DocsUrls {
 /**
  * Documentation links for a release. Releases the docs site has no version
  * for (yet) link to the unversioned site, which always shows the latest.
+ *
+ * @param versionId - Release id, e.g. "rocky-10".
+ * @returns URLs for the docs home, installation guide and migration guide.
  */
 export function docsUrls(versionId: string): DocsUrls {
   const major = majorVersion(versionId);

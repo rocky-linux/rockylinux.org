@@ -63,13 +63,13 @@ The only History API usage is in
 
 ```ts
 // newUrl = ?version=<release>&platform=<platform>&arch=<arch>
-window.history.pushState(null, "", newUrl); // choosing a release
-window.history.replaceState(null, "", newUrl); // choosing a platform or architecture
+window.history.replaceState(null, "", newUrl);
 ```
 
-Only a release change adds a history entry. Platform and architecture changes
-replace the current one, so arrow-keying through a radio group cannot pile up
-entries that Back has to walk through.
+It only ever calls `replaceState`, never `pushState`. Every control is a radio
+group or tab list, where arrow keys fire a change per keypress, so a new history
+entry per change would make Back step through each one. Replacing the entry
+keeps Back doing what visitors expect: leaving the page.
 
 | Google's violation criteria                           | Downloads page                                   |
 | ----------------------------------------------------- | ------------------------------------------------ |

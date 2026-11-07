@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
 import type {
@@ -43,9 +43,13 @@ export interface DownloadSelection {
  * (?version=&platform=&arch=) so any result can be linked to directly.
  *
  * Requested values the data cannot satisfy fall back to something else (see
- * `resolvePlatform` and `resolveArch`). The URL always gets the values that
- * are actually shown, so a stale value never lingers and a shared link opens
- * what was on screen.
+ * `resolvePlatform` and `resolveArch`). The URL is rewritten to the values
+ * that are actually shown, on load and on every change, so a stale value never
+ * lingers and a shared link opens what was on screen. History entries are
+ * replaced, never added.
+ *
+ * @param architectures - Processed downloads for every architecture.
+ * @returns What is selected, what can be chosen, and the setters.
  */
 export function useDownloadSelection(
   architectures: ProcessedArchitectures
@@ -80,34 +84,56 @@ export function useDownloadSelection(
   };
 
   const current = resolve(requested);
+  const shown: RawSelection = {
+    version: current.release?.versionId ?? null,
+    platform: current.platform,
+    arch: current.arch ?? null,
+  };
 
-  // Releases get their own history entry; picking a platform or architecture
-  // replaces the entry, so arrow-keying through a radio group can't flood
-  // the back button
-  const update = (patch: Partial<RawSelection>, push: boolean) => {
-    const next = resolve({ ...requested, ...patch });
+  // Writes the selection to the URL. Always replaceState: every control is a
+  // radio group or tab list, so arrow keys fire a change per keypress and
+  // pushState would make Back step through each one.
+  const writeUrl = (selection: RawSelection) => {
+    const params = new URLSearchParams(searchParams.toString());
+    for (const [key, value] of Object.entries(selection)) {
+      if (value) params.set(key, value);
+      else params.delete(key);
+    }
+    // Shallow update: no server round-trip
+    window.history.replaceState(null, "", `${pathname}?${params.toString()}`);
+  };
+
+  // Merge the change over what is on screen, not the raw request, so a value
+  // the page already replaced can't come back later
+  const update = (patch: Partial<RawSelection>) => {
+    const next = resolve({ ...shown, ...patch });
     const resolved: RawSelection = {
       version: next.release?.versionId ?? null,
       platform: next.platform,
       arch: next.arch ?? null,
     };
     setRequested(resolved);
-
-    const params = new URLSearchParams(searchParams.toString());
-    for (const [key, value] of Object.entries(resolved)) {
-      if (value) params.set(key, value);
-      else params.delete(key);
-    }
-    const url = `${pathname}?${params.toString()}`;
-    // Shallow update: no server round-trip
-    if (push) window.history.pushState(null, "", url);
-    else window.history.replaceState(null, "", url);
+    writeUrl(resolved);
   };
+
+  // A link carrying values the page can't show (a platform the release lacks,
+  // an unknown release) is rewritten to what is shown. A bare /download is
+  // left alone.
+  useEffect(() => {
+    const hasParams = ["version", "platform", "arch"].some((key) =>
+      searchParams.has(key)
+    );
+    const stale = (Object.keys(shown) as (keyof RawSelection)[]).some(
+      (key) => searchParams.has(key) && searchParams.get(key) !== shown[key]
+    );
+    if (hasParams && stale) writeUrl(shown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams, shown.version, shown.platform, shown.arch]);
 
   return {
     ...current,
-    selectRelease: (version) => update({ version }, true),
-    selectPlatform: (platform) => update({ platform }, false),
-    selectArch: (arch) => update({ arch }, false),
+    selectRelease: (version) => update({ version }),
+    selectPlatform: (platform) => update({ platform }),
+    selectArch: (arch) => update({ arch }),
   };
 }

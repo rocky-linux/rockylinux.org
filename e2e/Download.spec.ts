@@ -192,31 +192,14 @@ test.describe("Download selection updates URL", () => {
 });
 
 test.describe("Download browser back/forward navigation", () => {
-  test("back and forward navigate release history", async ({ page }) => {
-    await page.goto("/download?version=rocky-10");
-    await page.getByRole("radio", { name: /Rocky Linux 9/ }).check();
-    await expect(page).toHaveURL(/version=rocky-9/);
-
-    await page.goBack();
-    await expect(page).toHaveURL(/version=rocky-10/);
-    await expect(
-      page.getByRole("radio", { name: /Rocky Linux 10/ })
-    ).toBeChecked();
-
-    await page.goForward();
-    await expect(page).toHaveURL(/version=rocky-9/);
-    await expect(
-      page.getByRole("radio", { name: /Rocky Linux 9/ })
-    ).toBeChecked();
-  });
-
-  test("platform and architecture changes do not add history entries", async ({
+  test("changing any selection does not add history entries", async ({
     page,
     isMobile,
   }) => {
     await page.goto("/download");
     const before = await page.evaluate(() => window.history.length);
 
+    await page.getByRole("radio", { name: /Rocky Linux 9/ }).check();
     await choosePlatform(page, /Cloud/);
     await choosePlatform(page, /Containers/);
     if (!isMobile) {
@@ -225,6 +208,37 @@ test.describe("Download browser back/forward navigation", () => {
     }
 
     expect(await page.evaluate(() => window.history.length)).toBe(before);
+  });
+
+  test("arrow keys through the release picker do not add history entries", async ({
+    page,
+  }) => {
+    await page.goto("/download");
+    const before = await page.evaluate(() => window.history.length);
+
+    await page.getByRole("radio", { name: /Rocky Linux 10/ }).focus();
+    await page.keyboard.press("ArrowDown");
+    await page.keyboard.press("ArrowDown");
+
+    await expect(page).toHaveURL(/version=rocky-8/);
+    expect(await page.evaluate(() => window.history.length)).toBe(before);
+  });
+
+  test("a link with an unavailable platform is normalized on load", async ({
+    page,
+  }) => {
+    await page.goto("/download?version=rocky-8&platform=wsl");
+
+    await expect(
+      page.getByRole("radio", { name: /Servers & virtual machines/ })
+    ).toBeChecked();
+    await expect(page).not.toHaveURL(/platform=wsl/);
+
+    // The dropped value must not come back when switching releases
+    await page.getByRole("radio", { name: /Rocky Linux 10/ }).check();
+    await expect(
+      page.getByRole("radio", { name: /Servers & virtual machines/ })
+    ).toBeChecked();
   });
 
   test("URL reflects the platform actually shown after a release change", async ({

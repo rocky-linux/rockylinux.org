@@ -18,7 +18,13 @@ const base = {
   "aria-hidden": true,
 } as const;
 
-export const ServerIcon = (props: SVGProps<SVGSVGElement>) => (
+/**
+ * Server rack icon.
+ *
+ * @param props - SVG attributes passed through to the element.
+ * @returns The icon.
+ */
+export const ServerIcon = (props: Readonly<SVGProps<SVGSVGElement>>) => (
   <svg
     {...base}
     {...props}
@@ -41,7 +47,13 @@ export const ServerIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const CloudIcon = (props: SVGProps<SVGSVGElement>) => (
+/**
+ * Cloud icon.
+ *
+ * @param props - SVG attributes passed through to the element.
+ * @returns The icon.
+ */
+export const CloudIcon = (props: Readonly<SVGProps<SVGSVGElement>>) => (
   <svg
     {...base}
     {...props}

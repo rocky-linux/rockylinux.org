@@ -57,6 +57,9 @@ interface DownloadTranslations {
  * is missing or marked `enabled: false`. URLs are enabled by default.
  *
  * Keep in sync with `extractDownloadUrls` in `scripts/check-download-urls.js`.
+ *
+ * @param entry - A download or link entry from downloads.json.
+ * @returns The URL, or undefined when the entry is missing or disabled.
  */
 export function resolveUrl(entry?: UrlEntry): string | undefined {
   if (entry === undefined) return undefined;
@@ -105,6 +108,15 @@ const GROUP_KEYS = [
   "visionFive2Images",
 ] as const;
 
+/**
+ * Turns the raw downloads.json data into what the page renders: translated
+ * labels, stable option ids, and no disabled downloads, empty groups or
+ * architectures with nothing enabled.
+ *
+ * @param downloadData - Raw contents of downloads.json.
+ * @param translations - Translated labels for the download options and links.
+ * @returns Processed versions per architecture.
+ */
 export function processArchitecturesData(
   downloadData: DownloadData,
   translations: DownloadTranslations

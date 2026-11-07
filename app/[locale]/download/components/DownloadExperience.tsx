@@ -10,7 +10,17 @@ interface DownloadExperienceProps {
   downloadData: DownloadData;
 }
 
-const DownloadExperience = ({ downloadData }: DownloadExperienceProps) => {
+/**
+ * Server-side wrapper for the download wizard: translates the labels, runs
+ * the data processor, and hands the result to the client wizard.
+ *
+ * @param props - Component props.
+ * @param props.downloadData - Raw contents of `data/downloads.json`.
+ * @returns The download wizard inside a loading fallback.
+ */
+const DownloadExperience = ({
+  downloadData,
+}: Readonly<DownloadExperienceProps>) => {
   const t = useTranslations("download");
 
   // Pre-process translations on server side for client component

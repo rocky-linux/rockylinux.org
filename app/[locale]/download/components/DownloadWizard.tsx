@@ -14,11 +14,11 @@ const StepHeading = ({
   id,
   step,
   children,
-}: {
+}: Readonly<{
   id: string;
   step: number;
   children: string;
-}) => (
+}>) => (
   <h2
     id={id}
     className="mb-4 flex items-center gap-3 font-display text-xl font-bold sm:text-2xl"
@@ -40,8 +40,12 @@ interface DownloadWizardProps {
 /**
  * Three steps, top to bottom: release, platform, files. The selection lives in
  * the URL; see `useDownloadSelection`.
+ *
+ * @param props - Component props.
+ * @param props.architectures - Processed downloads for every architecture.
+ * @returns The wizard, or nothing when no release has downloads.
  */
-const DownloadWizard = ({ architectures }: DownloadWizardProps) => {
+const DownloadWizard = ({ architectures }: Readonly<DownloadWizardProps>) => {
   const t = useTranslations("download");
   const {
     releases,
