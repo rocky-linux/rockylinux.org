@@ -17,6 +17,7 @@ export interface NavigationMenuItems {
     mailing: string;
     mattermost: string;
     irc: string;
+    events: string;
     calendar: string;
   };
   support: {

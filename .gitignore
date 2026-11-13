@@ -56,8 +56,9 @@ Desktop.ini
 # Misc Temp Folders
 /temp/
 
-# News content (cloned at build time from rocky-linux/rockylinux.org-content)
+# News and events content (cloned at build time from rocky-linux/rockylinux.org-content)
 /news/
+/events/
 /.content-tmp/
 # Images copied at build time from the content repo's /images
 /public/images/content/

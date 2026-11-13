@@ -20,7 +20,7 @@ Official Rocky Linux website — Next.js App Router, React, TypeScript, next-int
 
 ## Content repo
 
-Some content lives in rocky-linux/rockylinux.org-content and is cloned in at dev/build time (`scripts/fetch-news-content.mjs`). The affected paths are listed under the content-repo comment in `.gitignore` (currently `news/` and `public/images/content/`). Never create or edit files there — they're overwritten on every fetch and never committed. New or changed content (e.g. a news post) goes in a PR to the content repo; only rendering code belongs here.
+Some content lives in rocky-linux/rockylinux.org-content and is cloned in at dev/build time (`scripts/fetch-news-content.mjs`). The affected paths are listed under the content-repo comment in `.gitignore` (currently `news/`, `events/`, and `public/images/content/`). Never create or edit files there — they're overwritten on every fetch and never committed. New or changed content (e.g. a news post or an event) goes in a PR to the content repo; only rendering code belongs here.
 
 ## Conventions
 

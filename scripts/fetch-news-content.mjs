@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// Build-time fetch of news markdown from rocky-linux/rockylinux.org-content.
+// Build-time fetch of news and events markdown from rocky-linux/rockylinux.org-content.
 // Wired into postinstall, prebuild, and predev in package.json.
 //
 // Environment overrides:
@@ -51,6 +51,7 @@ const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(SCRIPT_DIR, "..");
 const TMP_DIR = resolve(REPO_ROOT, ".content-tmp");
 const NEWS_DIR = resolve(REPO_ROOT, "news");
+const EVENTS_DIR = resolve(REPO_ROOT, "events");
 // Images committed alongside the markdown in the content repo's /images are
 // copied here so posts can reference them as /images/content/<path>. Files
 // under /public are served from /, so /public/images/content/foo.png -> /images/content/foo.png.
@@ -132,7 +133,7 @@ if (git && !git.rootOwned) {
 }
 
 if (process.env.SKIP_NEWS_FETCH === "1") {
-  log("SKIP_NEWS_FETCH=1 — leaving news/ untouched.");
+  log("SKIP_NEWS_FETCH=1 — leaving news/ and events/ untouched.");
   process.exit(0);
 }
 
@@ -197,6 +198,17 @@ if (!existsSync(clonedNewsDir)) {
 // the previous news/ intact if anything above fails.
 rmSync(NEWS_DIR, { recursive: true, force: true });
 renameSync(clonedNewsDir, NEWS_DIR);
+
+// Events are optional: the content repo may not carry any yet. Clear the local
+// copy when absent so removed events don't linger.
+const clonedEventsDir = resolve(TMP_DIR, "events");
+rmSync(EVENTS_DIR, { recursive: true, force: true });
+if (existsSync(clonedEventsDir)) {
+  renameSync(clonedEventsDir, EVENTS_DIR);
+  log(`events/ populated from ${redactedUrl}@${CONTENT_REPO_BRANCH}.`);
+} else {
+  log(`no events/ in content repo — cleared events/.`);
+}
 
 // Copy the content repo's images/ (if present) into public/images/content so
 // posts can link assets as /images/content/<path>. Optional: the content repo
