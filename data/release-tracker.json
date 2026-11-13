@@ -1,5 +1,25 @@
 [
   {
+    "version": "10.3",
+    "currentStage": "testing",
+    "comment": "Rocky Linux 10.3 is currently undergoing testing. Release is targeted 2026-11-18.",
+    "stageLinks": {
+      "upstream": "https://www.redhat.com/en/blog/introducing-red-hat-enterprise-linux-103-and-99",
+      "building": "https://koji.rockylinux.org/koji/builds?tagID=7764",
+      "testing": "https://testrarc.rockylinux.org/app/book/RockyLinux-10.3/RC1"
+    }
+  },
+  {
+    "version": "9.9",
+    "currentStage": "testing",
+    "comment": "Rocky Linux 9.8 is currently undergoing testing. Release is targeted 2026-11-18.",
+    "stageLinks": {
+      "upstream": "https://www.redhat.com/en/blog/introducing-red-hat-enterprise-linux-103-and-99",
+      "building": "https://koji.rockylinux.org/koji/builds?tagID=5899",
+      "testing": "https://testrarc.rockylinux.org/app/book/RockyLinux-9.9/RC1"
+    }
+  },
+  {
     "version": "10.2",
     "currentStage": "released",
     "comment": "Rocky Linux 10.2 is fully released and available from the [Downloads](https://rockylinux.org/download) page.",
