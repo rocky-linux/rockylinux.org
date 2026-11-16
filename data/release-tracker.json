@@ -1,22 +1,24 @@
 [
   {
     "version": "10.3",
-    "currentStage": "testing",
-    "comment": "Rocky Linux 10.3 is currently undergoing testing. Release is targeted 2026-11-18.",
+    "currentStage": "syncing",
+    "comment": "Rocky Linux 10.3 is currently syncing to mirrors. Release is targeted 2026-11-17.",
     "stageLinks": {
       "upstream": "https://www.redhat.com/en/blog/introducing-red-hat-enterprise-linux-103-and-99",
       "building": "https://koji.rockylinux.org/koji/builds?tagID=7764",
-      "testing": "https://testrarc.rockylinux.org/app/book/RockyLinux-10.3/RC1"
+      "testing": "https://testrarc.rockylinux.org/app/book/RockyLinux-10.3/RC1",
+      "syncing": "https://mirrors.rockylinux.org/mirrormanager/propagation/rocky_10.3_BaseOS_x86_64"
     }
   },
   {
     "version": "9.9",
-    "currentStage": "testing",
-    "comment": "Rocky Linux 9.8 is currently undergoing testing. Release is targeted 2026-11-18.",
+    "currentStage": "syncing",
+    "comment": "Rocky Linux 9.9 is currently syncing to mirrors. Release is targeted 2026-11-17.",
     "stageLinks": {
       "upstream": "https://www.redhat.com/en/blog/introducing-red-hat-enterprise-linux-103-and-99",
       "building": "https://koji.rockylinux.org/koji/builds?tagID=5899",
-      "testing": "https://testrarc.rockylinux.org/app/book/RockyLinux-9.9/RC1"
+      "testing": "https://testrarc.rockylinux.org/app/book/RockyLinux-9.9/RC1",
+      "syncing": "https://mirrors.rockylinux.org/mirrormanager/propagation/rocky_9.9_BaseOS_x86_64"
     }
   },
   {
