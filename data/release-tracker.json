@@ -1,14 +1,13 @@
 [
   {
     "version": "10.3",
-    "currentStage": "released",
-    "comment": "Rocky Linux 10.3 is fully released and available from the [Downloads](https://rockylinux.org/download) page.",
+    "currentStage": "syncing",
+    "comment": "Rocky Linux 10.3 is currently syncing to mirrors. Release is targeted 2026-11-18.",
     "stageLinks": {
       "upstream": "https://www.redhat.com/en/blog/introducing-red-hat-enterprise-linux-103-and-99",
       "building": "https://koji.rockylinux.org/koji/builds?tagID=7764",
       "testing": "https://testrarc.rockylinux.org/app/book/RockyLinux-10.3/RC1",
-      "syncing": "https://mirrors.rockylinux.org/mirrormanager/propagation/rocky_10.3_BaseOS_x86_64",
-      "released": "news/rocky-linux-10-3-ga-release"
+      "syncing": "https://mirrors.rockylinux.org/mirrormanager/propagation/rocky_10.3_BaseOS_x86_64"
     }
   },
   {
@@ -21,6 +20,18 @@
       "testing": "https://testrarc.rockylinux.org/app/book/RockyLinux-9.9/RC1",
       "syncing": "https://mirrors.rockylinux.org/mirrormanager/propagation/rocky_9.9_BaseOS_x86_64",
       "released": "news/rocky-linux-9-9-ga-release"
+    }
+  },
+  {
+    "version": "10.2",
+    "currentStage": "released",
+    "comment": "Rocky Linux 10.2 is fully released and available from the [Downloads](https://rockylinux.org/download) page.",
+    "stageLinks": {
+      "upstream": "https://access.redhat.com/errata/RHBA-2026:18131",
+      "building": "https://koji.rockylinux.org/koji/builds?tagID=7763",
+      "testing": "https://chat.rockylinux.org/rocky-linux/channels/rocky-release-v102",
+      "syncing": "https://mirrors.rockylinux.org/mirrormanager/propagation/rocky_10.2_BaseOS_x86_64",
+      "released": "news/rocky-linux-10-2-ga-release"
     }
   },
   {
