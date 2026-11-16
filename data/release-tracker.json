@@ -1,13 +1,14 @@
 [
   {
     "version": "10.3",
-    "currentStage": "syncing",
-    "comment": "Rocky Linux 10.3 is currently syncing to mirrors. Release is targeted 2026-11-18.",
+    "currentStage": "released",
+    "comment": "Rocky Linux 10.3 is fully released and available from the [Downloads](https://rockylinux.org/download) page.",
     "stageLinks": {
       "upstream": "https://www.redhat.com/en/blog/introducing-red-hat-enterprise-linux-103-and-99",
       "building": "https://koji.rockylinux.org/koji/builds?tagID=7764",
       "testing": "https://testrarc.rockylinux.org/app/book/RockyLinux-10.3/RC1",
-      "syncing": "https://mirrors.rockylinux.org/mirrormanager/propagation/rocky_10.3_BaseOS_x86_64"
+      "syncing": "https://mirrors.rockylinux.org/mirrormanager/propagation/rocky_10.3_BaseOS_x86_64",
+      "released": "news/rocky-linux-10-3-ga-release"
     }
   },
   {
