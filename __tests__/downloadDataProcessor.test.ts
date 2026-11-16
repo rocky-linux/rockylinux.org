@@ -240,6 +240,31 @@ describe("processArchitecturesData", () => {
     expect(version.liveImages).toEqual({ downloadOptions: [], links: [] });
   });
 
+  it("carries a group's own version when it is pinned to an older build", () => {
+    const version = makeVersion();
+    version.downloadOptions.rpiImages = {
+      currentVersion: "v10.2",
+      download: "https://example.com/vault/rpi-10.2.raw",
+    };
+
+    const result = process({ aarch64: { versions: [version] } });
+
+    const { rpiImages, currentVersion } = result.aarch64.versions[0];
+    expect(currentVersion).toBe("v10.2");
+    expect(rpiImages.currentVersion).toBe("v10.2");
+  });
+
+  it("omits a group version when the group does not pin one", () => {
+    const version = makeVersion();
+    version.downloadOptions.rpiImages = {
+      download: "https://example.com/rpi.raw",
+    };
+
+    const result = process({ aarch64: { versions: [version] } });
+
+    expect(result.aarch64.versions[0].rpiImages.currentVersion).toBeUndefined();
+  });
+
   it("removes an architecture with no enabled downloads", () => {
     const disabled = (url: string) => ({ url, enabled: false });
 

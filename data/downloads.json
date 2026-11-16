@@ -165,26 +165,14 @@
               "kde": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64/Rocky-10-KDE-aarch64-latest.iso"
             },
             "rpiImages": {
-              "currentVersion": "v10.3",
-              "download": {
-                "url": "https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz",
-                "enabled": false,
-                "disabled-reason": "404 since 2026-11-16: the Raspberry Pi images were pulled and will be relinked once fixed images are published."
-              }
+              "currentVersion": "v10.2",
+              "download": "https://dl.rockylinux.org/vault/rocky/10.2/images/aarch64/Rocky-10-SBC-RaspberryPi-10.2-20260525.0.aarch64.raw.xz"
             },
             "specializedDevices": [
               {
                 "name": "Raspberry Pi",
-                "download": {
-                  "url": "https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz",
-                  "enabled": false,
-                  "disabled-reason": "404 since 2026-11-16: the Raspberry Pi images were pulled and will be relinked once fixed images are published."
-                },
-                "checksum": {
-                  "url": "https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz.CHECKSUM",
-                  "enabled": false,
-                  "disabled-reason": "404 since 2026-11-16: the Raspberry Pi images were pulled and will be relinked once fixed images are published."
-                },
+                "download": "https://dl.rockylinux.org/vault/rocky/10.2/images/aarch64/Rocky-10-SBC-RaspberryPi-10.2-20260525.0.aarch64.raw.xz",
+                "checksum": "https://dl.rockylinux.org/vault/rocky/10.2/images/aarch64/Rocky-10-SBC-RaspberryPi-10.2-20260525.0.aarch64.raw.xz.CHECKSUM",
                 "readMe": {
                   "url": "https://dl.rockylinux.org/pub/sig/10/altarch/aarch64/images/README.txt",
                   "enabled": false,
@@ -210,7 +198,7 @@
               "checksums": "https://dl.rockylinux.org/pub/rocky/10/live/aarch64/"
             },
             "rpiImages": {
-              "checksum": "https://dl.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-SBC-RaspberryPi.latest.aarch64.raw.xz.CHECKSUM",
+              "checksum": "https://dl.rockylinux.org/vault/rocky/10.2/images/aarch64/Rocky-10-SBC-RaspberryPi-10.2-20260525.0.aarch64.raw.xz.CHECKSUM",
               "readMe": {
                 "url": "https://dl.rockylinux.org/pub/sig/10/altarch/aarch64/images/README.txt",
                 "enabled": false,
@@ -250,26 +238,14 @@
               "cinnamon": "https://dl.rockylinux.org/pub/rocky/9/live/aarch64/Rocky-9-Cinnamon-aarch64-latest.iso"
             },
             "rpiImages": {
-              "currentVersion": "v9.9",
-              "download": {
-                "url": "https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-SBC-RaspberryPi.latest.aarch64.raw.xz",
-                "enabled": false,
-                "disabled-reason": "404 since 2026-11-16: the Raspberry Pi images were pulled and will be relinked once fixed images are published."
-              }
+              "currentVersion": "v9.8",
+              "download": "https://dl.rockylinux.org/vault/rocky/9.8/images/aarch64/Rocky-9-SBC-RaspberryPi-9.8-20260615.0.aarch64.raw.xz"
             },
             "specializedDevices": [
               {
                 "name": "Raspberry Pi",
-                "download": {
-                  "url": "https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-SBC-RaspberryPi.latest.aarch64.raw.xz",
-                  "enabled": false,
-                  "disabled-reason": "404 since 2026-11-16: the Raspberry Pi images were pulled and will be relinked once fixed images are published."
-                },
-                "checksum": {
-                  "url": "https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-SBC-RaspberryPi.latest.aarch64.raw.xz.CHECKSUM",
-                  "enabled": false,
-                  "disabled-reason": "404 since 2026-11-16: the Raspberry Pi images were pulled and will be relinked once fixed images are published."
-                },
+                "download": "https://dl.rockylinux.org/vault/rocky/9.8/images/aarch64/Rocky-9-SBC-RaspberryPi-9.8-20260615.0.aarch64.raw.xz",
+                "checksum": "https://dl.rockylinux.org/vault/rocky/9.8/images/aarch64/Rocky-9-SBC-RaspberryPi-9.8-20260615.0.aarch64.raw.xz.CHECKSUM",
                 "readMe": {
                   "url": "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images/README.txt",
                   "enabled": false,
@@ -292,7 +268,7 @@
               "checksum": "https://dl.rockylinux.org/pub/rocky/9/images/aarch64/CHECKSUM"
             },
             "rpiImages": {
-              "checksum": "https://dl.rockylinux.org/pub/rocky/9/images/aarch64/Rocky-9-SBC-RaspberryPi.latest.aarch64.raw.xz.CHECKSUM",
+              "checksum": "https://dl.rockylinux.org/vault/rocky/9.8/images/aarch64/Rocky-9-SBC-RaspberryPi-9.8-20260615.0.aarch64.raw.xz.CHECKSUM",
               "readMe": {
                 "url": "https://dl.rockylinux.org/pub/sig/9/altarch/aarch64/images/README.txt",
                 "enabled": false,

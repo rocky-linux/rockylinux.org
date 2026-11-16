@@ -1,39 +1,29 @@
 import type { DownloadData, UrlEntry } from "@/types/downloads";
 
+/**
+ * A card's downloads and links, plus the version those downloads belong to
+ * when it differs from the release. Device images are sometimes pinned to an
+ * older build, so `currentVersion` overrides the release label on that card.
+ */
+interface ProcessedGroup {
+  downloadOptions: { label: string; link: string }[];
+  links: { name: string; link: string }[];
+  currentVersion?: string;
+}
+
 // Type for processed version data
 interface ProcessedVersion {
   versionName: string;
   versionId: string;
   currentVersion: string;
   plannedEol: string;
-  defaultImages: {
-    downloadOptions: { label: string; link: string }[];
-    links: { name: string; link: string }[];
-  };
-  cloudImages: {
-    downloadOptions: { label: string; link: string }[];
-    links: { name: string; link: string }[];
-  };
-  containerImages: {
-    downloadOptions: { label: string; link: string }[];
-    links: { name: string; link: string }[];
-  };
-  liveImages: {
-    downloadOptions: { label: string; link: string }[];
-    links: { name: string; link: string }[];
-  };
-  rpiImages: {
-    downloadOptions: { label: string; link: string }[];
-    links: { name: string; link: string }[];
-  };
-  wslImages: {
-    downloadOptions: { label: string; link: string }[];
-    links: { name: string; link: string }[];
-  };
-  visionFive2Images: {
-    downloadOptions: { label: string; link: string }[];
-    links: { name: string; link: string }[];
-  };
+  defaultImages: ProcessedGroup;
+  cloudImages: ProcessedGroup;
+  containerImages: ProcessedGroup;
+  liveImages: ProcessedGroup;
+  rpiImages: ProcessedGroup;
+  wslImages: ProcessedGroup;
+  visionFive2Images: ProcessedGroup;
 }
 
 // Type for processed architectures data
@@ -133,14 +123,19 @@ function buildLinks(
   });
 }
 
-// A group's links are only shown while it has at least one enabled download
+// A group's links and pinned version are only carried while it has at least
+// one enabled download, so an empty group stays empty
 function buildGroup(
   downloadOptions: DownloadOptionItem[],
-  getLinks: () => LinkItem[]
-): { downloadOptions: DownloadOptionItem[]; links: LinkItem[] } {
+  getLinks: () => LinkItem[],
+  currentVersion?: string
+): ProcessedGroup {
+  const hasDownloads = downloadOptions.length > 0;
+
   return {
     downloadOptions,
-    links: downloadOptions.length > 0 ? getLinks() : [],
+    links: hasDownloads ? getLinks() : [],
+    ...(hasDownloads && currentVersion ? { currentVersion } : {}),
   };
 }
 
@@ -266,7 +261,8 @@ export function processArchitecturesData(
                   links.rpiImages?.checksum,
                 ],
                 [translations.cards.rpiImages.readMe, links.rpiImages?.readMe],
-              ])
+              ]),
+            options.rpiImages?.currentVersion
           );
 
           const wslImages = buildGroup(
