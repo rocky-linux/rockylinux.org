@@ -124,3 +124,60 @@ export interface DownloadData {
     [key: string]: Architecture;
   };
 }
+
+/** A download button. `id` is stable across locales; `label` is translated. */
+export interface ProcessedOption {
+  id: string;
+  label: string;
+  link: string;
+}
+
+export interface ProcessedLink {
+  name: string;
+  link: string;
+}
+
+export interface ProcessedGroup {
+  downloadOptions: ProcessedOption[];
+  links: ProcessedLink[];
+}
+
+export interface ProcessedVersion {
+  versionName: string;
+  versionId: string;
+  currentVersion: string;
+  plannedEol: string;
+  defaultImages: ProcessedGroup;
+  cloudImages: ProcessedGroup;
+  containerImages: ProcessedGroup;
+  liveImages: ProcessedGroup;
+  rpiImages: ProcessedGroup;
+  wslImages: ProcessedGroup;
+  visionFive2Images: ProcessedGroup;
+}
+
+export type ProcessedArchitectures = Record<
+  string,
+  { versions: ProcessedVersion[] }
+>;
+
+/** Where the user intends to run Rocky Linux. */
+export type PlatformId =
+  | "install"
+  | "cloud"
+  | "containers"
+  | "desktop"
+  | "wsl"
+  | "devices";
+
+export type GroupKey = Exclude<
+  keyof ProcessedVersion,
+  "versionName" | "versionId" | "currentVersion" | "plannedEol"
+>;
+
+export type Release = Pick<
+  ProcessedVersion,
+  "versionId" | "versionName" | "currentVersion" | "plannedEol"
+>;
+
+export type ResolvedGroup = ProcessedGroup & { key: GroupKey };

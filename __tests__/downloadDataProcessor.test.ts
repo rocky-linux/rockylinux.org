@@ -7,12 +7,8 @@ import type { DownloadData, Version } from "@/types/downloads";
 type Translations = Parameters<typeof processArchitecturesData>[1];
 
 const translations = {
-  tabs: {},
-  tabsShortened: {},
   cards: {
     defaultImages: {
-      title: "Default Images",
-      tooltips: { dvd: "", boot: "", minimal: "", buttonLabel: "" },
       downloadOptions: { dvd: "DVD ISO", boot: "Boot ISO", minimal: "Minimal" },
       torrent: "Torrent",
       checksum: "CHECKSUM",
@@ -20,19 +16,16 @@ const translations = {
       archived: "Archived",
       checksums: "CHECKSUMS",
     },
-    cloudImages: { title: "Cloud", downloadOptions: { qcow2: "QCOW2" } },
+    cloudImages: { downloadOptions: { qcow2: "QCOW2" } },
     container: {
-      title: "Container",
       downloadOptions: { fullImage: "Full", minimalImage: "Minimal" },
     },
     liveImages: {
-      title: "Live",
       downloadOptions: { gnome: "GNOME", kde: "KDE" },
     },
-    rpiImages: { title: "RPi", download: "RPi Image", readMe: "README" },
-    wslImages: { title: "WSL", download: "WSL Image", readMe: "README" },
+    rpiImages: { download: "RPi Image", readMe: "README" },
+    wslImages: { download: "WSL Image", readMe: "README" },
     visionfive2Images: {
-      title: "VisionFive 2",
       download: "VF2 Image",
       readMe: "README",
     },
@@ -128,7 +121,7 @@ describe("processArchitecturesData", () => {
 
     const { defaultImages } = result.x86_64.versions[0];
     expect(defaultImages.downloadOptions).toEqual([
-      { label: "Boot ISO", link: "https://example.com/boot.iso" },
+      { id: "boot", label: "Boot ISO", link: "https://example.com/boot.iso" },
     ]);
     expect(defaultImages.links).toHaveLength(4);
   });
@@ -175,8 +168,8 @@ describe("processArchitecturesData", () => {
     });
 
     expect(result.x86_64.versions[0].liveImages.downloadOptions).toEqual([
-      { label: "GNOME", link: "https://example.com/gnome.iso" },
-      { label: "KDE", link: "https://example.com/kde.iso" },
+      { id: "gnome", label: "GNOME", link: "https://example.com/gnome.iso" },
+      { id: "kde", label: "KDE", link: "https://example.com/kde.iso" },
     ]);
   });
 
@@ -226,7 +219,11 @@ describe("processArchitecturesData", () => {
     ]);
     expect(rpiImages).toEqual({
       downloadOptions: [
-        { label: "RPi Image", link: "https://example.com/rpi.raw" },
+        {
+          id: "download",
+          label: "RPi Image",
+          link: "https://example.com/rpi.raw",
+        },
       ],
       links: [{ name: "CHECKSUM", link: "https://example.com/rpi/CHECKSUM" }],
     });

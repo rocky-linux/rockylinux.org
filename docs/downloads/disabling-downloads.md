@@ -45,16 +45,20 @@ It does not apply to non-URL fields such as `currentVersion` or `name`.
 
 Filtering cascades upward, so there is no need to disable parents by hand. Only downloads drive the cascade; disabling links never hides a group.
 
-| When…                                                   | …this is hidden                                              |
-| ------------------------------------------------------- | ------------------------------------------------------------ |
-| A link is disabled                                      | That link only                                               |
-| A download is disabled                                  | Its button                                                   |
-| Every download in a group is disabled                   | The group, including its links (torrent, CHECKSUM, README …) |
-| A version has no enabled downloads for a card           | That version's tab in that card only                         |
-| A card has no versions left                             | The card (the Cloud Images card always stays for providers)  |
-| An architecture has no enabled downloads in any version | The architecture tab and mobile dropdown option              |
+| When…                                                                          | …this is hidden                                                              |
+| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
+| A link is disabled                                                             | That link only                                                               |
+| A download is disabled                                                         | Its button                                                                   |
+| Every download in a group is disabled                                          | The group, including its links (torrent, CHECKSUM, README …)                 |
+| A release has no enabled downloads on any platform                             | That release's card in the release picker                                    |
+| A platform has no enabled downloads for the selected release                   | That platform's tile (the Cloud tile always stays for the marketplace links) |
+| An architecture has no enabled downloads for the selected platform and release | That architecture's tab and mobile dropdown option                           |
+| An architecture has no enabled downloads in any release                        | The architecture everywhere (it never reaches the page)                      |
 
-Filtering happens in `processArchitecturesData` (`utils/downloadDataProcessor.ts`) and `versionsFor` (`app/[locale]/download/components/TabsClient.tsx`).
+Filtering happens in two places:
+
+- `processArchitecturesData` (`utils/downloadDataProcessor.ts`) removes disabled downloads and links, empty groups, and architectures with nothing enabled.
+- `utils/downloadSelection.ts` decides which releases, platforms and architectures are offered for the current selection (`listReleases`, `availablePlatforms`, `availableArchs`).
 
 ## URL checker
 
@@ -62,4 +66,4 @@ Filtering happens in `processArchitecturesData` (`utils/downloadDataProcessor.ts
 
 ---
 
-_Last updated: 2026-09-17_
+_Last updated: 2026-10-31_
