@@ -3,576 +3,6 @@
   "source": "https://dl.rockylinux.org/pub/rocky/",
   "torrents": [
     {
-      "name": "Rocky-10.3-20261112.0-x86_64-boot",
-      "release": "10.3",
-      "majorVersion": "10",
-      "arch": "x86_64",
-      "variant": "boot",
-      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.3/isos/x86_64/Rocky-10.3-x86_64-boot.torrent",
-      "torrentSize": 37202,
-      "infoHash": "4f30f228f4acfd3d09464760872d32289cc86f59",
-      "contentLength": 955730806,
-      "pieceLength": 524288,
-      "files": [
-        {
-          "path": "Rocky-10.3-20261112.0-x86_64-boot.iso",
-          "length": 955719680
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-x86_64-boot.iso.CHECKSUM",
-          "length": 171
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-x86_64-boot.iso.CHECKSUM.asc",
-          "length": 833
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-x86_64-boot.iso.manifest",
-          "length": 10122
-        }
-      ],
-      "trackers": [
-        "udp://tracker.opentrackr.org:1337/announce",
-        "http://bt1.archive.org:6969/announce",
-        "http://bt2.archive.org:6969/announce"
-      ],
-      "magnet": "magnet:?xt=urn:btih:4f30f228f4acfd3d09464760872d32289cc86f59&dn=Rocky-10.3-20261112.0-x86_64-boot&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
-      "createdAt": "2026-11-16T01:47:04.000Z",
-      "lastModified": "2026-11-16T11:44:01.000Z"
-    },
-    {
-      "name": "Rocky-10.3-20261112.0-s390x-boot",
-      "release": "10.3",
-      "majorVersion": "10",
-      "arch": "s390x",
-      "variant": "boot",
-      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.3/isos/s390x/Rocky-10.3-s390x-boot.torrent",
-      "torrentSize": 20235,
-      "infoHash": "d11a2f29897e0e3f7bc70042f7602404929a9941",
-      "contentLength": 511132870,
-      "pieceLength": 524288,
-      "files": [
-        {
-          "path": "Rocky-10.3-20261112.0-s390x-boot.iso",
-          "length": 511131648
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-s390x-boot.iso.CHECKSUM",
-          "length": 169
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-s390x-boot.iso.CHECKSUM.asc",
-          "length": 833
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-s390x-boot.iso.manifest",
-          "length": 220
-        }
-      ],
-      "trackers": [
-        "udp://tracker.opentrackr.org:1337/announce",
-        "http://bt1.archive.org:6969/announce",
-        "http://bt2.archive.org:6969/announce"
-      ],
-      "magnet": "magnet:?xt=urn:btih:d11a2f29897e0e3f7bc70042f7602404929a9941&dn=Rocky-10.3-20261112.0-s390x-boot&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
-      "createdAt": "2026-11-16T01:43:23.000Z",
-      "lastModified": "2026-11-16T11:44:01.000Z"
-    },
-    {
-      "name": "Rocky-10.3-20261113.0-s390x-minimal",
-      "release": "10.3",
-      "majorVersion": "10",
-      "arch": "s390x",
-      "variant": "minimal",
-      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.3/isos/s390x/Rocky-10.3-s390x-minimal.torrent",
-      "torrentSize": 41273,
-      "infoHash": "9b9893f0fab6317224af280ca27059df9dc8a914",
-      "contentLength": 1061988588,
-      "pieceLength": 524288,
-      "files": [
-        {
-          "path": "Rocky-10.3-20261113.0-s390x-minimal.iso",
-          "length": 1061945344
-        },
-        {
-          "path": "Rocky-10.3-20261113.0-s390x-minimal.iso.CHECKSUM",
-          "length": 176
-        },
-        {
-          "path": "Rocky-10.3-20261113.0-s390x-minimal.iso.CHECKSUM.asc",
-          "length": 833
-        },
-        {
-          "path": "Rocky-10.3-20261113.0-s390x-minimal.iso.manifest",
-          "length": 42235
-        }
-      ],
-      "trackers": [
-        "udp://tracker.opentrackr.org:1337/announce",
-        "http://bt1.archive.org:6969/announce",
-        "http://bt2.archive.org:6969/announce"
-      ],
-      "magnet": "magnet:?xt=urn:btih:9b9893f0fab6317224af280ca27059df9dc8a914&dn=Rocky-10.3-20261113.0-s390x-minimal&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
-      "createdAt": "2026-11-16T01:42:19.000Z",
-      "lastModified": "2026-11-16T11:44:01.000Z"
-    },
-    {
-      "name": "Rocky-10.3-20261112.0-x86_64-dvd1",
-      "release": "10.3",
-      "majorVersion": "10",
-      "arch": "x86_64",
-      "variant": "dvd",
-      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.3/isos/x86_64/Rocky-10.3-x86_64-dvd.torrent",
-      "torrentSize": 26566,
-      "infoHash": "3034e73b354ec2266cebd47e6710da2a54f8bf5b",
-      "contentLength": 10823969646,
-      "pieceLength": 8388608,
-      "files": [
-        {
-          "path": "Rocky-10.3-20261112.0-x86_64-dvd1.iso",
-          "length": 10823598080
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-x86_64-dvd1.iso.CHECKSUM",
-          "length": 173
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-x86_64-dvd1.iso.CHECKSUM.asc",
-          "length": 833
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-x86_64-dvd1.iso.manifest",
-          "length": 370560
-        }
-      ],
-      "trackers": [
-        "udp://tracker.opentrackr.org:1337/announce",
-        "http://bt1.archive.org:6969/announce",
-        "http://bt2.archive.org:6969/announce"
-      ],
-      "magnet": "magnet:?xt=urn:btih:3034e73b354ec2266cebd47e6710da2a54f8bf5b&dn=Rocky-10.3-20261112.0-x86_64-dvd1&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
-      "createdAt": "2026-11-16T01:38:36.000Z",
-      "lastModified": "2026-11-16T11:44:01.000Z"
-    },
-    {
-      "name": "Rocky-10.3-20261113.0-riscv64-minimal",
-      "release": "10.3",
-      "majorVersion": "10",
-      "arch": "riscv64",
-      "variant": "minimal",
-      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.3/isos/riscv64/Rocky-10.3-riscv64-minimal.torrent",
-      "torrentSize": 30604,
-      "infoHash": "b585baea010e69769af0da625e6bfe296c88312e",
-      "contentLength": 1564253627,
-      "pieceLength": 1048576,
-      "files": [
-        {
-          "path": "Rocky-10.3-20261113.0-riscv64-minimal.iso",
-          "length": 1564213248
-        },
-        {
-          "path": "Rocky-10.3-20261113.0-riscv64-minimal.iso.CHECKSUM",
-          "length": 180
-        },
-        {
-          "path": "Rocky-10.3-20261113.0-riscv64-minimal.iso.CHECKSUM.asc",
-          "length": 833
-        },
-        {
-          "path": "Rocky-10.3-20261113.0-riscv64-minimal.iso.manifest",
-          "length": 39366
-        }
-      ],
-      "trackers": [
-        "udp://tracker.opentrackr.org:1337/announce",
-        "http://bt1.archive.org:6969/announce",
-        "http://bt2.archive.org:6969/announce"
-      ],
-      "magnet": "magnet:?xt=urn:btih:b585baea010e69769af0da625e6bfe296c88312e&dn=Rocky-10.3-20261113.0-riscv64-minimal&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
-      "createdAt": "2026-11-16T00:57:58.000Z",
-      "lastModified": "2026-11-16T11:44:01.000Z"
-    },
-    {
-      "name": "Rocky-10.3-20261112.0-aarch64-boot",
-      "release": "10.3",
-      "majorVersion": "10",
-      "arch": "aarch64",
-      "variant": "boot",
-      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.3/isos/aarch64/Rocky-10.3-aarch64-boot.torrent",
-      "torrentSize": 41286,
-      "infoHash": "7ff2faf5352965b1e6393e20d165edf3ff0f01fb",
-      "contentLength": 1062294781,
-      "pieceLength": 524288,
-      "files": [
-        {
-          "path": "Rocky-10.3-20261112.0-aarch64-boot.iso",
-          "length": 1062293504
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-aarch64-boot.iso.CHECKSUM",
-          "length": 174
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-aarch64-boot.iso.CHECKSUM.asc",
-          "length": 833
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-aarch64-boot.iso.manifest",
-          "length": 270
-        }
-      ],
-      "trackers": [
-        "udp://tracker.opentrackr.org:1337/announce",
-        "http://bt1.archive.org:6969/announce",
-        "http://bt2.archive.org:6969/announce"
-      ],
-      "magnet": "magnet:?xt=urn:btih:7ff2faf5352965b1e6393e20d165edf3ff0f01fb&dn=Rocky-10.3-20261112.0-aarch64-boot&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
-      "createdAt": "2026-11-16T00:52:45.000Z",
-      "lastModified": "2026-11-16T11:44:01.000Z"
-    },
-    {
-      "name": "Rocky-10.3-20261112.0-ppc64le-dvd1",
-      "release": "10.3",
-      "majorVersion": "10",
-      "arch": "ppc64le",
-      "variant": "dvd",
-      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.3/isos/ppc64le/Rocky-10.3-ppc64le-dvd.torrent",
-      "torrentSize": 23290,
-      "infoHash": "f751d3d85ceb5c6aa40b4b1ab678c68064e631eb",
-      "contentLength": 9446525625,
-      "pieceLength": 8388608,
-      "files": [
-        {
-          "path": "Rocky-10.3-20261112.0-ppc64le-dvd1.iso",
-          "length": 9446162432
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-ppc64le-dvd1.iso.CHECKSUM",
-          "length": 174
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-ppc64le-dvd1.iso.CHECKSUM.asc",
-          "length": 833
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-ppc64le-dvd1.iso.manifest",
-          "length": 362186
-        }
-      ],
-      "trackers": [
-        "udp://tracker.opentrackr.org:1337/announce",
-        "http://bt1.archive.org:6969/announce",
-        "http://bt2.archive.org:6969/announce"
-      ],
-      "magnet": "magnet:?xt=urn:btih:f751d3d85ceb5c6aa40b4b1ab678c68064e631eb&dn=Rocky-10.3-20261112.0-ppc64le-dvd1&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
-      "createdAt": "2026-11-16T00:50:27.000Z",
-      "lastModified": "2026-11-16T11:44:01.000Z"
-    },
-    {
-      "name": "Rocky-10.3-20261112.0-ppc64le-boot",
-      "release": "10.3",
-      "majorVersion": "10",
-      "arch": "ppc64le",
-      "variant": "boot",
-      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.3/isos/ppc64le/Rocky-10.3-ppc64le-boot.torrent",
-      "torrentSize": 36546,
-      "infoHash": "c3988df8362a50f0f61a5615af7ed8aa3ea26613",
-      "contentLength": 938150252,
-      "pieceLength": 524288,
-      "files": [
-        {
-          "path": "Rocky-10.3-20261112.0-ppc64le-boot.iso",
-          "length": 938139648
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-ppc64le-boot.iso.CHECKSUM",
-          "length": 173
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-ppc64le-boot.iso.CHECKSUM.asc",
-          "length": 833
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-ppc64le-boot.iso.manifest",
-          "length": 9598
-        }
-      ],
-      "trackers": [
-        "udp://tracker.opentrackr.org:1337/announce",
-        "http://bt1.archive.org:6969/announce",
-        "http://bt2.archive.org:6969/announce"
-      ],
-      "magnet": "magnet:?xt=urn:btih:c3988df8362a50f0f61a5615af7ed8aa3ea26613&dn=Rocky-10.3-20261112.0-ppc64le-boot&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
-      "createdAt": "2026-11-16T00:15:23.000Z",
-      "lastModified": "2026-11-16T11:44:01.000Z"
-    },
-    {
-      "name": "Rocky-10.3-20261112.0-riscv64-dvd1",
-      "release": "10.3",
-      "majorVersion": "10",
-      "arch": "riscv64",
-      "variant": "dvd",
-      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.3/isos/riscv64/Rocky-10.3-riscv64-dvd.torrent",
-      "torrentSize": 45490,
-      "infoHash": "2cafc5783ed31b3fe14d41c5de6848e711c1f8fa",
-      "contentLength": 9380585021,
-      "pieceLength": 4194304,
-      "files": [
-        {
-          "path": "Rocky-10.3-20261112.0-riscv64-dvd1.iso",
-          "length": 9380233216
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-riscv64-dvd1.iso.CHECKSUM",
-          "length": 174
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-riscv64-dvd1.iso.CHECKSUM.asc",
-          "length": 833
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-riscv64-dvd1.iso.manifest",
-          "length": 350798
-        }
-      ],
-      "trackers": [
-        "udp://tracker.opentrackr.org:1337/announce",
-        "http://bt1.archive.org:6969/announce",
-        "http://bt2.archive.org:6969/announce"
-      ],
-      "magnet": "magnet:?xt=urn:btih:2cafc5783ed31b3fe14d41c5de6848e711c1f8fa&dn=Rocky-10.3-20261112.0-riscv64-dvd1&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
-      "createdAt": "2026-11-16T00:13:17.000Z",
-      "lastModified": "2026-11-16T11:44:01.000Z"
-    },
-    {
-      "name": "Rocky-10.3-20261112.0-s390x-dvd1",
-      "release": "10.3",
-      "majorVersion": "10",
-      "arch": "s390x",
-      "variant": "dvd",
-      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.3/isos/s390x/Rocky-10.3-s390x-dvd.torrent",
-      "torrentSize": 42560,
-      "infoHash": "4ff904ef16f21d290ff5dbb7ea238ca5672f1d52",
-      "contentLength": 8769522165,
-      "pieceLength": 4194304,
-      "files": [
-        {
-          "path": "Rocky-10.3-20261112.0-s390x-dvd1.iso",
-          "length": 8769175552
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-s390x-dvd1.iso.CHECKSUM",
-          "length": 170
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-s390x-dvd1.iso.CHECKSUM.asc",
-          "length": 833
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-s390x-dvd1.iso.manifest",
-          "length": 345610
-        }
-      ],
-      "trackers": [
-        "udp://tracker.opentrackr.org:1337/announce",
-        "http://bt1.archive.org:6969/announce",
-        "http://bt2.archive.org:6969/announce"
-      ],
-      "magnet": "magnet:?xt=urn:btih:4ff904ef16f21d290ff5dbb7ea238ca5672f1d52&dn=Rocky-10.3-20261112.0-s390x-dvd1&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
-      "createdAt": "2026-11-15T23:38:52.000Z",
-      "lastModified": "2026-11-16T11:44:01.000Z"
-    },
-    {
-      "name": "Rocky-10.3-20261113.0-ppc64le-minimal",
-      "release": "10.3",
-      "majorVersion": "10",
-      "arch": "ppc64le",
-      "variant": "minimal",
-      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.3/isos/ppc64le/Rocky-10.3-ppc64le-minimal.torrent",
-      "torrentSize": 29924,
-      "infoHash": "276dd068c562d5f3015cdbecd4b6e7d52c86d0ec",
-      "contentLength": 1528089786,
-      "pieceLength": 1048576,
-      "files": [
-        {
-          "path": "Rocky-10.3-20261113.0-ppc64le-minimal.iso",
-          "length": 1528037376
-        },
-        {
-          "path": "Rocky-10.3-20261113.0-ppc64le-minimal.iso.CHECKSUM",
-          "length": 180
-        },
-        {
-          "path": "Rocky-10.3-20261113.0-ppc64le-minimal.iso.CHECKSUM.asc",
-          "length": 833
-        },
-        {
-          "path": "Rocky-10.3-20261113.0-ppc64le-minimal.iso.manifest",
-          "length": 51397
-        }
-      ],
-      "trackers": [
-        "udp://tracker.opentrackr.org:1337/announce",
-        "http://bt1.archive.org:6969/announce",
-        "http://bt2.archive.org:6969/announce"
-      ],
-      "magnet": "magnet:?xt=urn:btih:276dd068c562d5f3015cdbecd4b6e7d52c86d0ec&dn=Rocky-10.3-20261113.0-ppc64le-minimal&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
-      "createdAt": "2026-11-15T23:06:45.000Z",
-      "lastModified": "2026-11-16T11:44:01.000Z"
-    },
-    {
-      "name": "Rocky-10.3-20261113.0-aarch64-minimal",
-      "release": "10.3",
-      "majorVersion": "10",
-      "arch": "aarch64",
-      "variant": "minimal",
-      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.3/isos/aarch64/Rocky-10.3-aarch64-minimal.torrent",
-      "torrentSize": 32184,
-      "infoHash": "ef0976457474fb249257e3921c78c19e02adfb43",
-      "contentLength": 1647027905,
-      "pieceLength": 1048576,
-      "files": [
-        {
-          "path": "Rocky-10.3-20261113.0-aarch64-minimal.iso",
-          "length": 1646985216
-        },
-        {
-          "path": "Rocky-10.3-20261113.0-aarch64-minimal.iso.CHECKSUM",
-          "length": 180
-        },
-        {
-          "path": "Rocky-10.3-20261113.0-aarch64-minimal.iso.CHECKSUM.asc",
-          "length": 833
-        },
-        {
-          "path": "Rocky-10.3-20261113.0-aarch64-minimal.iso.manifest",
-          "length": 41676
-        }
-      ],
-      "trackers": [
-        "udp://tracker.opentrackr.org:1337/announce",
-        "http://bt1.archive.org:6969/announce",
-        "http://bt2.archive.org:6969/announce"
-      ],
-      "magnet": "magnet:?xt=urn:btih:ef0976457474fb249257e3921c78c19e02adfb43&dn=Rocky-10.3-20261113.0-aarch64-minimal&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
-      "createdAt": "2026-11-15T23:02:32.000Z",
-      "lastModified": "2026-11-16T11:44:01.000Z"
-    },
-    {
-      "name": "Rocky-10.3-20261112.0-aarch64-dvd1",
-      "release": "10.3",
-      "majorVersion": "10",
-      "arch": "aarch64",
-      "variant": "dvd",
-      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.3/isos/aarch64/Rocky-10.3-aarch64-dvd.torrent",
-      "torrentSize": 25171,
-      "infoHash": "81cc131d5868c033ae466c76c861f2bacf654a9e",
-      "contentLength": 10236493230,
-      "pieceLength": 8388608,
-      "files": [
-        {
-          "path": "Rocky-10.3-20261112.0-aarch64-dvd1.iso",
-          "length": 10236133376
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-aarch64-dvd1.iso.CHECKSUM",
-          "length": 175
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-aarch64-dvd1.iso.CHECKSUM.asc",
-          "length": 833
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-aarch64-dvd1.iso.manifest",
-          "length": 358846
-        }
-      ],
-      "trackers": [
-        "udp://tracker.opentrackr.org:1337/announce",
-        "http://bt1.archive.org:6969/announce",
-        "http://bt2.archive.org:6969/announce"
-      ],
-      "magnet": "magnet:?xt=urn:btih:81cc131d5868c033ae466c76c861f2bacf654a9e&dn=Rocky-10.3-20261112.0-aarch64-dvd1&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
-      "createdAt": "2026-11-15T22:58:21.000Z",
-      "lastModified": "2026-11-16T11:44:01.000Z"
-    },
-    {
-      "name": "Rocky-10.3-20261112.0-riscv64-boot",
-      "release": "10.3",
-      "majorVersion": "10",
-      "arch": "riscv64",
-      "variant": "boot",
-      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.3/isos/riscv64/Rocky-10.3-riscv64-boot.torrent",
-      "torrentSize": 37125,
-      "infoHash": "f6c46fde49a7e6b8930dcaaea2f674ce0dfa74d3",
-      "contentLength": 953357525,
-      "pieceLength": 524288,
-      "files": [
-        {
-          "path": "Rocky-10.3-20261112.0-riscv64-boot.iso",
-          "length": 953356288
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-riscv64-boot.iso.CHECKSUM",
-          "length": 173
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-riscv64-boot.iso.CHECKSUM.asc",
-          "length": 833
-        },
-        {
-          "path": "Rocky-10.3-20261112.0-riscv64-boot.iso.manifest",
-          "length": 231
-        }
-      ],
-      "trackers": [
-        "udp://tracker.opentrackr.org:1337/announce",
-        "http://bt1.archive.org:6969/announce",
-        "http://bt2.archive.org:6969/announce"
-      ],
-      "magnet": "magnet:?xt=urn:btih:f6c46fde49a7e6b8930dcaaea2f674ce0dfa74d3&dn=Rocky-10.3-20261112.0-riscv64-boot&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
-      "createdAt": "2026-11-15T22:19:22.000Z",
-      "lastModified": "2026-11-16T11:44:01.000Z"
-    },
-    {
-      "name": "Rocky-10.3-20261113.0-x86_64-minimal",
-      "release": "10.3",
-      "majorVersion": "10",
-      "arch": "x86_64",
-      "variant": "minimal",
-      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.3/isos/x86_64/Rocky-10.3-x86_64-minimal.torrent",
-      "torrentSize": 31159,
-      "infoHash": "be36b2be67c568678d37737ca2c379af65d465df",
-      "contentLength": 1593036642,
-      "pieceLength": 1048576,
-      "files": [
-        {
-          "path": "Rocky-10.3-20261113.0-x86_64-minimal.iso",
-          "length": 1592983552
-        },
-        {
-          "path": "Rocky-10.3-20261113.0-x86_64-minimal.iso.CHECKSUM",
-          "length": 178
-        },
-        {
-          "path": "Rocky-10.3-20261113.0-x86_64-minimal.iso.CHECKSUM.asc",
-          "length": 833
-        },
-        {
-          "path": "Rocky-10.3-20261113.0-x86_64-minimal.iso.manifest",
-          "length": 52079
-        }
-      ],
-      "trackers": [
-        "udp://tracker.opentrackr.org:1337/announce",
-        "http://bt1.archive.org:6969/announce",
-        "http://bt2.archive.org:6969/announce"
-      ],
-      "magnet": "magnet:?xt=urn:btih:be36b2be67c568678d37737ca2c379af65d465df&dn=Rocky-10.3-20261113.0-x86_64-minimal&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
-      "createdAt": "2026-11-15T22:15:46.000Z",
-      "lastModified": "2026-11-16T11:44:01.000Z"
-    },
-    {
       "name": "Rocky-9.9-20261112.0-x86_64-dvd",
       "release": "9.9",
       "majorVersion": "9",
@@ -1279,6 +709,636 @@
       "magnet": "magnet:?xt=urn:btih:1fdbb9df30078ba236c70d1b223f2abd8e911584&dn=Rocky-8.10-aarch64-boot&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
       "createdAt": "2026-08-05T14:45:16.000Z",
       "lastModified": "2026-08-05T22:26:00.000Z"
+    },
+    {
+      "name": "Rocky-10.2-x86_64-minimal",
+      "release": "10.2",
+      "majorVersion": "10",
+      "arch": "x86_64",
+      "variant": "minimal",
+      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.2/isos/x86_64/Rocky-10.2-x86_64-minimal.torrent",
+      "torrentSize": 20541,
+      "infoHash": "fd47596c8e648d6d0b22adfbbd1170c1b467011e",
+      "contentLength": 2072498203,
+      "pieceLength": 2097152,
+      "files": [
+        {
+          "path": "CHECKSUM",
+          "length": 942
+        },
+        {
+          "path": "Rocky-10.2-x86_64-minimal.iso",
+          "length": 2072444928
+        },
+        {
+          "path": "Rocky-10.2-x86_64-minimal.iso.CHECKSUM",
+          "length": 156
+        },
+        {
+          "path": "Rocky-10.2-x86_64-minimal.iso.CHECKSUM.asc",
+          "length": 833
+        },
+        {
+          "path": "Rocky-10.2-x86_64-minimal.iso.manifest",
+          "length": 51344
+        }
+      ],
+      "trackers": [
+        "udp://tracker.opentrackr.org:1337/announce",
+        "http://bt1.archive.org:6969/announce",
+        "http://bt2.archive.org:6969/announce"
+      ],
+      "magnet": "magnet:?xt=urn:btih:fd47596c8e648d6d0b22adfbbd1170c1b467011e&dn=Rocky-10.2-x86_64-minimal&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
+      "createdAt": "2026-05-29T04:04:44.000Z",
+      "lastModified": "2026-05-29T04:27:05.000Z"
+    },
+    {
+      "name": "Rocky-10.2-x86_64-dvd1",
+      "release": "10.2",
+      "majorVersion": "10",
+      "arch": "x86_64",
+      "variant": "dvd",
+      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.2/isos/x86_64/Rocky-10.2-x86_64-dvd1.torrent",
+      "torrentSize": 12949,
+      "infoHash": "7e8c7d97c0dcbe038c575e45fddb051e569c812d",
+      "contentLength": 10226544830,
+      "pieceLength": 16777216,
+      "files": [
+        {
+          "path": "CHECKSUM",
+          "length": 942
+        },
+        {
+          "path": "Rocky-10.2-x86_64-dvd1.iso",
+          "length": 10226171904
+        },
+        {
+          "path": "Rocky-10.2-x86_64-dvd1.iso.CHECKSUM",
+          "length": 151
+        },
+        {
+          "path": "Rocky-10.2-x86_64-dvd1.iso.CHECKSUM.asc",
+          "length": 833
+        },
+        {
+          "path": "Rocky-10.2-x86_64-dvd1.iso.manifest",
+          "length": 371000
+        }
+      ],
+      "trackers": [
+        "udp://tracker.opentrackr.org:1337/announce",
+        "http://bt1.archive.org:6969/announce",
+        "http://bt2.archive.org:6969/announce"
+      ],
+      "magnet": "magnet:?xt=urn:btih:7e8c7d97c0dcbe038c575e45fddb051e569c812d&dn=Rocky-10.2-x86_64-dvd1&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
+      "createdAt": "2026-05-29T04:04:03.000Z",
+      "lastModified": "2026-05-29T04:27:05.000Z"
+    },
+    {
+      "name": "Rocky-10.2-x86_64-boot",
+      "release": "10.2",
+      "majorVersion": "10",
+      "arch": "x86_64",
+      "variant": "boot",
+      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.2/isos/x86_64/Rocky-10.2-x86_64-boot.torrent",
+      "torrentSize": 20766,
+      "infoHash": "fab3d8cb4fe8f1880089932518a660fc0ba0f410",
+      "contentLength": 1049550919,
+      "pieceLength": 1048576,
+      "files": [
+        {
+          "path": "CHECKSUM",
+          "length": 942
+        },
+        {
+          "path": "Rocky-10.2-x86_64-boot.iso",
+          "length": 1049538560
+        },
+        {
+          "path": "Rocky-10.2-x86_64-boot.iso.CHECKSUM",
+          "length": 150
+        },
+        {
+          "path": "Rocky-10.2-x86_64-boot.iso.CHECKSUM.asc",
+          "length": 833
+        },
+        {
+          "path": "Rocky-10.2-x86_64-boot.iso.manifest",
+          "length": 10434
+        }
+      ],
+      "trackers": [
+        "udp://tracker.opentrackr.org:1337/announce",
+        "http://bt1.archive.org:6969/announce",
+        "http://bt2.archive.org:6969/announce"
+      ],
+      "magnet": "magnet:?xt=urn:btih:fab3d8cb4fe8f1880089932518a660fc0ba0f410&dn=Rocky-10.2-x86_64-boot&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
+      "createdAt": "2026-05-29T04:03:58.000Z",
+      "lastModified": "2026-05-29T04:27:04.000Z"
+    },
+    {
+      "name": "Rocky-10.2-s390x-minimal",
+      "release": "10.2",
+      "majorVersion": "10",
+      "arch": "s390x",
+      "variant": "minimal",
+      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.2/isos/s390x/Rocky-10.2-s390x-minimal.torrent",
+      "torrentSize": 21096,
+      "infoHash": "29da47619ac0020ff5315d1a795996c3ab20b012",
+      "contentLength": 1065526810,
+      "pieceLength": 1048576,
+      "files": [
+        {
+          "path": "CHECKSUM",
+          "length": 926
+        },
+        {
+          "path": "Rocky-10.2-s390x-minimal.iso",
+          "length": 1065484288
+        },
+        {
+          "path": "Rocky-10.2-s390x-minimal.iso.CHECKSUM",
+          "length": 154
+        },
+        {
+          "path": "Rocky-10.2-s390x-minimal.iso.CHECKSUM.asc",
+          "length": 833
+        },
+        {
+          "path": "Rocky-10.2-s390x-minimal.iso.manifest",
+          "length": 40609
+        }
+      ],
+      "trackers": [
+        "udp://tracker.opentrackr.org:1337/announce",
+        "http://bt1.archive.org:6969/announce",
+        "http://bt2.archive.org:6969/announce"
+      ],
+      "magnet": "magnet:?xt=urn:btih:29da47619ac0020ff5315d1a795996c3ab20b012&dn=Rocky-10.2-s390x-minimal&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
+      "createdAt": "2026-05-29T04:03:53.000Z",
+      "lastModified": "2026-05-29T04:26:50.000Z"
+    },
+    {
+      "name": "Rocky-10.2-s390x-dvd1",
+      "release": "10.2",
+      "majorVersion": "10",
+      "arch": "s390x",
+      "variant": "dvd",
+      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.2/isos/s390x/Rocky-10.2-s390x-dvd1.torrent",
+      "torrentSize": 20482,
+      "infoHash": "a25c95750a233c272934b3aecf68f87d62754965",
+      "contentLength": 8273743489,
+      "pieceLength": 8388608,
+      "files": [
+        {
+          "path": "CHECKSUM",
+          "length": 926
+        },
+        {
+          "path": "Rocky-10.2-s390x-dvd1.iso",
+          "length": 8273395712
+        },
+        {
+          "path": "Rocky-10.2-s390x-dvd1.iso.CHECKSUM",
+          "length": 148
+        },
+        {
+          "path": "Rocky-10.2-s390x-dvd1.iso.CHECKSUM.asc",
+          "length": 833
+        },
+        {
+          "path": "Rocky-10.2-s390x-dvd1.iso.manifest",
+          "length": 345870
+        }
+      ],
+      "trackers": [
+        "udp://tracker.opentrackr.org:1337/announce",
+        "http://bt1.archive.org:6969/announce",
+        "http://bt2.archive.org:6969/announce"
+      ],
+      "magnet": "magnet:?xt=urn:btih:a25c95750a233c272934b3aecf68f87d62754965&dn=Rocky-10.2-s390x-dvd1&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
+      "createdAt": "2026-05-29T04:03:20.000Z",
+      "lastModified": "2026-05-29T04:26:50.000Z"
+    },
+    {
+      "name": "Rocky-10.2-s390x-boot",
+      "release": "10.2",
+      "majorVersion": "10",
+      "arch": "s390x",
+      "variant": "boot",
+      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.2/isos/s390x/Rocky-10.2-s390x-boot.torrent",
+      "torrentSize": 19997,
+      "infoHash": "00de4f6737840e36e1258cc96f063ccd804e811d",
+      "contentLength": 504784986,
+      "pieceLength": 524288,
+      "files": [
+        {
+          "path": "CHECKSUM",
+          "length": 926
+        },
+        {
+          "path": "Rocky-10.2-s390x-boot.iso",
+          "length": 504782848
+        },
+        {
+          "path": "Rocky-10.2-s390x-boot.iso.CHECKSUM",
+          "length": 147
+        },
+        {
+          "path": "Rocky-10.2-s390x-boot.iso.CHECKSUM.asc",
+          "length": 833
+        },
+        {
+          "path": "Rocky-10.2-s390x-boot.iso.manifest",
+          "length": 232
+        }
+      ],
+      "trackers": [
+        "udp://tracker.opentrackr.org:1337/announce",
+        "http://bt1.archive.org:6969/announce",
+        "http://bt2.archive.org:6969/announce"
+      ],
+      "magnet": "magnet:?xt=urn:btih:00de4f6737840e36e1258cc96f063ccd804e811d&dn=Rocky-10.2-s390x-boot&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
+      "createdAt": "2026-05-29T04:03:17.000Z",
+      "lastModified": "2026-05-29T04:26:50.000Z"
+    },
+    {
+      "name": "Rocky-10.2-riscv64-minimal",
+      "release": "10.2",
+      "majorVersion": "10",
+      "arch": "riscv64",
+      "variant": "minimal",
+      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.2/isos/riscv64/Rocky-10.2-riscv64-minimal.torrent",
+      "torrentSize": 17926,
+      "infoHash": "705932fe341bfacdbd6a82abf14b1c2bca56f02b",
+      "contentLength": 1798872063,
+      "pieceLength": 2097152,
+      "files": [
+        {
+          "path": "CHECKSUM",
+          "length": 952
+        },
+        {
+          "path": "Rocky-10.2-riscv64-minimal.iso",
+          "length": 1798832128
+        },
+        {
+          "path": "Rocky-10.2-riscv64-minimal.iso.CHECKSUM",
+          "length": 158
+        },
+        {
+          "path": "Rocky-10.2-riscv64-minimal.iso.CHECKSUM.asc",
+          "length": 833
+        },
+        {
+          "path": "Rocky-10.2-riscv64-minimal.iso.manifest",
+          "length": 37992
+        }
+      ],
+      "trackers": [
+        "udp://tracker.opentrackr.org:1337/announce",
+        "http://bt1.archive.org:6969/announce",
+        "http://bt2.archive.org:6969/announce"
+      ],
+      "magnet": "magnet:?xt=urn:btih:705932fe341bfacdbd6a82abf14b1c2bca56f02b&dn=Rocky-10.2-riscv64-minimal&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
+      "createdAt": "2026-05-29T04:03:09.000Z",
+      "lastModified": "2026-05-29T04:26:37.000Z"
+    },
+    {
+      "name": "Rocky-10.2-riscv64-dvd1",
+      "release": "10.2",
+      "majorVersion": "10",
+      "arch": "riscv64",
+      "variant": "dvd",
+      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.2/isos/riscv64/Rocky-10.2-riscv64-dvd1.torrent",
+      "torrentSize": 11513,
+      "infoHash": "52b6fa30022886f7a5c2494263afa56619cd03fe",
+      "contentLength": 9010898866,
+      "pieceLength": 16777216,
+      "files": [
+        {
+          "path": "CHECKSUM",
+          "length": 952
+        },
+        {
+          "path": "Rocky-10.2-riscv64-dvd1.iso",
+          "length": 9010544640
+        },
+        {
+          "path": "Rocky-10.2-riscv64-dvd1.iso.CHECKSUM",
+          "length": 152
+        },
+        {
+          "path": "Rocky-10.2-riscv64-dvd1.iso.CHECKSUM.asc",
+          "length": 833
+        },
+        {
+          "path": "Rocky-10.2-riscv64-dvd1.iso.manifest",
+          "length": 352289
+        }
+      ],
+      "trackers": [
+        "udp://tracker.opentrackr.org:1337/announce",
+        "http://bt1.archive.org:6969/announce",
+        "http://bt2.archive.org:6969/announce"
+      ],
+      "magnet": "magnet:?xt=urn:btih:52b6fa30022886f7a5c2494263afa56619cd03fe&dn=Rocky-10.2-riscv64-dvd1&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
+      "createdAt": "2026-05-29T04:02:31.000Z",
+      "lastModified": "2026-05-29T04:26:36.000Z"
+    },
+    {
+      "name": "Rocky-10.2-riscv64-boot",
+      "release": "10.2",
+      "majorVersion": "10",
+      "arch": "riscv64",
+      "variant": "boot",
+      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.2/isos/riscv64/Rocky-10.2-riscv64-boot.torrent",
+      "torrentSize": 20629,
+      "infoHash": "095c28bd22e50e7a174aa1b542101e5995038d46",
+      "contentLength": 1041692805,
+      "pieceLength": 1048576,
+      "files": [
+        {
+          "path": "CHECKSUM",
+          "length": 952
+        },
+        {
+          "path": "Rocky-10.2-riscv64-boot.iso",
+          "length": 1041690624
+        },
+        {
+          "path": "Rocky-10.2-riscv64-boot.iso.CHECKSUM",
+          "length": 152
+        },
+        {
+          "path": "Rocky-10.2-riscv64-boot.iso.CHECKSUM.asc",
+          "length": 833
+        },
+        {
+          "path": "Rocky-10.2-riscv64-boot.iso.manifest",
+          "length": 244
+        }
+      ],
+      "trackers": [
+        "udp://tracker.opentrackr.org:1337/announce",
+        "http://bt1.archive.org:6969/announce",
+        "http://bt2.archive.org:6969/announce"
+      ],
+      "magnet": "magnet:?xt=urn:btih:095c28bd22e50e7a174aa1b542101e5995038d46&dn=Rocky-10.2-riscv64-boot&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
+      "createdAt": "2026-05-29T04:02:26.000Z",
+      "lastModified": "2026-05-29T04:26:35.000Z"
+    },
+    {
+      "name": "Rocky-10.2-ppc64le-minimal",
+      "release": "10.2",
+      "majorVersion": "10",
+      "arch": "ppc64le",
+      "variant": "minimal",
+      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.2/isos/ppc64le/Rocky-10.2-ppc64le-minimal.torrent",
+      "torrentSize": 16426,
+      "infoHash": "2cc17bf9bfe06e6a8f8089a7f5eb8d107883abba",
+      "contentLength": 1641466479,
+      "pieceLength": 2097152,
+      "files": [
+        {
+          "path": "CHECKSUM",
+          "length": 952
+        },
+        {
+          "path": "Rocky-10.2-ppc64le-minimal.iso",
+          "length": 1641414656
+        },
+        {
+          "path": "Rocky-10.2-ppc64le-minimal.iso.CHECKSUM",
+          "length": 158
+        },
+        {
+          "path": "Rocky-10.2-ppc64le-minimal.iso.CHECKSUM.asc",
+          "length": 833
+        },
+        {
+          "path": "Rocky-10.2-ppc64le-minimal.iso.manifest",
+          "length": 49880
+        }
+      ],
+      "trackers": [
+        "udp://tracker.opentrackr.org:1337/announce",
+        "http://bt1.archive.org:6969/announce",
+        "http://bt2.archive.org:6969/announce"
+      ],
+      "magnet": "magnet:?xt=urn:btih:2cc17bf9bfe06e6a8f8089a7f5eb8d107883abba&dn=Rocky-10.2-ppc64le-minimal&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
+      "createdAt": "2026-05-29T04:02:19.000Z",
+      "lastModified": "2026-05-29T04:26:19.000Z"
+    },
+    {
+      "name": "Rocky-10.2-ppc64le-dvd1",
+      "release": "10.2",
+      "majorVersion": "10",
+      "arch": "ppc64le",
+      "variant": "dvd",
+      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.2/isos/ppc64le/Rocky-10.2-ppc64le-dvd1.torrent",
+      "torrentSize": 11493,
+      "infoHash": "df950ff7803277d2110dc893c1f4e05d0455c1ea",
+      "contentLength": 9004224401,
+      "pieceLength": 16777216,
+      "files": [
+        {
+          "path": "CHECKSUM",
+          "length": 952
+        },
+        {
+          "path": "Rocky-10.2-ppc64le-dvd1.iso",
+          "length": 9003859968
+        },
+        {
+          "path": "Rocky-10.2-ppc64le-dvd1.iso.CHECKSUM",
+          "length": 152
+        },
+        {
+          "path": "Rocky-10.2-ppc64le-dvd1.iso.CHECKSUM.asc",
+          "length": 833
+        },
+        {
+          "path": "Rocky-10.2-ppc64le-dvd1.iso.manifest",
+          "length": 362496
+        }
+      ],
+      "trackers": [
+        "udp://tracker.opentrackr.org:1337/announce",
+        "http://bt1.archive.org:6969/announce",
+        "http://bt2.archive.org:6969/announce"
+      ],
+      "magnet": "magnet:?xt=urn:btih:df950ff7803277d2110dc893c1f4e05d0455c1ea&dn=Rocky-10.2-ppc64le-dvd1&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
+      "createdAt": "2026-05-29T04:01:37.000Z",
+      "lastModified": "2026-05-29T04:26:18.000Z"
+    },
+    {
+      "name": "Rocky-10.2-ppc64le-boot",
+      "release": "10.2",
+      "majorVersion": "10",
+      "arch": "ppc64le",
+      "variant": "boot",
+      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.2/isos/ppc64le/Rocky-10.2-ppc64le-boot.torrent",
+      "torrentSize": 20350,
+      "infoHash": "ea254c66701b1e54ecc1beb5acb79321177d4caa",
+      "contentLength": 1027235337,
+      "pieceLength": 1048576,
+      "files": [
+        {
+          "path": "CHECKSUM",
+          "length": 952
+        },
+        {
+          "path": "Rocky-10.2-ppc64le-boot.iso",
+          "length": 1027223552
+        },
+        {
+          "path": "Rocky-10.2-ppc64le-boot.iso.CHECKSUM",
+          "length": 152
+        },
+        {
+          "path": "Rocky-10.2-ppc64le-boot.iso.CHECKSUM.asc",
+          "length": 833
+        },
+        {
+          "path": "Rocky-10.2-ppc64le-boot.iso.manifest",
+          "length": 9848
+        }
+      ],
+      "trackers": [
+        "udp://tracker.opentrackr.org:1337/announce",
+        "http://bt1.archive.org:6969/announce",
+        "http://bt2.archive.org:6969/announce"
+      ],
+      "magnet": "magnet:?xt=urn:btih:ea254c66701b1e54ecc1beb5acb79321177d4caa&dn=Rocky-10.2-ppc64le-boot&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
+      "createdAt": "2026-05-29T04:01:31.000Z",
+      "lastModified": "2026-05-29T04:26:17.000Z"
+    },
+    {
+      "name": "Rocky-10.2-aarch64-minimal",
+      "release": "10.2",
+      "majorVersion": "10",
+      "arch": "aarch64",
+      "variant": "minimal",
+      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.2/isos/aarch64/Rocky-10.2-aarch64-minimal.torrent",
+      "torrentSize": 12206,
+      "infoHash": "7dfc1d5ea76ed5dd7239eef60b90865a76ebeef2",
+      "contentLength": 2397088844,
+      "pieceLength": 4194304,
+      "files": [
+        {
+          "path": "CHECKSUM",
+          "length": 952
+        },
+        {
+          "path": "Rocky-10.2-aarch64-minimal.iso",
+          "length": 2397044736
+        },
+        {
+          "path": "Rocky-10.2-aarch64-minimal.iso.CHECKSUM",
+          "length": 158
+        },
+        {
+          "path": "Rocky-10.2-aarch64-minimal.iso.CHECKSUM.asc",
+          "length": 833
+        },
+        {
+          "path": "Rocky-10.2-aarch64-minimal.iso.manifest",
+          "length": 42165
+        }
+      ],
+      "trackers": [
+        "udp://tracker.opentrackr.org:1337/announce",
+        "http://bt1.archive.org:6969/announce",
+        "http://bt2.archive.org:6969/announce"
+      ],
+      "magnet": "magnet:?xt=urn:btih:7dfc1d5ea76ed5dd7239eef60b90865a76ebeef2&dn=Rocky-10.2-aarch64-minimal&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
+      "createdAt": "2026-05-29T04:01:19.000Z",
+      "lastModified": "2026-05-29T04:25:45.000Z"
+    },
+    {
+      "name": "Rocky-10.2-aarch64-dvd1",
+      "release": "10.2",
+      "majorVersion": "10",
+      "arch": "aarch64",
+      "variant": "dvd",
+      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.2/isos/aarch64/Rocky-10.2-aarch64-dvd1.torrent",
+      "torrentSize": 12273,
+      "infoHash": "d443bbcb963554158fb3a5bda92504a0cd61da72",
+      "contentLength": 9660039717,
+      "pieceLength": 16777216,
+      "files": [
+        {
+          "path": "CHECKSUM",
+          "length": 952
+        },
+        {
+          "path": "Rocky-10.2-aarch64-dvd1.iso",
+          "length": 9659678720
+        },
+        {
+          "path": "Rocky-10.2-aarch64-dvd1.iso.CHECKSUM",
+          "length": 152
+        },
+        {
+          "path": "Rocky-10.2-aarch64-dvd1.iso.CHECKSUM.asc",
+          "length": 833
+        },
+        {
+          "path": "Rocky-10.2-aarch64-dvd1.iso.manifest",
+          "length": 359060
+        }
+      ],
+      "trackers": [
+        "udp://tracker.opentrackr.org:1337/announce",
+        "http://bt1.archive.org:6969/announce",
+        "http://bt2.archive.org:6969/announce"
+      ],
+      "magnet": "magnet:?xt=urn:btih:d443bbcb963554158fb3a5bda92504a0cd61da72&dn=Rocky-10.2-aarch64-dvd1&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
+      "createdAt": "2026-05-29T04:00:35.000Z",
+      "lastModified": "2026-05-29T04:25:44.000Z"
+    },
+    {
+      "name": "Rocky-10.2-aarch64-boot",
+      "release": "10.2",
+      "majorVersion": "10",
+      "arch": "aarch64",
+      "variant": "boot",
+      "torrentUrl": "https://dl.rockylinux.org/pub/rocky/10.2/isos/aarch64/Rocky-10.2-aarch64-boot.torrent",
+      "torrentSize": 11449,
+      "infoHash": "a307861c4d7e94218feaa19d0b5f406a4eed1def",
+      "contentLength": 1120934062,
+      "pieceLength": 2097152,
+      "files": [
+        {
+          "path": "CHECKSUM",
+          "length": 952
+        },
+        {
+          "path": "Rocky-10.2-aarch64-boot.iso",
+          "length": 1120931840
+        },
+        {
+          "path": "Rocky-10.2-aarch64-boot.iso.CHECKSUM",
+          "length": 152
+        },
+        {
+          "path": "Rocky-10.2-aarch64-boot.iso.CHECKSUM.asc",
+          "length": 833
+        },
+        {
+          "path": "Rocky-10.2-aarch64-boot.iso.manifest",
+          "length": 285
+        }
+      ],
+      "trackers": [
+        "udp://tracker.opentrackr.org:1337/announce",
+        "http://bt1.archive.org:6969/announce",
+        "http://bt2.archive.org:6969/announce"
+      ],
+      "magnet": "magnet:?xt=urn:btih:a307861c4d7e94218feaa19d0b5f406a4eed1def&dn=Rocky-10.2-aarch64-boot&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Fbt1.archive.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbt2.archive.org%3A6969%2Fannounce",
+      "createdAt": "2026-05-29T04:00:30.000Z",
+      "lastModified": "2026-05-29T04:25:43.000Z"
     }
   ]
 }
