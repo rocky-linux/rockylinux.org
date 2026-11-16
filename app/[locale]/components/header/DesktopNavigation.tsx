@@ -67,6 +67,10 @@ const DesktopNavigation = ({ translations: t }: DesktopNavigationProps) => {
             href="https://wiki.rockylinux.org/irc/"
           />
           <NavListItem
+            title={t.community.events}
+            href="/events"
+          />
+          <NavListItem
             title={t.community.calendar}
             href="https://calendar.google.com/calendar/u/0/embed?src=c_2e1oqh6t0i6sqhja5nu9lq8lgo@group.calendar.google.com"
           />
