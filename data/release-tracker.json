@@ -24,18 +24,6 @@
     }
   },
   {
-    "version": "10.2",
-    "currentStage": "released",
-    "comment": "Rocky Linux 10.2 is fully released and available from the [Downloads](https://rockylinux.org/download) page.",
-    "stageLinks": {
-      "upstream": "https://access.redhat.com/errata/RHBA-2026:18131",
-      "building": "https://koji.rockylinux.org/koji/builds?tagID=7763",
-      "testing": "https://chat.rockylinux.org/rocky-linux/channels/rocky-release-v102",
-      "syncing": "https://mirrors.rockylinux.org/mirrormanager/propagation/rocky_10.2_BaseOS_x86_64",
-      "released": "news/rocky-linux-10-2-ga-release"
-    }
-  },
-  {
     "version": "8.10",
     "currentStage": "released",
     "comment": "Rocky Linux 8.10 is fully released and available from the [Downloads](https://rockylinux.org/download) page.",

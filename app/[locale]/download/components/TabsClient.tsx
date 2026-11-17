@@ -21,39 +21,29 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+/**
+ * A card's downloads and links, plus the version those downloads belong to
+ * when it differs from the release. Device images are sometimes pinned to an
+ * older build, so `currentVersion` overrides the release label on that card.
+ */
+interface ProcessedGroup {
+  downloadOptions: { label: string; link: string }[];
+  links: { name: string; link: string }[];
+  currentVersion?: string;
+}
+
 interface ProcessedVersion {
   versionName: string;
   versionId: string;
   currentVersion: string;
   plannedEol: string;
-  defaultImages: {
-    downloadOptions: { label: string; link: string }[];
-    links: { name: string; link: string }[];
-  };
-  cloudImages: {
-    downloadOptions: { label: string; link: string }[];
-    links: { name: string; link: string }[];
-  };
-  containerImages: {
-    downloadOptions: { label: string; link: string }[];
-    links: { name: string; link: string }[];
-  };
-  liveImages: {
-    downloadOptions: { label: string; link: string }[];
-    links: { name: string; link: string }[];
-  };
-  rpiImages: {
-    downloadOptions: { label: string; link: string }[];
-    links: { name: string; link: string }[];
-  };
-  wslImages: {
-    downloadOptions: { label: string; link: string }[];
-    links: { name: string; link: string }[];
-  };
-  visionFive2Images: {
-    downloadOptions: { label: string; link: string }[];
-    links: { name: string; link: string }[];
-  };
+  defaultImages: ProcessedGroup;
+  cloudImages: ProcessedGroup;
+  containerImages: ProcessedGroup;
+  liveImages: ProcessedGroup;
+  rpiImages: ProcessedGroup;
+  wslImages: ProcessedGroup;
+  visionFive2Images: ProcessedGroup;
 }
 
 interface TabsClientProps {
@@ -121,14 +111,16 @@ type GroupKey = Exclude<
   "versionName" | "versionId" | "currentVersion" | "plannedEol"
 >;
 
-// Versions that still have enabled downloads in a group, shaped for a card
+// Versions that still have enabled downloads in a group, shaped for a card.
+// A group may pin its own version, such as a device image held at an older
+// build, in which case that wins over the release version.
 const versionsFor = (versions: ProcessedVersion[], key: GroupKey) =>
   versions
     .filter((version) => version[key].downloadOptions.length > 0)
     .map((version) => ({
       versionName: version.versionName,
       versionId: version.versionId,
-      currentVersion: version.currentVersion,
+      currentVersion: version[key].currentVersion ?? version.currentVersion,
       plannedEol: version.plannedEol,
       downloadOptions: version[key].downloadOptions,
       links: version[key].links,
