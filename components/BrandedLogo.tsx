@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo } from "react";
+import { useSyncExternalStore } from "react";
 import Logo, { LogoWordmark } from "@/components/Logo";
 import { getActiveBranding } from "@/utils/branding";
+import type { ScheduledBranding } from "@/types/brandingTypes";
 import {
   Tooltip,
   TooltipContent,
@@ -19,8 +20,20 @@ const DEFAULT_ICON_SIZE = 192;
 const DEFAULT_ICON_X = 32;
 const DEFAULT_ICON_Y = 32;
 
+// Pages are prerendered, so resolving the schedule during render would bake the
+// build date into the HTML and serve whatever branding was active at build time
+// until the next deploy. Returning null on the server keeps the prerender
+// date-free; the client resolves against the real date.
+const subscribeToBranding = () => () => {};
+const getBrandingSnapshot = () => getActiveBranding(brandingSchedule);
+const getBrandingServerSnapshot = (): ScheduledBranding | null => null;
+
 const BrandedLogo = () => {
-  const activeBranding = useMemo(() => getActiveBranding(brandingSchedule), []);
+  const activeBranding = useSyncExternalStore(
+    subscribeToBranding,
+    getBrandingSnapshot,
+    getBrandingServerSnapshot
+  );
 
   /*
     Render the favicon link declaratively so React 19 hoists it into <head>
