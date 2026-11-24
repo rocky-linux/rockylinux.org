@@ -6,6 +6,9 @@ export interface ScheduledBranding {
   favicon: string;
   tooltip: string;
   recurring?: boolean;
+  iconSize?: number;
+  iconX?: number;
+  iconY?: number;
 }
 
 export type BrandingSchedule = ScheduledBranding[];

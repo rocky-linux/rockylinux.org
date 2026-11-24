@@ -25,5 +25,17 @@
     "favicon": "/images/logos/pride_favicon.png",
     "tooltip": "The Rocky Linux project recognizes LGBTQ Pride Month.",
     "recurring": true
+  },
+  {
+    "name": "Thanksgiving",
+    "startDate": "2026-11-22",
+    "endDate": "2026-11-28",
+    "icon": "/images/logos/thanksgiving.svg",
+    "favicon": "/images/logos/thanksgiving_favicon.png",
+    "tooltip": "Happy Thanksgiving from Rocky Linux!",
+    "recurring": true,
+    "iconSize": 256,
+    "iconX": 4,
+    "iconY": 0
   }
 ]

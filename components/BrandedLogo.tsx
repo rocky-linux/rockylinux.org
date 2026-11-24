@@ -14,6 +14,11 @@ import brandingSchedule from "@/data/branding-schedule.json";
 /** Default favicon used when no scheduled branding is active. */
 const DEFAULT_FAVICON = "/favicon.png";
 
+/** Icon box matching the geometry of the default round mark. */
+const DEFAULT_ICON_SIZE = 192;
+const DEFAULT_ICON_X = 32;
+const DEFAULT_ICON_Y = 32;
+
 const BrandedLogo = () => {
   const activeBranding = useMemo(() => getActiveBranding(brandingSchedule), []);
 
@@ -60,10 +65,10 @@ const BrandedLogo = () => {
           >
             <image
               href={activeBranding.icon}
-              x="32"
-              y="32"
-              width="192"
-              height="192"
+              x={activeBranding.iconX ?? DEFAULT_ICON_X}
+              y={activeBranding.iconY ?? DEFAULT_ICON_Y}
+              width={activeBranding.iconSize ?? DEFAULT_ICON_SIZE}
+              height={activeBranding.iconSize ?? DEFAULT_ICON_SIZE}
             />
             <LogoWordmark />
           </svg>
