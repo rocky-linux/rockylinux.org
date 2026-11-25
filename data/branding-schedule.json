@@ -37,5 +37,17 @@
     "iconSize": 256,
     "iconX": 4,
     "iconY": 0
+  },
+  {
+    "name": "Rocky Linux Birthday",
+    "startDate": "2026-12-05",
+    "endDate": "2026-12-11",
+    "icon": "/images/logos/birthday.svg",
+    "favicon": "/images/logos/birthday_favicon.png",
+    "tooltip": "Happy birthday, Rocky Linux!",
+    "recurring": true,
+    "iconSize": 272,
+    "iconX": -13,
+    "iconY": -3
   }
 ]
