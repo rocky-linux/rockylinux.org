@@ -44,6 +44,10 @@ const DesktopNavigation = ({ translations: t }: DesktopNavigationProps) => {
             title={t.about.partners}
             href="/about/partners"
           />
+          <NavListItem
+            title={t.about.security}
+            href="/security"
+          />
         </NavList>
         <NavList name={t.communityName}>
           <NavListItem

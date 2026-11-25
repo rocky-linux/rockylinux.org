@@ -24,7 +24,8 @@
         "charter": "Community Charter",
         "wiki": "Project Wiki",
         "sponsors": "Sponsors",
-        "partners": "Partners"
+        "partners": "Partners",
+        "security": "Security"
       },
       "resources": {
         "gpgKeyInfo": "GPG Key Info"
@@ -172,6 +173,54 @@
   "shop": {
     "title": "Official Merchandise",
     "description": "Purchase some swag! All of our vendors ship globally."
+  },
+  "security": {
+    "title": "Security",
+    "description": "How to report a security vulnerability in Rocky Linux.",
+    "reporting": {
+      "title": "Reporting a vulnerability",
+      "description": "Send your report to <link>security@rockylinux.org</link>. Include enough detail for us to reproduce the issue, along with any proof of concept you are willing to share. If the report is sensitive, encrypt it with our PGP key.",
+      "disclosure": "Please do not post the details publicly until we have had a chance to respond."
+    },
+    "pgp": {
+      "title": "PGP key",
+      "description": "Our key covers both <code1>security@rockylinux.org</code1> and <code2>security@resf.org</code2>.",
+      "downloadLabel": "Download the key",
+      "wkdLabel": "Or fetch it with Web Key Directory:",
+      "fingerprintLabel": "Fingerprint",
+      "securityTxtNote": "Machine-readable contact details are published at <link>/.well-known/security.txt</link>."
+    },
+    "scope": {
+      "title": "What to report here",
+      "description": "This address is for vulnerabilities in Rocky Linux project infrastructure, build systems, and code we maintain.",
+      "upstream": "Most CVEs affecting packages in Rocky Linux originate in upstream Enterprise Linux. Those are handled through the upstream process, and fixes reach us as they are released.",
+      "bugs": "For ordinary, non-security bugs, please use our <link>bug tracker</link> instead."
+    },
+    "process": {
+      "title": "What to expect",
+      "step1": "We acknowledge your report and begin investigating.",
+      "step2": "We work with you to understand and confirm the issue.",
+      "step3": "We develop and test a fix, keeping you informed as we go.",
+      "step4": "We coordinate disclosure timing with you before going public.",
+      "step5": "We credit you in the acknowledgements below, unless you would rather we did not."
+    },
+    "related": {
+      "title": "Related resources",
+      "repo": "Security repository",
+      "repoDescription": "Our opt-in repository for urgent hotfixes, used when a critical vulnerability is public and upstream has not yet shipped a patch.",
+      "cveHygiene": "Verifying CVE patches",
+      "cveHygieneDescription": "How to confirm whether a CVE is fixed on your system, and why vulnerability scanners often report false positives.",
+      "errata": "Rocky Linux Errata",
+      "errataDescription": "Search published security, bugfix, and enhancement advisories.",
+      "gpgKeys": "GPG Key Info",
+      "gpgKeysDescription": "The signing keys we use for released packages, and how to verify them."
+    },
+    "acknowledgements": {
+      "title": "Acknowledgements",
+      "description": "Thanks to the people below for reporting security issues and working with us on disclosure. We credit reporters by default. Let us know if you would rather stay anonymous.",
+      "empty": "No acknowledgements have been published yet.",
+      "advisoryLabel": "Read more"
+    }
   },
   "download": {
     "title": "Download",
