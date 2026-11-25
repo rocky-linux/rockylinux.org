@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo } from "react";
+import { useSyncExternalStore } from "react";
 import Logo, { LogoWordmark } from "@/components/Logo";
 import { getActiveBranding } from "@/utils/branding";
+import type { ScheduledBranding } from "@/types/brandingTypes";
 import {
   Tooltip,
   TooltipContent,
@@ -14,8 +15,25 @@ import brandingSchedule from "@/data/branding-schedule.json";
 /** Default favicon used when no scheduled branding is active. */
 const DEFAULT_FAVICON = "/favicon.png";
 
+/** Icon box matching the geometry of the default round mark. */
+const DEFAULT_ICON_SIZE = 192;
+const DEFAULT_ICON_X = 32;
+const DEFAULT_ICON_Y = 32;
+
+// Pages are prerendered, so resolving the schedule during render would bake the
+// build date into the HTML and serve whatever branding was active at build time
+// until the next deploy. Returning null on the server keeps the prerender
+// date-free; the client resolves against the real date.
+const subscribeToBranding = () => () => {};
+const getBrandingSnapshot = () => getActiveBranding(brandingSchedule);
+const getBrandingServerSnapshot = (): ScheduledBranding | null => null;
+
 const BrandedLogo = () => {
-  const activeBranding = useMemo(() => getActiveBranding(brandingSchedule), []);
+  const activeBranding = useSyncExternalStore(
+    subscribeToBranding,
+    getBrandingSnapshot,
+    getBrandingServerSnapshot
+  );
 
   /*
     Render the favicon link declaratively so React 19 hoists it into <head>
@@ -60,10 +78,10 @@ const BrandedLogo = () => {
           >
             <image
               href={activeBranding.icon}
-              x="32"
-              y="32"
-              width="192"
-              height="192"
+              x={activeBranding.iconX ?? DEFAULT_ICON_X}
+              y={activeBranding.iconY ?? DEFAULT_ICON_Y}
+              width={activeBranding.iconSize ?? DEFAULT_ICON_SIZE}
+              height={activeBranding.iconSize ?? DEFAULT_ICON_SIZE}
             />
             <LogoWordmark />
           </svg>

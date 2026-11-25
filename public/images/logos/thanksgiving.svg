@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="348"
+   height="280"
+   viewBox="0 0 348 280"
+   fill="none"
+   role="img"
+   aria-labelledby="rlt-icon-title rlt-icon-description"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="thanksgiving.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050" />
+  <title
+     id="rlt-icon-title">Rocky Linux Thanksgiving turkey tail icon</title>
+  <desc
+     id="rlt-icon-description">Rocky Linux Thanksgiving logo with five rounded autumn-colored tail feathers and a small left-facing turkey head. The official green mark retains its original geometry. The background, mountain cutouts, and clearance around the green mark are transparent.</desc>
+  <!--Rocky mark: https://github.com/rocky-linux/brand-kit/blob/main/Logomark.svg-->
+  <defs
+     id="defs1">
+    <clipPath
+       id="rlt-icon-turkey-decoration-clearance"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         d="M0 0H348V280H0Z M294 176A102 102 0 1 0 90 176A102 102 0 1 0 294 176Z"
+         fill-rule="evenodd"
+         clip-rule="evenodd"
+         id="path1" />
+    </clipPath>
+  </defs>
+  <g
+     id="rlt-icon-turkey-icon">
+    <g
+       id="rlt-icon-turkey-decoration"
+       clip-path="url(#rlt-icon-turkey-decoration-clearance)">
+      <g
+         id="rlt-icon-tail-feathers">
+        <path
+           id="rlt-icon-feather-burnt-orange"
+           d="M171 176L158 58C153 34 169 20 192 20C215 20 231 34 226 58L213 176Z"
+           fill="#DF6D12"
+           transform="rotate(-64 192 176)" />
+        <path
+           id="rlt-icon-feather-ochre"
+           d="M171 176L158 58C153 34 169 20 192 20C215 20 231 34 226 58L213 176Z"
+           fill="#C47A16"
+           transform="rotate(-32 192 176)" />
+        <path
+           id="rlt-icon-feather-cranberry"
+           d="M171 176L158 58C153 34 169 20 192 20C215 20 231 34 226 58L213 176Z"
+           fill="#AE2D43" />
+        <path
+           id="rlt-icon-feather-gold"
+           d="M171 176L158 58C153 34 169 20 192 20C215 20 231 34 226 58L213 176Z"
+           fill="#E0A523"
+           transform="rotate(32 192 176)" />
+        <path
+           id="rlt-icon-feather-warm-brown"
+           d="M171 176L158 58C153 34 169 20 192 20C215 20 231 34 226 58L213 176Z"
+           fill="#986238"
+           transform="rotate(64 192 176)" />
+      </g>
+      <g
+         id="rlt-icon-turkey-head">
+        <path
+           id="rlt-icon-beak"
+           d="M42 163L12 188H50Z"
+           fill="#F2B51D" />
+        <path
+           id="rlt-icon-head-and-neck"
+           d="M76 151C88 155 91 168 88 181C86 203 101 226 127 246L116 257C89 247 75 224 69 202L57 182C43 179 35 167 39 156C44 144 65 143 76 151Z"
+           fill="#8A572F" />
+        <path
+           id="rlt-icon-wattle"
+           d="M49 178C46 188 37 200 37 210C37 224 57 224 57 210C57 199 52 188 49 178Z"
+           fill="#B72C43" />
+        <circle
+           id="rlt-icon-eye"
+           cx="55"
+           cy="163"
+           r="4.5"
+           fill="#211A16" />
+      </g>
+    </g>
+    <g
+       id="rlt-icon-rocky-original-mark"
+       transform="translate(96 80)">
+      <path
+         id="rlt-icon-rocky-logomark"
+         fill-rule="evenodd"
+         clip-rule="evenodd"
+         d="M186.658 127.658C190.119 117.746 192 107.093 192 96C192 42.9807 149.019 0 96 0C42.9807 0 0 42.9807 0 96C0 122.234 10.523 146.011 27.5783 163.338L124.958 65.9584L149 90L186.658 127.658ZM169.122 158.205L124.958 114.042L55.7978 183.202C68.0269 188.849 81.6455 192 96 192C125.288 192 151.514 178.884 169.122 158.205Z"
+         fill="#10B981" />
+    </g>
+  </g>
+</svg>
