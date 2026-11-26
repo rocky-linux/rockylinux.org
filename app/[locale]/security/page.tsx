@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import acknowledgements from "@/data/security-acknowledgements.json";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata, Route } from "next";
@@ -10,18 +11,68 @@ const SECURITY_EMAIL = "security@rockylinux.org";
 const PGP_KEY_PATH = "/security-pgp-key.asc";
 const PGP_FINGERPRINT = "F4C0 847D 7089 F5B9 B827  E66F 3275 41AF 5CE5 F44B";
 const WKD_COMMAND = `gpg --locate-keys ${SECURITY_EMAIL}`;
+const LINK_CLASS = "text-primary underline";
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
 
-/**
- * Checks whether a link points off-site.
- *
- * @param href - The link target.
- * @returns `true` for absolute URLs, `false` for app-relative paths.
- */
 const isExternal = (href: string): boolean => /^https?:\/\//.test(href);
+
+/** Chunk renderer for an off-site link. */
+const extLink = (href: string) =>
+  function ExtLinkChunk(chunks: ReactNode) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+        className={LINK_CLASS}
+      >
+        {chunks}
+      </a>
+    );
+  };
+
+/** Chunk renderer for a same-origin link. */
+const localLink = (href: string) =>
+  function LocalLinkChunk(chunks: ReactNode) {
+    return (
+      <a
+        href={href}
+        className={LINK_CLASS}
+      >
+        {chunks}
+      </a>
+    );
+  };
+
+const renderCode = (chunks: ReactNode) => (
+  <code className="bg-muted rounded px-1 py-0.5">{chunks}</code>
+);
+
+/** Links a target that may be an app route or an off-site URL. */
+const ResourceLink = ({
+  href,
+  children,
+}: Readonly<{ href: string; children: ReactNode }>) =>
+  isExternal(href) ? (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className={LINK_CLASS}
+    >
+      {children}
+    </a>
+  ) : (
+    <Link
+      href={href as Route}
+      className={LINK_CLASS}
+    >
+      {children}
+    </Link>
+  );
 
 /**
  * Builds the metadata for the security page.
@@ -105,14 +156,7 @@ const SecurityPage = async ({ params }: Readonly<Props>) => {
           </h2>
           <p className="mt-4 leading-7">
             {t.rich("reporting.description", {
-              link: (chunks) => (
-                <a
-                  href={`mailto:${SECURITY_EMAIL}`}
-                  className="text-primary underline"
-                >
-                  {chunks}
-                </a>
-              ),
+              link: localLink(`mailto:${SECURITY_EMAIL}`),
             })}
           </p>
           <p className="mt-4 leading-7">{t("reporting.disclosure")}</p>
@@ -124,18 +168,14 @@ const SecurityPage = async ({ params }: Readonly<Props>) => {
           </h2>
           <p className="mt-4 leading-7">
             {t.rich("pgp.description", {
-              code1: (chunks) => (
-                <code className="bg-muted rounded px-1 py-0.5">{chunks}</code>
-              ),
-              code2: (chunks) => (
-                <code className="bg-muted rounded px-1 py-0.5">{chunks}</code>
-              ),
+              code1: renderCode,
+              code2: renderCode,
             })}
           </p>
           <p className="mt-4 leading-7">
             <a
               href={PGP_KEY_PATH}
-              className="text-primary underline"
+              className={LINK_CLASS}
             >
               {t("pgp.downloadLabel")}
             </a>
@@ -152,14 +192,7 @@ const SecurityPage = async ({ params }: Readonly<Props>) => {
           </pre>
           <p className="mt-4 leading-7">
             {t.rich("pgp.securityTxtNote", {
-              link: (chunks) => (
-                <a
-                  href="/.well-known/security.txt"
-                  className="text-primary underline"
-                >
-                  {chunks}
-                </a>
-              ),
+              link: localLink("/.well-known/security.txt"),
             })}
           </p>
         </section>
@@ -172,16 +205,7 @@ const SecurityPage = async ({ params }: Readonly<Props>) => {
           <p className="mt-4 leading-7">{t("scope.upstream")}</p>
           <p className="mt-4 leading-7">
             {t.rich("scope.bugs", {
-              link: (chunks) => (
-                <a
-                  href="https://bugs.rockylinux.org"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-primary underline"
-                >
-                  {chunks}
-                </a>
-              ),
+              link: extLink("https://bugs.rockylinux.org"),
             })}
           </p>
         </section>
@@ -204,23 +228,7 @@ const SecurityPage = async ({ params }: Readonly<Props>) => {
           <ul className="mt-4 space-y-4">
             {relatedLinks.map((item) => (
               <li key={item.href}>
-                {isExternal(item.href) ? (
-                  <a
-                    href={item.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-primary underline"
-                  >
-                    {item.title}
-                  </a>
-                ) : (
-                  <Link
-                    href={item.href as Route}
-                    className="text-primary underline"
-                  >
-                    {item.title}
-                  </Link>
-                )}
+                <ResourceLink href={item.href}>{item.title}</ResourceLink>
                 <p className="mt-1 leading-7">{item.description}</p>
               </li>
             ))}
@@ -250,7 +258,7 @@ const SecurityPage = async ({ params }: Readonly<Props>) => {
                             href={credit.href}
                             target="_blank"
                             rel="noreferrer"
-                            className="text-primary underline"
+                            className={LINK_CLASS}
                           >
                             {credit.org}
                           </a>
@@ -267,23 +275,9 @@ const SecurityPage = async ({ params }: Readonly<Props>) => {
                   <div className="mt-2 flex flex-wrap items-center gap-x-4 text-sm">
                     <time dateTime={credit.date}>{credit.date}</time>
                     {credit.advisory ? (
-                      isExternal(credit.advisory) ? (
-                        <a
-                          href={credit.advisory}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="text-primary underline"
-                        >
-                          {t("acknowledgements.advisoryLabel")}
-                        </a>
-                      ) : (
-                        <Link
-                          href={credit.advisory as Route}
-                          className="text-primary underline"
-                        >
-                          {t("acknowledgements.advisoryLabel")}
-                        </Link>
-                      )
+                      <ResourceLink href={credit.advisory}>
+                        {t("acknowledgements.advisoryLabel")}
+                      </ResourceLink>
                     ) : null}
                   </div>
                 </li>
