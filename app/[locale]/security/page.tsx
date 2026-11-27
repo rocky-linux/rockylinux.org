@@ -1,9 +1,13 @@
 import type { ReactNode } from "react";
 import acknowledgements from "@/data/security-acknowledgements.json";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import type { Metadata, Route } from "next";
+import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
-import { Link } from "@/i18n/navigation";
+import SmartLink, {
+  LINK_CLASS,
+  extLink,
+  localLink,
+} from "@/components/SmartLink";
 import { alternatesForPath } from "@/lib/seo";
 import type { SecurityAcknowledgements } from "@/types/securityTypes";
 
@@ -11,68 +15,14 @@ const SECURITY_EMAIL = "security@rockylinux.org";
 const PGP_KEY_PATH = "/security-pgp-key.asc";
 const PGP_FINGERPRINT = "F4C0 847D 7089 F5B9 B827  E66F 3275 41AF 5CE5 F44B";
 const WKD_COMMAND = `gpg --locate-keys ${SECURITY_EMAIL}`;
-const LINK_CLASS = "text-primary underline";
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
 
-const isExternal = (href: string): boolean => /^https?:\/\//.test(href);
-
-/** Chunk renderer for an off-site link. */
-const extLink = (href: string) =>
-  function ExtLinkChunk(chunks: ReactNode) {
-    return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noreferrer"
-        className={LINK_CLASS}
-      >
-        {chunks}
-      </a>
-    );
-  };
-
-/** Chunk renderer for a same-origin link. */
-const localLink = (href: string) =>
-  function LocalLinkChunk(chunks: ReactNode) {
-    return (
-      <a
-        href={href}
-        className={LINK_CLASS}
-      >
-        {chunks}
-      </a>
-    );
-  };
-
 const renderCode = (chunks: ReactNode) => (
   <code className="bg-muted rounded px-1 py-0.5">{chunks}</code>
 );
-
-/** Links a target that may be an app route or an off-site URL. */
-const ResourceLink = ({
-  href,
-  children,
-}: Readonly<{ href: string; children: ReactNode }>) =>
-  isExternal(href) ? (
-    <a
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      className={LINK_CLASS}
-    >
-      {children}
-    </a>
-  ) : (
-    <Link
-      href={href as Route}
-      className={LINK_CLASS}
-    >
-      {children}
-    </Link>
-  );
 
 /**
  * Builds the metadata for the security page.
@@ -228,7 +178,7 @@ const SecurityPage = async ({ params }: Readonly<Props>) => {
           <ul className="mt-4 space-y-4">
             {relatedLinks.map((item) => (
               <li key={item.href}>
-                <ResourceLink href={item.href}>{item.title}</ResourceLink>
+                <SmartLink href={item.href}>{item.title}</SmartLink>
                 <p className="mt-1 leading-7">{item.description}</p>
               </li>
             ))}
@@ -275,9 +225,9 @@ const SecurityPage = async ({ params }: Readonly<Props>) => {
                   <div className="mt-2 flex flex-wrap items-center gap-x-4 text-sm">
                     <time dateTime={credit.date}>{credit.date}</time>
                     {credit.advisory ? (
-                      <ResourceLink href={credit.advisory}>
+                      <SmartLink href={credit.advisory}>
                         {t("acknowledgements.advisoryLabel")}
-                      </ResourceLink>
+                      </SmartLink>
                     ) : null}
                   </div>
                 </li>
