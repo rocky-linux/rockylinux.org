@@ -1,0 +1,11 @@
+[
+  {
+    "name": "Brian Pak",
+    "org": "Xint Code",
+    "href": "https://code.xint.io/",
+    "date": "2026-05-11",
+    "description": "CopyFail, a local privilege escalation in the kernel's algif_aead AEAD socket interface.",
+    "cve": "CVE-2026-31431",
+    "advisory": "/news/2026-05-11-copyfail-cve-2026-31431"
+  }
+]

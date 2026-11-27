@@ -90,6 +90,10 @@ const MobileNavigation = ({
                 title={t.about.partners}
                 href={"/about/partners" as Route}
               />
+              <NavListItem
+                title={t.about.security}
+                href={"/security" as Route}
+              />
             </NavList>
             <NavList name={t.communityName}>
               <NavListItem

@@ -10,6 +10,7 @@ export interface NavigationMenuItems {
     wiki: string;
     sponsors: string;
     partners: string;
+    security: string;
   };
   community: {
     coc: string;

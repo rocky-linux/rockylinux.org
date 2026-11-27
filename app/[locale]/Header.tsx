@@ -28,6 +28,7 @@ export default function Header() {
       wiki: tNav("about.wiki"),
       partners: tNav("about.partners"),
       sponsors: tNav("about.sponsors"),
+      security: tNav("about.security"),
     },
     community: {
       coc: tNav("community.coc"),
