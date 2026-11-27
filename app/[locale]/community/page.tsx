@@ -1,9 +1,11 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
+import { extLink } from "@/components/SmartLink";
 import type { Metadata } from "next";
 import Quiz from "./components/Quiz";
 import { QuizInterests } from "./components/QuizInterestTypes";
 import { alternatesForPath } from "@/lib/seo";
+
+const MATTERMOST = "https://chat.rockylinux.org/";
 
 export async function generateMetadata({
   params,
@@ -32,189 +34,45 @@ const CommunityPage = async ({ params }: Props) => {
   const quizTranslations: QuizInterests = {
     chatting: t("interests.chatting.title"),
     chattingDescription: t.rich("interests.chatting.description", {
-      link: (chunks) => {
-        return (
-          <Link
-            target="_blank"
-            href="https://chat.rockylinux.org/"
-            className="text-primary underline"
-          >
-            {chunks}
-          </Link>
-        );
-      },
+      link: extLink(MATTERMOST),
     }),
     bugs: t("interests.bugs.title"),
     bugsDescription: t.rich("interests.bugs.description", {
-      link1: (chunks) => {
-        return (
-          <Link
-            target="_blank"
-            href="https://chat.rockylinux.org/"
-            className="text-primary underline"
-          >
-            {chunks}
-          </Link>
-        );
-      },
-      link2: (chunks) => {
-        return (
-          <Link
-            target="_blank"
-            href="https://bugs.rockylinux.org/"
-            className="text-primary underline"
-          >
-            {chunks}
-          </Link>
-        );
-      },
+      link1: extLink(MATTERMOST),
+      link2: extLink("https://bugs.rockylinux.org/"),
     }),
     webdev: t("interests.webdev.title"),
     webDevDescription: t.rich("interests.webdev.description", {
-      link1: (chunks) => {
-        return (
-          <Link
-            target="_blank"
-            href="https://chat.rockylinux.org/"
-            className="text-primary underline"
-          >
-            {chunks}
-          </Link>
-        );
-      },
-      link2: (chunks) => {
-        return (
-          <Link
-            target="_blank"
-            href="https://chat.rockylinux.org/rocky-linux/channels/web"
-            className="text-primary underline"
-          >
-            {chunks}
-          </Link>
-        );
-      },
-      link3: (chunks) => {
-        return (
-          <Link
-            target="_blank"
-            href="https://github.com/rocky-linux/rockylinux.org"
-            className="text-primary underline"
-          >
-            {chunks}
-          </Link>
-        );
-      },
+      link1: extLink(MATTERMOST),
+      link2: extLink("https://chat.rockylinux.org/rocky-linux/channels/web"),
+      link3: extLink("https://github.com/rocky-linux/rockylinux.org"),
     }),
     graphics: t("interests.graphics.title"),
     graphicsDescription: t.rich("interests.graphics.description", {
-      link1: (chunks) => {
-        return (
-          <Link
-            target="_blank"
-            href="https://chat.rockylinux.org/"
-            className="text-primary underline"
-          >
-            {chunks}
-          </Link>
-        );
-      },
-      link2: (chunks) => {
-        return (
-          <Link
-            target="_blank"
-            href="https://chat.rockylinux.org/rocky-linux/channels/design"
-            className="text-primary underline"
-          >
-            {chunks}
-          </Link>
-        );
-      },
+      link1: extLink(MATTERMOST),
+      link2: extLink("https://chat.rockylinux.org/rocky-linux/channels/design"),
     }),
     release: t("interests.release.title"),
     releaseDescription: t.rich("interests.release.description", {
-      link1: (chunks) => {
-        return (
-          <Link
-            target="_blank"
-            href="https://chat.rockylinux.org/"
-            className="text-primary underline"
-          >
-            {chunks}
-          </Link>
-        );
-      },
-      link2: (chunks) => {
-        return (
-          <Link
-            target="_blank"
-            href="https://chat.rockylinux.org/rocky-linux/channels/development"
-            className="text-primary underline"
-          >
-            {chunks}
-          </Link>
-        );
-      },
+      link1: extLink(MATTERMOST),
+      link2: extLink(
+        "https://chat.rockylinux.org/rocky-linux/channels/development"
+      ),
     }),
     sig: t("interests.sig.title"),
     sigDescription: t.rich("interests.sig.description", {
-      link1: (chunks) => {
-        return (
-          <Link
-            target="_blank"
-            href="https://chat.rockylinux.org/"
-            className="text-primary underline"
-          >
-            {chunks}
-          </Link>
-        );
-      },
-      link2: (chunks) => {
-        return (
-          <Link
-            target="_blank"
-            href="https://wiki.rockylinux.org/special_interest_groups/"
-            className="text-primary underline"
-          >
-            {chunks}
-          </Link>
-        );
-      },
+      link1: extLink(MATTERMOST),
+      link2: extLink("https://wiki.rockylinux.org/special_interest_groups/"),
     }),
     docs: t("interests.docs.title"),
     docsDescription: t.rich("interests.docs.description", {
-      link1: (chunks) => {
-        return (
-          <Link
-            target="_blank"
-            href="https://chat.rockylinux.org/"
-            className="text-primary underline"
-          >
-            {chunks}
-          </Link>
-        );
-      },
-      link2: (chunks) => {
-        return (
-          <Link
-            target="_blank"
-            href="https://chat.rockylinux.org/rocky-linux/channels/documentation"
-            className="text-primary underline"
-          >
-            {chunks}
-          </Link>
-        );
-      },
-      link3: (chunks) => {
-        return (
-          <Link
-            target="_blank"
-            href="https://github.com/rocky-linux/documentation/blob/main/README.md"
-            className="text-primary underline"
-          >
-            {chunks}
-          </Link>
-        );
-      },
+      link1: extLink(MATTERMOST),
+      link2: extLink(
+        "https://chat.rockylinux.org/rocky-linux/channels/documentation"
+      ),
+      link3: extLink(
+        "https://github.com/rocky-linux/documentation/blob/main/README.md"
+      ),
     }),
     noSelection: t("noSelection"),
   };

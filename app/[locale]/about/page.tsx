@@ -1,7 +1,7 @@
 import LogoCloud from "@/components/logoCloud/LogoCloud";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
-import { Link } from "@/i18n/navigation";
+import { extLink } from "@/components/SmartLink";
 import type { Metadata } from "next";
 import { alternatesForPath } from "@/lib/seo";
 
@@ -41,14 +41,8 @@ const AboutPage = async ({ params }: Props) => {
             </h1>
             <p className="mt-6 text-xl leading-8">
               {t.rich("intro", {
-                link: (chunks) => (
-                  <Link
-                    target="_blank"
-                    href="https://blog.centos.org/2020/12/future-is-centos-stream/#comment-183642"
-                    className="text-primary underline"
-                  >
-                    {chunks}
-                  </Link>
+                link: extLink(
+                  "https://blog.centos.org/2020/12/future-is-centos-stream/#comment-183642"
                 ),
               })}
             </p>
@@ -106,15 +100,7 @@ const AboutPage = async ({ params }: Props) => {
               </h2>
               <p className="mt-6">
                 {t.rich("organizationInfo.info", {
-                  link: (chunks) => (
-                    <Link
-                      target="_blank"
-                      href="https://www.resf.org/about"
-                      className="text-primary underline"
-                    >
-                      {chunks}
-                    </Link>
-                  ),
+                  link: extLink("https://www.resf.org/about"),
                 })}
               </p>
             </div>

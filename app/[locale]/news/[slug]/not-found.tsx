@@ -1,5 +1,8 @@
-import { Link } from "@/i18n/navigation";
+import { routeLink } from "@/components/SmartLink";
 import { useTranslations } from "next-intl";
+
+// The prose wrapper already styles anchors, so no extra link classes here.
+const newsLink = routeLink("/news", "");
 
 export default function SlugNotFound() {
   const t = useTranslations("news.notFound");
@@ -11,9 +14,7 @@ export default function SlugNotFound() {
           {t("title")}
         </h1>
         <div className="prose dark:prose-invert prose-headings:font-display prose-a:text-primary prose-pre:bg-muted prose-pre:py-3 prose-pre:px-4 prose-pre:rounded prose-img:rounded-md max-w-none">
-          {t.rich("description", {
-            newsLink: (chunks) => <Link href="/news">{chunks}</Link>,
-          })}
+          {t.rich("description", { newsLink })}
         </div>
       </div>
     </div>

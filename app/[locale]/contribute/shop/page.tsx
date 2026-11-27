@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import Image from "next/image";
+import SmartLink from "@/components/SmartLink";
 import { alternatesForPath } from "@/lib/seo";
 
 export async function generateMetadata({
@@ -69,9 +70,9 @@ const ShopPage = async ({ params }: Props) => {
             >
               {vendors.map((vendor) => (
                 <li key={vendor.name}>
-                  <a
+                  <SmartLink
                     href={vendor.link}
-                    target="_blank"
+                    className=""
                   >
                     <Image
                       className="w-full rounded-2xl object-fit"
@@ -84,7 +85,7 @@ const ShopPage = async ({ params }: Props) => {
                       {vendor.name}
                     </h3>
                     <p className="text-base leading-7">{vendor.role}</p>
-                  </a>
+                  </SmartLink>
                 </li>
               ))}
             </ul>
