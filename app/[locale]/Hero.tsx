@@ -1,9 +1,14 @@
 import Image from "next/image";
+import type { ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import DpgLogo from "@/components/otherLogosIcons/DpgLogo";
 
 import { Button } from "@/components/ui/button";
-import { Link } from "@/i18n/navigation";
+import SmartLink from "@/components/SmartLink";
+
+const highlight = (chunks: ReactNode) => (
+  <span className="text-primary">{chunks}</span>
+);
 
 const Hero = () => {
   const t = useTranslations("home.hero");
@@ -21,33 +26,35 @@ const Hero = () => {
               id="hero-title"
               className="text-4xl font-bold tracking-tight sm:text-6xl font-display"
             >
-              {t.rich("title", {
-                span: (chunks) => (
-                  <span className="text-primary">{chunks}</span>
-                ),
-              })}
+              {t.rich("title", { span: highlight })}
             </h1>
             <p className="mt-6 text-lg leading-8">{t("description")}</p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Link href="/download">
+              <SmartLink
+                href="/download"
+                className=""
+              >
                 <Button className="p-5">{tGlobal("download")}</Button>
-              </Link>
-              <Link href="https://docs.rockylinux.org/guides/migrate2rocky/">
+              </SmartLink>
+              <SmartLink
+                href="https://docs.rockylinux.org/guides/migrate2rocky/"
+                className=""
+              >
                 <Button
                   variant="secondary"
                   className="p-5"
                 >
                   {t("migrate")}
                 </Button>
-              </Link>
+              </SmartLink>
             </div>
-            <Link
+            <SmartLink
               href="https://digitalpublicgoods.net/"
-              target="_blank"
+              className=""
             >
               <DpgLogo />
               <p className="text-md font-display mt-2">{t("dpg")}</p>
-            </Link>
+            </SmartLink>
           </div>
           <div className="mt-16 flow-root sm:mt-24">
             <div className="-m-2 rounded-xl bg-slate-900/5 dark:bg-slate-100/5 p-2 ring-1 ring-inset ring-slate-900/10 dark:ring-slate-100/10 lg:-m-4 lg:rounded-2xl lg:p-4">
