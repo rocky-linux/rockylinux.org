@@ -20,7 +20,7 @@ import {
 import { QuestionMarkCircledIcon } from "@radix-ui/react-icons";
 import { Tabs } from "@/components/ui/tabs";
 import VersionPicker from "./VersionPicker";
-import { Link } from "@/i18n/navigation";
+import SmartLink from "@/components/SmartLink";
 
 import { CloudImage, Columns } from "./Table/Columns";
 import { DataTable } from "./Table/DataTable";
@@ -161,24 +161,22 @@ const CloudImageCard: React.FC<CloudImageCardProps> = ({
                 />
               </DrawerContent>
             </Drawer>
-            <Link
+            <SmartLink
               href="https://console.cloud.google.com/marketplace/browse?filter=partner:Rocky%20Linux"
-              target="_blank"
               className="w-full sm:w-auto"
             >
               <Button className="w-full sm:w-auto">
                 {t("cards.cloudImages.cloudProviders.googleCloud")}
               </Button>
-            </Link>
-            <Link
+            </SmartLink>
+            <SmartLink
               href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/resf.rockylinux-x86_64"
-              target="_blank"
               className="w-full sm:w-auto"
             >
               <Button className="w-full sm:w-auto">
                 {t("cards.cloudImages.cloudProviders.azure")}
               </Button>
-            </Link>
+            </SmartLink>
           </div>
         </div>
       </CardContent>

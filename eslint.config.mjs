@@ -72,6 +72,10 @@ const eslintConfig = defineConfig([
       ],
       "react/no-unescaped-entities": ["error", { forbid: [">", "}"] }],
       "react/jsx-no-literals": ["warn", { noStrings: true, ignoreProps: true }],
+      "react/jsx-no-target-blank": [
+        "error",
+        { allowReferrer: false, warnOnSpreadAttributes: true },
+      ],
     },
   },
   {
