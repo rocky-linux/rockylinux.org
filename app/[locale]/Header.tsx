@@ -36,6 +36,7 @@ export default function Header() {
       mailing: tNav("community.mailing"),
       mattermost: tNav("community.mattermost"),
       irc: tNav("community.irc"),
+      events: tNav("community.events"),
       calendar: tNav("community.calendar"),
     },
     support: {
